@@ -7,9 +7,6 @@
     "dist"
   ],
   "type": "module",
-  "sideEffects": [
-    "./dist/style.css"
-  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -17,7 +14,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/style.css"
+    "./theme.css": "./dist/theme.css"
   },
   "scripts": {
     "prepublishOnly": "bun run build",

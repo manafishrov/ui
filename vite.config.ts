@@ -4,10 +4,9 @@ import solid from "vite-plugin-solid";
 
 export default defineConfig({
   build: {
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     lib: {
-      entry: "src/index.ts",
-      fileName: () => "index.js",
+      entry: ["src/index.ts", "src/theme.css"],
       formats: ["es"],
     },
     rollupOptions: {
@@ -26,7 +25,6 @@ export default defineConfig({
     solid(),
     dts({
       entryRoot: "src",
-      insertTypesEntry: true,
     }),
   ],
 });
