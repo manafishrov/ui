@@ -1,0 +1,48 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true,
+    "es2024": true
+  },
+  "plugins": ["eslint", "typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "restriction": "error",
+    "perf": "error",
+    "pedantic": "error",
+    "style": "warn",
+    "nursery": "warn"
+  },
+  "rules": {
+    "no-debugger": "error",
+    "no-alert": "error",
+    "no-console": "error",
+    "no-eval": "error",
+    "eqeqeq": ["error", "always"],
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/consistent-type-imports": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "oxc/bad-comparison-sequence": "error",
+    "oxc/bad-object-literal-comparison": "error",
+    "oxc/bad-replace-all-arg": "error",
+    "oxc/const-comparisons": "error",
+    "oxc/uninvoked-array-callback": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.{config}.ts"],
+      "env": {
+        "node": true
+      }
+    }
+  ]
+}
