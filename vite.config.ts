@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import path from "node:path"
 import solid from 'vite-plugin-solid';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
   build: {
     cssCodeSplit: true,
     lib: {

@@ -15,4 +15,4 @@ export {
   createFileTreeCollection,
   createGridCollection,
 } from '@ark-ui/solid/collection';
-export { tv, cx, cn, cnMerge } from 'tailwind-variants';
+export { tv, cx, cn, cnMerge, type VariantProps } from 'tailwind-variants';
