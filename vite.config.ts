@@ -12,7 +12,12 @@ export default defineConfig({
   build: {
     cssCodeSplit: true,
     lib: {
-      entry: ['src/index.ts', 'src/theme.css'],
+      entry: [
+        'src/index.ts',
+        'src/components/Button.tsx',
+        'src/components/Tooltip.tsx',
+        'src/theme.css'
+      ],
       formats: ['es'],
     },
     rollupOptions: {
