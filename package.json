@@ -22,6 +22,10 @@
       "types": "./dist/components/Skeleton.d.ts",
       "import": "./dist/components/Skeleton.js"
     },
+    "./slider": {
+      "types": "./dist/components/Slider.d.ts",
+      "import": "./dist/components/Slider.js"
+    },
     "./spinner": {
       "types": "./dist/components/Spinner.d.ts",
       "import": "./dist/components/Spinner.js"
