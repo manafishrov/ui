@@ -1,4 +1,4 @@
-import { Toast, Toaster as ArkToaster, createToaster } from '@ark-ui/solid/toast';
+import { Toast, Toaster as ToasterPrimitive, createToaster } from '@ark-ui/solid/toast';
 import {
   MdOutlineCheck_circle,
   MdOutlineInfo,
@@ -41,7 +41,7 @@ export const Toaster = (): JSX.Element => {
   const t = useI18n();
   return (
     <Portal>
-      <ArkToaster toaster={toast}>
+      <ToasterPrimitive toaster={toast}>
         {(toast) => (
           <Toast.Root class={root()}>
             <Show when={toast().type === 'success'}>
@@ -74,7 +74,7 @@ export const Toaster = (): JSX.Element => {
             </Toast.CloseTrigger>
           </Toast.Root>
         )}
-      </ArkToaster>
+      </ToasterPrimitive>
     </Portal>
   );
 };

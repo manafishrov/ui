@@ -18,6 +18,10 @@
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
     },
+    "./Textarea": {
+      "types": "./dist/components/Textarea.d.ts",
+      "import": "./dist/components/Textarea.js"
+    },
     "./Tooltip": {
       "types": "./dist/components/Tooltip.d.ts",
       "import": "./dist/components/Tooltip.js"
