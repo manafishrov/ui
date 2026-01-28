@@ -24,6 +24,7 @@
         "vite-plugin-solid": "^2.11.10",
       },
       "peerDependencies": {
+        "@solid-primitives/i18n": "^2.2.1",
         "solid-js": "^1.9.0",
         "tailwindcss": "^4.0.0",
       },
@@ -251,6 +252,8 @@
     "@rushstack/terminal": ["@rushstack/terminal@0.19.5", "", { "dependencies": { "@rushstack/node-core-library": "5.19.1", "@rushstack/problem-matcher": "0.1.1", "supports-color": "~8.1.1" }, "peerDependencies": { "@types/node": "*" }, "optionalPeers": ["@types/node"] }, "sha512-6k5tpdB88G0K7QrH/3yfKO84HK9ggftfUZ51p7fePyCE7+RLLHkWZbID9OFWbXuna+eeCFE7AkKnRMHMxNbz7Q=="],
 
     "@rushstack/ts-command-line": ["@rushstack/ts-command-line@5.1.5", "", { "dependencies": { "@rushstack/terminal": "0.19.5", "@types/argparse": "1.0.38", "argparse": "~1.0.9", "string-argv": "~0.3.1" } }, "sha512-YmrFTFUdHXblYSa+Xc9OO9FsL/XFcckZy0ycQ6q7VSBsVs5P0uD9vcges5Q9vctGlVdu27w+Ct6IuJ458V0cTQ=="],
+
+    "@solid-primitives/i18n": ["@solid-primitives/i18n@2.2.1", "", { "peerDependencies": { "solid-js": "^1.6.12" } }, "sha512-TnTnE2Ku11MGYZ1JzhJ8pYscwg1fr9MteoYxPwsfxWfh9Jp5K7RRJncJn9BhOHvNLwROjqOHZ46PT7sPHqbcXw=="],
 
     "@solid-primitives/keyed": ["@solid-primitives/keyed@1.5.2", "", { "peerDependencies": { "solid-js": "^1.6.12" } }, "sha512-BgoEdqPw48URnI+L5sZIHdF4ua4Las1eWEBBPaoSFs42kkhnHue+rwCBPL2Z9ebOyQ75sUhUfOETdJfmv0D6Kg=="],
 

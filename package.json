@@ -56,6 +56,7 @@
     "vite-plugin-solid": "^2.11.10"
   },
   "peerDependencies": {
+    "@solid-primitives/i18n": "^2.2.1",
     "solid-js": "^1.9.0",
     "tailwindcss": "^4.0.0"
   },

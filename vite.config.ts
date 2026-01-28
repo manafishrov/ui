@@ -22,7 +22,15 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['solid-js'],
+      external: [
+        'solid-js',
+        'solid-js/web',
+        '@solid-primitives/i18n',
+        '@ark-ui/solid/toast',
+        '@ark-ui/solid/tooltip',
+        'solid-icons/md',
+        'tailwind-variants',
+      ],
       output: {
         preserveModules: true,
         preserveModulesRoot: 'src',
