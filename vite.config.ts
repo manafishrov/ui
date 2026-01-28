@@ -15,6 +15,7 @@ export default defineConfig({
       entry: [
         'src/index.ts',
         'src/components/Button.tsx',
+        'src/components/Spinner.tsx',
         'src/components/Switch.tsx',
         'src/components/Table.tsx',
         'src/components/Textarea.tsx',

@@ -1,3 +1,7 @@
 export const dict = {
-  ui: {},
+  ui: {
+    spinner: {
+      label: 'Loading',
+    },
+  },
 };

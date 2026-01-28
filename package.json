@@ -18,6 +18,10 @@
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
     },
+    "./spinner": {
+      "types": "./dist/components/Spinner.d.ts",
+      "import": "./dist/components/Spinner.js"
+    },
     "./switch": {
       "types": "./dist/components/Switch.d.ts",
       "import": "./dist/components/Switch.js"
