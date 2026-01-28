@@ -16,6 +16,7 @@ export default defineConfig({
         'src/index.ts',
         'src/components/Button.tsx',
         'src/components/Tooltip.tsx',
+        'src/components/Toaster.tsx',
         'src/theme.css',
       ],
       formats: ['es'],
