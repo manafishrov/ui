@@ -15,6 +15,7 @@ export default defineConfig({
       entry: [
         'src/index.ts',
         'src/components/Button.tsx',
+        'src/components/Sheet.tsx',
         'src/components/Skeleton.tsx',
         'src/components/Slider.tsx',
         'src/components/Spinner.tsx',
@@ -36,6 +37,7 @@ export default defineConfig({
         '@ark-ui/solid/tooltip',
         '@ark-ui/solid/switch',
         '@ark-ui/solid/slider',
+        '@ark-ui/solid/dialog',
         'solid-icons/md',
         'tailwind-variants',
       ],

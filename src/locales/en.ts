@@ -3,5 +3,8 @@ export const dict = {
     spinner: {
       label: 'Loading',
     },
+    toaster: {
+      close: 'Close'
+    }
   },
 };
