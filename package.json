@@ -14,19 +14,23 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./Button": {
+    "./button": {
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
     },
-    "./Textarea": {
+    "./table": {
+      "types": "./dist/components/Table.d.ts",
+      "import": "./dist/components/Table.js"
+    },
+    "./textarea": {
       "types": "./dist/components/Textarea.d.ts",
       "import": "./dist/components/Textarea.js"
     },
-    "./Tooltip": {
+    "./tooltip": {
       "types": "./dist/components/Tooltip.d.ts",
       "import": "./dist/components/Tooltip.js"
     },
-    "./Toaster": {
+    "./toaster": {
       "types": "./dist/components/Toaster.d.ts",
       "import": "./dist/components/Toaster.js"
     },
