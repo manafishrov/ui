@@ -1,12 +1,12 @@
+import path from 'node:path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import path from "node:path"
 import solid from 'vite-plugin-solid';
 
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   build: {
@@ -16,7 +16,7 @@ export default defineConfig({
         'src/index.ts',
         'src/components/Button.tsx',
         'src/components/Tooltip.tsx',
-        'src/theme.css'
+        'src/theme.css',
       ],
       formats: ['es'],
     },

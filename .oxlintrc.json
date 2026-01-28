@@ -4,12 +4,7 @@
     "browser": true,
     "es2024": true
   },
-  "plugins": [
-    "eslint",
-    "typescript",
-    "unicorn",
-    "oxc"
-  ],
+  "plugins": ["eslint", "typescript", "unicorn", "oxc"],
   "categories": {
     "correctness": "error",
     "suspicious": "error",
@@ -25,10 +20,7 @@
     "no-alert": "error",
     "no-console": "error",
     "no-eval": "error",
-    "eqeqeq": [
-      "error",
-      "always"
-    ],
+    "eqeqeq": ["error", "always"],
     "typescript/no-explicit-any": "error",
     "typescript/no-non-null-assertion": "error",
     "typescript/consistent-type-imports": "error",
@@ -48,17 +40,13 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.{config}.ts"
-      ],
+      "files": ["*.{config}.ts"],
       "env": {
         "node": true
       }
     },
     {
-      "files": [
-        "**/*.tsx"
-      ],
+      "files": ["**/*.tsx"],
       "rules": {
         "unicorn/filename-case": [
           "error",

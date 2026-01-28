@@ -1,5 +1,5 @@
- import { type Component, type JSX, splitProps } from 'solid-js';
- import { type VariantProps, tv } from 'tailwind-variants';
+import { type Component, type JSX, splitProps } from 'solid-js';
+import { type VariantProps, tv } from 'tailwind-variants';
 
 type ButtonProps = Omit<JSX.HTMLAttributes<HTMLButtonElement>, 'size'> &
   VariantProps<typeof buttonVariants>;
