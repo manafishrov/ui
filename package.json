@@ -18,6 +18,10 @@
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
     },
+    "./switch": {
+      "types": "./dist/components/Switch.d.ts",
+      "import": "./dist/components/Switch.js"
+    },
     "./table": {
       "types": "./dist/components/Table.d.ts",
       "import": "./dist/components/Table.js"

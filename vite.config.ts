@@ -15,6 +15,7 @@ export default defineConfig({
       entry: [
         'src/index.ts',
         'src/components/Button.tsx',
+        'src/components/Switch.tsx',
         'src/components/Table.tsx',
         'src/components/Textarea.tsx',
         'src/components/Tooltip.tsx',
@@ -30,6 +31,7 @@ export default defineConfig({
         '@solid-primitives/i18n',
         '@ark-ui/solid/toast',
         '@ark-ui/solid/tooltip',
+        '@ark-ui/solid/switch',
         'solid-icons/md',
         'tailwind-variants',
       ],

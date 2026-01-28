@@ -11,8 +11,6 @@ import { type JSX, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { tv } from 'tailwind-variants';
 
-import { useI18n } from '@/I18n';
-
 export const toastVariants = tv({
   slots: {
     root: [
@@ -38,7 +36,6 @@ export const toast = createToaster({
 });
 
 export const Toaster = (): JSX.Element => {
-  const t = useI18n();
   return (
     <Portal>
       <ToasterPrimitive toaster={toast}>
@@ -69,7 +66,7 @@ export const Toaster = (): JSX.Element => {
                 <Toast.Description class={description()}>{toast().description}</Toast.Description>
               </Show>
             </div>
-            <Toast.CloseTrigger class={closeTrigger()} aria-label={t('ui.toaster.close')}>
+            <Toast.CloseTrigger class={closeTrigger()}>
               <MdOutlineClose class='size-4' />
             </Toast.CloseTrigger>
           </Toast.Root>
