@@ -1,8 +1,8 @@
-import { Switch as SwitchPrimitive } from '@ark-ui/solid/switch';
 import { type ComponentProps, type JSX, splitProps } from 'solid-js';
 import { type VariantProps, tv } from 'tailwind-variants';
+import { Switch as SwitchPrimitive } from '@ark-ui/solid/switch';
 
-import { useI18n } from '@/I18n';
+import { useI18n } from '@/Locale';
 
 export const switchVariants = tv({
   slots: {
@@ -46,12 +46,19 @@ export type SwitchProps = Omit<ComponentProps<typeof SwitchPrimitive.Root>, 'chi
 export const Switch = (props: SwitchProps): JSX.Element => {
   const [local, others] = splitProps(props, ['class', 'size', 'label']);
   const styles = switchVariants({ size: local.size });
-  const t = useI18n();
+  const translator = useI18n();
+
+  const getAriaLabel = (): string | undefined => {
+    if (local.label) {
+      return others['aria-label'];
+    }
+    return translator('ui.toggleSwitch');
+  };
 
   return (
     <SwitchPrimitive.Root
       class={styles.root({ class: local.class })}
-      aria-label={local.label ? others['aria-label'] : t('ui.toggleSwitch')}
+      aria-label={getAriaLabel()}
       {...others}
     >
       <SwitchPrimitive.Control class={styles.control()} data-slot='switch' data-size={local.size}>

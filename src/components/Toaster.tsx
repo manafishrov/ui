@@ -1,13 +1,13 @@
-import { Toast, Toaster as ToasterPrimitive, createToaster } from '@ark-ui/solid/toast';
+import { type JSX, Show } from 'solid-js';
 import {
   MdOutlineCheck_circle,
-  MdOutlineInfo,
-  MdOutlineWarning,
-  MdOutlineError,
-  MdOutlineRefresh,
   MdOutlineClose,
+  MdOutlineError,
+  MdOutlineInfo,
+  MdOutlineRefresh,
+  MdOutlineWarning,
 } from 'solid-icons/md';
-import { type JSX, Show } from 'solid-js';
+import { Toast, Toaster as ToasterPrimitive, createToaster } from '@ark-ui/solid/toast';
 import { Portal } from 'solid-js/web';
 import { tv } from 'tailwind-variants';
 
@@ -35,8 +35,7 @@ export const toast = createToaster({
   gap: 16,
 });
 
-export const Toaster = (): JSX.Element => {
-  return (
+export const Toaster = (): JSX.Element => (
     <Portal>
       <ToasterPrimitive toaster={toast}>
         {(toast) => (
@@ -74,4 +73,3 @@ export const Toaster = (): JSX.Element => {
       </ToasterPrimitive>
     </Portal>
   );
-};

@@ -1,8 +1,8 @@
-import { LocaleProvider } from '@ark-ui/solid/locale';
 import * as i18n from '@solid-primitives/i18n';
-import { createContext, useContext, createMemo, type JSX } from 'solid-js';
+import { type JSX, createContext, createMemo, useContext } from 'solid-js';
+import { LocaleProvider } from '@ark-ui/solid/locale';
 
-import { dict as enGB } from './locales/en-GB';
+import { dict as enGB } from './locales/en-gb';
 import { dict as nb } from './locales/nb';
 
 const libDicts = {
@@ -17,29 +17,28 @@ export type Translator = i18n.Translator<FlattenedDictionary & i18n.BaseRecordDi
 
 const LocaleContext = createContext<Translator>();
 
-export type LocaleProviderProps = {
+export type I18nProviderProps = {
   locale: keyof typeof libDicts;
   dict?: i18n.BaseRecordDict;
   children: JSX.Element;
 };
 
-export function I18nProvider(props: LocaleProviderProps): JSX.Element {
+export const I18nProvider = (props: I18nProviderProps): JSX.Element => {
   const combinedDict = createMemo((): i18n.BaseRecordDict => {
     const lib = libDicts[props.locale] || enGB;
-    const merged = Object.assign({}, lib, props.dict);
+    const merged = Object.assign(Object.create(null), lib, props.dict);
 
     return i18n.flatten(merged);
   });
 
-  const t = i18n.translator(combinedDict, i18n.resolveTemplate);
+  const translator = i18n.translator(combinedDict, i18n.resolveTemplate);
 
   return (
     <LocaleProvider locale={props.locale}>
-      <LocaleContext.Provider value={t as Translator}>{props.children}</LocaleContext.Provider>
+      <LocaleContext.Provider value={translator as Translator}>{props.children}</LocaleContext.Provider>
     </LocaleProvider>
   );
-}
+};
 
-export function useI18n(): Translator {
-  return useContext(LocaleContext) ?? (((path: string): string => path) as Translator);
-}
+export const useI18n = (): Translator =>
+  useContext(LocaleContext) ?? (((path: string): string => path) as Translator);

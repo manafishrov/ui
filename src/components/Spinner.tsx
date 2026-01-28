@@ -1,17 +1,17 @@
-import { MdOutlineRefresh } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import { MdOutlineRefresh } from 'solid-icons/md';
 import { cn } from 'tailwind-variants';
 
-import { useI18n } from '@/I18n';
+import { useI18n } from '@/Locale';
 
 export const Spinner: Component<ComponentProps<typeof MdOutlineRefresh>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const t = useI18n();
+  const translator = useI18n();
 
   return (
     <MdOutlineRefresh
       role='status'
-      aria-label={t('ui.loading')}
+      aria-label={translator('ui.loading')}
       class={cn('size-4 animate-spin shrink-0', local.class)}
       {...others}
     />
