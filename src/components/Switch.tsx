@@ -2,6 +2,8 @@ import { Switch as SwitchPrimitive } from '@ark-ui/solid/switch';
 import { type ComponentProps, type JSX, splitProps } from 'solid-js';
 import { type VariantProps, tv } from 'tailwind-variants';
 
+import { useI18n } from '@/I18n';
+
 export const switchVariants = tv({
   slots: {
     root: 'group/switch relative inline-flex items-center gap-2 transition-all outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50',
@@ -44,9 +46,14 @@ export type SwitchProps = Omit<ComponentProps<typeof SwitchPrimitive.Root>, 'chi
 export const Switch = (props: SwitchProps): JSX.Element => {
   const [local, others] = splitProps(props, ['class', 'size', 'label']);
   const styles = switchVariants({ size: local.size });
+  const t = useI18n();
 
   return (
-    <SwitchPrimitive.Root class={styles.root({ class: local.class })} {...others}>
+    <SwitchPrimitive.Root
+      class={styles.root({ class: local.class })}
+      aria-label={local.label ? others['aria-label'] : t('ui.toggleSwitch')}
+      {...others}
+    >
       <SwitchPrimitive.Control class={styles.control()} data-slot='switch' data-size={local.size}>
         <SwitchPrimitive.Thumb class={styles.thumb()} data-slot='switch-thumb' />
       </SwitchPrimitive.Control>

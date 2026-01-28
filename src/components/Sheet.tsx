@@ -57,10 +57,14 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
           class={cn(
             'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
             'data-[state=open]:animate-in data-[state=closed]:animate-out',
-            side === 'right' && 'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-right-full',
-            side === 'left' && 'data-[state=closed]:slide-out-to-left-full data-[state=open]:slide-in-from-left-full',
-            side === 'top' && 'data-[state=closed]:slide-out-to-top-full data-[state=open]:slide-in-from-top-full',
-            side === 'bottom' && 'data-[state=closed]:slide-out-to-bottom-full data-[state=open]:slide-in-from-bottom-full',
+            side === 'right' &&
+              'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-right-full',
+            side === 'left' &&
+              'data-[state=closed]:slide-out-to-left-full data-[state=open]:slide-in-from-left-full',
+            side === 'top' &&
+              'data-[state=closed]:slide-out-to-top-full data-[state=open]:slide-in-from-top-full',
+            side === 'bottom' &&
+              'data-[state=closed]:slide-out-to-bottom-full data-[state=open]:slide-in-from-bottom-full',
             local.class,
           )}
           {...others}
@@ -72,7 +76,7 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
               asChild={(props) => (
                 <Button variant='ghost' size='icon-sm' {...props}>
                   <MdOutlineClose />
-                  <span class='sr-only'>{t('ui.toaster.close')}</span>
+                  <span class='sr-only'>{`${t('ui.close')}`}</span>
                 </Button>
               )}
             />
@@ -85,7 +89,13 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
 
 export const SheetHeader: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return <div data-slot='sheet-header' class={cn('flex flex-col gap-1.5 p-4', local.class)} {...others} />;
+  return (
+    <div
+      data-slot='sheet-header'
+      class={cn('flex flex-col gap-1.5 p-4', local.class)}
+      {...others}
+    />
+  );
 };
 
 export const SheetFooter: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {

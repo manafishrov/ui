@@ -11,7 +11,7 @@ export const Spinner: Component<ComponentProps<typeof MdOutlineRefresh>> = (prop
   return (
     <MdOutlineRefresh
       role='status'
-      aria-label={t('ui.spinner.label')}
+      aria-label={t('ui.loading')}
       class={cn('size-4 animate-spin shrink-0', local.class)}
       {...others}
     />
