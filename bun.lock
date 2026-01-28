@@ -9,7 +9,6 @@
         "@fontsource-variable/exo": "^5.2.8",
         "@fontsource-variable/inter": "^5.2.8",
         "@fontsource/chakra-petch": "^5.2.7",
-        "solid-icons": "^1.2.0",
         "tailwind-merge": "^3.0.0",
         "tailwind-variants": "^3.2.2",
         "tw-animate-css": "^1.4.0",
@@ -18,6 +17,7 @@
         "@types/bun": "^1.3.6",
         "oxfmt": "^0.24.0",
         "oxlint": "^1.39.0",
+        "solid-icons": "^1.2.0",
         "typescript": "^5.9.3",
         "vite": "^7.3.1",
         "vite-plugin-dts": "^4.5.4",
@@ -25,6 +25,7 @@
       },
       "peerDependencies": {
         "@solid-primitives/i18n": "^2.2.1",
+        "solid-icons": "^1.2.0",
         "solid-js": "^1.9.0",
         "tailwindcss": "^4.0.0",
       },
