@@ -1,11 +1,11 @@
-import { type CnReturn, cn } from 'tailwind-variants';
-import { type Component, type JSX, splitProps } from 'solid-js';
-import { Button } from '@/components/Button';
-import { MdOutlineClose } from 'solid-icons/md';
-import { Portal } from 'solid-js/web';
 import { Dialog as SheetPrimitive } from '@ark-ui/solid/dialog';
+import { MdOutlineClose } from 'solid-icons/md';
+import { type Component, type JSX, splitProps } from 'solid-js';
+import { Portal } from 'solid-js/web';
+import { type CnReturn, cn } from 'tailwind-variants';
 
-import { useI18n } from '@/Locale';
+import { Button } from '@/components/Button';
+import { useLocale } from '@/Locale';
 
 export const Sheet = SheetPrimitive.Root;
 export const SheetTrigger = SheetPrimitive.Trigger;
@@ -32,32 +32,34 @@ export type SheetContentProps = SheetPrimitive.ContentProps & {
   showCloseButton?: boolean;
 };
 
-const getPositionerClass = (side: string): CnReturn => cn(
-  'fixed z-50 flex flex-col transition ease-in-out duration-200',
-  side === 'top' && 'inset-x-0 top-0 border-b',
-  side === 'bottom' && 'inset-x-0 bottom-0 border-t',
-  side === 'left' && 'inset-y-0 left-0 w-3/4 sm:max-w-sm border-r',
-  side === 'right' && 'inset-y-0 right-0 w-3/4 sm:max-w-sm border-l',
-);
+const getPositionerClass = (side: string): CnReturn =>
+  cn(
+    'fixed z-50 flex flex-col transition ease-in-out duration-200',
+    side === 'top' && 'inset-x-0 top-0 border-b',
+    side === 'bottom' && 'inset-x-0 bottom-0 border-t',
+    side === 'left' && 'inset-y-0 left-0 w-3/4 sm:max-w-sm border-r',
+    side === 'right' && 'inset-y-0 right-0 w-3/4 sm:max-w-sm border-l',
+  );
 
-const getContentClass = (side: string): CnReturn => cn(
-  'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
-  'data-[state=open]:animate-in data-[state=closed]:animate-out',
-  side === 'right' &&
-  'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-right-full',
-  side === 'left' &&
-  'data-[state=closed]:slide-out-to-left-full data-[state=open]:slide-in-from-left-full',
-  side === 'top' &&
-  'data-[state=closed]:slide-out-to-top-full data-[state=open]:slide-in-from-top-full',
-  side === 'bottom' &&
-  'data-[state=closed]:slide-out-to-bottom-full data-[state=open]:slide-in-from-bottom-full',
-);
+const getContentClass = (side: string): CnReturn =>
+  cn(
+    'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
+    'data-[state=open]:animate-in data-[state=closed]:animate-out',
+    side === 'right' &&
+      'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-right-full',
+    side === 'left' &&
+      'data-[state=closed]:slide-out-to-left-full data-[state=open]:slide-in-from-left-full',
+    side === 'top' &&
+      'data-[state=closed]:slide-out-to-top-full data-[state=open]:slide-in-from-top-full',
+    side === 'bottom' &&
+      'data-[state=closed]:slide-out-to-bottom-full data-[state=open]:slide-in-from-bottom-full',
+  );
 
 export const SheetContent: Component<SheetContentProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children', 'side', 'showCloseButton']);
   const side = local.side ?? 'right';
   const showCloseButton = local.showCloseButton ?? true;
-  const translator = useI18n();
+  const t = useLocale();
 
   return (
     <Portal>
@@ -76,7 +78,7 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
               asChild={(props) => (
                 <Button variant='ghost' size='icon-sm' {...props}>
                   <MdOutlineClose />
-                  <span class='sr-only'>{`${translator('ui.close')}`}</span>
+                  <span class='sr-only'>{`${t('ui.close')}`}</span>
                 </Button>
               )}
             />

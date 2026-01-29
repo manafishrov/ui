@@ -25,6 +25,7 @@
     "typescript/no-non-null-assertion": "error",
     "typescript/consistent-type-imports": "error",
     "typescript/consistent-type-definitions": ["error", "type"],
+    "id-length": ["error", { "exceptions": ["t", "_"] }],
     "no-unused-vars": [
       "error",
       {

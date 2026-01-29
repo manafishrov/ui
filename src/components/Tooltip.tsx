@@ -1,6 +1,6 @@
+import { Tooltip as TooltipPrimitive } from '@ark-ui/solid/tooltip';
 import { type JSX, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
-import { Tooltip as TooltipPrimitive } from '@ark-ui/solid/tooltip';
 import { tv } from 'tailwind-variants';
 
 export const tooltipVariants = tv({

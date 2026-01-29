@@ -1,4 +1,4 @@
-import { type JSX, Show } from 'solid-js';
+import { Toast, Toaster as ToasterPrimitive, createToaster } from '@ark-ui/solid/toast';
 import {
   MdOutlineCheck_circle,
   MdOutlineClose,
@@ -7,7 +7,7 @@ import {
   MdOutlineRefresh,
   MdOutlineWarning,
 } from 'solid-icons/md';
-import { Toast, Toaster as ToasterPrimitive, createToaster } from '@ark-ui/solid/toast';
+import { type JSX, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { tv } from 'tailwind-variants';
 
@@ -36,40 +36,38 @@ export const toast = createToaster({
 });
 
 export const Toaster = (): JSX.Element => (
-    <Portal>
-      <ToasterPrimitive toaster={toast}>
-        {(toast) => (
-          <Toast.Root class={root()}>
-            <Show when={toast().type === 'success'}>
-              <MdOutlineCheck_circle class={iconClass({ class: 'text-green-500' })} />
+  <Portal>
+    <ToasterPrimitive toaster={toast}>
+      {(toast) => (
+        <Toast.Root class={root()}>
+          <Show when={toast().type === 'success'}>
+            <MdOutlineCheck_circle class={iconClass({ class: 'text-green-500' })} />
+          </Show>
+          <Show when={toast().type === 'info'}>
+            <MdOutlineInfo class={iconClass({ class: 'text-blue-500' })} />
+          </Show>
+          <Show when={toast().type === 'warning'}>
+            <MdOutlineWarning class={iconClass({ class: 'text-amber-500' })} />
+          </Show>
+          <Show when={toast().type === 'error'}>
+            <MdOutlineError class={iconClass({ class: 'text-red-500' })} />
+          </Show>
+          <Show when={toast().type === 'loading'}>
+            <MdOutlineRefresh class={iconClass({ class: 'animate-spin text-muted-foreground' })} />
+          </Show>
+          <div class='grid gap-1'>
+            <Show when={toast().title}>
+              <Toast.Title class={title()}>{toast().title}</Toast.Title>
             </Show>
-            <Show when={toast().type === 'info'}>
-              <MdOutlineInfo class={iconClass({ class: 'text-blue-500' })} />
+            <Show when={toast().description}>
+              <Toast.Description class={description()}>{toast().description}</Toast.Description>
             </Show>
-            <Show when={toast().type === 'warning'}>
-              <MdOutlineWarning class={iconClass({ class: 'text-amber-500' })} />
-            </Show>
-            <Show when={toast().type === 'error'}>
-              <MdOutlineError class={iconClass({ class: 'text-red-500' })} />
-            </Show>
-            <Show when={toast().type === 'loading'}>
-              <MdOutlineRefresh
-                class={iconClass({ class: 'animate-spin text-muted-foreground' })}
-              />
-            </Show>
-            <div class='grid gap-1'>
-              <Show when={toast().title}>
-                <Toast.Title class={title()}>{toast().title}</Toast.Title>
-              </Show>
-              <Show when={toast().description}>
-                <Toast.Description class={description()}>{toast().description}</Toast.Description>
-              </Show>
-            </div>
-            <Toast.CloseTrigger class={closeTrigger()}>
-              <MdOutlineClose class='size-4' />
-            </Toast.CloseTrigger>
-          </Toast.Root>
-        )}
-      </ToasterPrimitive>
-    </Portal>
-  );
+          </div>
+          <Toast.CloseTrigger class={closeTrigger()}>
+            <MdOutlineClose class='size-4' />
+          </Toast.CloseTrigger>
+        </Toast.Root>
+      )}
+    </ToasterPrimitive>
+  </Portal>
+);

@@ -1,6 +1,6 @@
+import path from 'node:path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import path from 'node:path';
 import solid from 'vite-plugin-solid';
 
 export default defineConfig({
