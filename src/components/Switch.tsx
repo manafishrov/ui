@@ -11,10 +11,10 @@ export const switchVariants = tv({
       'inline-flex items-center shrink-0 rounded-full border border-transparent transition-all outline-none',
       'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
       'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 aria-invalid:ring-[3px]',
-      'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
+      'data-state-checked:bg-primary data-state-unchecked:bg-input dark:data-state-unchecked:bg-input/80',
     ],
     thumb: [
-      'bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground rounded-full pointer-events-none block ring-0 transition-transform',
+      'bg-background dark:data-state-unchecked:bg-foreground dark:data-state-checked:bg-primary-foreground rounded-full pointer-events-none block ring-0 transition-transform',
     ],
     label:
       'text-sm font-medium leading-none group-data-disabled/switch:cursor-not-allowed group-data-disabled/switch:opacity-70',
@@ -24,12 +24,12 @@ export const switchVariants = tv({
       default: {
         control: 'h-[18.4px] w-[32px] px-0.5',
         thumb:
-          'size-4 data-[state=checked]:translate-x-[calc(100%-16px-2px)] data-[state=unchecked]:translate-x-0',
+          'size-4 data-state-checked:translate-x-[calc(100%-16px-2px)] data-state-unchecked:translate-x-0',
       },
       sm: {
         control: 'h-[14px] w-[24px] px-0.5',
         thumb:
-          'size-3 data-[state=checked]:translate-x-[calc(100%-12px-2px)] data-[state=unchecked]:translate-x-0',
+          'size-3 data-state-checked:translate-x-[calc(100%-12px-2px)] data-state-unchecked:translate-x-0',
       },
     },
   },

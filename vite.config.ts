@@ -17,6 +17,7 @@ export default defineConfig({
         'src/components/Button.tsx',
         'src/components/Input.tsx',
         'src/components/Label.tsx',
+        'src/components/Select.tsx',
         'src/components/Separator.tsx',
         'src/components/Sheet.tsx',
         'src/components/Skeleton.tsx',

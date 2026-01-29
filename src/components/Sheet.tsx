@@ -18,8 +18,8 @@ export const SheetOverlay: Component<SheetPrimitive.BackdropProps> = (props) => 
       data-slot='sheet-overlay'
       class={cn(
         'bg-black/10 fixed inset-0 z-50 duration-100 backdrop-blur-xs',
-        'data-[state=open]:animate-in data-[state=open]:fade-in-0',
-        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
+        'data-state-open:animate-in data-state-open:fade-in-0',
+        'data-state-closed:animate-out data-state-closed:fade-out-0',
         local.class,
       )}
       {...others}
@@ -44,15 +44,15 @@ const getPositionerClass = (side: string): CnReturn =>
 const getContentClass = (side: string): CnReturn =>
   cn(
     'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
-    'data-[state=open]:animate-in data-[state=closed]:animate-out',
+    'data-state-open:animate-in data-state-closed:animate-out',
     side === 'right' &&
-      'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-right-full',
+      'data-state-closed:slide-out-to-right-full data-state-open:slide-in-from-right-full',
     side === 'left' &&
-      'data-[state=closed]:slide-out-to-left-full data-[state=open]:slide-in-from-left-full',
+      'data-state-closed:slide-out-to-left-full data-state-open:slide-in-from-left-full',
     side === 'top' &&
-      'data-[state=closed]:slide-out-to-top-full data-[state=open]:slide-in-from-top-full',
+      'data-state-closed:slide-out-to-top-full data-state-open:slide-in-from-top-full',
     side === 'bottom' &&
-      'data-[state=closed]:slide-out-to-bottom-full data-[state=open]:slide-in-from-bottom-full',
+      'data-state-closed:slide-out-to-bottom-full data-state-open:slide-in-from-bottom-full',
   );
 
 export const SheetContent: Component<SheetContentProps> = (props) => {

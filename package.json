@@ -26,6 +26,10 @@
       "types": "./dist/components/Label.d.ts",
       "import": "./dist/components/Label.js"
     },
+    "./select": {
+      "types": "./dist/components/Select.d.ts",
+      "import": "./dist/components/Select.js"
+    },
     "./separator": {
       "types": "./dist/components/Separator.d.ts",
       "import": "./dist/components/Separator.js"
