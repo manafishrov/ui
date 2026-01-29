@@ -12,7 +12,7 @@ export const Skeleton: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) =
       data-slot='skeleton'
       role='progressbar'
       aria-busy='true'
-      aria-label={t('ui.loadingContent') as string}
+      aria-label={t('ui.loadingContent')}
       class={cn('bg-muted rounded-md animate-pulse', local.class)}
       {...others}
     />

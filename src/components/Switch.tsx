@@ -49,7 +49,7 @@ export const Switch = (props: SwitchProps): JSX.Element => {
   const t = useLocale();
 
   const getAriaLabel = (): string | undefined => {
-    if (local.label) {
+    if (typeof local.label === 'string') {
       return others['aria-label'];
     }
     return t('ui.toggleSwitch');
@@ -64,7 +64,7 @@ export const Switch = (props: SwitchProps): JSX.Element => {
       <SwitchPrimitive.Control class={styles.control()} data-slot='switch' data-size={local.size}>
         <SwitchPrimitive.Thumb class={styles.thumb()} data-slot='switch-thumb' />
       </SwitchPrimitive.Control>
-      {local.label && (
+      {typeof local.label === 'string' && (
         <SwitchPrimitive.Label class={styles.label()}>{local.label}</SwitchPrimitive.Label>
       )}
       <SwitchPrimitive.HiddenInput />

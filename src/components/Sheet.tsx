@@ -75,10 +75,10 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
           {showCloseButton && (
             <SheetPrimitive.CloseTrigger
               class='absolute top-3 right-3'
-              asChild={(props) => (
-                <Button variant='ghost' size='icon-sm' {...props}>
+              asChild={(triggerProps) => (
+                <Button variant='ghost' size='icon-sm' {...triggerProps}>
                   <MdOutlineClose />
-                  <span class='sr-only'>{`${t('ui.close')}`}</span>
+                  <span class='sr-only'>{t('ui.close')}</span>
                 </Button>
               )}
             />

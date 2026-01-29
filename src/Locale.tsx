@@ -20,7 +20,7 @@ const libDicts = {
 export type RawDictionary = typeof enGB;
 export type FlattenedDictionary = Flatten<RawDictionary>;
 
-export type Translator = PrimitiveTranslator<FlattenedDictionary & BaseRecordDict, string>;
+export type Translator = PrimitiveTranslator<FlattenedDictionary & BaseRecordDict>;
 
 const LocaleContext = createContext<Translator>();
 
@@ -30,10 +30,13 @@ export type LocaleProviderProps = {
   children: JSX.Element;
 };
 
+// oxlint-disable-next-line typescript-eslint/no-unsafe-type-assertion
+const fallbackTranslator = ((path: string): string => path) as Translator;
+
 export const LocaleProvider = (props: LocaleProviderProps): JSX.Element => {
   const combinedDict = createMemo((): BaseRecordDict => {
-    const lib = libDicts[props.locale] || enGB;
-    const merged = Object.assign(Object.create(null), lib, props.dict);
+    const lib = libDicts[props.locale] ?? enGB;
+    const merged = { ...lib, ...props.dict };
 
     return flatten(merged);
   });
@@ -49,5 +52,10 @@ export const LocaleProvider = (props: LocaleProviderProps): JSX.Element => {
   );
 };
 
-export const useLocale = (): Translator =>
-  useContext(LocaleContext) ?? (((path: string): string => path) as Translator);
+export const useLocale = (): Translator => {
+  const context = useContext(LocaleContext);
+  if (context) {
+    return context;
+  }
+  return fallbackTranslator;
+};

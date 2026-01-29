@@ -15,4 +15,4 @@ export {
   createGridCollection,
 } from '@ark-ui/solid/collection';
 export { tv, cx, cn, cnMerge, type VariantProps } from 'tailwind-variants';
-export { I18nProvider, type LocaleProviderProps } from '@/Locale';
+export { LocaleProvider, type LocaleProviderProps } from '@/Locale';

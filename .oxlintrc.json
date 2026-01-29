@@ -16,6 +16,7 @@
   },
   "rules": {
     "sort-keys": "off",
+    "sort-imports": "off",
     "no-debugger": "error",
     "no-alert": "error",
     "no-console": "error",
@@ -38,7 +39,9 @@
     "oxc/bad-object-literal-comparison": "error",
     "oxc/bad-replace-all-arg": "error",
     "oxc/const-comparisons": "error",
-    "oxc/uninvoked-array-callback": "error"
+    "oxc/uninvoked-array-callback": "error",
+    "oxc/no-rest-spread-properties": "off",
+    "typescript/no-misused-spread": "off"
   },
   "overrides": [
     {
