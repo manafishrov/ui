@@ -15,6 +15,8 @@ export default defineConfig({
       entry: [
         'src/index.ts',
         'src/components/Button.tsx',
+        'src/components/Input.tsx',
+        'src/components/Label.tsx',
         'src/components/Separator.tsx',
         'src/components/Sheet.tsx',
         'src/components/Skeleton.tsx',
