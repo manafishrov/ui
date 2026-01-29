@@ -26,6 +26,10 @@
       "types": "./dist/components/Label.d.ts",
       "import": "./dist/components/Label.js"
     },
+    "./scroll-area": {
+      "types": "./dist/components/ScrollArea.d.ts",
+      "import": "./dist/components/ScrollArea.js"
+    },
     "./select": {
       "types": "./dist/components/Select.d.ts",
       "import": "./dist/components/Select.js"
