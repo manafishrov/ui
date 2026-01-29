@@ -48,12 +48,8 @@ export const Switch = (props: SwitchProps): JSX.Element => {
   const styles = switchVariants({ size: local.size });
   const t = useLocale();
 
-  const getAriaLabel = (): string | undefined => {
-    if (typeof local.label === 'string') {
-      return others['aria-label'];
-    }
-    return t('ui.toggleSwitch');
-  };
+  const getAriaLabel = (): string | undefined =>
+    typeof local.label === 'string' ? others['aria-label'] : t('ui.toggleSwitch');
 
   return (
     <SwitchPrimitive.Root

@@ -41,7 +41,8 @@
     "oxc/const-comparisons": "error",
     "oxc/uninvoked-array-callback": "error",
     "oxc/no-rest-spread-properties": "off",
-    "typescript/no-misused-spread": "off"
+    "typescript/no-misused-spread": "off",
+    "no-ternary": "off"
   },
   "overrides": [
     {

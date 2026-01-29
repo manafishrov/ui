@@ -23,10 +23,7 @@ export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
 
   const values = createMemo(() => {
     const val = local.value ?? local.defaultValue;
-    if (Array.isArray(val)) {
-      return val;
-    }
-    return [local.min ?? DEFAULT_MIN, local.max ?? DEFAULT_MAX];
+    return Array.isArray(val) ? val : [local.min ?? DEFAULT_MIN, local.max ?? DEFAULT_MAX];
   });
 
   return (

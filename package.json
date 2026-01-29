@@ -18,6 +18,10 @@
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
     },
+    "./separator": {
+      "types": "./dist/components/Separator.d.ts",
+      "import": "./dist/components/Separator.js"
+    },
     "./sheet": {
       "types": "./dist/components/Sheet.d.ts",
       "import": "./dist/components/Sheet.js"
