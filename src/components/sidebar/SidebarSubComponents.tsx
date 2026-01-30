@@ -24,18 +24,13 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
     toggleSidebar();
   };
 
-  const getButtonClass = (): string => {
-    const res = cn(local.class);
-    return typeof res === 'string' ? res : '';
-  };
-
   return (
     <Button
       data-sidebar='trigger'
       data-slot='sidebar-trigger'
       variant='ghost'
       size='icon-sm'
-      class={getButtonClass()}
+      class={cn(local.class)}
       onClick={handleClick}
       {...others}
     >
@@ -50,19 +45,6 @@ export const SidebarRail: Component<ComponentProps<'button'>> = (props) => {
   const { toggleSidebar } = useSidebar();
   const t = useLocale();
 
-  const getRailClass = (): string => {
-    const res = cn(
-      'hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-side-left:-right-4 group-data-side-right:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] sm:flex',
-      'in-data-side-left:cursor-w-resize in-data-side-right:cursor-e-resize',
-      '[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize',
-      'hover:group-data-collapsible-offcanvas:bg-sidebar group-data-collapsible-offcanvas:translate-x-0 group-data-collapsible-offcanvas:after:left-full',
-      '[[data-side=left][data-collapsible=offcanvas]_&]:-right-2',
-      '[[data-side=right][data-collapsible=offcanvas]_&]:-left-2',
-      local.class,
-    );
-    return typeof res === 'string' ? res : '';
-  };
-
   return (
     <button
       data-sidebar='rail'
@@ -73,7 +55,15 @@ export const SidebarRail: Component<ComponentProps<'button'>> = (props) => {
         toggleSidebar();
       }}
       title={String(t('ui.toggleSidebar'))}
-      class={getRailClass()}
+      class={cn(
+        'hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-side-left:-right-4 group-data-side-right:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] sm:flex',
+        'in-data-side-left:cursor-w-resize in-data-side-right:cursor-e-resize',
+        '[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize',
+        'hover:group-data-collapsible-offcanvas:bg-sidebar group-data-collapsible-offcanvas:translate-x-0 group-data-collapsible-offcanvas:after:left-full',
+        '[[data-side=left][data-collapsible=offcanvas]_&]:-right-2',
+        '[[data-side=right][data-collapsible=offcanvas]_&]:-left-2',
+        local.class,
+      )}
       {...others}
     />
   );
@@ -81,60 +71,61 @@ export const SidebarRail: Component<ComponentProps<'button'>> = (props) => {
 
 export const SidebarInset: Component<ComponentProps<'main'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getInsetClass = (): string => {
-    const res = cn(
-      'bg-background md:peer-data-variant-inset:m-2 md:peer-data-variant-inset:ml-0 md:peer-data-variant-inset:rounded-xl md:peer-data-variant-inset:shadow-sm md:peer-data-variant-inset:peer-data-state-collapsed:ml-2 relative flex w-full flex-1 flex-col',
-      local.class,
-    );
-    return typeof res === 'string' ? res : '';
-  };
-  return <main data-slot='sidebar-inset' class={getInsetClass()} {...others} />;
+  return (
+    <main
+      data-slot='sidebar-inset'
+      class={cn(
+        'bg-background md:peer-data-variant-inset:m-2 md:peer-data-variant-inset:ml-0 md:peer-data-variant-inset:rounded-xl md:peer-data-variant-inset:shadow-sm md:peer-data-variant-inset:peer-data-state-collapsed:ml-2 relative flex w-full flex-1 flex-col',
+        local.class,
+      )}
+      {...others}
+    />
+  );
 };
 
 export const SidebarInput: Component<ComponentProps<typeof Input>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getInputClass = (): string => {
-    const res = cn('bg-background h-8 w-full shadow-none', local.class);
-    return typeof res === 'string' ? res : '';
-  };
   return (
-    <Input data-slot='sidebar-input' data-sidebar='input' class={getInputClass()} {...others} />
+    <Input
+      data-slot='sidebar-input'
+      data-sidebar='input'
+      class={cn('bg-background h-8 w-full shadow-none', local.class)}
+      {...others}
+    />
   );
 };
 
 export const SidebarHeader: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getHeaderClass = (): string => {
-    const res = cn('gap-2 p-2 flex flex-col', local.class);
-    return typeof res === 'string' ? res : '';
-  };
   return (
-    <div data-slot='sidebar-header' data-sidebar='header' class={getHeaderClass()} {...others} />
+    <div
+      data-slot='sidebar-header'
+      data-sidebar='header'
+      class={cn('gap-2 p-2 flex flex-col', local.class)}
+      {...others}
+    />
   );
 };
 
 export const SidebarFooter: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getFooterClass = (): string => {
-    const res = cn('gap-2 p-2 flex flex-col', local.class);
-    return typeof res === 'string' ? res : '';
-  };
   return (
-    <div data-slot='sidebar-footer' data-sidebar='footer' class={getFooterClass()} {...others} />
+    <div
+      data-slot='sidebar-footer'
+      data-sidebar='footer'
+      class={cn('gap-2 p-2 flex flex-col', local.class)}
+      {...others}
+    />
   );
 };
 
 export const SidebarSeparator: Component<ComponentProps<typeof Separator>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getSeparatorClass = (): string => {
-    const res = cn('bg-sidebar-border mx-2 w-auto', local.class);
-    return typeof res === 'string' ? res : '';
-  };
   return (
     <Separator
       data-slot='sidebar-separator'
       data-sidebar='separator'
-      class={getSeparatorClass()}
+      class={cn('bg-sidebar-border mx-2 w-auto', local.class)}
       {...others}
     />
   );
@@ -142,19 +133,15 @@ export const SidebarSeparator: Component<ComponentProps<typeof Separator>> = (pr
 
 export const SidebarContent: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children', 'id']);
-  const getContentClass = (): string => {
-    const res = cn(
-      'gap-0 flex min-h-0 flex-1 flex-col group-data-collapsible-icon:overflow-hidden',
-      local.class,
-    );
-    return typeof res === 'string' ? res : '';
-  };
   return (
     <ScrollArea
       data-slot='sidebar-content'
       data-sidebar='content'
       id={typeof local.id === 'string' ? local.id : 'sidebar-content'}
-      class={getContentClass()}
+      class={cn(
+        'gap-0 flex min-h-0 flex-1 flex-col group-data-collapsible-icon:overflow-hidden',
+        local.class,
+      )}
       {...others}
     >
       {local.children}
@@ -164,27 +151,26 @@ export const SidebarContent: Component<ComponentProps<'div'>> = (props) => {
 
 export const SidebarGroup: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getGroupClass = (): string => {
-    const res = cn('p-2 relative flex w-full min-w-0 flex-col', local.class);
-    return typeof res === 'string' ? res : '';
-  };
-  return <div data-slot='sidebar-group' data-sidebar='group' class={getGroupClass()} {...others} />;
+  return (
+    <div
+      data-slot='sidebar-group'
+      data-sidebar='group'
+      class={cn('p-2 relative flex w-full min-w-0 flex-col', local.class)}
+      {...others}
+    />
+  );
 };
 
 export const SidebarGroupLabel: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getLabelClass = (): string => {
-    const res = cn(
-      'text-sidebar-foreground/70 ring-sidebar-ring h-8 rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear group-data-collapsible-icon:-mt-8 group-data-collapsible-icon:opacity-0 focus-visible:ring-2 [&>svg]:size-4 flex shrink-0 items-center outline-hidden [&>svg]:shrink-0',
-      local.class,
-    );
-    return typeof res === 'string' ? res : '';
-  };
   return (
     <div
       data-slot='sidebar-group-label'
       data-sidebar='group-label'
-      class={getLabelClass()}
+      class={cn(
+        'text-sidebar-foreground/70 ring-sidebar-ring h-8 rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear group-data-collapsible-icon:-mt-8 group-data-collapsible-icon:opacity-0 focus-visible:ring-2 [&>svg]:size-4 flex shrink-0 items-center outline-hidden [&>svg]:shrink-0',
+        local.class,
+      )}
       {...others}
     />
   );
@@ -192,18 +178,14 @@ export const SidebarGroupLabel: Component<ComponentProps<'div'>> = (props) => {
 
 export const SidebarGroupAction: Component<ComponentProps<'button'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getActionClass = (): string => {
-    const res = cn(
-      'text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground absolute top-3.5 right-3 w-5 rounded-md p-0 focus-visible:ring-2 [&>svg]:size-4 flex aspect-square items-center justify-center outline-hidden transition-transform [&>svg]:shrink-0 after:absolute after:-inset-2 md:after:hidden group-data-collapsible-icon:hidden',
-      local.class,
-    );
-    return typeof res === 'string' ? res : '';
-  };
   return (
     <button
       data-slot='sidebar-group-action'
       data-sidebar='group-action'
-      class={getActionClass()}
+      class={cn(
+        'text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground absolute top-3.5 right-3 w-5 rounded-md p-0 focus-visible:ring-2 [&>svg]:size-4 flex aspect-square items-center justify-center outline-hidden transition-transform [&>svg]:shrink-0 after:absolute after:-inset-2 md:after:hidden group-data-collapsible-icon:hidden',
+        local.class,
+      )}
       {...others}
     />
   );
@@ -211,15 +193,11 @@ export const SidebarGroupAction: Component<ComponentProps<'button'>> = (props) =
 
 export const SidebarGroupContent: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const getGroupContentClass = (): string => {
-    const res = cn('text-sm w-full', local.class);
-    return typeof res === 'string' ? res : '';
-  };
   return (
     <div
       data-slot='sidebar-group-content'
       data-sidebar='group-content'
-      class={getGroupContentClass()}
+      class={cn('text-sm w-full', local.class)}
       {...others}
     />
   );

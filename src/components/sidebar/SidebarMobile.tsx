@@ -1,6 +1,7 @@
-import type { Component } from 'solid-js';
+import { splitProps, type Component } from 'solid-js';
 
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/Sheet';
+import { useLocale } from '@/Locale';
 
 import type { SidebarProps } from './Sidebar';
 
@@ -8,8 +9,9 @@ import { SIDEBAR_WIDTH_MOBILE } from './constants';
 import { useSidebar } from './context';
 
 export const SidebarMobile: Component<SidebarProps> = (props) => {
+  const [local] = splitProps(props, ['side', 'children']);
   const { openMobile, setOpenMobile } = useSidebar();
-  const side = (): 'left' | 'right' => props.side ?? 'left';
+  const t = useLocale();
 
   return (
     <Sheet
@@ -26,13 +28,15 @@ export const SidebarMobile: Component<SidebarProps> = (props) => {
         style={{
           '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
         }}
-        side={side()}
+        side={local.side ?? 'left'}
       >
-        <SheetHeader class='sr-only'>
-          <SheetTitle>Sidebar</SheetTitle>
-          <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-        </SheetHeader>
-        <div class='flex h-full w-full flex-col'>{props.children}</div>
+        <div class='sr-only'>
+          <SheetHeader>
+            <SheetTitle>{String(t('ui.sidebar'))}</SheetTitle>
+            <SheetDescription>{String(t('ui.sidebarDescription'))}</SheetDescription>
+          </SheetHeader>
+        </div>
+        <div class='flex h-full w-full flex-col'>{local.children}</div>
       </SheetContent>
     </Sheet>
   );

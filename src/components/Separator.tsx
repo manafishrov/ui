@@ -1,4 +1,4 @@
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { type VariantProps, tv } from 'tailwind-variants';
 
 export const separatorVariants = tv({
@@ -14,7 +14,7 @@ export const separatorVariants = tv({
   },
 });
 
-export type SeparatorProps = JSX.HTMLAttributes<HTMLDivElement> &
+export type SeparatorProps = ComponentProps<'div'> &
   VariantProps<typeof separatorVariants> & {
     decorative?: boolean;
   };

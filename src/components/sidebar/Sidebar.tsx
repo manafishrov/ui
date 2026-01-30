@@ -12,13 +12,12 @@ export type SidebarProps = ComponentProps<'div'> & {
 
 export const Sidebar: Component<SidebarProps> = (props) => {
   const { isMobile } = useSidebar();
-  const collapsible = (): 'offcanvas' | 'icon' | 'none' => props.collapsible ?? 'offcanvas';
 
   return (
     <Show
       when={!isMobile()}
       fallback={
-        <Show when={collapsible() !== 'none'}>
+        <Show when={(props.collapsible ?? 'offcanvas') !== 'none'}>
           <SidebarMobile {...props} />
         </Show>
       }

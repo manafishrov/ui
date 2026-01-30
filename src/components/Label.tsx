@@ -1,7 +1,7 @@
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const Label: Component<JSX.LabelHTMLAttributes<HTMLLabelElement>> = (props) => {
+export const Label: Component<ComponentProps<'label'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <label

@@ -1,9 +1,9 @@
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { useLocale } from '@/Locale';
 
-export const Skeleton: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const Skeleton: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   const t = useLocale();
 

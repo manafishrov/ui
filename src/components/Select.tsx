@@ -1,6 +1,6 @@
 import { Select as SelectPrimitive, createListCollection } from '@ark-ui/solid/select';
 import { MdOutlineCheck, MdOutlineExpand_more } from 'solid-icons/md';
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
@@ -110,7 +110,7 @@ export const SelectItem: Component<SelectPrimitive.ItemProps> = (props) => {
   );
 };
 
-export const SelectSeparator: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const SelectSeparator: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <div

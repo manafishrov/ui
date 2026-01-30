@@ -1,6 +1,6 @@
 import { Dialog as DialogPrimitive } from '@ark-ui/solid/dialog';
 import { MdOutlineClose } from 'solid-icons/md';
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
@@ -67,16 +67,16 @@ export const DialogContent: Component<DialogContentProps> = (props) => {
   );
 };
 
-export const DialogHeader: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const DialogHeader: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <div data-slot='dialog-header' class={cn('flex flex-col gap-2', local.class)} {...others} />
   );
 };
 
-export type DialogFooterProps = {
+export type DialogFooterProps = ComponentProps<'div'> & {
   showCloseButton?: boolean;
-} & JSX.HTMLAttributes<HTMLDivElement>;
+};
 
 export const DialogFooter: Component<DialogFooterProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'showCloseButton', 'children']);

@@ -1,7 +1,7 @@
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const Input: Component<JSX.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+export const Input: Component<ComponentProps<'input'>> = (props) => {
   const [local, others] = splitProps(props, ['class', 'type']);
   return (
     <input

@@ -4,5 +4,7 @@ export const dict = {
     loading: 'Loading',
     value: 'Value',
     loadingContent: 'Loading content',
+    sidebar: 'Sidebar',
+    sidebarDescription: 'Displays the mobile sidebar.',
   },
 };

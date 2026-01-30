@@ -1,7 +1,7 @@
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const Table: Component<JSX.HTMLAttributes<HTMLTableElement>> = (props) => {
+export const Table: Component<ComponentProps<'table'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <div data-slot='table-container' class='relative w-full overflow-x-auto'>
@@ -14,12 +14,12 @@ export const Table: Component<JSX.HTMLAttributes<HTMLTableElement>> = (props) =>
   );
 };
 
-export const TableHeader: Component<JSX.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
+export const TableHeader: Component<ComponentProps<'thead'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <thead data-slot='table-header' class={cn('[&_tr]:border-b', local.class)} {...others} />;
 };
 
-export const TableBody: Component<JSX.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
+export const TableBody: Component<ComponentProps<'tbody'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <tbody
@@ -30,7 +30,7 @@ export const TableBody: Component<JSX.HTMLAttributes<HTMLTableSectionElement>> =
   );
 };
 
-export const TableFooter: Component<JSX.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
+export const TableFooter: Component<ComponentProps<'tfoot'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <tfoot
@@ -41,7 +41,7 @@ export const TableFooter: Component<JSX.HTMLAttributes<HTMLTableSectionElement>>
   );
 };
 
-export const TableRow: Component<JSX.HTMLAttributes<HTMLTableRowElement>> = (props) => {
+export const TableRow: Component<ComponentProps<'tr'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <tr
@@ -55,7 +55,7 @@ export const TableRow: Component<JSX.HTMLAttributes<HTMLTableRowElement>> = (pro
   );
 };
 
-export const TableHead: Component<JSX.ThHTMLAttributes<HTMLTableCellElement>> = (props) => {
+export const TableHead: Component<ComponentProps<'th'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <th
@@ -69,7 +69,7 @@ export const TableHead: Component<JSX.ThHTMLAttributes<HTMLTableCellElement>> = 
   );
 };
 
-export const TableCell: Component<JSX.TdHTMLAttributes<HTMLTableCellElement>> = (props) => {
+export const TableCell: Component<ComponentProps<'td'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <td
@@ -80,7 +80,7 @@ export const TableCell: Component<JSX.TdHTMLAttributes<HTMLTableCellElement>> = 
   );
 };
 
-export const TableCaption: Component<JSX.HTMLAttributes<HTMLTableCaptionElement>> = (props) => {
+export const TableCaption: Component<ComponentProps<'caption'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <caption

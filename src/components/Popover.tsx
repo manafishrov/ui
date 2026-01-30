@@ -1,5 +1,5 @@
 import { Popover as PopoverPrimitive } from '@ark-ui/solid/popover';
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
@@ -47,7 +47,7 @@ export const PopoverArrow: Component<PopoverPrimitive.ArrowProps> = (props) => {
   );
 };
 
-export const PopoverHeader: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const PopoverHeader: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <div

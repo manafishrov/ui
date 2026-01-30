@@ -4,6 +4,7 @@ import { type VariantProps, tv, cn } from 'tailwind-variants';
 import { Skeleton } from '@/components/Skeleton';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/Tooltip';
 
+import { RANDOM_WIDTH_BASE, RANDOM_WIDTH_RANGE } from './constants';
 import { useSidebar } from './context';
 
 export const SidebarMenu: Component<ComponentProps<'ul'>> = (props) => {
@@ -30,7 +31,7 @@ export const SidebarMenuItem: Component<ComponentProps<'li'>> = (props) => {
   );
 };
 
-const sidebarMenuButtonVariants = tv({
+export const sidebarMenuButtonVariants = tv({
   base: 'ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground gap-2 rounded-md p-2 text-left text-sm transition-[width,height,padding] group-has-data-sidebar-menu-action/menu-item:pr-8 group-data-collapsible-icon:size-8! group-data-collapsible-icon:p-2! focus-visible:ring-2 data-active:font-medium peer/menu-button flex w-full items-center overflow-hidden outline-hidden group/menu-button disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&_svg]:size-4 [&_svg]:shrink-0',
   variants: {
     variant: {
@@ -60,24 +61,26 @@ export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
   const [local, others] = splitProps(props, ['isActive', 'variant', 'size', 'tooltip', 'class']);
   const { isMobile, state } = useSidebar();
 
-  const button = (
+  const InnerButton: Component<ComponentProps<'button'>> = (innerProps) => (
     <button
       data-slot='sidebar-menu-button'
       data-sidebar='menu-button'
-      data-size={local.size}
+      data-size={local.size ?? 'default'}
       data-active={local.isActive}
-      class={cn(
-        sidebarMenuButtonVariants({ variant: local.variant, size: local.size }),
-        local.class,
-      )}
+      class={sidebarMenuButtonVariants({
+        variant: local.variant,
+        size: local.size,
+        class: cn(local.class, innerProps.class),
+      })}
       {...others}
+      {...innerProps}
     />
   );
 
   return (
-    <Show when={local.tooltip} fallback={button}>
+    <Show when={local.tooltip} fallback={<InnerButton />}>
       <Tooltip positioning={{ placement: 'right' }}>
-        <TooltipTrigger asChild={(triggerProps) => <button {...triggerProps}>{button}</button>} />
+        <TooltipTrigger asChild={(triggerProps) => <InnerButton {...triggerProps} />} />
         <TooltipContent
           hidden={state() !== 'collapsed' || isMobile()}
           {...(typeof local.tooltip === 'string' ? { children: local.tooltip } : local.tooltip)}
@@ -126,9 +129,6 @@ export const SidebarMenuBadge: Component<ComponentProps<'div'>> = (props) => {
 export type SidebarMenuSkeletonProps = ComponentProps<'div'> & {
   showIcon?: boolean;
 };
-
-const RANDOM_WIDTH_RANGE = 40;
-const RANDOM_WIDTH_BASE = 50;
 
 export const SidebarMenuSkeleton: Component<SidebarMenuSkeletonProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'showIcon']);

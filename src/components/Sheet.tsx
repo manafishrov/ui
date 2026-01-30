@@ -1,6 +1,6 @@
 import { Dialog as SheetPrimitive } from '@ark-ui/solid/dialog';
 import { MdOutlineClose } from 'solid-icons/md';
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { type CnReturn, cn } from 'tailwind-variants';
 
@@ -90,7 +90,7 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
   );
 };
 
-export const SheetHeader: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const SheetHeader: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <div
@@ -101,7 +101,7 @@ export const SheetHeader: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props
   );
 };
 
-export const SheetFooter: Component<JSX.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const SheetFooter: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <div

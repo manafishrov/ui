@@ -1,7 +1,7 @@
-import { type Component, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const Textarea: Component<JSX.TextareaHTMLAttributes<HTMLTextAreaElement>> = (props) => {
+export const Textarea: Component<ComponentProps<'textarea'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <textarea
