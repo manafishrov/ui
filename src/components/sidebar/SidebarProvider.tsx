@@ -74,6 +74,19 @@ const useSidebarEvents = (stateSet: ReturnType<typeof useSidebarState>): { toggl
   return { toggle };
 };
 
+const createSidebarContextValue = (
+  stateSet: ReturnType<typeof useSidebarState>,
+  toggle: () => void,
+): SidebarContextProps => ({
+  state: (): 'expanded' | 'collapsed' => (stateSet.open() ? 'expanded' : 'collapsed'),
+  open: stateSet.open,
+  setOpen: stateSet.setOpen,
+  isMobile: stateSet.isMobile,
+  openMobile: stateSet.openMobile,
+  setOpenMobile: stateSet.setOpenMobile,
+  toggleSidebar: toggle,
+});
+
 export const SidebarProvider: Component<SidebarProviderProps> = (props) => {
   const [local, others] = splitProps(props, [
     'defaultOpen',
@@ -84,33 +97,20 @@ export const SidebarProvider: Component<SidebarProviderProps> = (props) => {
     'children',
   ]);
   const stateSet = useSidebarState(local);
-  const events = useSidebarEvents(stateSet);
-
-  const contextValue: SidebarContextProps = {
-    state: (): 'expanded' | 'collapsed' => (stateSet.open() ? 'expanded' : 'collapsed'),
-    open: stateSet.open,
-    setOpen: stateSet.setOpen,
-    isMobile: stateSet.isMobile,
-    openMobile: stateSet.openMobile,
-    setOpenMobile: stateSet.setOpenMobile,
-    toggleSidebar: (): void => {
-      events.toggle();
-    },
-  };
+  const { toggle } = useSidebarEvents(stateSet);
 
   const style = createMemo((): JSX.CSSProperties => {
     const base: JSX.CSSProperties = {
       '--sidebar-width': SIDEBAR_WIDTH,
       '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
     };
-    if (typeof local.style === 'object' && local.style !== null) {
-      return { ...base, ...local.style };
-    }
-    return base;
+    return typeof local.style === 'object' && local.style !== null
+      ? { ...base, ...local.style }
+      : base;
   });
 
   return (
-    <SidebarContext.Provider value={contextValue}>
+    <SidebarContext.Provider value={createSidebarContextValue(stateSet, toggle)}>
       <div
         data-slot='sidebar-wrapper'
         style={style()}

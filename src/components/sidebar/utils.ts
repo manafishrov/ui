@@ -1,7 +1,14 @@
-import { SIDEBAR_COOKIE_MAX_AGE, SIDEBAR_COOKIE_NAME } from './constants';
+import { MS_PER_SECOND, SIDEBAR_COOKIE_MAX_AGE, SIDEBAR_COOKIE_NAME } from './constants';
 
 export const setSidebarCookie = (openValue: boolean): void => {
-  const cookieStr = `${SIDEBAR_COOKIE_NAME}=${String(openValue)}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
-  // oxlint-disable-next-line oxlint/no-document-cookie
-  globalThis.document.cookie = cookieStr;
+  globalThis.cookieStore
+    .set({
+      name: SIDEBAR_COOKIE_NAME,
+      value: String(openValue),
+      expires: Date.now() + SIDEBAR_COOKIE_MAX_AGE * MS_PER_SECOND,
+      path: '/',
+    })
+    .catch(() => {
+      // Silently ignore
+    });
 };

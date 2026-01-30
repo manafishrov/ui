@@ -11,6 +11,7 @@ export const SECONDS_IN_MINUTE = 60;
 export const MINUTES_IN_HOUR = 60;
 export const HOURS_IN_DAY = 24;
 export const DAYS_IN_WEEK = 7;
+export const MS_PER_SECOND = 1000;
 
 export const SIDEBAR_COOKIE_MAX_AGE =
   SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_WEEK;
