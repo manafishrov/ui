@@ -26,6 +26,10 @@
       "types": "./dist/components/Label.d.ts",
       "import": "./dist/components/Label.js"
     },
+    "./radio-group": {
+      "types": "./dist/components/RadioGroup.d.ts",
+      "import": "./dist/components/RadioGroup.js"
+    },
     "./scroll-area": {
       "types": "./dist/components/ScrollArea.d.ts",
       "import": "./dist/components/ScrollArea.js"
