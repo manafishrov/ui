@@ -17,6 +17,7 @@ export default defineConfig({
         'src/components/Button.tsx',
         'src/components/Input.tsx',
         'src/components/Label.tsx',
+        'src/components/Link.tsx',
         'src/components/Popover.tsx',
         'src/components/Progress.tsx',
         'src/components/RadioGroup.tsx',
@@ -41,6 +42,7 @@ export default defineConfig({
       external: [
         'solid-js',
         'solid-js/web',
+        '@tanstack/solid-router',
         '@solid-primitives/i18n',
         '@ark-ui/solid/toast',
         '@ark-ui/solid/tooltip',
