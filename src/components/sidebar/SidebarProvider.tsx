@@ -1,33 +1,25 @@
 import {
   type Component,
   type ComponentProps,
+  createMemo,
   createSignal,
   onCleanup,
   onMount,
   splitProps,
+  type JSX,
 } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { useIsMobile } from '@/hooks/useMobile';
 
-import {
-  SIDEBAR_COOKIE_MAX_AGE,
-  SIDEBAR_COOKIE_NAME,
-  SIDEBAR_KEYBOARD_SHORTCUT,
-  SIDEBAR_WIDTH,
-  SIDEBAR_WIDTH_ICON,
-} from './constants';
+import { SIDEBAR_KEYBOARD_SHORTCUT, SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './constants';
 import { SidebarContext, type SidebarContextProps } from './context';
+import { setSidebarCookie } from './utils';
 
 export type SidebarProviderProps = ComponentProps<'div'> & {
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (openValue: boolean) => void;
-};
-
-const setSidebarCookie = (openValue: boolean): void => {
-  // eslint-disable-next-line oxlint/no-document-cookie
-  globalThis.document.cookie = `${SIDEBAR_COOKIE_NAME}=${openValue}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
 };
 
 const useSidebarState = (
@@ -106,16 +98,22 @@ export const SidebarProvider: Component<SidebarProviderProps> = (props) => {
     },
   };
 
+  const style = createMemo((): JSX.CSSProperties => {
+    const base: JSX.CSSProperties = {
+      '--sidebar-width': SIDEBAR_WIDTH,
+      '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
+    };
+    if (typeof local.style === 'object' && local.style !== null) {
+      return { ...base, ...local.style };
+    }
+    return base;
+  });
+
   return (
     <SidebarContext.Provider value={contextValue}>
       <div
         data-slot='sidebar-wrapper'
-        style={{
-          '--sidebar-width': SIDEBAR_WIDTH,
-          '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
-          // eslint-disable-next-line typescript-eslint/no-unsafe-type-assertion
-          ...(local.style as unknown as Record<string, string>),
-        }}
+        style={style()}
         class={String(
           cn(
             'group/sidebar-wrapper has-data-variant-inset:bg-sidebar flex min-h-svh w-full',

@@ -30,7 +30,7 @@ export type LocaleProviderProps = {
   children: JSX.Element;
 };
 
-// oxlint-disable-next-line typescript-eslint/no-unsafe-type-assertion
+// oxlint-disable-next-line typescript-oxlint/no-unsafe-type-assertion
 const fallbackTranslator = ((path: string): string => path) as Translator;
 
 export const LocaleProvider = (props: LocaleProviderProps): JSX.Element => {

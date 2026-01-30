@@ -1,5 +1,5 @@
 import { Select as SelectPrimitive, createListCollection } from '@ark-ui/solid/select';
-import { FiCheck, FiChevronDown } from 'solid-icons/fi';
+import { MdOutlineCheck, MdOutlineExpand_more } from 'solid-icons/md';
 import { type Component, type JSX, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
@@ -49,7 +49,7 @@ export const SelectTrigger: Component<SelectTriggerProps> = (props) => {
     >
       {local.children}
       <SelectPrimitive.Indicator>
-        <FiChevronDown class='text-muted-foreground pointer-events-none size-4' />
+        <MdOutlineExpand_more class='text-muted-foreground pointer-events-none size-4' />
       </SelectPrimitive.Indicator>
     </SelectPrimitive.Trigger>
   );
@@ -99,7 +99,7 @@ export const SelectItem: Component<SelectPrimitive.ItemProps> = (props) => {
         {local.children}
       </SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator class='pointer-events-none absolute right-2 flex size-4 items-center justify-center'>
-        <FiCheck class='pointer-events-none' />
+        <MdOutlineCheck class='pointer-events-none' />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   );

@@ -1,4 +1,4 @@
-import { VsLayoutSidebarLeft } from 'solid-icons/vs';
+import { MdOutlineView_sidebar } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -19,9 +19,7 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
     event: MouseEvent & { currentTarget: HTMLButtonElement; target: Element },
   ): void => {
     if (typeof local.onClick === 'function') {
-      // oxlint-disable-next-line typescript-eslint/no-unsafe-type-assertion
-      const handler = local.onClick as unknown as (evt: MouseEvent) => void;
-      handler(event);
+      local.onClick(event);
     }
     toggleSidebar();
   };
@@ -41,7 +39,7 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
       onClick={handleClick}
       {...others}
     >
-      <VsLayoutSidebarLeft />
+      <MdOutlineView_sidebar />
       <span class='sr-only'>{String(t('ui.toggleSidebar'))}</span>
     </Button>
   );
