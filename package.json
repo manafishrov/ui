@@ -14,6 +14,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./alert-dialog": {
+      "types": "./dist/components/AlertDialog.d.ts",
+      "import": "./dist/components/AlertDialog.js"
+    },
     "./badge": {
       "types": "./dist/components/Badge.d.ts",
       "import": "./dist/components/Badge.js"

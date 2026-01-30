@@ -14,6 +14,7 @@ export default defineConfig({
     lib: {
       entry: [
         'src/index.ts',
+        'src/components/AlertDialog.tsx',
         'src/components/Badge.tsx',
         'src/components/Button.tsx',
         'src/components/Card.tsx',
