@@ -1,6 +1,6 @@
 import { Dialog as SheetPrimitive } from '@ark-ui/solid/dialog';
 import { MdOutlineClose } from 'solid-icons/md';
-import { type Component, type ComponentProps, splitProps, type JSXElement } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
@@ -33,53 +33,23 @@ export type SheetContentProps = SheetPrimitive.ContentProps & {
   showCloseButton?: boolean;
 };
 
-type SheetContentInnerProps = {
-  side: 'top' | 'right' | 'bottom' | 'left';
-  showCloseButton: boolean;
-  class?: string | undefined;
-  children: JSXElement;
-} & SheetPrimitive.ContentProps;
-
-const SheetContentInner: Component<SheetContentInnerProps> = (props) => {
-  const [local, others] = splitProps(props, ['side', 'showCloseButton', 'class', 'children']);
+const SheetCloseButton: Component = () => {
   const t = useLocale();
-
   return (
-    <SheetPrimitive.Content
-      data-slot='sheet-content'
-      data-side={local.side}
-      class={cn(
-        'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
-        'data-state-open:animate-in data-state-closed:animate-out',
-        local.side === 'right' &&
-          'data-state-closed:slide-out-to-right-full data-state-open:slide-in-from-right-full',
-        local.side === 'left' &&
-          'data-state-closed:slide-out-to-left-full data-state-open:slide-in-from-left-full',
-        local.side === 'top' &&
-          'data-state-closed:slide-out-to-top-full data-state-open:slide-in-from-top-full',
-        local.side === 'bottom' &&
-          'data-state-closed:slide-out-to-bottom-full data-state-open:slide-in-from-bottom-full',
-        local.class,
+    <SheetPrimitive.CloseTrigger
+      class='absolute top-3 right-3'
+      asChild={(triggerProps) => (
+        <Button
+          variant='ghost'
+          size='icon-sm'
+          aria-label={String(t('common.close'))}
+          {...triggerProps}
+        >
+          <MdOutlineClose aria-hidden='true' />
+          <span class='sr-only'>{String(t('common.close'))}</span>
+        </Button>
       )}
-      {...others}
-    >
-      {local.children}
-      {local.showCloseButton && (
-        <SheetPrimitive.CloseTrigger
-          class='absolute top-3 right-3'
-          asChild={(triggerProps) => (
-            <Button
-              variant='ghost'
-              size='icon-sm'
-              aria-label={t('ui.common.close')}
-              {...triggerProps}
-            >
-              <MdOutlineClose aria-hidden='true' />
-            </Button>
-          )}
-        />
-      )}
-    </SheetPrimitive.Content>
+    />
   );
 };
 
@@ -92,22 +62,32 @@ export const SheetContent: Component<SheetContentProps> = (props) => {
     <Portal>
       <SheetOverlay />
       <SheetPrimitive.Positioner
+        data-side={side}
         class={cn(
           'fixed z-50 flex flex-col transition ease-in-out duration-200',
-          side === 'top' && 'inset-x-0 top-0 border-b',
-          side === 'bottom' && 'inset-x-0 bottom-0 border-t',
-          side === 'left' && 'inset-y-0 left-0 w-3/4 sm:max-w-sm border-r',
-          side === 'right' && 'inset-y-0 right-0 w-3/4 sm:max-w-sm border-l',
+          'data-side-top:inset-x-0 data-side-top:top-0 data-side-top:border-b',
+          'data-side-bottom:inset-x-0 data-side-bottom:bottom-0 data-side-bottom:border-t',
+          'data-side-left:inset-y-0 data-side-left:left-0 data-side-left:w-3/4 data-side-left:sm:max-w-sm data-side-left:border-r',
+          'data-side-right:inset-y-0 data-side-right:right-0 data-side-right:w-3/4 data-side-right:sm:max-w-sm data-side-right:border-l',
         )}
       >
-        <SheetContentInner
+        <SheetPrimitive.Content
+          data-slot='sheet-content'
+          data-side={side}
+          class={cn(
+            'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
+            'data-state-open:animate-in data-state-closed:animate-out',
+            'data-side-right:data-state-closed:slide-out-to-right-full data-side-right:data-state-open:slide-in-from-right-full',
+            'data-side-left:data-state-closed:slide-out-to-left-full data-side-left:data-state-open:slide-in-from-left-full',
+            'data-side-top:data-state-closed:slide-out-to-top-full data-side-top:data-state-open:slide-in-from-top-full',
+            'data-side-bottom:data-state-closed:slide-out-to-bottom-full data-side-bottom:data-state-open:slide-in-from-bottom-full',
+            local.class,
+          )}
           {...others}
-          side={side}
-          showCloseButton={showCloseButton}
-          class={local.class}
         >
           {local.children}
-        </SheetContentInner>
+          {showCloseButton && <SheetCloseButton />}
+        </SheetPrimitive.Content>
       </SheetPrimitive.Positioner>
     </Portal>
   );
