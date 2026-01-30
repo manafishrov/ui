@@ -15,6 +15,7 @@ export default defineConfig({
       entry: [
         'src/index.ts',
         'src/components/Button.tsx',
+        'src/components/Dialog.tsx',
         'src/components/Input.tsx',
         'src/components/Label.tsx',
         'src/components/Link.tsx',
