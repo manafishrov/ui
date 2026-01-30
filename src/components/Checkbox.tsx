@@ -26,7 +26,7 @@ export const Checkbox: Component<CheckboxProps> = (props) => {
         class={cn(
           'border-input flex size-4 shrink-0 items-center justify-center rounded-2 border transition-colors outline-none',
           'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
-          'data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:ring-destructive/40 dark:data-invalid:border-destructive/50',
+          'data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:border-destructive/50',
           'data-state-checked:bg-primary data-state-checked:text-primary-foreground data-state-checked:border-primary',
           'data-state-indeterminate:bg-primary data-state-indeterminate:text-primary-foreground data-state-indeterminate:border-primary',
           'group-data-disabled/checkbox:opacity-50',
