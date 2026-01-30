@@ -26,6 +26,10 @@
       "types": "./dist/components/Label.d.ts",
       "import": "./dist/components/Label.js"
     },
+    "./progress": {
+      "types": "./dist/components/Progress.d.ts",
+      "import": "./dist/components/Progress.js"
+    },
     "./radio-group": {
       "types": "./dist/components/RadioGroup.d.ts",
       "import": "./dist/components/RadioGroup.js"
