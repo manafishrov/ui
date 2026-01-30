@@ -22,6 +22,7 @@ export default defineConfig({
         'src/components/Checkbox.tsx',
         'src/components/Dialog.tsx',
         'src/components/Input.tsx',
+        'src/components/InputGroup.tsx',
         'src/components/Label.tsx',
         'src/components/Link.tsx',
         'src/components/Popover.tsx',
