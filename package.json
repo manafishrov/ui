@@ -42,6 +42,10 @@
       "types": "./dist/components/Dialog.d.ts",
       "import": "./dist/components/Dialog.js"
     },
+    "./empty": {
+      "types": "./dist/components/Empty.d.ts",
+      "import": "./dist/components/Empty.js"
+    },
     "./input": {
       "types": "./dist/components/Input.d.ts",
       "import": "./dist/components/Input.js"

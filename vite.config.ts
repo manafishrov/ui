@@ -21,6 +21,7 @@ export default defineConfig({
         'src/components/Card.tsx',
         'src/components/Checkbox.tsx',
         'src/components/Dialog.tsx',
+        'src/components/Empty.tsx',
         'src/components/Input.tsx',
         'src/components/InputGroup.tsx',
         'src/components/Item.tsx',
