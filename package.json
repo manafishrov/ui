@@ -26,6 +26,10 @@
       "types": "./dist/components/Label.d.ts",
       "import": "./dist/components/Label.js"
     },
+    "./popover": {
+      "types": "./dist/components/Popover.d.ts",
+      "import": "./dist/components/Popover.js"
+    },
     "./progress": {
       "types": "./dist/components/Progress.d.ts",
       "import": "./dist/components/Progress.js"
