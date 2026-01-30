@@ -7,7 +7,7 @@ import {
   MdOutlineRefresh,
   MdOutlineWarning,
 } from 'solid-icons/md';
-import { type JSX, Show } from 'solid-js';
+import { type Component, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { tv } from 'tailwind-variants';
 
@@ -35,7 +35,7 @@ export const toast = createToaster({
   gap: 16,
 });
 
-export const Toaster = (): JSX.Element => (
+export const Toaster: Component = () => (
   <Portal>
     <ToasterPrimitive toaster={toast}>
       {(toast) => (

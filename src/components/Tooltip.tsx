@@ -1,5 +1,5 @@
 import { Tooltip as TooltipPrimitive } from '@ark-ui/solid/tooltip';
-import { type JSX, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { tv } from 'tailwind-variants';
 
@@ -22,7 +22,11 @@ export const tooltipVariants = tv({
 
 const { content, arrow, arrowTip } = tooltipVariants();
 
-export const TooltipContent = (props: TooltipPrimitive.ContentProps): JSX.Element => {
+export const Tooltip = TooltipPrimitive.Root;
+export const TooltipContext = TooltipPrimitive.Context;
+export const TooltipTrigger = TooltipPrimitive.Trigger;
+
+export const TooltipContent: Component<TooltipPrimitive.ContentProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
 
   return (
@@ -36,7 +40,7 @@ export const TooltipContent = (props: TooltipPrimitive.ContentProps): JSX.Elemen
   );
 };
 
-export const TooltipArrow = (props: TooltipPrimitive.ArrowProps): JSX.Element => {
+export const TooltipArrow: Component<TooltipPrimitive.ArrowProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <TooltipPrimitive.Arrow class={arrow({ class: local.class })} {...others}>
@@ -44,7 +48,3 @@ export const TooltipArrow = (props: TooltipPrimitive.ArrowProps): JSX.Element =>
     </TooltipPrimitive.Arrow>
   );
 };
-
-export const Tooltip = TooltipPrimitive.Root;
-export const TooltipTrigger = TooltipPrimitive.Trigger;
-export const TooltipContext = TooltipPrimitive.Context;

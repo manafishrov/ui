@@ -1,5 +1,5 @@
 import { Switch as SwitchPrimitive } from '@ark-ui/solid/switch';
-import { type ComponentProps, type JSX, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { type VariantProps, tv } from 'tailwind-variants';
 
 import { useLocale } from '@/Locale';
@@ -38,12 +38,14 @@ export const switchVariants = tv({
   },
 });
 
-export type SwitchProps = Omit<ComponentProps<typeof SwitchPrimitive.Root>, 'children'> &
+export type SwitchProps = Omit<SwitchPrimitive.RootProps, 'children'> &
   VariantProps<typeof switchVariants> & {
     label?: string;
   };
 
-export const Switch = (props: SwitchProps): JSX.Element => {
+export const SwitchContext = SwitchPrimitive.Context;
+
+export const Switch: Component<SwitchProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'size', 'label']);
   const styles = switchVariants({ size: local.size });
   const t = useLocale();

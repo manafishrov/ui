@@ -1,10 +1,14 @@
 import { Progress as ProgressPrimitive } from '@ark-ui/solid/progress';
-import { type ComponentProps, type JSX, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export type ProgressProps = ComponentProps<typeof ProgressPrimitive.Root>;
+export const ProgressCircle = ProgressPrimitive.Circle;
+export const ProgressCircleRange = ProgressPrimitive.CircleRange;
+export const ProgressCircleTrack = ProgressPrimitive.CircleTrack;
+export const ProgressView = ProgressPrimitive.View;
+export const ProgressContext = ProgressPrimitive.Context;
 
-export const Progress = (props: ProgressProps): JSX.Element => {
+export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children', 'value']);
 
   return (
@@ -22,9 +26,7 @@ export const Progress = (props: ProgressProps): JSX.Element => {
   );
 };
 
-export const ProgressTrack = (
-  props: ComponentProps<typeof ProgressPrimitive.Track>,
-): JSX.Element => {
+export const ProgressTrack: Component<ProgressPrimitive.TrackProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.Track
@@ -38,9 +40,7 @@ export const ProgressTrack = (
   );
 };
 
-export const ProgressIndicator = (
-  props: ComponentProps<typeof ProgressPrimitive.Range>,
-): JSX.Element => {
+export const ProgressIndicator: Component<ProgressPrimitive.RangeProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.Range
@@ -51,9 +51,7 @@ export const ProgressIndicator = (
   );
 };
 
-export const ProgressLabel = (
-  props: ComponentProps<typeof ProgressPrimitive.Label>,
-): JSX.Element => {
+export const ProgressLabel: Component<ProgressPrimitive.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.Label
@@ -64,9 +62,7 @@ export const ProgressLabel = (
   );
 };
 
-export const ProgressValue = (
-  props: ComponentProps<typeof ProgressPrimitive.ValueText>,
-): JSX.Element => {
+export const ProgressValue: Component<ProgressPrimitive.ValueTextProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.ValueText

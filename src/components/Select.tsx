@@ -5,6 +5,11 @@ import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
 export const Select = SelectPrimitive.Root;
+export const SelectClearTrigger = SelectPrimitive.ClearTrigger;
+export const SelectControl = SelectPrimitive.Control;
+export const SelectItemContext = SelectPrimitive.ItemContext;
+export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
+export const SelectList = SelectPrimitive.List;
 export { createListCollection };
 
 export const SelectGroup: Component<SelectPrimitive.ItemGroupProps> = (props) => {

@@ -10,6 +10,7 @@ import { useLocale } from '@/Locale';
 export const Sheet = SheetPrimitive.Root;
 export const SheetTrigger = SheetPrimitive.Trigger;
 export const SheetClose = SheetPrimitive.CloseTrigger;
+export const SheetContext = SheetPrimitive.Context;
 
 export const SheetOverlay: Component<SheetPrimitive.BackdropProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -25,11 +26,6 @@ export const SheetOverlay: Component<SheetPrimitive.BackdropProps> = (props) => 
       {...others}
     />
   );
-};
-
-export type SheetContentProps = SheetPrimitive.ContentProps & {
-  side?: 'top' | 'right' | 'bottom' | 'left';
-  showCloseButton?: boolean;
 };
 
 const getPositionerClass = (side: string): CnReturn =>
@@ -54,6 +50,11 @@ const getContentClass = (side: string): CnReturn =>
     side === 'bottom' &&
       'data-state-closed:slide-out-to-bottom-full data-state-open:slide-in-from-bottom-full',
   );
+
+export type SheetContentProps = SheetPrimitive.ContentProps & {
+  side?: 'top' | 'right' | 'bottom' | 'left';
+  showCloseButton?: boolean;
+};
 
 export const SheetContent: Component<SheetContentProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children', 'side', 'showCloseButton']);

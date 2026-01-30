@@ -1,5 +1,5 @@
 import { Slider as SliderPrimitive } from '@ark-ui/solid/slider';
-import { type Component, For, type JSX, createMemo, splitProps } from 'solid-js';
+import { type Component, For, createMemo, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { useLocale } from '@/Locale';
@@ -7,11 +7,11 @@ import { useLocale } from '@/Locale';
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 100;
 
-const SliderThumb = (props: { index: number }): JSX.Element => (
+const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => (
   <SliderPrimitive.Thumb
     data-slot='slider-thumb'
-    index={props.index}
     class='border-ring ring-ring/50 relative block size-3 shrink-0 rounded-full border bg-white transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-[3px] focus-visible:ring-[3px] focus-visible:outline-hidden active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50'
+    {...props}
   >
     <SliderPrimitive.HiddenInput />
   </SliderPrimitive.Thumb>

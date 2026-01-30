@@ -7,7 +7,7 @@ import {
   translator as primitiveTranslator,
   resolveTemplate,
 } from '@solid-primitives/i18n';
-import { type JSX, createContext, createMemo, useContext } from 'solid-js';
+import { type Component, type JSXElement, createContext, createMemo, useContext } from 'solid-js';
 
 import { dict as enGB } from '@/locales/enGb';
 import { dict as nb } from '@/locales/nb';
@@ -27,13 +27,13 @@ const LocaleContext = createContext<Translator>();
 export type LocaleProviderProps = {
   locale: keyof typeof libDicts;
   dict?: BaseRecordDict;
-  children: JSX.Element;
+  children: JSXElement;
 };
 
 // oxlint-disable-next-line typescript-oxlint/no-unsafe-type-assertion
 const fallbackTranslator = ((path: string): string => path) as Translator;
 
-export const LocaleProvider = (props: LocaleProviderProps): JSX.Element => {
+export const LocaleProvider: Component<LocaleProviderProps> = (props) => {
   const combinedDict = createMemo((): BaseRecordDict => {
     const lib = libDicts[props.locale] ?? enGB;
     const merged = { ...lib, ...props.dict };

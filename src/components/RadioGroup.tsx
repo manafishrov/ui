@@ -1,13 +1,18 @@
 import { RadioGroup as RadioGroupPrimitive } from '@ark-ui/solid/radio-group';
 import { MdFillCircle } from 'solid-icons/md';
-import { type ComponentProps, type JSX, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export type RadioGroupProps = ComponentProps<typeof RadioGroupPrimitive.Root> & {
+export const RadioGroupIndicator = RadioGroupPrimitive.Indicator;
+export const RadioGroupItemText = RadioGroupPrimitive.ItemText;
+export const RadioGroupContext = RadioGroupPrimitive.Context;
+export const RadioGroupItemContext = RadioGroupPrimitive.ItemContext;
+
+export type RadioGroupProps = RadioGroupPrimitive.RootProps & {
   label?: string;
 };
 
-export const RadioGroup = (props: RadioGroupProps): JSX.Element => {
+export const RadioGroup: Component<RadioGroupProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'label', 'children']);
 
   return (
@@ -26,9 +31,7 @@ export const RadioGroup = (props: RadioGroupProps): JSX.Element => {
   );
 };
 
-export type RadioGroupItemProps = ComponentProps<typeof RadioGroupPrimitive.Item>;
-
-export const RadioGroupItem = (props: RadioGroupItemProps): JSX.Element => {
+export const RadioGroupItem: Component<RadioGroupPrimitive.ItemProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
 
   return (
