@@ -1,18 +1,15 @@
 import { Dialog as AlertDialogPrimitive } from '@ark-ui/solid/dialog';
-import { type Component, type ComponentProps, splitProps, type JSX } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
-import { cn } from 'tailwind-variants';
+import { cn, type VariantProps } from 'tailwind-variants';
 
-import { Button } from '@/components/Button';
+import { Button, type buttonVariants } from '@/components/Button';
 
-export const AlertDialog = (props: AlertDialogPrimitive.RootProps): JSX.Element => (
+export const AlertDialog: Component<AlertDialogPrimitive.RootProps> = (props) => (
   <AlertDialogPrimitive.Root data-slot='alert-dialog' role='alertdialog' {...props} />
 );
 
 export const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
-export const AlertDialogPortal = (props: { children: JSX.Element }): JSX.Element => (
-  <Portal>{props.children}</Portal>
-);
 
 export const AlertDialogOverlay: Component<AlertDialogPrimitive.BackdropProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -39,7 +36,7 @@ export const AlertDialogContent: Component<AlertDialogContentProps> = (props) =>
   const size = local.size ?? 'default';
 
   return (
-    <AlertDialogPortal>
+    <Portal>
       <AlertDialogOverlay />
       <AlertDialogPrimitive.Positioner class='fixed inset-0 z-50 flex items-center justify-center'>
         <AlertDialogPrimitive.Content
@@ -58,7 +55,7 @@ export const AlertDialogContent: Component<AlertDialogContentProps> = (props) =>
           {local.children}
         </AlertDialogPrimitive.Content>
       </AlertDialogPrimitive.Positioner>
-    </AlertDialogPortal>
+    </Portal>
   );
 };
 
@@ -146,10 +143,8 @@ export const AlertDialogAction: Component<ComponentProps<typeof Button>> = (prop
   return <Button data-slot='alert-dialog-action' class={cn(local.class)} {...others} />;
 };
 
-export type AlertDialogCancelProps = AlertDialogPrimitive.CloseTriggerProps & {
-  variant?: 'default' | 'destructive' | 'ghost' | 'link' | 'outline' | 'secondary';
-  size?: 'default' | 'icon' | 'icon-lg' | 'icon-sm' | 'icon-xs' | 'lg' | 'sm' | 'xs';
-};
+export type AlertDialogCancelProps = AlertDialogPrimitive.CloseTriggerProps &
+  VariantProps<typeof buttonVariants>;
 
 export const AlertDialogCancel: Component<AlertDialogCancelProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'variant', 'size']);
