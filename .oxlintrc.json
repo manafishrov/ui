@@ -42,7 +42,15 @@
     "oxc/uninvoked-array-callback": "error",
     "oxc/no-rest-spread-properties": "off",
     "typescript/no-misused-spread": "off",
-    "no-ternary": "off"
+    "no-ternary": "off",
+    "unicorn/filename-case": ["error", { "case": "camelCase" }],
+    "func-style": [
+      "error",
+      "expression",
+      {
+        "allowArrowFunctions": true
+      }
+    ]
   },
   "overrides": [
     {

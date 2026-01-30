@@ -21,6 +21,7 @@ export default defineConfig({
         'src/components/Select.tsx',
         'src/components/Separator.tsx',
         'src/components/Sheet.tsx',
+        'src/components/sidebar/index.ts',
         'src/components/Skeleton.tsx',
         'src/components/Slider.tsx',
         'src/components/Spinner.tsx',

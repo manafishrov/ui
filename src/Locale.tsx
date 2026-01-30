@@ -9,7 +9,7 @@ import {
 } from '@solid-primitives/i18n';
 import { type JSX, createContext, createMemo, useContext } from 'solid-js';
 
-import { dict as enGB } from '@/locales/en-gb';
+import { dict as enGB } from '@/locales/enGb';
 import { dict as nb } from '@/locales/nb';
 
 const libDicts = {

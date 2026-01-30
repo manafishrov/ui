@@ -42,6 +42,10 @@
       "types": "./dist/components/Sheet.d.ts",
       "import": "./dist/components/Sheet.js"
     },
+    "./sidebar": {
+      "types": "./dist/components/sidebar/index.d.ts",
+      "import": "./dist/components/sidebar/index.js"
+    },
     "./skeleton": {
       "types": "./dist/components/Skeleton.d.ts",
       "import": "./dist/components/Skeleton.js"
