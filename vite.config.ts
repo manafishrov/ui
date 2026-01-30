@@ -14,6 +14,7 @@ export default defineConfig({
     lib: {
       entry: [
         'src/index.ts',
+        'src/components/Accordion.tsx',
         'src/components/AlertDialog.tsx',
         'src/components/Badge.tsx',
         'src/components/Button.tsx',
@@ -49,6 +50,7 @@ export default defineConfig({
         'solid-js/web',
         '@tanstack/solid-router',
         '@solid-primitives/i18n',
+        '@ark-ui/solid/accordion',
         '@ark-ui/solid/toast',
         '@ark-ui/solid/tooltip',
         '@ark-ui/solid/switch',

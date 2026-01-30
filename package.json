@@ -14,6 +14,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./accordion": {
+      "types": "./dist/components/Accordion.d.ts",
+      "import": "./dist/components/Accordion.js"
+    },
     "./alert-dialog": {
       "types": "./dist/components/AlertDialog.d.ts",
       "import": "./dist/components/AlertDialog.js"
