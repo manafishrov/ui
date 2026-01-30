@@ -32,8 +32,8 @@ export const SidebarMobile: Component<SidebarProps> = (props) => {
       >
         <div class='sr-only'>
           <SheetHeader>
-            <SheetTitle>{String(t('ui.sidebar'))}</SheetTitle>
-            <SheetDescription>{String(t('ui.sidebarDescription'))}</SheetDescription>
+            <SheetTitle>{String(t('ui.sidebar.title'))}</SheetTitle>
+            <SheetDescription>{String(t('ui.sidebar.description'))}</SheetDescription>
           </SheetHeader>
         </div>
         <div class='flex h-full w-full flex-col'>{local.children}</div>

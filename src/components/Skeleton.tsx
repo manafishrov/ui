@@ -12,7 +12,7 @@ export const Skeleton: Component<ComponentProps<'div'>> = (props) => {
       data-slot='skeleton'
       role='progressbar'
       aria-busy='true'
-      aria-label={t('ui.loadingContent')}
+      aria-label={t('ui.skeleton.loading')}
       class={cn('bg-muted rounded-md animate-pulse', local.class)}
       {...others}
     />

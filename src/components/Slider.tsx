@@ -2,8 +2,6 @@ import { Slider as SliderPrimitive } from '@ark-ui/solid/slider';
 import { type Component, For, createMemo, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { useLocale } from '@/Locale';
-
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 100;
 
@@ -19,7 +17,6 @@ const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => (
 
 export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'value', 'defaultValue', 'min', 'max']);
-  const t = useLocale();
 
   const values = createMemo(() => {
     const val = local.value ?? local.defaultValue;
@@ -34,7 +31,6 @@ export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
       defaultValue={local.defaultValue}
       min={local.min}
       max={local.max}
-      aria-label={values().map(() => t('ui.value'))}
       {...others}
     >
       <SliderPrimitive.Control class='relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-orientation-vertical:h-full data-orientation-vertical:min-h-40 data-orientation-vertical:w-auto data-orientation-vertical:flex-col'>

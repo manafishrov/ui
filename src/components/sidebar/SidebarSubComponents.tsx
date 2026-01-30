@@ -28,14 +28,14 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
     <Button
       data-sidebar='trigger'
       data-slot='sidebar-trigger'
+      aria-label={t('ui.sidebar.toggle')}
       variant='ghost'
       size='icon-sm'
       class={cn(local.class)}
       onClick={handleClick}
       {...others}
     >
-      <MdOutlineView_sidebar />
-      <span class='sr-only'>{String(t('ui.toggleSidebar'))}</span>
+      <MdOutlineView_sidebar aria-hidden='true' />
     </Button>
   );
 };
@@ -49,12 +49,11 @@ export const SidebarRail: Component<ComponentProps<'button'>> = (props) => {
     <button
       data-sidebar='rail'
       data-slot='sidebar-rail'
-      aria-label={String(t('ui.toggleSidebar'))}
+      aria-label={t('ui.sidebar.toggle')}
       tabIndex={-1}
       onClick={() => {
         toggleSidebar();
       }}
-      title={String(t('ui.toggleSidebar'))}
       class={cn(
         'hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-side-left:-right-4 group-data-side-right:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] sm:flex',
         'in-data-side-left:cursor-w-resize in-data-side-right:cursor-e-resize',

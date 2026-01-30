@@ -10,6 +10,7 @@ import { useLocale } from '@/Locale';
 export const Dialog = DialogPrimitive.Root;
 export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogContext = DialogPrimitive.Context;
+export const DialogPositioner = DialogPrimitive.Positioner;
 
 export const DialogOverlay: Component<DialogPrimitive.BackdropProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -54,9 +55,13 @@ export const DialogContent: Component<DialogContentProps> = (props) => {
             <DialogPrimitive.CloseTrigger
               class='absolute top-2 right-2'
               asChild={(triggerProps) => (
-                <Button variant='ghost' size='icon-sm' {...triggerProps}>
-                  <MdOutlineClose />
-                  <span class='sr-only'>{t('ui.close')}</span>
+                <Button
+                  variant='ghost'
+                  size='icon-sm'
+                  aria-label={t('ui.common.close')}
+                  {...triggerProps}
+                >
+                  <MdOutlineClose aria-hidden='true' />
                 </Button>
               )}
             />
@@ -80,6 +85,8 @@ export type DialogFooterProps = ComponentProps<'div'> & {
 
 export const DialogFooter: Component<DialogFooterProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'showCloseButton', 'children']);
+  const t = useLocale();
+
   return (
     <div
       data-slot='dialog-footer'
@@ -94,7 +101,7 @@ export const DialogFooter: Component<DialogFooterProps> = (props) => {
         <DialogPrimitive.CloseTrigger
           asChild={(triggerProps) => (
             <Button variant='outline' {...triggerProps}>
-              {useLocale()('ui.close')}
+              {String(t('common.close'))}
             </Button>
           )}
         />
@@ -127,3 +134,5 @@ export const DialogDescription: Component<DialogPrimitive.DescriptionProps> = (p
     />
   );
 };
+
+export const DialogClose = DialogPrimitive.CloseTrigger;

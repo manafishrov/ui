@@ -1,10 +1,21 @@
-export const dict = {
+export const enGb = {
   ui: {
-    close: 'Close',
-    loading: 'Loading',
-    value: 'Value',
-    loadingContent: 'Loading content',
-    sidebar: 'Sidebar',
-    sidebarDescription: 'Displays the mobile sidebar.',
+    common: {
+      close: 'Close',
+      loading: 'Loading',
+    },
+    skeleton: {
+      loading: 'Loading content',
+    },
+    sidebar: {
+      title: 'Sidebar',
+      description: 'Displays the mobile sidebar.',
+      toggle: 'Toggle Sidebar',
+    },
+    checkbox: {
+      checked: 'Checked',
+    },
   },
 };
+
+export type Dictionary = typeof enGb;

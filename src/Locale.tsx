@@ -9,15 +9,15 @@ import {
 } from '@solid-primitives/i18n';
 import { type Component, type JSXElement, createContext, createMemo, useContext } from 'solid-js';
 
-import { dict as enGB } from '@/locales/enGb';
-import { dict as nb } from '@/locales/nb';
+import { enGb } from '@/locales/enGb';
+import { nb } from '@/locales/nb';
 
 const libDicts = {
-  'en-GB': enGB,
+  'en-GB': enGb,
   nb: nb,
 };
 
-export type RawDictionary = typeof enGB;
+export type RawDictionary = typeof enGb;
 export type FlattenedDictionary = Flatten<RawDictionary>;
 
 export type Translator = PrimitiveTranslator<FlattenedDictionary & BaseRecordDict>;
@@ -35,7 +35,7 @@ const fallbackTranslator = ((path: string): string => path) as Translator;
 
 export const LocaleProvider: Component<LocaleProviderProps> = (props) => {
   const combinedDict = createMemo((): BaseRecordDict => {
-    const lib = libDicts[props.locale] ?? enGB;
+    const lib = libDicts[props.locale] ?? enGb;
     const merged = { ...lib, ...props.dict };
 
     return flatten(merged);
