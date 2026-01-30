@@ -18,6 +18,10 @@
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
     },
+    "./checkbox": {
+      "types": "./dist/components/Checkbox.d.ts",
+      "import": "./dist/components/Checkbox.js"
+    },
     "./dialog": {
       "types": "./dist/components/Dialog.d.ts",
       "import": "./dist/components/Dialog.js"
