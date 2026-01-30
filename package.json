@@ -50,6 +50,10 @@
       "types": "./dist/components/InputGroup.d.ts",
       "import": "./dist/components/InputGroup.js"
     },
+    "./item": {
+      "types": "./dist/components/Item.d.ts",
+      "import": "./dist/components/Item.js"
+    },
     "./label": {
       "types": "./dist/components/Label.d.ts",
       "import": "./dist/components/Label.js"
