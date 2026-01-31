@@ -1,5 +1,5 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, type JSXElement, splitProps, Index } from 'solid-js';
+import { type Component, type ComponentProps, splitProps, Index } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
@@ -18,7 +18,7 @@ export type PinInputFieldProps = ComponentProps<typeof PinInput> & {
 
 const DEFAULT_PIN_COUNT = 6;
 
-export const PinInputField: Component<PinInputFieldProps> = (props): JSXElement => {
+export const PinInputField: Component<PinInputFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [

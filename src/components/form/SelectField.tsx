@@ -1,5 +1,5 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import { Select, SelectControl, SelectTrigger, SelectValue } from '@/components/Select';
@@ -12,7 +12,7 @@ export type SelectFieldProps = ComponentProps<typeof Select> & {
   placeholder?: string;
 };
 
-export const SelectField: Component<SelectFieldProps> = (props): JSXElement => {
+export const SelectField: Component<SelectFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [

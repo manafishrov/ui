@@ -16,7 +16,7 @@ export const Switch: Component<SwitchProps> = (props) => {
   return (
     <SwitchPrimitive.Root
       class={cn(
-        'group/switch relative inline-flex items-center gap-2 transition-all outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50',
+        'group/switch relative inline-flex items-center gap-2 transition-all outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50 data-readonly:cursor-default',
         local.class,
       )}
       data-size={size}
@@ -28,8 +28,10 @@ export const Switch: Component<SwitchProps> = (props) => {
         class={cn(
           'inline-flex items-center shrink-0 rounded-full border border-transparent transition-all outline-none',
           'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
-          'data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:border-destructive/50 aria-invalid:ring-[3px]',
+          'data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:border-destructive/50',
           'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
+          'data-disabled:opacity-50',
+          'data-readonly:focus-visible:ring-0',
           'group-data-[size=default]/switch:h-[18.4px] group-data-[size=default]/switch:w-8 px-0.5',
           'group-data-[size=sm]/switch:h-3.5 group-data-[size=sm]/switch:w-6 px-0.5',
         )}

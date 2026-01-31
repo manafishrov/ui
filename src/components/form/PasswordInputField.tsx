@@ -1,5 +1,5 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
@@ -16,7 +16,7 @@ export type PasswordInputFieldProps = ComponentProps<typeof PasswordInputInput> 
   description?: string;
 };
 
-export const PasswordInputField: Component<PasswordInputFieldProps> = (props): JSXElement => {
+export const PasswordInputField: Component<PasswordInputFieldProps> = (props) => {
   const field = useFieldContext<string>();
   const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [

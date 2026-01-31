@@ -7,7 +7,7 @@ export const CheckboxGroup = CheckboxPrimitive.Group;
 export const CheckboxContext = CheckboxPrimitive.Context;
 
 export type CheckboxProps = CheckboxPrimitive.RootProps & {
-  label?: string;
+  label?: string | undefined;
 };
 
 export const Checkbox: Component<CheckboxProps> = (props) => {
@@ -16,7 +16,7 @@ export const Checkbox: Component<CheckboxProps> = (props) => {
   return (
     <CheckboxPrimitive.Root
       class={cn(
-        'group/checkbox relative inline-flex items-center gap-2 transition-all outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50',
+        'group/checkbox relative inline-flex items-center gap-2 transition-all outline-none data-disabled:cursor-not-allowed data-disabled:opacity-50 data-readonly:cursor-default',
         local.class,
       )}
       {...others}
@@ -29,7 +29,8 @@ export const Checkbox: Component<CheckboxProps> = (props) => {
           'data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:border-destructive/50',
           'data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary',
           'data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-primary-foreground data-[state=indeterminate]:border-primary',
-          'group-data-disabled/checkbox:opacity-50',
+          'data-disabled:opacity-50',
+          'data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
         )}
       >
         <CheckboxPrimitive.Indicator

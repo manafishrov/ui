@@ -1,5 +1,5 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import { TextInput, TextInputControl, TextInputInput } from '@/components/TextInput';
@@ -11,7 +11,7 @@ export type TextInputFieldProps = ComponentProps<typeof TextInputInput> & {
   description?: string;
 };
 
-export const TextInputField: Component<TextInputFieldProps> = (props): JSXElement => {
+export const TextInputField: Component<TextInputFieldProps> = (props) => {
   const field = useFieldContext<string>();
   const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [

@@ -1,5 +1,5 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, Show, splitProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
@@ -14,9 +14,10 @@ import { useFieldContext } from './context';
 export type NumberInputFieldProps = ComponentProps<typeof NumberInput> & {
   label?: string;
   description?: string;
+  triggers?: boolean;
 };
 
-export const NumberInputField: Component<NumberInputFieldProps> = (props): JSXElement => {
+export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
   const field = useFieldContext<number>();
   const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
@@ -25,14 +26,15 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props): JSXEl
     'required',
     'disabled',
     'readOnly',
+    'triggers',
   ]);
 
   return (
     <Field
       invalid={field().state.meta.errors.length > 0}
+      required={local.required ?? false}
       disabled={local.disabled ?? false}
       readOnly={local.readOnly ?? false}
-      required={local.required ?? false}
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
@@ -53,7 +55,9 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props): JSXEl
         >
           <NumberInputControl>
             <NumberInputInput />
-            <NumberInputTriggers />
+            <Show when={local.triggers !== false}>
+              <NumberInputTriggers />
+            </Show>
           </NumberInputControl>
         </NumberInput>
         <FieldDescription>{local.description}</FieldDescription>

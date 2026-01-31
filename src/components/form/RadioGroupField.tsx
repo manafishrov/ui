@@ -1,0 +1,44 @@
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
+
+import { Field, FieldContent, FieldError, FieldDescription } from '@/components/Field';
+import { RadioGroup } from '@/components/RadioGroup';
+
+import { useFieldContext } from './context';
+
+export type RadioGroupFieldProps = ComponentProps<typeof RadioGroup> & {
+  label?: string;
+  description?: string;
+};
+
+export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
+  const field = useFieldContext<string>();
+  const [local, others] = splitProps(props, ['description', 'required', 'disabled', 'readOnly']);
+
+  return (
+    <Field
+      invalid={field().state.meta.errors.length > 0}
+      required={local.required ?? false}
+      disabled={local.disabled ?? false}
+      readOnly={local.readOnly ?? false}
+    >
+      <FieldContent>
+        <RadioGroup
+          value={field().state.value}
+          onValueChange={(details) => {
+            field().handleChange(details.value ?? '');
+          }}
+          onBlur={() => {
+            field().handleBlur();
+          }}
+          invalid={field().state.meta.errors.length > 0}
+          disabled={local.disabled ?? false}
+          readOnly={local.readOnly ?? false}
+          required={local.required ?? false}
+          {...others}
+        />
+        <FieldDescription>{local.description}</FieldDescription>
+        <FieldError errors={field().state.meta.errors} />
+      </FieldContent>
+    </Field>
+  );
+};

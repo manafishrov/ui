@@ -1,27 +1,21 @@
-import {
-  type Component,
-  type ComponentProps,
-  splitProps,
-  type JSX,
-  type JSXElement,
-} from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { Textarea } from '@/components/Textarea';
 
-export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element => {
+export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
 
   return (
     <div
       data-slot='input-group'
       class={cn(
-        'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
+        'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
         'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
-        'has-data-disabled:bg-input/50 dark:has-data-disabled:bg-input/80 has-data-disabled:opacity-50',
+        'has-disabled:bg-input/50 dark:has-disabled:bg-input/80 has-disabled:opacity-50',
         'has-data-[align=block-end]:h-auto has-data-[align=block-end]:flex-col',
         'has-data-[align=block-start]:h-auto has-data-[align=block-start]:flex-col',
         'has-data-[align=block-end]:[&>input]:pt-3',
@@ -37,7 +31,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium has-data-disabled:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
+  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium group-data-disabled/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
   variants: {
     align: {
       'inline-start': 'pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem] order-first',
@@ -55,7 +49,7 @@ export const inputGroupAddonVariants = tv({
 export type InputGroupAddonProps = ComponentProps<'div'> &
   VariantProps<typeof inputGroupAddonVariants>;
 
-export const InputGroupAddon: Component<InputGroupAddonProps> = (props): JSX.Element => {
+export const InputGroupAddon: Component<InputGroupAddonProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'align', 'onClick']);
 
   return (
@@ -102,7 +96,7 @@ export const inputGroupButtonVariants = tv({
 export type InputGroupButtonProps = Omit<ComponentProps<typeof Button>, 'size'> &
   VariantProps<typeof inputGroupButtonVariants>;
 
-export const InputGroupButton: Component<InputGroupButtonProps> = (props): JSX.Element => {
+export const InputGroupButton: Component<InputGroupButtonProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'variant', 'size']);
 
   return (
@@ -115,7 +109,7 @@ export const InputGroupButton: Component<InputGroupButtonProps> = (props): JSX.E
   );
 };
 
-export const InputGroupText: Component<ComponentProps<'span'>> = (props): JSXElement => {
+export const InputGroupText: Component<ComponentProps<'span'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <span
@@ -128,7 +122,7 @@ export const InputGroupText: Component<ComponentProps<'span'>> = (props): JSXEle
   );
 };
 
-export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props): JSXElement => {
+export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <Input
@@ -142,9 +136,7 @@ export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props):
   );
 };
 
-export const InputGroupTextarea: Component<ComponentProps<typeof Textarea>> = (
-  props,
-): JSXElement => {
+export const InputGroupTextarea: Component<ComponentProps<typeof Textarea>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <Textarea
