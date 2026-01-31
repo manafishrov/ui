@@ -2,6 +2,8 @@ import { Progress as ProgressPrimitive } from '@ark-ui/solid/progress';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
+import { Label } from '@/components/Label';
+
 export const ProgressCircle = ProgressPrimitive.Circle;
 export const ProgressCircleRange = ProgressPrimitive.CircleRange;
 export const ProgressCircleTrack = ProgressPrimitive.CircleTrack;
@@ -14,7 +16,7 @@ export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
   return (
     <ProgressPrimitive.Root
       data-slot='progress'
-      class={cn('flex flex-wrap gap-3', local.class)}
+      class={cn('flex w-full flex-col gap-2', local.class)}
       {...others}
     />
   );
@@ -25,7 +27,7 @@ export const ProgressTrack: Component<ProgressPrimitive.TrackProps> = (props) =>
   return (
     <ProgressPrimitive.Track
       class={cn(
-        'bg-muted h-1 rounded-full relative flex w-full items-center overflow-x-hidden',
+        'bg-muted h-2 rounded-full relative flex w-full items-center overflow-x-hidden',
         local.class,
       )}
       data-slot='progress-track'
@@ -46,12 +48,19 @@ export const ProgressIndicator: Component<ProgressPrimitive.RangeProps> = (props
 };
 
 export const ProgressLabel: Component<ProgressPrimitive.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Label
-      class={cn('text-sm font-medium', local.class)}
-      data-slot='progress-label'
-      {...others}
+      asChild={(labelProps) => (
+        <Label
+          class={cn('text-sm font-medium', local.class)}
+          data-slot='progress-label'
+          {...labelProps()}
+          {...others}
+        >
+          {local.children}
+        </Label>
+      )}
     />
   );
 };

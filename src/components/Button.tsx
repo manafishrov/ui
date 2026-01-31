@@ -1,7 +1,13 @@
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
-import { type VariantProps, tv } from 'tailwind-variants';
+import { type Component, type ComponentProps, Show, splitProps } from 'solid-js';
+import { type VariantProps, cn, tv } from 'tailwind-variants';
 
-type ButtonProps = Omit<ComponentProps<'button'>, 'size'> & VariantProps<typeof buttonVariants>;
+import { Separator } from '@/components/Separator';
+import { Spinner } from '@/components/Spinner';
+
+export type ButtonProps = Omit<ComponentProps<'button'>, 'size'> &
+  VariantProps<typeof buttonVariants> & {
+    loading?: boolean;
+  };
 
 export const buttonVariants = tv({
   base: "cursor-pointer focus-visible:border-ring focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 rounded-lg border border-transparent bg-clip-padding text-sm font-medium focus-visible:ring-[3px] data-invalid:ring-[3px] [&_svg:not([class*='size-'])]:size-4 inline-flex items-center justify-center whitespace-nowrap transition-all disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none group/button select-none",
@@ -38,11 +44,81 @@ export const buttonVariants = tv({
   },
 });
 
+export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
+
 export const Button: Component<ButtonProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'size', 'variant']);
+  const [local, others] = splitProps(props, ['class', 'size', 'variant', 'loading', 'children']);
   return (
     <button
       class={buttonVariants({ class: local.class, size: local.size, variant: local.variant })}
+      disabled={local.loading}
+      data-loading={local.loading}
+      {...others}
+    >
+      <Show when={local.loading}>
+        <Spinner />
+      </Show>
+      {local.children}
+    </button>
+  );
+};
+
+export const buttonGroupVariants = tv({
+  base: "has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-lg flex w-fit items-stretch [&>*]:focus-visible:z-10 [&>*]:focus-visible:relative [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
+  variants: {
+    orientation: {
+      horizontal:
+        '[&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-lg! [&>[data-slot]~[data-slot]]:rounded-l-none [&>[data-slot]~[data-slot]]:border-l-0 [&>[data-slot]]:rounded-r-none',
+      vertical:
+        '[&>[data-slot]:not(:has(~[data-slot]))]:rounded-b-lg! flex-col [&>[data-slot]~[data-slot]]:rounded-t-none [&>[data-slot]~[data-slot]]:border-t-0 [&>[data-slot]]:rounded-b-none',
+    },
+  },
+  defaultVariants: {
+    orientation: 'horizontal',
+  },
+});
+
+export const ButtonGroup: Component<
+  ComponentProps<'div'> & VariantProps<typeof buttonGroupVariants>
+> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'orientation']);
+  return (
+    <div
+      role='group'
+      data-slot='button-group'
+      data-orientation={local.orientation ?? 'horizontal'}
+      class={buttonGroupVariants({ orientation: local.orientation, class: local.class })}
+      {...others}
+    />
+  );
+};
+
+export const ButtonGroupText: Component<ComponentProps<'div'>> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <div
+      data-slot='button-group-text'
+      class={cn(
+        "bg-muted gap-2 rounded-lg border px-2.5 text-sm font-medium [&_svg:not([class*='size-'])]:size-4 flex items-center [&_svg]:pointer-events-none",
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const ButtonGroupSeparator: Component<
+  ComponentProps<typeof Separator> & { orientation?: 'horizontal' | 'vertical' }
+> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'orientation']);
+  return (
+    <Separator
+      data-slot='button-group-separator'
+      orientation={local.orientation ?? 'vertical'}
+      class={cn(
+        'bg-input relative self-stretch data-[orientation=horizontal]:mx-px data-[orientation=horizontal]:w-auto data-[orientation=vertical]:my-px data-[orientation=vertical]:h-auto',
+        local.class,
+      )}
       {...others}
     />
   );

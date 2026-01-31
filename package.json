@@ -22,6 +22,14 @@
       "types": "./dist/components/AlertDialog.d.ts",
       "import": "./dist/components/AlertDialog.js"
     },
+    "./aspect-ratio": {
+      "types": "./dist/components/AspectRatio.d.ts",
+      "import": "./dist/components/AspectRatio.js"
+    },
+    "./avatar": {
+      "types": "./dist/components/Avatar.d.ts",
+      "import": "./dist/components/Avatar.js"
+    },
     "./badge": {
       "types": "./dist/components/Badge.d.ts",
       "import": "./dist/components/Badge.js"
@@ -34,9 +42,21 @@
       "types": "./dist/components/Card.d.ts",
       "import": "./dist/components/Card.js"
     },
+    "./carousel": {
+      "types": "./dist/components/Carousel.d.ts",
+      "import": "./dist/components/Carousel.js"
+    },
     "./checkbox": {
       "types": "./dist/components/Checkbox.d.ts",
       "import": "./dist/components/Checkbox.js"
+    },
+    "./collapsible": {
+      "types": "./dist/components/Collapsible.d.ts",
+      "import": "./dist/components/Collapsible.js"
+    },
+    "./combobox": {
+      "types": "./dist/components/Combobox.d.ts",
+      "import": "./dist/components/Combobox.js"
     },
     "./dialog": {
       "types": "./dist/components/Dialog.d.ts",
