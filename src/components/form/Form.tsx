@@ -7,6 +7,7 @@ import { PasswordInputField } from './PasswordInputField';
 import { PinInputField } from './PinInputField';
 import { RadioGroupField } from './RadioGroupField';
 import { SelectField } from './SelectField';
+import { SliderField } from './SliderField';
 import { SubmitButton } from './SubmitButton';
 import { SwitchField } from './SwitchField';
 import { TextareaField } from './TextareaField';
@@ -24,6 +25,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
     PinInputField,
     RadioGroupField,
     SelectField,
+    SliderField,
     SwitchField,
   },
   formComponents: {

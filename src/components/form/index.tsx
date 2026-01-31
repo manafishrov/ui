@@ -9,4 +9,5 @@ export * from './SelectField';
 export * from './CheckboxField';
 export * from './SwitchField';
 export * from './RadioGroupField';
+export * from './SliderField';
 export * from './SubmitButton';
