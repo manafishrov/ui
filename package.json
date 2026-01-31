@@ -34,6 +34,10 @@
       "types": "./dist/components/Badge.d.ts",
       "import": "./dist/components/Badge.js"
     },
+    "./breadcrumb": {
+      "types": "./dist/components/Breadcrumb.d.ts",
+      "import": "./dist/components/Breadcrumb.js"
+    },
     "./button": {
       "types": "./dist/components/Button.d.ts",
       "import": "./dist/components/Button.js"
@@ -89,6 +93,10 @@
     "./link": {
       "types": "./dist/components/Link.d.ts",
       "import": "./dist/components/Link.js"
+    },
+    "./menu": {
+      "types": "./dist/components/Menu.d.ts",
+      "import": "./dist/components/Menu.js"
     },
     "./navigation-menu": {
       "types": "./dist/components/NavigationMenu.d.ts",
