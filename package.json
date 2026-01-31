@@ -46,6 +46,10 @@
       "types": "./dist/components/Empty.d.ts",
       "import": "./dist/components/Empty.js"
     },
+    "./field": {
+      "types": "./dist/components/Field.d.ts",
+      "import": "./dist/components/Field.js"
+    },
     "./input": {
       "types": "./dist/components/Input.d.ts",
       "import": "./dist/components/Input.js"

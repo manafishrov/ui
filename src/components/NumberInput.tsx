@@ -29,7 +29,7 @@ export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = 
       data-slot='number-input-control'
       class={cn(
         'border-input dark:bg-input/30 group/number-input-control relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-        'data-focus:border-ring data-focus:ring-ring/50 data-focus:ring-[3px]',
+        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
         'data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
         'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
         local.class,
@@ -65,7 +65,7 @@ export const NumberInputTriggerGroup: Component<ComponentProps<'div'>> = (props)
       data-slot='number-input-trigger-group'
       class={cn(
         'border-input absolute top-0 right-0 flex h-full flex-col border-l transition-colors',
-        'group-data-focus/number-input-control:border-ring group-data-invalid/number-input-control:border-destructive',
+        'group-has-focus-visible/number-input-control:border-ring group-data-invalid/number-input-control:border-destructive',
         local.class,
       )}
       {...others}

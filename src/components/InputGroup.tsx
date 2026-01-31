@@ -13,7 +13,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element
       data-slot='input-group'
       class={cn(
         'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
-        'has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50 has-[[data-slot=input-group-control]:focus-visible]:ring-[3px]',
+        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
         'has-data-invalid:ring-destructive/20 has-data-invalid:border-destructive dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
         'has-disabled:bg-input/50 dark:has-disabled:bg-input/80 has-disabled:opacity-50',
         'has-data-[align=block-end]:h-auto has-data-[align=block-end]:flex-col',
