@@ -6,6 +6,8 @@ import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
 import { Textarea } from '@/components/Textarea';
 
+import { FieldDescription, FieldError } from './Field';
+
 export const TextInput = PrimitiveField.Root;
 
 export const TextInputLabel: Component<PrimitiveField.LabelProps> = (props) => {
@@ -34,10 +36,10 @@ export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
           data-readonly={field().readOnly ? '' : false}
           class={cn(
             'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-            'has-[:focus-visible]:border-ring has-[:focus-visible]:ring-ring/50 has-[:focus-visible]:ring-[3px]',
+            'has-focus-visible:border-ring has-focus-visible:ing-ring/50 has-focus-visible:ring-[3px]',
             'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
             'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
-            'data-readonly:has-[:focus-visible]:ring-0 data-readonly:has-[:focus-visible]:border-input',
+            'data-readonly:has-focus-visible:ring-0 data-readonly:has-focus-visible:border-input',
             'has-[textarea]:h-auto',
             local.class,
           )}
@@ -75,5 +77,5 @@ export const TextInputArea: Component<PrimitiveField.TextareaProps> = (props) =>
   );
 };
 
-export const TextInputHelperText = PrimitiveField.HelperText;
-export const TextInputErrorText = PrimitiveField.ErrorText;
+export const TextInputHelperText = FieldDescription;
+export const TextInputErrorText = FieldError;

@@ -34,7 +34,7 @@ export const TabsTrigger: Component<TabsPrimitive.TriggerProps> = (props) => {
       data-slot='tabs-trigger'
       class={cn(
         'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-        'data-[selected]:bg-background data-[selected]:text-foreground data-[selected]:shadow-sm',
+        'data-selected:bg-background data-selected:text-foreground data-selected:shadow-sm',
         local.class,
       )}
       {...others}
@@ -62,7 +62,7 @@ export const TabsIndicator: Component<TabsPrimitive.IndicatorProps> = (props) =>
     <TabsPrimitive.Indicator
       data-slot='tabs-indicator'
       class={cn(
-        'bg-primary absolute bottom-0 left-0 h-0.5 w-[var(--width)] translate-x-[var(--left)] transition-[width,transform]',
+        'bg-primary absolute bottom-0 left-0 h-0.5 w-(--width) translate-x-(--left) transition-[width,transform]',
         local.class,
       )}
       {...others}

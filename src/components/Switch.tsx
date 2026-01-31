@@ -40,7 +40,7 @@ export const SwitchControl: Component<SwitchPrimitive.ControlProps> = (props) =>
         'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
         'data-disabled:opacity-50',
         'data-readonly:data-focus-visible:ring-0',
-        'group-data-[size=default]/switch:h-[20px] group-data-[size=default]/switch:w-9 px-0.5',
+        'group-data-[size=default]/switch:h-5 group-data-[size=default]/switch:w-9 px-0.5',
         'group-data-[size=sm]/switch:h-4 group-data-[size=sm]/switch:w-7 px-0.5',
         local.class,
       )}

@@ -40,9 +40,9 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
       data-slot='input-group'
       class={cn(
         'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
-        'has-[:focus-visible]:border-ring has-[:focus-visible]:ring-ring/50 has-[:focus-visible]:ring-[3px]',
-        'has-[[data-invalid]]:border-destructive has-[[data-invalid]]:ring-destructive/20 dark:has-[[data-invalid]]:ring-destructive/40 has-[[data-invalid]]:ring-[3px]',
-        'has-[:disabled]:bg-input/50 dark:has-[:disabled]:bg-input/80 has-[:disabled]:opacity-50',
+        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
+        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
+        'has-disabled:bg-input/50 dark:has-disabled:bg-input/80 has-disabled:opacity-50',
         'has-data-[align=block-end]:h-auto has-data-[align=block-end]:flex-col',
         'has-data-[align=block-start]:h-auto has-data-[align=block-start]:flex-col',
         'has-data-[align=block-end]:[&>input]:pt-3',
