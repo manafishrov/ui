@@ -62,6 +62,10 @@
       "types": "./dist/components/Combobox.d.ts",
       "import": "./dist/components/Combobox.js"
     },
+    "./date-picker": {
+      "types": "./dist/components/DatePicker.d.ts",
+      "import": "./dist/components/DatePicker.js"
+    },
     "./dialog": {
       "types": "./dist/components/Dialog.d.ts",
       "import": "./dist/components/Dialog.js"

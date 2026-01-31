@@ -26,6 +26,7 @@ export default defineConfig({
         'src/components/Checkbox.tsx',
         'src/components/Collapsible.tsx',
         'src/components/Combobox.tsx',
+        'src/components/DatePicker.tsx',
         'src/components/Dialog.tsx',
         'src/components/Empty.tsx',
         'src/components/Field.tsx',

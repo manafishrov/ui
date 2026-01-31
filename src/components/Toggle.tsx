@@ -4,7 +4,7 @@ import { createContext, useContext, type Component, type JSX, splitProps } from 
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 export const toggleVariants = tv({
-  base: 'hover:text-foreground data-[state=on]:bg-muted data-[pressed]:bg-muted focus-visible:border-ring focus-visible:ring-ring/50 data-[invalid]:ring-destructive/20 dark:data-[invalid]:ring-destructive/40 data-[invalid]:border-destructive gap-1 rounded-lg text-sm font-medium transition-all [&_svg:not([class*="size-"])]:size-4 group/toggle hover:bg-muted inline-flex items-center justify-center whitespace-nowrap outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+  base: 'hover:text-foreground data-[state=on]:bg-muted data-pressed:bg-muted focus-visible:border-ring focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive gap-1 rounded-lg text-sm font-medium transition-all [&_svg:not([class*="size-"])]:size-4 group/toggle hover:bg-muted inline-flex items-center justify-center whitespace-nowrap outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
   variants: {
     variant: {
       default: 'bg-transparent',
@@ -78,7 +78,7 @@ export const ToggleGroup: Component<ToggleGroupProps> = (props) => {
       orientation={local.orientation ?? 'horizontal'}
       style={{ '--gap': `${contextValue.spacing}px` } as JSX.CSSProperties}
       class={cn(
-        'rounded-lg data-[size=sm]:rounded-[min(var(--radius-md),10px)] group/toggle-group flex w-fit flex-row items-center gap-[--gap] data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch',
+        'rounded-lg data-[size=sm]:rounded-[min(var(--radius-md),10px)] group/toggle-group flex w-fit flex-row items-center gap-[var(--gap)] data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch',
         local.class,
       )}
       {...others}
