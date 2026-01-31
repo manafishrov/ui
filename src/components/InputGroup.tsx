@@ -18,7 +18,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element
     <div
       data-slot='input-group'
       class={cn(
-        'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
+        'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
         'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
         'has-data-disabled:bg-input/50 dark:has-data-disabled:bg-input/80 has-data-disabled:opacity-50',
@@ -37,7 +37,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium has-disabled:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
+  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium has-data-disabled:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
   variants: {
     align: {
       'inline-start': 'pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem] order-first',

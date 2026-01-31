@@ -69,7 +69,7 @@ export const SelectTrigger: Component<SelectTriggerProps> = (props) => {
       data-size={size}
       class={cn(
         'border-input data-placeholder:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 transition-colors select-none rounded-lg border bg-transparent py-2 pr-2 pl-2.5 text-sm flex w-fit items-center justify-between whitespace-nowrap outline-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:items-center [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*="size-"])]:size-4',
-        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
+        'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
         'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
         'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
         'data-readonly:cursor-default data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
