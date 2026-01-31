@@ -15,6 +15,7 @@ import { Label } from '@/components/Label';
 import { Separator } from '@/components/Separator';
 
 export { useFieldset } from '@ark-ui/solid/fieldset';
+export const FieldContext = PrimitiveField.Context;
 
 export const FieldSet: Component<PrimitiveFieldset.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -113,7 +114,7 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
       asChild={(labelProps) => (
         <Label
           class={cn(
-            'has-data-checked:bg-primary/5 has-data-checked:border-primary/30 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10 gap-2 group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border *:data-[slot=field]:p-2.5 group/field-label peer/field-label flex w-fit leading-snug',
+            'has-[[data-state=checked]]:bg-primary/5 has-[[data-state=checked]]:border-primary/30 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10 gap-2 group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border *:data-[slot=field]:p-2.5 group/field-label peer/field-label flex w-fit leading-snug',
             'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
             local.class,
           )}

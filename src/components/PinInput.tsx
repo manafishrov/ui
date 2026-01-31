@@ -7,11 +7,15 @@ import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
 
 export const PinInputHiddenInput = PrimitivePinInput.HiddenInput;
+export const PinInputContext = PrimitivePinInput.Context;
 
 export const PinInput: Component<PrimitivePinInput.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <PrimitivePinInput.Root class={cn('flex w-full flex-col gap-1.5', local.class)} {...others} />
+    <PrimitivePinInput.Root
+      class={cn('group/pin-input flex w-full flex-col gap-1.5', local.class)}
+      {...others}
+    />
   );
 };
 
@@ -45,8 +49,8 @@ export const PinInputGroup: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='pin-input-group'
       class={cn(
-        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px] flex items-center',
-        'has-data-disabled:opacity-50',
+        'group-data-invalid/pin-input:border-destructive group-data-invalid/pin-input:ring-destructive/20 dark:group-data-invalid/pin-input:ring-destructive/40 group-data-invalid/pin-input:ring-[3px] flex items-center',
+        'group-data-disabled/pin-input:opacity-50',
         local.class,
       )}
       {...others}

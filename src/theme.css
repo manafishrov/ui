@@ -76,7 +76,7 @@
 }
 
 @theme inline {
-  --font-sans:
+  --font-default:
     'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-heading:
@@ -128,14 +128,5 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading;
   }
 }

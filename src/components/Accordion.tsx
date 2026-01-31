@@ -1,5 +1,5 @@
 import { Accordion as AccordionPrimitive } from '@ark-ui/solid/accordion';
-import { MdOutlineExpand_less, MdOutlineExpand_more } from 'solid-icons/md';
+import { MdOutlineExpand_more } from 'solid-icons/md';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -29,30 +29,33 @@ export const AccordionItem: Component<AccordionPrimitive.ItemProps> = (props) =>
 };
 
 export const AccordionTrigger: Component<AccordionPrimitive.ItemTriggerProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class']);
   return (
     <AccordionPrimitive.ItemTrigger
       data-slot='accordion-trigger'
       class={cn(
-        'focus-visible:ring-ring/50 focus-visible:border-ring rounded-lg py-2.5 text-left text-sm font-medium hover:underline focus-visible:ring-[3px] border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50',
-        'group/accordion-trigger relative flex flex-1 items-start justify-between',
-        '**:data-[slot=accordion-trigger-icon]:text-muted-foreground **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4',
+        'focus-visible:ring-ring/50 focus-visible:border-ring rounded-lg py-4 text-left text-sm font-medium hover:underline focus-visible:ring-[3px] border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50',
+        'relative flex flex-1 items-center justify-between',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const AccordionIndicator: Component<AccordionPrimitive.ItemIndicatorProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <AccordionPrimitive.ItemIndicator
+      data-slot='accordion-indicator'
+      class={cn(
+        'text-muted-foreground ml-auto size-4 shrink-0 transition-transform duration-200 data-[state=open]:rotate-180',
         local.class,
       )}
       {...others}
     >
-      {local.children}
-      <MdOutlineExpand_more
-        data-slot='accordion-trigger-icon'
-        class='pointer-events-none shrink-0 transition-transform duration-200 group-data-[state=open]/accordion-trigger:hidden'
-        aria-hidden='true'
-      />
-      <MdOutlineExpand_less
-        data-slot='accordion-trigger-icon'
-        class='pointer-events-none hidden shrink-0 transition-transform duration-200 group-data-[state=open]/accordion-trigger:inline'
-        aria-hidden='true'
-      />
-    </AccordionPrimitive.ItemTrigger>
+      <MdOutlineExpand_more aria-hidden='true' class='size-full' />
+    </AccordionPrimitive.ItemIndicator>
   );
 };
 
@@ -67,7 +70,7 @@ export const AccordionContent: Component<AccordionPrimitive.ItemContentProps> = 
       )}
       {...others}
     >
-      <div class='pt-0 pb-2.5 transition-all'>
+      <div class='pt-0 pb-4'>
         <div class='[&_a]:hover:text-foreground [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4'>
           {local.children}
         </div>

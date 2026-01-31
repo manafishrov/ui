@@ -1,7 +1,6 @@
 import { Dialog as DialogPrimitive } from '@ark-ui/solid/dialog';
 import { MdOutlineClose } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
-import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
@@ -10,8 +9,7 @@ import { useLocale } from '@/Locale';
 export const Dialog = DialogPrimitive.Root;
 export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogContext = DialogPrimitive.Context;
-export const DialogPositioner = DialogPrimitive.Positioner;
-export const DialogClose = DialogPrimitive.CloseTrigger;
+export const DialogCloseTrigger = DialogPrimitive.CloseTrigger;
 
 export const DialogOverlay: Component<DialogPrimitive.BackdropProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -29,47 +27,53 @@ export const DialogOverlay: Component<DialogPrimitive.BackdropProps> = (props) =
   );
 };
 
-export type DialogContentProps = DialogPrimitive.ContentProps & {
-  showCloseButton?: boolean;
+export const DialogPositioner: Component<DialogPrimitive.PositionerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <DialogPrimitive.Positioner
+      data-slot='dialog-positioner'
+      class={cn('fixed inset-0 z-50 flex items-center justify-center', local.class)}
+      {...others}
+    />
+  );
 };
 
-export const DialogContent: Component<DialogContentProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children', 'showCloseButton']);
+export const DialogContent: Component<DialogPrimitive.ContentProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+
+  return (
+    <DialogPrimitive.Content
+      data-slot='dialog-content'
+      class={cn(
+        'bg-background ring-foreground/10 grid w-full max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 shadow-lg duration-100 sm:max-w-sm outline-none isolate relative',
+        'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const DialogCloseButton: Component<DialogPrimitive.CloseTriggerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
   const t = useLocale();
 
   return (
-    <Portal>
-      <DialogOverlay />
-      <DialogPrimitive.Positioner class='fixed inset-0 z-50 flex items-center justify-center'>
-        <DialogPrimitive.Content
-          data-slot='dialog-content'
-          class={cn(
-            'bg-background ring-foreground/10 grid w-full max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 shadow-lg duration-100 sm:max-w-sm outline-none isolate',
-            'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
-            'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
-            local.class,
-          )}
+    <DialogPrimitive.CloseTrigger
+      class={cn('absolute top-2 right-2', local.class)}
+      asChild={(triggerProps) => (
+        <Button
+          variant='ghost'
+          size='icon-sm'
+          aria-label={t('ui.common.close')}
+          {...triggerProps()}
           {...others}
         >
-          {local.children}
-          {(typeof local.showCloseButton !== 'boolean' || local.showCloseButton) && (
-            <DialogPrimitive.CloseTrigger
-              class='absolute top-2 right-2'
-              asChild={(triggerProps) => (
-                <Button
-                  variant='ghost'
-                  size='icon-sm'
-                  aria-label={t('ui.common.close')}
-                  {...triggerProps}
-                >
-                  <MdOutlineClose aria-hidden='true' />
-                </Button>
-              )}
-            />
-          )}
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Positioner>
-    </Portal>
+          <MdOutlineClose aria-hidden='true' />
+        </Button>
+      )}
+    />
   );
 };
 
@@ -80,13 +84,8 @@ export const DialogHeader: Component<ComponentProps<'div'>> = (props) => {
   );
 };
 
-export type DialogFooterProps = ComponentProps<'div'> & {
-  showCloseButton?: boolean;
-};
-
-export const DialogFooter: Component<DialogFooterProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'showCloseButton', 'children']);
-  const t = useLocale();
+export const DialogFooter: Component<ComponentProps<'div'>> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
 
   return (
     <div
@@ -96,18 +95,7 @@ export const DialogFooter: Component<DialogFooterProps> = (props) => {
         local.class,
       )}
       {...others}
-    >
-      {local.children}
-      {typeof local.showCloseButton === 'boolean' && local.showCloseButton && (
-        <DialogPrimitive.CloseTrigger
-          asChild={(triggerProps) => (
-            <Button variant='outline' {...triggerProps}>
-              {String(t('common.close'))}
-            </Button>
-          )}
-        />
-      )}
-    </div>
+    />
   );
 };
 

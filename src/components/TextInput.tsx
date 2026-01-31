@@ -6,12 +6,7 @@ import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
 import { Textarea } from '@/components/Textarea';
 
-export const TextInput: Component<PrimitiveField.RootProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
-  return (
-    <PrimitiveField.Root class={cn('flex w-full flex-col gap-1.5', local.class)} {...others} />
-  );
-};
+export const TextInput = PrimitiveField.Root;
 
 export const TextInputLabel: Component<PrimitiveField.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
@@ -30,19 +25,26 @@ export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
 
   return (
-    <div
-      data-slot='text-input-control'
-      class={cn(
-        'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
-        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
-        'has-data-disabled:bg-input/50 dark:has-data-disabled:bg-input/80 has-data-disabled:opacity-50',
-        'has-data-readonly:has-focus-visible:ring-0 has-data-readonly:has-focus-visible:border-input',
-        'has-[textarea]:h-auto',
-        local.class,
+    <PrimitiveField.Context>
+      {(field) => (
+        <div
+          data-slot='text-input-control'
+          data-disabled={field().disabled ? '' : false}
+          data-invalid={field().invalid ? '' : false}
+          data-readonly={field().readOnly ? '' : false}
+          class={cn(
+            'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
+            'has-[:focus-visible]:border-ring has-[:focus-visible]:ring-ring/50 has-[:focus-visible]:ring-[3px]',
+            'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
+            'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
+            'data-readonly:has-[:focus-visible]:ring-0 data-readonly:has-[:focus-visible]:border-input',
+            'has-[textarea]:h-auto',
+            local.class,
+          )}
+          {...others}
+        />
       )}
-      {...others}
-    />
+    </PrimitiveField.Context>
   );
 };
 
@@ -72,3 +74,6 @@ export const TextInputArea: Component<PrimitiveField.TextareaProps> = (props) =>
     />
   );
 };
+
+export const TextInputHelperText = PrimitiveField.HelperText;
+export const TextInputErrorText = PrimitiveField.ErrorText;

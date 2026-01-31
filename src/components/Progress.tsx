@@ -9,20 +9,14 @@ export const ProgressView = ProgressPrimitive.View;
 export const ProgressContext = ProgressPrimitive.Context;
 
 export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children', 'value']);
+  const [local, others] = splitProps(props, ['class']);
 
   return (
     <ProgressPrimitive.Root
-      value={local.value}
       data-slot='progress'
       class={cn('flex flex-wrap gap-3', local.class)}
       {...others}
-    >
-      {local.children}
-      <ProgressTrack>
-        <ProgressIndicator />
-      </ProgressTrack>
-    </ProgressPrimitive.Root>
+    />
   );
 };
 

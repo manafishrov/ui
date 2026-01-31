@@ -1,16 +1,30 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, type JSX, splitProps } from 'solid-js';
 
-import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
+import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {
   Select,
   SelectContent,
   SelectControl,
+  SelectPositioner,
   SelectTrigger,
   SelectValue,
 } from '@/components/Select';
 
 import { useFieldContext } from './context';
+
+const SelectInput: Component<{ placeholder: string; children: JSX.Element }> = (props) => (
+  <>
+    <SelectControl>
+      <SelectTrigger>
+        <SelectValue placeholder={props.placeholder} />
+      </SelectTrigger>
+    </SelectControl>
+    <SelectPositioner>
+      <SelectContent>{props.children}</SelectContent>
+    </SelectPositioner>
+  </>
+);
 
 export type SelectFieldProps = ComponentProps<typeof Select> & {
   label?: string;
@@ -55,12 +69,7 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
           required={local.required ?? false}
           {...others}
         >
-          <SelectControl>
-            <SelectTrigger>
-              <SelectValue placeholder={local.placeholder ?? ''} />
-            </SelectTrigger>
-          </SelectControl>
-          <SelectContent>{local.children}</SelectContent>
+          <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
         </Select>
         <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />

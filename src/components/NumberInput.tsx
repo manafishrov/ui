@@ -6,6 +6,8 @@ import { cn } from 'tailwind-variants';
 import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
 
+export const NumberInputContext = PrimitiveNumberInput.Context;
+
 export const NumberInput: Component<PrimitiveNumberInput.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -37,10 +39,10 @@ export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = 
       data-slot='number-input-control'
       class={cn(
         'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-        'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
+        'data-focus:border-ring data-focus:ring-ring/50 data-focus:ring-[3px]',
         'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
         'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
-        'data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
+        'data-readonly:data-focus:ring-0 data-readonly:data-focus:border-input',
         local.class,
       )}
       {...others}
@@ -70,22 +72,28 @@ export const NumberInputInput: Component<PrimitiveNumberInput.InputProps> = (pro
 export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <div
-      data-slot='number-input-triggers'
-      class={cn(
-        'border-input absolute top-0 right-0 flex h-full flex-col border-l transition-colors',
-        'group-has-focus-visible/number-input:border-ring group-data-invalid/number-input:border-destructive',
-        local.class,
+    <PrimitiveNumberInput.Context>
+      {(api) => (
+        <div
+          data-slot='number-input-triggers'
+          data-focus={api().focused ? '' : false}
+          data-invalid={api().invalid ? '' : false}
+          class={cn(
+            'border-input absolute top-0 right-0 flex h-full flex-col border-l transition-colors',
+            'data-focus:border-ring data-invalid:border-destructive',
+            local.class,
+          )}
+          {...others}
+        >
+          {local.children ?? (
+            <>
+              <NumberInputIncrementTrigger />
+              <NumberInputDecrementTrigger />
+            </>
+          )}
+        </div>
       )}
-      {...others}
-    >
-      {local.children ?? (
-        <>
-          <NumberInputIncrementTrigger />
-          <NumberInputDecrementTrigger />
-        </>
-      )}
-    </div>
+    </PrimitiveNumberInput.Context>
   );
 };
 

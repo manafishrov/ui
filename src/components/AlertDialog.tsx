@@ -1,6 +1,5 @@
 import { Dialog as AlertDialogPrimitive } from '@ark-ui/solid/dialog';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
-import { Portal } from 'solid-js/web';
 import { cn, type VariantProps } from 'tailwind-variants';
 
 import { Button, type buttonVariants } from '@/components/Button';
@@ -10,6 +9,7 @@ export const AlertDialog: Component<AlertDialogPrimitive.RootProps> = (props) =>
 );
 
 export const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
+export const AlertDialogContext = AlertDialogPrimitive.Context;
 
 export const AlertDialogOverlay: Component<AlertDialogPrimitive.BackdropProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -27,35 +27,39 @@ export const AlertDialogOverlay: Component<AlertDialogPrimitive.BackdropProps> =
   );
 };
 
+export const AlertDialogPositioner: Component<AlertDialogPrimitive.PositionerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <AlertDialogPrimitive.Positioner
+      data-slot='alert-dialog-positioner'
+      class={cn('fixed inset-0 z-50 flex items-center justify-center', local.class)}
+      {...others}
+    />
+  );
+};
+
 export type AlertDialogContentProps = AlertDialogPrimitive.ContentProps & {
   size?: 'default' | 'sm';
 };
 
 export const AlertDialogContent: Component<AlertDialogContentProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children', 'size']);
+  const [local, others] = splitProps(props, ['class', 'size']);
   const size = local.size ?? 'default';
 
   return (
-    <Portal>
-      <AlertDialogOverlay />
-      <AlertDialogPrimitive.Positioner class='fixed inset-0 z-50 flex items-center justify-center'>
-        <AlertDialogPrimitive.Content
-          data-slot='alert-dialog-content'
-          data-size={size}
-          class={cn(
-            'bg-background ring-foreground/10 fixed z-50 grid w-full gap-4 rounded-xl p-4 ring-1 shadow-lg duration-100 outline-none isolate',
-            'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
-            'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
-            'data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',
-            'group/alert-dialog-content',
-            local.class,
-          )}
-          {...others}
-        >
-          {local.children}
-        </AlertDialogPrimitive.Content>
-      </AlertDialogPrimitive.Positioner>
-    </Portal>
+    <AlertDialogPrimitive.Content
+      data-slot='alert-dialog-content'
+      data-size={size}
+      class={cn(
+        'bg-background ring-foreground/10 grid w-full gap-4 rounded-xl p-4 ring-1 shadow-lg duration-100 outline-none isolate relative',
+        'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+        'data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',
+        'group/alert-dialog-content',
+        local.class,
+      )}
+      {...others}
+    />
   );
 };
 
@@ -156,10 +160,10 @@ export const AlertDialogCancel: Component<AlertDialogCancelProps> = (props) => {
           variant={local.variant ?? 'outline'}
           size={local.size ?? 'default'}
           class={cn(local.class)}
-          {...triggerProps}
+          {...triggerProps()}
+          {...others}
         />
       )}
-      {...others}
     />
   );
 };

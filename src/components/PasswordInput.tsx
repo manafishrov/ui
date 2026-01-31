@@ -6,15 +6,8 @@ import { cn } from 'tailwind-variants';
 import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
 
-export const PasswordInput: Component<PrimitivePasswordInput.RootProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
-  return (
-    <PrimitivePasswordInput.Root
-      class={cn('group/password-input flex w-full flex-col gap-1.5', local.class)}
-      {...others}
-    />
-  );
-};
+export const PasswordInput = PrimitivePasswordInput.Root;
+export const PasswordInputContext = PrimitivePasswordInput.Context;
 
 export const PasswordInputLabel: Component<PrimitivePasswordInput.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
@@ -33,14 +26,14 @@ export const PasswordInputControl: Component<PrimitivePasswordInput.ControlProps
   const [local, others] = splitProps(props, ['class']);
 
   return (
-    <div
+    <PrimitivePasswordInput.Control
       data-slot='password-input-control'
       class={cn(
         'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
-        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
-        'has-data-disabled:bg-input/50 dark:has-data-disabled:bg-input/80 has-data-disabled:opacity-50',
-        'has-data-readonly:has-focus-visible:ring-0 has-data-readonly:has-focus-visible:border-input',
+        'data-focus:border-ring data-focus:ring-ring/50 data-focus:ring-[3px]',
+        'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
+        'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
+        'data-readonly:data-focus:ring-0 data-readonly:data-focus:border-input',
         local.class,
       )}
       {...others}
@@ -67,22 +60,29 @@ export const PasswordInputInput: Component<PrimitivePasswordInput.InputProps> = 
 export const PasswordInputVisibilityTrigger: Component<
   PrimitivePasswordInput.VisibilityTriggerProps
 > = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.VisibilityTrigger
       data-slot='password-input-visibility-trigger'
       class={cn(
         'text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-50 absolute top-0 right-0 flex h-full w-9 cursor-pointer items-center justify-center transition-colors outline-none focus-visible:bg-muted focus-visible:text-foreground',
-        'group-has-focus-visible/password-input:text-foreground',
+        'data-focus:text-foreground',
         local.class,
       )}
       {...others}
+    />
+  );
+};
+
+export const PasswordInputIndicator: Component<PrimitivePasswordInput.IndicatorProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <PrimitivePasswordInput.Indicator
+      class={cn(local.class)}
+      fallback={local.children ?? <MdOutlineVisibility_off class='size-4' />}
+      {...others}
     >
-      {local.children ?? (
-        <PrimitivePasswordInput.Indicator fallback={<MdOutlineVisibility_off class='size-4' />}>
-          <MdOutlineVisibility class='size-4' />
-        </PrimitivePasswordInput.Indicator>
-      )}
-    </PrimitivePasswordInput.VisibilityTrigger>
+      <MdOutlineVisibility class='size-4' />
+    </PrimitivePasswordInput.Indicator>
   );
 };

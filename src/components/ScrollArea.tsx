@@ -2,51 +2,67 @@ import { ScrollArea as ScrollAreaPrimitive } from '@ark-ui/solid/scroll-area';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const ScrollBar: Component<ScrollAreaPrimitive.ScrollbarProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'orientation']);
-  const orientation = local.orientation ?? 'vertical';
+export const ScrollArea = ScrollAreaPrimitive.Root;
 
+export const ScrollAreaViewport: Component<ScrollAreaPrimitive.ViewportProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
   return (
-    <ScrollAreaPrimitive.Scrollbar
-      data-slot='scroll-area-scrollbar'
-      orientation={orientation}
+    <ScrollAreaPrimitive.Viewport
+      data-slot='scroll-area-viewport'
       class={cn(
-        'flex touch-none p-px transition-colors select-none',
-        orientation === 'horizontal' &&
-          'h-2.5 flex-col border-t border-t-transparent data-[orientation=horizontal]:h-2.5',
-        orientation === 'vertical' &&
-          'h-full w-2.5 border-l border-l-transparent data-[orientation=vertical]:w-2.5',
+        'focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1',
         local.class,
       )}
       {...others}
-    >
-      <ScrollAreaPrimitive.Thumb
-        data-slot='scroll-area-thumb'
-        class='bg-border relative flex-1 rounded-full'
-      />
-    </ScrollAreaPrimitive.Scrollbar>
+    />
   );
 };
 
-export const ScrollArea: Component<ScrollAreaPrimitive.RootProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+export const ScrollAreaContent: Component<ScrollAreaPrimitive.ContentProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
   return (
-    <ScrollAreaPrimitive.Root
-      data-slot='scroll-area'
-      class={cn('relative', local.class)}
+    <ScrollAreaPrimitive.Content
+      data-slot='scroll-area-content'
+      class={cn(local.class)}
       {...others}
-    >
-      <ScrollAreaPrimitive.Viewport
-        data-slot='scroll-area-viewport'
-        class='focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1'
-      >
-        <ScrollAreaPrimitive.Content data-slot='scroll-area-content'>
-          {local.children}
-        </ScrollAreaPrimitive.Content>
-      </ScrollAreaPrimitive.Viewport>
-      <ScrollBar orientation='vertical' />
-      <ScrollBar orientation='horizontal' />
-      <ScrollAreaPrimitive.Corner data-slot='scroll-area-corner' />
-    </ScrollAreaPrimitive.Root>
+    />
+  );
+};
+
+export const ScrollAreaScrollbar: Component<ScrollAreaPrimitive.ScrollbarProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'orientation']);
+  return (
+    <ScrollAreaPrimitive.Scrollbar
+      data-slot='scroll-area-scrollbar'
+      class={cn(
+        'flex touch-none p-px transition-colors select-none',
+        'data-[orientation=horizontal]:h-2.5 data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:border-t data-[orientation=horizontal]:border-t-transparent',
+        'data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2.5 data-[orientation=vertical]:border-l data-[orientation=vertical]:border-l-transparent',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const ScrollAreaThumb: Component<ScrollAreaPrimitive.ThumbProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <ScrollAreaPrimitive.Thumb
+      data-slot='scroll-area-thumb'
+      class={cn('bg-border relative flex-1 rounded-full', local.class)}
+      {...others}
+    />
+  );
+};
+
+export const ScrollAreaCorner: Component<ScrollAreaPrimitive.CornerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <ScrollAreaPrimitive.Corner
+      data-slot='scroll-area-corner'
+      class={cn(local.class)}
+      {...others}
+    />
   );
 };
