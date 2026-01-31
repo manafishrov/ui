@@ -6,7 +6,7 @@ export const inputVariants = tv({
   variants: {
     variant: {
       outline:
-        'border-input dark:bg-input/30 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border px-2.5 py-1 focus-visible:ring-[3px] aria-invalid:ring-[3px] data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
+        'border-input dark:bg-input/30 focus-visible:border-ring focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border px-2.5 py-1 focus-visible:ring-[3px] data-invalid:ring-[3px] data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
       ghost: 'h-full border-none bg-transparent px-0 py-0 shadow-none ring-0 focus-visible:ring-0',
     },
   },
