@@ -27,6 +27,7 @@ export default defineConfig({
         'src/components/Item.tsx',
         'src/components/Label.tsx',
         'src/components/Link.tsx',
+        'src/components/PasswordInput.tsx',
         'src/components/PinInput.tsx',
         'src/components/Popover.tsx',
         'src/components/Progress.tsx',

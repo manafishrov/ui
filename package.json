@@ -70,6 +70,10 @@
       "types": "./dist/components/NumberInput.d.ts",
       "import": "./dist/components/NumberInput.js"
     },
+    "./password-input": {
+      "types": "./dist/components/PasswordInput.d.ts",
+      "import": "./dist/components/PasswordInput.js"
+    },
     "./popover": {
       "types": "./dist/components/Popover.d.ts",
       "import": "./dist/components/Popover.js"
