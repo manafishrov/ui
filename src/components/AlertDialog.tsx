@@ -66,9 +66,9 @@ export const AlertDialogHeader: Component<ComponentProps<'div'>> = (props) => {
       data-slot='alert-dialog-header'
       class={cn(
         'grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center',
-        'has-[[data-slot=alert-dialog-media]]:grid-rows-[auto_auto_1fr] has-[[data-slot=alert-dialog-media]]:gap-x-4',
+        'has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4',
         'sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left',
-        'sm:group-data-[size=default]/alert-dialog-content:has-[[data-slot=alert-dialog-media]]:grid-rows-[auto_1fr]',
+        'sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr]',
         local.class,
       )}
       {...others}
@@ -115,7 +115,7 @@ export const AlertDialogTitle: Component<AlertDialogPrimitive.TitleProps> = (pro
       data-slot='alert-dialog-title'
       class={cn(
         'text-base font-medium',
-        'sm:group-data-[size=default]/alert-dialog-content:group-has-[[data-slot=alert-dialog-media]]/alert-dialog-content:col-start-2',
+        'sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2',
         local.class,
       )}
       {...others}

@@ -11,6 +11,7 @@ export const Dialog = DialogPrimitive.Root;
 export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogContext = DialogPrimitive.Context;
 export const DialogPositioner = DialogPrimitive.Positioner;
+export const DialogClose = DialogPrimitive.CloseTrigger;
 
 export const DialogOverlay: Component<DialogPrimitive.BackdropProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -134,5 +135,3 @@ export const DialogDescription: Component<DialogPrimitive.DescriptionProps> = (p
     />
   );
 };
-
-export const DialogClose = DialogPrimitive.CloseTrigger;
