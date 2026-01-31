@@ -1,4 +1,10 @@
-import { type Component, type ComponentProps, splitProps, type JSX } from 'solid-js';
+import {
+  type Component,
+  type ComponentProps,
+  splitProps,
+  type JSX,
+  type JSXElement,
+} from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
@@ -12,10 +18,10 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element
     <div
       data-slot='input-group'
       class={cn(
-        'border-input dark:bg-input/30 group/field relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
+        'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
-        'group-data-invalid/field:ring-destructive/20 group-data-invalid/field:border-destructive dark:group-data-invalid/field:ring-destructive/40 group-data-invalid/field:ring-[3px]',
-        'group-data-disabled/field:bg-input/50 dark:group-data-disabled/field:bg-input/80 group-data-disabled/field:opacity-50',
+        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
+        'has-data-disabled:bg-input/50 dark:has-data-disabled:bg-input/80 has-data-disabled:opacity-50',
         'has-data-[align=block-end]:h-auto has-data-[align=block-end]:flex-col',
         'has-data-[align=block-start]:h-auto has-data-[align=block-start]:flex-col',
         'has-data-[align=block-end]:[&>input]:pt-3',
@@ -31,15 +37,14 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium group-data-disabled/field:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
+  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium has-disabled:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
   variants: {
     align: {
       'inline-start': 'pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem] order-first',
       'inline-end': 'pr-2 has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem] order-last',
       'block-start':
-        'px-2.5 pt-2 group-has-[>input]/field:pt-2 [.border-b]:pb-2 order-first w-full justify-start',
-      'block-end':
-        'px-2.5 pb-2 group-has-[>input]/field:pb-2 [.border-t]:pt-2 order-last w-full justify-start',
+        'px-2.5 pt-2 has-[>input]:pt-2 [.border-b]:pb-2 order-first w-full justify-start',
+      'block-end': 'px-2.5 pb-2 has-[>input]:pb-2 [.border-t]:pt-2 order-last w-full justify-start',
     },
   },
   defaultVariants: {
@@ -110,7 +115,7 @@ export const InputGroupButton: Component<InputGroupButtonProps> = (props): JSX.E
   );
 };
 
-export const InputGroupText: Component<ComponentProps<'span'>> = (props): JSX.Element => {
+export const InputGroupText: Component<ComponentProps<'span'>> = (props): JSXElement => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <span
@@ -123,7 +128,7 @@ export const InputGroupText: Component<ComponentProps<'span'>> = (props): JSX.El
   );
 };
 
-export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props): JSX.Element => {
+export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props): JSXElement => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <Input
@@ -139,7 +144,7 @@ export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props):
 
 export const InputGroupTextarea: Component<ComponentProps<typeof Textarea>> = (
   props,
-): JSX.Element => {
+): JSXElement => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <Textarea

@@ -11,10 +11,7 @@ export const PinInputHiddenInput = PrimitivePinInput.HiddenInput;
 export const PinInput: Component<PrimitivePinInput.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <PrimitivePinInput.Root
-      class={cn('group/field flex w-full flex-col gap-1.5', local.class)}
-      {...others}
-    />
+    <PrimitivePinInput.Root class={cn('flex w-full flex-col gap-1.5', local.class)} {...others} />
   );
 };
 
@@ -48,7 +45,7 @@ export const PinInputGroup: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='pin-input-group'
       class={cn(
-        'has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive has-aria-invalid:ring-[3px] flex items-center',
+        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px] flex items-center',
         'has-data-disabled:opacity-50',
         local.class,
       )}
@@ -67,7 +64,7 @@ export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) =>
           variant='ghost'
           class={cn(
             'dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 size-9 border-y border-r text-sm transition-all outline-none first:rounded-l-lg first:border-l last:rounded-r-lg focus-visible:ring-[3px] aria-invalid:ring-[3px] relative flex items-center justify-center focus-visible:z-10 bg-transparent text-center placeholder:text-muted-foreground disabled:opacity-50 selection:bg-primary selection:text-primary-foreground',
-            'group-data-invalid/field:border-destructive group-data-invalid/field:ring-destructive/20 dark:group-data-invalid/field:ring-destructive/40 group-data-invalid/field:ring-[3px]',
+            'data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
             'data-readonly:cursor-default data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
             local.class,
           )}

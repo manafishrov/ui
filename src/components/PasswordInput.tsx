@@ -10,7 +10,7 @@ export const PasswordInput: Component<PrimitivePasswordInput.RootProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.Root
-      class={cn('group/field flex w-full flex-col gap-1.5', local.class)}
+      class={cn('group/password-input flex w-full flex-col gap-1.5', local.class)}
       {...others}
     />
   );
@@ -33,14 +33,14 @@ export const PasswordInputControl: Component<PrimitivePasswordInput.ControlProps
   const [local, others] = splitProps(props, ['class']);
 
   return (
-    <PrimitivePasswordInput.Control
+    <div
       data-slot='password-input-control'
       class={cn(
-        'border-input dark:bg-input/30 group/field-control relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
+        'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
-        'group-data-invalid/field:ring-destructive/20 group-data-invalid/field:border-destructive dark:group-data-invalid/field:ring-destructive/40 group-data-invalid/field:ring-[3px]',
-        'group-data-disabled/field:bg-input/50 dark:group-data-disabled/field:bg-input/80 group-data-disabled/field:opacity-50',
-        'group-data-readonly/field:has-focus-visible:ring-0 group-data-readonly/field:has-focus-visible:border-input',
+        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
+        'has-data-disabled:bg-input/50 dark:has-data-disabled:bg-input/80 has-data-disabled:opacity-50',
+        'has-data-readonly:has-focus-visible:ring-0 has-data-readonly:has-focus-visible:border-input',
         local.class,
       )}
       {...others}
@@ -73,7 +73,7 @@ export const PasswordInputVisibilityTrigger: Component<
       data-slot='password-input-visibility-trigger'
       class={cn(
         'text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-50 absolute top-0 right-0 flex h-full w-9 cursor-pointer items-center justify-center transition-colors outline-none focus-visible:bg-muted focus-visible:text-foreground',
-        'group-has-focus-visible/field:text-foreground',
+        'group-has-focus-visible/password-input:text-foreground',
         local.class,
       )}
       {...others}
