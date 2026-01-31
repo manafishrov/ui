@@ -1,3 +1,5 @@
+export type Dictionary = typeof enGb;
+
 export const enGb = {
   ui: {
     common: {
@@ -15,7 +17,10 @@ export const enGb = {
     checkbox: {
       checked: 'Checked',
     },
+    pagination: {
+      previous: 'Previous',
+      next: 'Next',
+      more: 'More pages',
+    },
   },
 };
-
-export type Dictionary = typeof enGb;

@@ -4,6 +4,7 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
+import { useLocale } from '@/Locale';
 
 export const Pagination: Component<PaginationPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -56,6 +57,7 @@ export const PaginationLink: Component<PaginationPrimitive.ItemProps> = (props) 
 
 export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
+  const t = useLocale();
   return (
     <PaginationPrimitive.PrevTrigger
       {...others}
@@ -72,7 +74,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
       {local.children ?? (
         <>
           <MdOutlineChevron_left />
-          <span>Previous</span>
+          <span>{String(t('ui.pagination.previous'))}</span>
         </>
       )}
     </PaginationPrimitive.PrevTrigger>
@@ -81,6 +83,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
 
 export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
+  const t = useLocale();
   return (
     <PaginationPrimitive.NextTrigger
       {...others}
@@ -96,7 +99,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
     >
       {local.children ?? (
         <>
-          <span>Next</span>
+          <span>{String(t('ui.pagination.next'))}</span>
           <MdOutlineChevron_right />
         </>
       )}
@@ -106,6 +109,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
 
 export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
+  const t = useLocale();
   return (
     <PaginationPrimitive.Ellipsis
       {...others}
@@ -113,7 +117,7 @@ export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = 
       class={cn('flex h-9 w-9 items-center justify-center', local.class)}
     >
       <MdOutlineMore_horiz class='size-4' />
-      <span class='sr-only'>More pages</span>
+      <span class='sr-only'>{String(t('ui.pagination.more'))}</span>
     </PaginationPrimitive.Ellipsis>
   );
 };

@@ -17,5 +17,10 @@ export const nb: Dictionary = {
     checkbox: {
       checked: 'Avmerket',
     },
+    pagination: {
+      previous: 'Forrige',
+      next: 'Neste',
+      more: 'Flere sider',
+    },
   },
 };
