@@ -3,18 +3,20 @@ import { MdOutlineVisibility, MdOutlineVisibility_off } from 'solid-icons/md';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+
 export const PasswordInput = PrimitivePasswordInput.Root;
 
 export const PasswordInputLabel: Component<PrimitivePasswordInput.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitivePasswordInput.Label
-      data-slot='password-input-label'
-      class={cn(
-        'gap-2 text-sm leading-none font-medium group-data-disabled:opacity-50 flex items-center select-none',
-        local.class,
+      asChild={(labelProps) => (
+        <Label class={cn(local.class)} {...labelProps()} {...others}>
+          {local.children}
+        </Label>
       )}
-      {...others}
     />
   );
 };
@@ -41,12 +43,14 @@ export const PasswordInputInput: Component<PrimitivePasswordInput.InputProps> = 
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.Input
-      data-slot='password-input-input'
-      class={cn(
-        'rounded-none border-0 bg-transparent py-1 pl-2.5 pr-10 shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent h-full flex-1 text-sm outline-none placeholder:text-muted-foreground',
-        local.class,
+      asChild={(inputProps) => (
+        <Input
+          variant='ghost'
+          class={cn('pl-2.5 pr-10', local.class)}
+          {...inputProps()}
+          {...others}
+        />
       )}
-      {...others}
     />
   );
 };

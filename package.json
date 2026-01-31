@@ -130,6 +130,10 @@
       "types": "./dist/components/Table.d.ts",
       "import": "./dist/components/Table.js"
     },
+    "./text-input": {
+      "types": "./dist/components/TextInput.d.ts",
+      "import": "./dist/components/TextInput.js"
+    },
     "./textarea": {
       "types": "./dist/components/Textarea.d.ts",
       "import": "./dist/components/Textarea.js"

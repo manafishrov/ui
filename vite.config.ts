@@ -43,6 +43,7 @@ export default defineConfig({
         'src/components/Spinner.tsx',
         'src/components/Switch.tsx',
         'src/components/Table.tsx',
+        'src/components/TextInput.tsx',
         'src/components/Textarea.tsx',
         'src/components/Tooltip.tsx',
         'src/components/Toaster.tsx',

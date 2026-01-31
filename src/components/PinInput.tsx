@@ -3,19 +3,21 @@ import { MdOutlineRemove } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+
 export const PinInput = PrimitivePinInput.Root;
 export const PinInputHiddenInput = PrimitivePinInput.HiddenInput;
 
 export const PinInputLabel: Component<PrimitivePinInput.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitivePinInput.Label
-      data-slot='pin-input-label'
-      class={cn(
-        'gap-2 text-sm leading-none font-medium group-data-disabled:opacity-50 flex items-center select-none',
-        local.class,
+      asChild={(labelProps) => (
+        <Label class={cn(local.class)} {...labelProps()} {...others}>
+          {local.children}
+        </Label>
       )}
-      {...others}
     />
   );
 };
@@ -46,15 +48,21 @@ export const PinInputGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'index']);
   return (
     <PrimitivePinInput.Input
-      data-slot='pin-input-input'
-      class={cn(
-        'dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 size-9 border-y border-r text-sm transition-all outline-none first:rounded-l-lg first:border-l last:rounded-r-lg focus-visible:ring-[3px] aria-invalid:ring-[3px] relative flex items-center justify-center focus-visible:z-10 bg-transparent text-center placeholder:text-muted-foreground disabled:opacity-50 selection:bg-primary selection:text-primary-foreground',
-        local.class,
+      index={local.index}
+      asChild={(inputProps) => (
+        <Input
+          variant='ghost'
+          class={cn(
+            'dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 size-9 border-y border-r text-sm transition-all outline-none first:rounded-l-lg first:border-l last:rounded-r-lg focus-visible:ring-[3px] aria-invalid:ring-[3px] relative flex items-center justify-center focus-visible:z-10 bg-transparent text-center placeholder:text-muted-foreground disabled:opacity-50 selection:bg-primary selection:text-primary-foreground',
+            local.class,
+          )}
+          {...inputProps()}
+          {...others}
+        />
       )}
-      {...others}
     />
   );
 };

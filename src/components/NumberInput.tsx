@@ -3,18 +3,20 @@ import { MdOutlineExpand_less, MdOutlineExpand_more } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+
 export const NumberInput = PrimitiveNumberInput.Root;
 
 export const NumberInputLabel: Component<PrimitiveNumberInput.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitiveNumberInput.Label
-      data-slot='number-input-label'
-      class={cn(
-        'gap-2 text-sm leading-none font-medium group-data-disabled:opacity-50 flex items-center select-none',
-        local.class,
+      asChild={(labelProps) => (
+        <Label class={cn(local.class)} {...labelProps()} {...others}>
+          {local.children}
+        </Label>
       )}
-      {...others}
     />
   );
 };
@@ -41,13 +43,17 @@ export const NumberInputInput: Component<PrimitiveNumberInput.InputProps> = (pro
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveNumberInput.Input
-      data-slot='number-input-input'
-      class={cn(
-        'rounded-none border-0 bg-transparent py-1 pl-2.5 pr-2.5 shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent h-full flex-1 text-sm outline-none placeholder:text-muted-foreground transition-all',
-        'group-has-data-[slot=number-input-trigger-group]/number-input-control:pr-8',
-        local.class,
+      asChild={(inputProps) => (
+        <Input
+          variant='ghost'
+          class={cn(
+            'pl-2.5 pr-2.5 transition-all group-has-data-[slot=number-input-trigger-group]/number-input-control:pr-8',
+            local.class,
+          )}
+          {...inputProps()}
+          {...others}
+        />
       )}
-      {...others}
     />
   );
 };
