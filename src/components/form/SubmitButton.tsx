@@ -1,7 +1,6 @@
-import { type Component, type ComponentProps, Show, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Button } from '@/components/Button';
-import { Spinner } from '@/components/Spinner';
 
 import { useFormContext } from './context';
 
@@ -13,20 +12,17 @@ export const SubmitButton: Component<SubmitButtonProps> = (props) => {
   const form = useFormContext();
   const [local, others] = splitProps(props, ['children', 'loading', 'disabled']);
 
-  const isSubmitting = (): boolean => form.state.isSubmitting || (local.loading ?? false);
-  const isValidating = (): boolean => form.state.isValidating;
-  const canSubmit = (): boolean => form.state.canSubmit;
+  const isLoading = (): boolean =>
+    form.state.isSubmitting || form.state.isValidating || (local.loading ?? false);
 
   return (
     <Button
       type='submit'
-      disabled={(local.disabled ?? false) || isSubmitting() || isValidating() || !canSubmit()}
+      loading={isLoading()}
+      disabled={local.disabled ?? !form.state.canSubmit}
       {...others}
     >
-      <Show when={isSubmitting()} fallback={local.children}>
-        <Spinner class='mr-2' />
-        {local.children}
-      </Show>
+      {local.children}
     </Button>
   );
 };
