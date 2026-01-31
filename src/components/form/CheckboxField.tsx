@@ -6,7 +6,6 @@ import { Field, FieldContent, FieldError, FieldDescription } from '@/components/
 import { useFieldContext } from './context';
 
 export type CheckboxFieldProps = ComponentProps<typeof Checkbox> & {
-  label?: string;
   description?: string;
 };
 

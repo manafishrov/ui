@@ -7,7 +7,7 @@ export const CheckboxGroup = CheckboxPrimitive.Group;
 export const CheckboxContext = CheckboxPrimitive.Context;
 
 export type CheckboxProps = CheckboxPrimitive.RootProps & {
-  label?: string | undefined;
+  label?: string;
 };
 
 export const Checkbox: Component<CheckboxProps> = (props) => {

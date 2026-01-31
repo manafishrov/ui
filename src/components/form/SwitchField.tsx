@@ -6,7 +6,6 @@ import { Switch } from '@/components/Switch';
 import { useFieldContext } from './context';
 
 export type SwitchFieldProps = ComponentProps<typeof Switch> & {
-  label?: string;
   description?: string;
 };
 
