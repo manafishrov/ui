@@ -66,6 +66,10 @@
       "types": "./dist/components/Link.d.ts",
       "import": "./dist/components/Link.js"
     },
+    "./number-input": {
+      "types": "./dist/components/NumberInput.d.ts",
+      "import": "./dist/components/NumberInput.js"
+    },
     "./popover": {
       "types": "./dist/components/Popover.d.ts",
       "import": "./dist/components/Popover.js"

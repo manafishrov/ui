@@ -30,6 +30,7 @@ export default defineConfig({
         'src/components/PinInput.tsx',
         'src/components/Popover.tsx',
         'src/components/Progress.tsx',
+        'src/components/NumberInput.tsx',
         'src/components/RadioGroup.tsx',
         'src/components/ScrollArea.tsx',
         'src/components/Select.tsx',
