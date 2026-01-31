@@ -2,7 +2,13 @@ import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
-import { Select, SelectControl, SelectTrigger, SelectValue } from '@/components/Select';
+import {
+  Select,
+  SelectContent,
+  SelectControl,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/Select';
 
 import { useFieldContext } from './context';
 
@@ -54,7 +60,7 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
               <SelectValue placeholder={local.placeholder ?? ''} />
             </SelectTrigger>
           </SelectControl>
-          {local.children}
+          <SelectContent>{local.children}</SelectContent>
         </Select>
         <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
