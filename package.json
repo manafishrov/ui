@@ -54,13 +54,13 @@
       "types": "./dist/components/Input.d.ts",
       "import": "./dist/components/Input.js"
     },
-    "./input-group": {
-      "types": "./dist/components/InputGroup.d.ts",
-      "import": "./dist/components/InputGroup.js"
-    },
     "./item": {
       "types": "./dist/components/Item.d.ts",
       "import": "./dist/components/Item.js"
+    },
+    "./kbd": {
+      "types": "./dist/components/Kbd.d.ts",
+      "import": "./dist/components/Kbd.js"
     },
     "./label": {
       "types": "./dist/components/Label.d.ts",
@@ -70,9 +70,17 @@
       "types": "./dist/components/Link.d.ts",
       "import": "./dist/components/Link.js"
     },
+    "./navigation-menu": {
+      "types": "./dist/components/NavigationMenu.d.ts",
+      "import": "./dist/components/NavigationMenu.js"
+    },
     "./number-input": {
       "types": "./dist/components/NumberInput.d.ts",
       "import": "./dist/components/NumberInput.js"
+    },
+    "./pagination": {
+      "types": "./dist/components/Pagination.d.ts",
+      "import": "./dist/components/Pagination.js"
     },
     "./password-input": {
       "types": "./dist/components/PasswordInput.d.ts",
@@ -134,6 +142,10 @@
       "types": "./dist/components/Table.d.ts",
       "import": "./dist/components/Table.js"
     },
+    "./tabs": {
+      "types": "./dist/components/Tabs.d.ts",
+      "import": "./dist/components/Tabs.js"
+    },
     "./text-input": {
       "types": "./dist/components/TextInput.d.ts",
       "import": "./dist/components/TextInput.js"
@@ -142,6 +154,10 @@
       "types": "./dist/components/Textarea.d.ts",
       "import": "./dist/components/Textarea.js"
     },
+    "./toggle": {
+      "types": "./dist/components/Toggle.d.ts",
+      "import": "./dist/components/Toggle.js"
+    },
     "./tooltip": {
       "types": "./dist/components/Tooltip.d.ts",
       "import": "./dist/components/Tooltip.js"
@@ -149,6 +165,10 @@
     "./toaster": {
       "types": "./dist/components/Toaster.d.ts",
       "import": "./dist/components/Toaster.js"
+    },
+    "./typography": {
+      "types": "./dist/components/Typography.d.ts",
+      "import": "./dist/components/Typography.js"
     },
     "./theme.css": "./dist/theme.css"
   },
