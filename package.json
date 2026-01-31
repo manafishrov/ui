@@ -70,6 +70,10 @@
       "types": "./dist/components/Popover.d.ts",
       "import": "./dist/components/Popover.js"
     },
+    "./pin-input": {
+      "types": "./dist/components/PinInput.d.ts",
+      "import": "./dist/components/PinInput.js"
+    },
     "./progress": {
       "types": "./dist/components/Progress.d.ts",
       "import": "./dist/components/Progress.js"
