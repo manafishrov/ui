@@ -13,9 +13,9 @@ export const ScrollBar: Component<ScrollAreaPrimitive.ScrollbarProps> = (props) 
       class={cn(
         'flex touch-none p-px transition-colors select-none',
         orientation === 'horizontal' &&
-          'h-2.5 flex-col border-t border-t-transparent data-orientation-horizontal:h-2.5',
+          'h-2.5 flex-col border-t border-t-transparent data-[orientation=horizontal]:h-2.5',
         orientation === 'vertical' &&
-          'h-full w-2.5 border-l border-l-transparent data-orientation-vertical:w-2.5',
+          'h-full w-2.5 border-l border-l-transparent data-[orientation=vertical]:w-2.5',
         local.class,
       )}
       {...others}

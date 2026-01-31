@@ -29,20 +29,20 @@ export const Switch: Component<SwitchProps> = (props) => {
           'inline-flex items-center shrink-0 rounded-full border border-transparent transition-all outline-none',
           'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
           'data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:border-destructive/50 aria-invalid:ring-[3px]',
-          'data-state-checked:bg-primary data-state-unchecked:bg-input dark:data-state-unchecked:bg-input/80',
-          'group-data-size-default/switch:h-[18.4px] group-data-size-default/switch:w-8 px-0.5',
-          'group-data-size-sm/switch:h-3.5 group-data-size-sm/switch:w-6 px-0.5',
+          'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
+          'group-data-[size=default]/switch:h-[18.4px] group-data-[size=default]/switch:w-8 px-0.5',
+          'group-data-[size=sm]/switch:h-3.5 group-data-[size=sm]/switch:w-6 px-0.5',
         )}
       >
         <SwitchPrimitive.Thumb
           data-slot='switch-thumb'
           class={cn(
-            'bg-background dark:data-state-unchecked:bg-foreground dark:data-state-checked:bg-primary-foreground rounded-full pointer-events-none block ring-0 transition-transform',
-            'group-data-size-default/switch:size-4',
-            'group-data-size-sm/switch:size-3',
-            'group-data-size-default/switch:data-state-checked:translate-x-[calc(100%-2px)]',
-            'group-data-size-sm/switch:data-state-checked:translate-x-[calc(100%-2px)]',
-            'data-state-unchecked:translate-x-0',
+            'bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground rounded-full pointer-events-none block ring-0 transition-transform',
+            'group-data-[size=default]/switch:size-4',
+            'group-data-[size=sm]/switch:size-3',
+            'group-data-[size=default]/switch:data-[state=checked]:translate-x-[calc(100%-2px)]',
+            'group-data-[size=sm]/switch:data-[state=checked]:translate-x-[calc(100%-2px)]',
+            'data-[state=unchecked]:translate-x-0',
           )}
         />
       </SwitchPrimitive.Control>

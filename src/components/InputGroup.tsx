@@ -1,11 +1,11 @@
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps, type JSX } from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { Textarea } from '@/components/Textarea';
 
-export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
+export const InputGroup: Component<ComponentProps<'div'>> = (props): JSX.Element => {
   const [local, others] = splitProps(props, ['class']);
 
   return (
@@ -13,15 +13,15 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
       data-slot='input-group'
       class={cn(
         'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
-        'has-data-slot-input-group-control-focus-visible:border-ring has-data-slot-input-group-control-focus-visible:ring-ring/50 has-data-slot-input-group-control-focus-visible:ring-[3px]',
-        'has-data-invalid:ring-destructive/20 has-data-invalid:border-destructive dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
+        'has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50 has-[[data-slot=input-group-control]:focus-visible]:ring-[3px]',
+        'has-[[data-invalid]]:ring-destructive/20 has-[[data-invalid]]:border-destructive dark:has-[[data-invalid]]:ring-destructive/40 has-[[data-invalid]]:ring-[3px]',
         'has-disabled:bg-input/50 dark:has-disabled:bg-input/80 has-disabled:opacity-50',
-        'has-data-align-block-end:h-auto has-data-align-block-end:flex-col',
-        'has-data-align-block-start:h-auto has-data-align-block-start:flex-col',
-        'has-data-align-block-end:[&>input]:pt-3',
-        'has-data-align-block-start:[&>input]:pb-3',
-        'has-data-align-inline-end:[&>input]:pr-1.5',
-        'has-data-align-inline-start:[&>input]:pl-1.5',
+        'has-[[data-align=block-end]]:h-auto has-[[data-align=block-end]]:flex-col',
+        'has-[[data-align=block-start]]:h-auto has-[[data-align=block-start]]:flex-col',
+        'has-[[data-align=block-end]]:[&>input]:pt-3',
+        'has-[[data-align=block-start]]:[&>input]:pb-3',
+        'has-[[data-align=inline-end]]:[&>input]:pr-1.5',
+        'has-[[data-align=inline-start]]:[&>input]:pl-1.5',
         'has-[>textarea]:h-auto',
         local.class,
       )}
@@ -31,7 +31,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium group-data-disabled-true/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
+  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium group-data-disabled/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
   variants: {
     align: {
       'inline-start': 'pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem] order-first',
@@ -47,17 +47,33 @@ export const inputGroupAddonVariants = tv({
   },
 });
 
-export type InputGroupAddonProps = ComponentProps<'label'> &
+export type InputGroupAddonProps = ComponentProps<'div'> &
   VariantProps<typeof inputGroupAddonVariants>;
 
-export const InputGroupAddon: Component<InputGroupAddonProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'align']);
+export const InputGroupAddon: Component<InputGroupAddonProps> = (props): JSX.Element => {
+  const [local, others] = splitProps(props, ['class', 'align', 'onClick']);
 
   return (
-    <label
+    <div
+      role='group'
       data-slot='input-group-addon'
       data-align={local.align ?? 'inline-start'}
       class={inputGroupAddonVariants({ align: local.align, class: local.class })}
+      onClick={(event) => {
+        if (!(event.target instanceof HTMLElement) || event.target.closest('button')) {
+          return;
+        }
+        const parent = event.currentTarget.parentElement;
+        if (parent) {
+          const input = parent.querySelector('input');
+          if (input) {
+            input.focus();
+          }
+        }
+        if (typeof local.onClick === 'function') {
+          local.onClick(event);
+        }
+      }}
       {...others}
     />
   );
@@ -78,10 +94,10 @@ export const inputGroupButtonVariants = tv({
   },
 });
 
-export type InputGroupButtonProps = ComponentProps<typeof Button> &
+export type InputGroupButtonProps = Omit<ComponentProps<typeof Button>, 'size'> &
   VariantProps<typeof inputGroupButtonVariants>;
 
-export const InputGroupButton: Component<InputGroupButtonProps> = (props) => {
+export const InputGroupButton: Component<InputGroupButtonProps> = (props): JSX.Element => {
   const [local, others] = splitProps(props, ['class', 'variant', 'size']);
 
   return (
@@ -94,7 +110,7 @@ export const InputGroupButton: Component<InputGroupButtonProps> = (props) => {
   );
 };
 
-export const InputGroupText: Component<ComponentProps<'span'>> = (props) => {
+export const InputGroupText: Component<ComponentProps<'span'>> = (props): JSX.Element => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <span
@@ -107,7 +123,7 @@ export const InputGroupText: Component<ComponentProps<'span'>> = (props) => {
   );
 };
 
-export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props) => {
+export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props): JSX.Element => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <Input
@@ -121,7 +137,9 @@ export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props) 
   );
 };
 
-export const InputGroupTextarea: Component<ComponentProps<typeof Textarea>> = (props) => {
+export const InputGroupTextarea: Component<ComponentProps<typeof Textarea>> = (
+  props,
+): JSX.Element => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <Textarea

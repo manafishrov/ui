@@ -115,7 +115,7 @@ export const SidebarProvider: Component<SidebarProviderProps> = (props) => {
         data-slot='sidebar-wrapper'
         style={style()}
         class={cn(
-          'group/sidebar-wrapper has-data-variant-inset:bg-sidebar flex min-h-svh w-full',
+          'group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full',
           local.class,
         )}
         {...others}

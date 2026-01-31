@@ -26,8 +26,8 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
       'group pointer-events-auto relative flex w-full items-center gap-3 overflow-hidden rounded-lg border bg-popover p-4 pr-10 shadow-lg transition-all',
-      'data-state-open:animate-in data-state-closed:animate-out data-state-closed:fade-out-80',
-      'data-state-closed:slide-out-to-right-full data-state-open:slide-in-from-top-full data-state-open:sm:slide-in-from-bottom-full',
+      'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-80',
+      'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',
       'text-popover-foreground border-border',
     )}
   >

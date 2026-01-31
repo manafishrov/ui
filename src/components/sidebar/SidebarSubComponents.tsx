@@ -55,12 +55,12 @@ export const SidebarRail: Component<ComponentProps<'button'>> = (props) => {
         toggleSidebar();
       }}
       class={cn(
-        'hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-side-left:-right-4 group-data-side-right:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-0.5 sm:flex',
-        'in-data-side-left:cursor-w-resize in-data-side-right:cursor-e-resize',
-        '[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize',
-        'hover:group-data-collapsible-offcanvas:bg-sidebar group-data-collapsible-offcanvas:translate-x-0 group-data-collapsible-offcanvas:after:left-full',
-        '[[data-side=left][data-collapsible=offcanvas]_&]:-right-2',
-        '[[data-side=right][data-collapsible=offcanvas]_&]:-left-2',
+        'hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-0.5 sm:flex',
+        'in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize',
+        '[data-side=left][data-state=collapsed]_&]:cursor-e-resize [data-side=right][data-state=collapsed]_&]:cursor-w-resize',
+        'hover:group-data-[collapsible=offcanvas]:bg-sidebar group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:left-full',
+        '[data-side=left][data-collapsible=offcanvas]_&]:-right-2',
+        '[data-side=right][data-collapsible=offcanvas]_&]:-left-2',
         local.class,
       )}
       {...others}
@@ -74,7 +74,7 @@ export const SidebarInset: Component<ComponentProps<'main'>> = (props) => {
     <main
       data-slot='sidebar-inset'
       class={cn(
-        'bg-background md:peer-data-variant-inset:m-2 md:peer-data-variant-inset:ml-0 md:peer-data-variant-inset:rounded-xl md:peer-data-variant-inset:shadow-sm md:peer-data-variant-inset:peer-data-state-collapsed:ml-2 relative flex w-full flex-1 flex-col',
+        'bg-background md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 relative flex w-full flex-1 flex-col',
         local.class,
       )}
       {...others}
@@ -138,7 +138,7 @@ export const SidebarContent: Component<ComponentProps<'div'>> = (props) => {
       data-sidebar='content'
       id={typeof local.id === 'string' ? local.id : 'sidebar-content'}
       class={cn(
-        'gap-0 flex min-h-0 flex-1 flex-col group-data-collapsible-icon:overflow-hidden',
+        'gap-0 flex min-h-0 flex-1 flex-col group-data-[collapsible=icon]:overflow-hidden',
         local.class,
       )}
       {...others}
@@ -167,7 +167,7 @@ export const SidebarGroupLabel: Component<ComponentProps<'div'>> = (props) => {
       data-slot='sidebar-group-label'
       data-sidebar='group-label'
       class={cn(
-        'text-sidebar-foreground/70 ring-sidebar-ring h-8 rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear group-data-collapsible-icon:-mt-8 group-data-collapsible-icon:opacity-0 focus-visible:ring-2 [&>svg]:size-4 flex shrink-0 items-center outline-hidden [&>svg]:shrink-0',
+        'text-sidebar-foreground/70 ring-sidebar-ring h-8 rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:size-4 flex shrink-0 items-center outline-hidden [&>svg]:shrink-0',
         local.class,
       )}
       {...others}
@@ -182,7 +182,7 @@ export const SidebarGroupAction: Component<ComponentProps<'button'>> = (props) =
       data-slot='sidebar-group-action'
       data-sidebar='group-action'
       class={cn(
-        'text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground absolute top-3.5 right-3 w-5 rounded-md p-0 focus-visible:ring-2 [&>svg]:size-4 flex aspect-square items-center justify-center outline-hidden transition-transform [&>svg]:shrink-0 after:absolute after:-inset-2 md:after:hidden group-data-collapsible-icon:hidden',
+        'text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground absolute top-3.5 right-3 w-5 rounded-md p-0 focus-visible:ring-2 [&>svg]:size-4 flex aspect-square items-center justify-center outline-hidden transition-transform [&>svg]:shrink-0 after:absolute after:-inset-2 md:after:hidden group-data-[collapsible=icon]:hidden',
         local.class,
       )}
       {...others}

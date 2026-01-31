@@ -19,8 +19,8 @@ export const DialogOverlay: Component<DialogPrimitive.BackdropProps> = (props) =
       data-slot='dialog-overlay'
       class={cn(
         'bg-black/10 fixed inset-0 z-50 duration-100 backdrop-blur-xs isolate',
-        'data-state-open:animate-in data-state-open:fade-in-0',
-        'data-state-closed:animate-out data-state-closed:fade-out-0',
+        'data-[state=open]:animate-in data-[state=open]:fade-in-0',
+        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         local.class,
       )}
       {...others}
@@ -44,8 +44,8 @@ export const DialogContent: Component<DialogContentProps> = (props) => {
           data-slot='dialog-content'
           class={cn(
             'bg-background ring-foreground/10 grid w-full max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 shadow-lg duration-100 sm:max-w-sm outline-none isolate',
-            'data-state-open:animate-in data-state-open:fade-in-0 data-state-open:zoom-in-95',
-            'data-state-closed:animate-out data-state-closed:fade-out-0 data-state-closed:zoom-out-95',
+            'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+            'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
             local.class,
           )}
           {...others}

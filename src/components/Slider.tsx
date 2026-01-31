@@ -25,7 +25,10 @@ export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
 
   return (
     <SliderPrimitive.Root
-      class={cn('data-orientation-horizontal:w-full data-orientation-vertical:h-full', local.class)}
+      class={cn(
+        'data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full',
+        local.class,
+      )}
       data-slot='slider'
       value={local.value}
       defaultValue={local.defaultValue}
@@ -33,14 +36,14 @@ export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
       max={local.max}
       {...others}
     >
-      <SliderPrimitive.Control class='relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-orientation-vertical:h-full data-orientation-vertical:min-h-40 data-orientation-vertical:w-auto data-orientation-vertical:flex-col'>
+      <SliderPrimitive.Control class='relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col'>
         <SliderPrimitive.Track
           data-slot='slider-track'
-          class='bg-muted relative grow overflow-hidden rounded-full select-none data-orientation-horizontal:h-1 data-orientation-horizontal:w-full data-orientation-vertical:h-full data-orientation-vertical:w-1'
+          class='bg-muted relative grow overflow-hidden rounded-full select-none data-[orientation=horizontal]:h-1 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1'
         >
           <SliderPrimitive.Range
             data-slot='slider-range'
-            class='bg-primary select-none data-orientation-horizontal:h-full data-orientation-vertical:w-full'
+            class='bg-primary select-none data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full'
           />
         </SliderPrimitive.Track>
         <For each={values()}>{(_, index) => <SliderThumb index={index()} />}</For>
