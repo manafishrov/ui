@@ -14,6 +14,8 @@ import { type VariantProps, tv, cn } from 'tailwind-variants';
 import { Label } from '@/components/Label';
 import { Separator } from '@/components/Separator';
 
+import { ZERO, ONE } from './form/constants';
+
 export const FieldSet: Component<PrimitiveFieldset.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -119,8 +121,20 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
           {...others}
         >
           {local.children}
+          <FieldRequiredIndicator />
         </Label>
       )}
+    />
+  );
+};
+
+export const FieldRequiredIndicator: Component<PrimitiveField.RequiredIndicatorProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'fallback']);
+  return (
+    <PrimitiveField.RequiredIndicator
+      fallback={local.fallback ?? '*'}
+      class={cn('text-destructive text-sm leading-none font-medium', local.class)}
+      {...others}
     />
   );
 };
@@ -193,7 +207,7 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
 
   const uniqueErrors = createMemo(() => {
     const { errors } = local;
-    if (!errors || errors.length === Number(0)) {
+    if (!errors || errors.length === ZERO) {
       return [];
     }
 
@@ -219,8 +233,8 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
         <Show
           when={local.children}
           fallback={
-            <Show when={uniqueErrors().length > Number(0)}>
-              <Show when={uniqueErrors().length > Number(1)} fallback={uniqueErrors().at(0)}>
+            <Show when={uniqueErrors().length !== ZERO}>
+              <Show when={uniqueErrors().length > ONE} fallback={uniqueErrors().at(ZERO)}>
                 <ul class='ml-4 flex list-disc flex-col gap-1'>
                   <For each={uniqueErrors()}>{(error) => <li>{error}</li>}</For>
                 </ul>

@@ -1,16 +1,30 @@
 import { Select as SelectPrimitive, createListCollection } from '@ark-ui/solid/select';
-import { MdOutlineCheck, MdOutlineExpand_more } from 'solid-icons/md';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import { MdOutlineCheck, MdOutlineClose, MdOutlineUnfold_more } from 'solid-icons/md';
+import { Show, type Component, type ComponentProps, splitProps } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 
+import { Label } from '@/components/Label';
+
 export const Select = SelectPrimitive.Root;
-export const SelectClearTrigger = SelectPrimitive.ClearTrigger;
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
 export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
 export const SelectList = SelectPrimitive.List;
 export { createListCollection };
+
+export const SelectLabel: Component<SelectPrimitive.LabelProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <SelectPrimitive.Label
+      asChild={(labelProps) => (
+        <Label class={cn(local.class)} {...labelProps()} {...others}>
+          {local.children}
+        </Label>
+      )}
+    />
+  );
+};
 
 export const SelectGroup: Component<SelectPrimitive.ItemGroupProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -36,10 +50,11 @@ export const SelectValue: Component<SelectPrimitive.ValueTextProps> = (props) =>
 
 export type SelectTriggerProps = SelectPrimitive.TriggerProps & {
   size?: 'sm' | 'default';
+  required?: boolean;
 };
 
 export const SelectTrigger: Component<SelectTriggerProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'size', 'children']);
+  const [local, others] = splitProps(props, ['class', 'size', 'required', 'children']);
   const size = local.size ?? 'default';
 
   return (
@@ -47,15 +62,26 @@ export const SelectTrigger: Component<SelectTriggerProps> = (props) => {
       data-slot='select-trigger'
       data-size={size}
       class={cn(
-        "border-input data-placeholder:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 gap-1.5 rounded-lg border bg-transparent py-2 pr-2 pl-2.5 text-sm transition-colors select-none focus-visible:ring-[3px] aria-invalid:ring-[3px] data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*='size-'])]:size-4 flex w-fit items-center justify-between whitespace-nowrap outline-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:items-center [&_svg]:pointer-events-none [&_svg]:shrink-0",
+        'border-input data-placeholder:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 gap-1.5 rounded-lg border bg-transparent py-2 pr-2 pl-2.5 text-sm transition-colors select-none focus-visible:ring-[3px] aria-invalid:ring-[3px] data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*="size-"])]:size-4 flex w-fit items-center justify-between whitespace-nowrap outline-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:items-center [&_svg]:pointer-events-none [&_svg]:shrink-0',
+        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
+        'data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
+        'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
+        'data-readonly:cursor-default data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
         local.class,
       )}
       {...others}
     >
       {local.children}
-      <SelectPrimitive.Indicator>
-        <MdOutlineExpand_more class='text-muted-foreground pointer-events-none size-4' />
-      </SelectPrimitive.Indicator>
+      <div class='flex items-center gap-1'>
+        <Show when={local.required === false}>
+          <SelectPrimitive.ClearTrigger class='text-muted-foreground hover:text-foreground p-0.5 transition-colors'>
+            <MdOutlineClose class='size-3.5' />
+          </SelectPrimitive.ClearTrigger>
+        </Show>
+        <SelectPrimitive.Indicator>
+          <MdOutlineUnfold_more class='text-muted-foreground size-4' />
+        </SelectPrimitive.Indicator>
+      </div>
     </SelectPrimitive.Trigger>
   );
 };
@@ -78,11 +104,11 @@ export const SelectContent: Component<SelectPrimitive.ContentProps> = (props) =>
   );
 };
 
-export const SelectLabel: Component<SelectPrimitive.ItemGroupLabelProps> = (props) => {
+export const SelectItemGroupLabel: Component<SelectPrimitive.ItemGroupLabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <SelectPrimitive.ItemGroupLabel
-      data-slot='select-label'
+      data-slot='select-group-label'
       class={cn('text-muted-foreground px-1.5 py-1 text-xs', local.class)}
       {...others}
     />

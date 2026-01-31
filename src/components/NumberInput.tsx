@@ -32,6 +32,7 @@ export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = 
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
         'data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
         'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
+        'data-readonly:has-focus-visible:ring-0 data-readonly:has-focus-visible:border-input',
         local.class,
       )}
       {...others}
@@ -58,7 +59,7 @@ export const NumberInputInput: Component<PrimitiveNumberInput.InputProps> = (pro
   );
 };
 
-export const NumberInputTriggerGroup: Component<ComponentProps<'div'>> = (props) => {
+export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <div

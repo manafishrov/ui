@@ -40,6 +40,7 @@ export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
         'group-data-invalid/text-input:ring-destructive/20 group-data-invalid/text-input:border-destructive dark:group-data-invalid/text-input:ring-destructive/40 group-data-invalid/text-input:ring-[3px]',
         'group-data-disabled/text-input:bg-input/50 dark:group-data-disabled/text-input:bg-input/80 group-data-disabled/text-input:opacity-50',
+        'group-data-readonly/text-input:has-focus-visible:ring-0 group-data-readonly/text-input:has-focus-visible:border-input',
         'has-[textarea]:h-auto',
         local.class,
       )}

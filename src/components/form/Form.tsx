@@ -1,11 +1,23 @@
-import { createFormHookContexts, createFormHook } from '@tanstack/solid-form';
+import { createFormHook } from '@tanstack/solid-form';
 
-export const { fieldContext, formContext, useFieldContext, useFormContext } =
-  createFormHookContexts();
+import { formContext, fieldContext } from './context';
+import { NumberInputField } from './NumberInputField';
+import { PasswordInputField } from './PasswordInputField';
+import { PinInputField } from './PinInputField';
+import { SelectField } from './SelectField';
+import { TextareaField } from './TextareaField';
+import { TextInputField } from './TextInputField';
 
 export const { useAppForm, withForm, withFieldGroup } = createFormHook({
-  fieldContext,
   formContext,
-  fieldComponents: {},
+  fieldContext,
+  fieldComponents: {
+    TextInputField,
+    TextareaField,
+    PasswordInputField,
+    NumberInputField,
+    PinInputField,
+    SelectField,
+  },
   formComponents: {},
 });
