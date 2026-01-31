@@ -14,7 +14,7 @@ import { type VariantProps, tv, cn } from 'tailwind-variants';
 import { Label } from '@/components/Label';
 import { Separator } from '@/components/Separator';
 
-import { ZERO, ONE } from './form/constants';
+export { useFieldset } from '@ark-ui/solid/fieldset';
 
 export const FieldSet: Component<PrimitiveFieldset.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -207,7 +207,7 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
 
   const uniqueErrors = createMemo(() => {
     const { errors } = local;
-    if (!errors || errors.length === ZERO) {
+    if (!errors || errors.length === 0) {
       return [];
     }
 
@@ -233,8 +233,8 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
         <Show
           when={local.children}
           fallback={
-            <Show when={uniqueErrors().length !== ZERO}>
-              <Show when={uniqueErrors().length > ONE} fallback={uniqueErrors().at(ZERO)}>
+            <Show when={uniqueErrors().length > 0}>
+              <Show when={uniqueErrors().length > 1} fallback={uniqueErrors().at(0)}>
                 <ul class='ml-4 flex list-disc flex-col gap-1'>
                   <For each={uniqueErrors()}>{(error) => <li>{error}</li>}</For>
                 </ul>

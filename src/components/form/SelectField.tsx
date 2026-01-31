@@ -4,15 +4,11 @@ import { type Component, type ComponentProps, type JSXElement, splitProps } from
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import { Select, SelectControl, SelectTrigger, SelectValue } from '@/components/Select';
 
-import { ZERO } from './constants';
 import { useFieldContext } from './context';
 
 export type SelectFieldProps = ComponentProps<typeof Select> & {
   label?: string;
   description?: string;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
   placeholder?: string;
 };
 
@@ -31,10 +27,10 @@ export const SelectField: Component<SelectFieldProps> = (props): JSXElement => {
 
   return (
     <Field
-      invalid={field().state.meta.errors.length !== ZERO}
-      required={local.required ?? false}
+      invalid={field().state.meta.errors.length > 0}
       disabled={local.disabled ?? false}
       readOnly={local.readOnly ?? false}
+      required={local.required ?? false}
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
@@ -47,8 +43,10 @@ export const SelectField: Component<SelectFieldProps> = (props): JSXElement => {
           onBlur={() => {
             field().handleBlur();
           }}
-          disabled={local.disabled}
-          readOnly={local.readOnly}
+          invalid={field().state.meta.errors.length > 0}
+          disabled={local.disabled ?? false}
+          readOnly={local.readOnly ?? false}
+          required={local.required ?? false}
           {...others}
         >
           <SelectControl>

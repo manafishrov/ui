@@ -6,7 +6,15 @@ import { cn } from 'tailwind-variants';
 import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
 
-export const NumberInput = PrimitiveNumberInput.Root;
+export const NumberInput: Component<PrimitiveNumberInput.RootProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <PrimitiveNumberInput.Root
+      class={cn('group/field flex w-full flex-col gap-1.5', local.class)}
+      {...others}
+    />
+  );
+};
 
 export const NumberInputLabel: Component<PrimitiveNumberInput.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
@@ -28,11 +36,11 @@ export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = 
     <PrimitiveNumberInput.Control
       data-slot='number-input-control'
       class={cn(
-        'border-input dark:bg-input/30 group/number-input-control relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
+        'border-input dark:bg-input/30 group/field-control relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
         'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
-        'data-invalid:ring-destructive/20 data-invalid:border-destructive dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
-        'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
-        'data-readonly:has-focus-visible:ring-0 data-readonly:has-focus-visible:border-input',
+        'group-data-invalid/field:ring-destructive/20 group-data-invalid/field:border-destructive dark:group-data-invalid/field:ring-destructive/40 group-data-invalid/field:ring-[3px]',
+        'group-data-disabled/field:bg-input/50 dark:group-data-disabled/field:bg-input/80 group-data-disabled/field:opacity-50',
+        'group-data-readonly/field:has-focus-visible:ring-0 group-data-readonly/field:has-focus-visible:border-input',
         local.class,
       )}
       {...others}
@@ -66,7 +74,7 @@ export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => 
       data-slot='number-input-trigger-group'
       class={cn(
         'border-input absolute top-0 right-0 flex h-full flex-col border-l transition-colors',
-        'group-has-focus-visible/number-input-control:border-ring group-data-invalid/number-input-control:border-destructive',
+        'group-has-focus-visible/field:border-ring group-data-invalid/field:border-destructive',
         local.class,
       )}
       {...others}

@@ -9,16 +9,14 @@ import {
   PinInputHiddenInput,
 } from '@/components/PinInput';
 
-import { ZERO, DEFAULT_PIN_COUNT } from './constants';
 import { useFieldContext } from './context';
 
 export type PinInputFieldProps = ComponentProps<typeof PinInput> & {
   label?: string;
   description?: string;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
 };
+
+const DEFAULT_PIN_COUNT = 6;
 
 export const PinInputField: Component<PinInputFieldProps> = (props): JSXElement => {
   const field = useFieldContext<string[]>();
@@ -34,10 +32,10 @@ export const PinInputField: Component<PinInputFieldProps> = (props): JSXElement 
 
   return (
     <Field
-      invalid={field().state.meta.errors.length !== ZERO}
-      required={local.required ?? false}
+      invalid={field().state.meta.errors.length > 0}
       disabled={local.disabled ?? false}
       readOnly={local.readOnly ?? false}
+      required={local.required ?? false}
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
@@ -50,8 +48,10 @@ export const PinInputField: Component<PinInputFieldProps> = (props): JSXElement 
           onBlur={() => {
             field().handleBlur();
           }}
-          disabled={local.disabled}
-          readOnly={local.readOnly}
+          invalid={field().state.meta.errors.length > 0}
+          disabled={local.disabled ?? false}
+          readOnly={local.readOnly ?? false}
+          required={local.required ?? false}
           {...others}
         >
           <PinInputControl>

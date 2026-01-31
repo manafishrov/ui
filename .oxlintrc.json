@@ -42,6 +42,7 @@
     "oxc/uninvoked-array-callback": "error",
     "oxc/no-rest-spread-properties": "off",
     "typescript/no-misused-spread": "off",
+    "no-magic-numbers": ["warn", { "ignore": [0, 1] }],
     "no-ternary": "off",
     "unicorn/filename-case": ["error", { "case": "camelCase" }],
     "func-style": [

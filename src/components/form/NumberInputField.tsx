@@ -9,15 +9,11 @@ import {
   NumberInputTriggers,
 } from '@/components/NumberInput';
 
-import { ZERO } from './constants';
 import { useFieldContext } from './context';
 
 export type NumberInputFieldProps = ComponentProps<typeof NumberInput> & {
   label?: string;
   description?: string;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
 };
 
 export const NumberInputField: Component<NumberInputFieldProps> = (props): JSXElement => {
@@ -33,10 +29,10 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props): JSXEl
 
   return (
     <Field
-      invalid={field().state.meta.errors.length !== ZERO}
-      required={local.required ?? false}
+      invalid={field().state.meta.errors.length > 0}
       disabled={local.disabled ?? false}
       readOnly={local.readOnly ?? false}
+      required={local.required ?? false}
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
@@ -49,8 +45,10 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props): JSXEl
           onBlur={() => {
             field().handleBlur();
           }}
-          disabled={local.disabled}
-          readOnly={local.readOnly}
+          invalid={field().state.meta.errors.length > 0}
+          disabled={local.disabled ?? false}
+          readOnly={local.readOnly ?? false}
+          required={local.required ?? false}
           {...others}
         >
           <NumberInputControl>
