@@ -194,6 +194,10 @@
       "types": "./dist/components/Tooltip.d.ts",
       "import": "./dist/components/Tooltip.js"
     },
+    "./tree-view": {
+      "types": "./dist/components/TreeView.d.ts",
+      "import": "./dist/components/TreeView.js"
+    },
     "./toaster": {
       "types": "./dist/components/Toaster.d.ts",
       "import": "./dist/components/Toaster.js"

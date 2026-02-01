@@ -160,7 +160,7 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
   );
 };
 
-const DatePickerDayView: Component = () => (
+export const DatePickerDayView: Component = () => (
   <DatePickerView view='day'>
     <DatePickerViewControl />
     <DatePickerTable>
@@ -205,7 +205,7 @@ const DatePickerDayView: Component = () => (
   </DatePickerView>
 );
 
-const DatePickerMonthView: Component = () => (
+export const DatePickerMonthView: Component = () => (
   <DatePickerView view='month'>
     <DatePickerViewControl />
     <DatePickerTable>
@@ -239,7 +239,7 @@ const DatePickerMonthView: Component = () => (
   </DatePickerView>
 );
 
-const DatePickerYearView: Component = () => (
+export const DatePickerYearView: Component = () => (
   <DatePickerView view='year'>
     <DatePickerViewControl />
     <DatePickerTable>
@@ -273,12 +273,18 @@ const DatePickerYearView: Component = () => (
   </DatePickerView>
 );
 
+export const DatePickerViews: Component = () => (
+  <>
+    <DatePickerDayView />
+    <DatePickerMonthView />
+    <DatePickerYearView />
+  </>
+);
+
 export const Calendar: Component<DatePickerPrimitive.RootProps> = (props) => (
   <DatePicker {...props} inline unmountOnExit={false}>
     <DatePickerContent class='border-none shadow-none ring-0'>
-      <DatePickerDayView />
-      <DatePickerMonthView />
-      <DatePickerYearView />
+      <DatePickerViews />
     </DatePickerContent>
   </DatePicker>
 );

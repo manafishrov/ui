@@ -43,8 +43,8 @@ export const ComboboxClearTrigger: Component<ComboboxPrimitive.ClearTriggerProps
 
 export const ComboboxInput: Component<
   ComboboxPrimitive.InputProps & {
-    showTrigger?: boolean;
-    showClear?: boolean;
+    showTrigger?: boolean | undefined;
+    showClear?: boolean | undefined;
   }
 > = (props) => {
   const [local, others] = splitProps(props, [
@@ -88,19 +88,22 @@ export const ComboboxInput: Component<
   );
 };
 
+export const ComboboxPositioner: Component<ComboboxPrimitive.PositionerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return <ComboboxPrimitive.Positioner class={cn('isolate z-50', local.class)} {...others} />;
+};
+
 export const ComboboxContent: Component<ComboboxPrimitive.ContentProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <ComboboxPrimitive.Positioner class='isolate z-50'>
-      <ComboboxPrimitive.Content
-        data-slot='combobox-content'
-        class={cn(
-          'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 overflow-hidden rounded-lg shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+var(--spacing-7))] origin-(--transform-origin) data-[chips=true]:min-w-(--anchor-width)',
-          local.class,
-        )}
-        {...others}
-      />
-    </ComboboxPrimitive.Positioner>
+    <ComboboxPrimitive.Content
+      data-slot='combobox-content'
+      class={cn(
+        'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 overflow-hidden rounded-lg shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+var(--spacing-7))] origin-(--transform-origin) data-[chips=true]:min-w-(--anchor-width)',
+        local.class,
+      )}
+      {...others}
+    />
   );
 };
 

@@ -10,4 +10,6 @@ export * from './CheckboxField';
 export * from './SwitchField';
 export * from './RadioGroupField';
 export * from './SliderField';
+export * from './DatePickerField';
+export * from './ComboboxField';
 export * from './SubmitButton';

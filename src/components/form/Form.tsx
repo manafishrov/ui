@@ -1,7 +1,9 @@
 import { createFormHook } from '@tanstack/solid-form';
 
 import { CheckboxField } from './CheckboxField';
+import { ComboboxField } from './ComboboxField';
 import { formContext, fieldContext } from './context';
+import { DatePickerField } from './DatePickerField';
 import { NumberInputField } from './NumberInputField';
 import { PasswordInputField } from './PasswordInputField';
 import { PinInputField } from './PinInputField';
@@ -18,6 +20,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   fieldContext,
   fieldComponents: {
     CheckboxField,
+    ComboboxField,
     TextInputField,
     TextareaField,
     PasswordInputField,
@@ -27,6 +30,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
     SelectField,
     SliderField,
     SwitchField,
+    DatePickerField,
   },
   formComponents: {
     SubmitButton,

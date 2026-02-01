@@ -60,6 +60,7 @@ export default defineConfig({
         'src/components/Toaster.tsx',
         'src/components/Toggle.tsx',
         'src/components/Tooltip.tsx',
+        'src/components/TreeView.tsx',
         'src/components/Typography.tsx',
         'src/theme.css',
       ],
