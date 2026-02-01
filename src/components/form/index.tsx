@@ -12,4 +12,5 @@ export * from './RadioGroupField';
 export * from './SliderField';
 export * from './DatePickerField';
 export * from './ComboboxField';
+export * from './TagsInputField';
 export * from './SubmitButton';

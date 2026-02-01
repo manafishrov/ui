@@ -12,6 +12,7 @@ import { SelectField } from './SelectField';
 import { SliderField } from './SliderField';
 import { SubmitButton } from './SubmitButton';
 import { SwitchField } from './SwitchField';
+import { TagsInputField } from './TagsInputField';
 import { TextareaField } from './TextareaField';
 import { TextInputField } from './TextInputField';
 
@@ -21,16 +22,17 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   fieldComponents: {
     CheckboxField,
     ComboboxField,
-    TextInputField,
-    TextareaField,
-    PasswordInputField,
+    DatePickerField,
     NumberInputField,
+    PasswordInputField,
     PinInputField,
     RadioGroupField,
     SelectField,
     SliderField,
     SwitchField,
-    DatePickerField,
+    TagsInputField,
+    TextInputField,
+    TextareaField,
   },
   formComponents: {
     SubmitButton,

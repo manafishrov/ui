@@ -98,6 +98,10 @@
       "types": "./dist/components/Link.d.ts",
       "import": "./dist/components/Link.js"
     },
+    "./marquee": {
+      "types": "./dist/components/Marquee.d.ts",
+      "import": "./dist/components/Marquee.js"
+    },
     "./menu": {
       "types": "./dist/components/Menu.d.ts",
       "import": "./dist/components/Menu.js"
@@ -205,6 +209,10 @@
     "./typography": {
       "types": "./dist/components/Typography.d.ts",
       "import": "./dist/components/Typography.js"
+    },
+    "./tags-input": {
+      "types": "./dist/components/TagsInput.d.ts",
+      "import": "./dist/components/TagsInput.js"
     },
     "./theme.css": "./dist/theme.css"
   },
