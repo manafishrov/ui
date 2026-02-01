@@ -36,20 +36,22 @@ const ComboboxInputGroup: Component<ComponentProps<typeof ComboboxInput>> = (pro
   </>
 );
 
+const COMBOBOX_FIELD_PROPS = [
+  'label',
+  'description',
+  'required',
+  'disabled',
+  'readOnly',
+  'placeholder',
+  'showTrigger',
+  'showClear',
+  'children',
+] as const;
+
 export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const primitiveField = usePrimitiveFieldContext();
-  const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'placeholder',
-    'showTrigger',
-    'showClear',
-    'children',
-  ]);
+  const [local, others] = splitProps(props, COMBOBOX_FIELD_PROPS);
 
   return (
     <Field

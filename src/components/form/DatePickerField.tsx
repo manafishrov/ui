@@ -35,17 +35,19 @@ const DatePickerInputGroup: Component<DatePickerInputProps> = (props) => (
   </>
 );
 
+const DATE_PICKER_FIELD_PROPS = [
+  'label',
+  'description',
+  'required',
+  'disabled',
+  'readOnly',
+  'placeholder',
+] as const;
+
 export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
   const field = useFieldContext<DateValue[]>();
   const primitiveField = usePrimitiveFieldContext();
-  const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'placeholder',
-  ]);
+  const [local, others] = splitProps(props, DATE_PICKER_FIELD_PROPS);
 
   return (
     <Field
