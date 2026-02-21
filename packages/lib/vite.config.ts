@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { defineConfig } from 'vite';
+import { defineConfig, type PluginOption } from 'vite';
 import dts from 'vite-plugin-dts';
 import solid from 'vite-plugin-solid';
 
@@ -73,18 +73,10 @@ export default defineConfig({
         'solid-js',
         'solid-js/web',
         '@tanstack/solid-router',
+        '@tanstack/solid-form',
         '@solid-primitives/i18n',
-        '@ark-ui/solid/accordion',
-        '@ark-ui/solid/toast',
-        '@ark-ui/solid/tooltip',
-        '@ark-ui/solid/switch',
-        '@ark-ui/solid/popover',
-        '@ark-ui/solid/progress',
-        '@ark-ui/solid/slider',
-        '@ark-ui/solid/radio-group',
-        '@ark-ui/solid/dialog',
-        'solid-icons/md',
-        'tailwind-variants',
+        'solid-icons',
+        'tailwindcss',
       ],
       output: {
         preserveModules: true,
@@ -97,9 +89,11 @@ export default defineConfig({
     sourcemap: true,
   },
   plugins: [
-    solid(),
+    solid() as PluginOption,
+    // eslint-disable-next-line typescript-eslint/no-unsafe-type-assertion
     dts({
       entryRoot: 'src',
-    }),
+      tsconfigPath: './tsconfig.json',
+    }) as PluginOption,
   ],
 });

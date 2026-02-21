@@ -1,0 +1,18 @@
+--- packages/lib/vite.config.ts
++++ packages/lib/vite.config.ts
+@@ -1,5 +1,4 @@
+-import type { PluginOption } from 'vite';
+-
+ import path from 'node:path';
+-import { defineConfig } from 'vite';
++import { defineConfig, type PluginOption } from 'vite';
+ import dts from 'vite-plugin-dts';
+ import solid from 'vite-plugin-solid';
+@@ -93,7 +92,8 @@
+   plugins: [
+     solid() as PluginOption,
++    // eslint-disable-next-line typescript-eslint/no-unsafe-type-assertion
+     dts({
+       entryRoot: 'src',
+       tsconfigPath: './tsconfig.json',
+     }) as PluginOption,

@@ -1,4 +1,4 @@
-import { Accordion as AccordionPrimitive } from '@ark-ui/solid/accordion';
+import { Accordion as AccordionPrimitive } from '@ark-ui/solid';
 import { MdOutlineExpand_more } from 'solid-icons/md';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
@@ -70,10 +70,8 @@ export const AccordionContent: Component<AccordionPrimitive.ItemContentProps> = 
       )}
       {...others}
     >
-      <div class='pt-0 pb-4'>
-        <div class='[&_a]:hover:text-foreground [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4'>
-          {local.children}
-        </div>
+      <div class=''>
+        <div class=''>{local.children}</div>
       </div>
     </AccordionPrimitive.ItemContent>
   );
