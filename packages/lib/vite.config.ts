@@ -1,6 +1,6 @@
 import path from 'node:path';
+import dts from 'unplugin-dts/vite';
 import { defineConfig, type PluginOption } from 'vite';
-import dts from 'vite-plugin-dts';
 import solid from 'vite-plugin-solid';
 
 export default defineConfig({
@@ -89,11 +89,10 @@ export default defineConfig({
     sourcemap: true,
   },
   plugins: [
-    solid() as PluginOption,
-    // eslint-disable-next-line typescript-eslint/no-unsafe-type-assertion
+    solid(),
+    // oxlint-disable-next-line typescript-oxlint/no-unsafe-type-assertion
     dts({
-      entryRoot: 'src',
       tsconfigPath: './tsconfig.json',
-    }) as PluginOption,
+    }) as unknown as PluginOption,
   ],
 });

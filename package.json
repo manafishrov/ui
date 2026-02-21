@@ -15,8 +15,8 @@
     "build:docs": "cd packages/docs && bunx vite build",
     "lint": "oxlint --type-aware --type-check",
     "lint:fix": "oxlint --type-aware --type-check --fix",
-    "fmt": "oxfmt --write '**/*.{js,jsx,ts,tsx}'",
-    "fmt:check": "oxfmt --check '**/*.{js,jsx,ts,tsx}'",
+    "fmt": "oxfmt --write packages/**/*.ts packages/**/*.tsx",
+    "fmt:check": "oxfmt --check packages/**/*.ts packages/**/*.tsx",
     "publish": "bun run build:lib && cd packages/lib && npm publish"
   },
   "devDependencies": {
