@@ -27,4 +27,4 @@ jobs:
       - name: Run oxlint
         run: bun run lint
       - name: Run formatting check
-        run: run fmt:check
+        run: bun run fmt:check
