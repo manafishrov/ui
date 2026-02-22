@@ -12,6 +12,7 @@ const router = createRouter({
 });
 
 declare module '@tanstack/solid-router' {
+  // @ts-expect-error: Duplicate identifier
   type Register = {
     router: typeof router;
   };

@@ -25,33 +25,33 @@ export const toast = createToaster({
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group pointer-events-auto relative flex w-full items-center gap-3 overflow-hidden rounded-lg border bg-popover p-4 pr-10 shadow-lg transition-all',
-      'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-80',
-      'data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',
-      'text-popover-foreground border-border',
+      'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex w-full items-center overflow-hidden rounded-lg border bg-popover transition-all',
+      'data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=open]:animate-in',
+      'data-[state=open]:sm:slide-in-from-bottom-full data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full',
+      'border-border text-popover-foreground',
     )}
   >
     <Show when={props.toast().type === 'success'}>
-      <MdOutlineCheck_circle class={cn('shrink-0 size-5 text-green-500')} aria-hidden='true' />
+      <MdOutlineCheck_circle class={cn('size-5 text-green-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'info'}>
-      <MdOutlineInfo class={cn('shrink-0 size-5 text-blue-500')} aria-hidden='true' />
+      <MdOutlineInfo class={cn('size-5 text-blue-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'warning'}>
-      <MdOutlineWarning class={cn('shrink-0 size-5 text-amber-500')} aria-hidden='true' />
+      <MdOutlineWarning class={cn('size-5 text-amber-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'error'}>
-      <MdOutlineError class={cn('shrink-0 size-5 text-red-500')} aria-hidden='true' />
+      <MdOutlineError class={cn('size-5 text-red-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'loading'}>
       <MdOutlineRefresh
-        class={cn('shrink-0 size-5 animate-spin text-muted-foreground')}
+        class={cn('size-5 animate-spin shrink-0 text-muted-foreground')}
         aria-hidden='true'
       />
     </Show>
-    <div class='grid gap-1'>
+    <div class='gap-1 grid'>
       <Show when={props.toast().title}>
-        <Toast.Title class='text-sm leading-none font-semibold tracking-tight'>
+        <Toast.Title class='text-sm font-semibold tracking-tight leading-none'>
           {props.toast().title}
         </Toast.Title>
       </Show>
@@ -61,7 +61,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
         </Toast.Description>
       </Show>
     </div>
-    <Toast.CloseTrigger class='text-foreground/50 hover:text-foreground absolute top-2 right-2 cursor-pointer rounded-md p-1 opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100 focus:ring-2 focus:outline-none'>
+    <Toast.CloseTrigger class='top-2 right-2 p-1 absolute cursor-pointer rounded-md text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground focus:opacity-100 focus:ring-2 focus:outline-none'>
       <MdOutlineClose class='size-4' />
     </Toast.CloseTrigger>
   </Toast.Root>
@@ -69,6 +69,6 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
 
 export const Toaster: Component = () => (
   <Portal>
-    <ToasterPrimitive toaster={toast}>{(toast) => <ToastItem toast={toast} />}</ToasterPrimitive>
+    <ToasterPrimitive toaster={toast}>{(t) => <ToastItem toast={t} />}</ToasterPrimitive>
   </Portal>
 );

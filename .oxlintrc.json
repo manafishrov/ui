@@ -9,6 +9,7 @@
     "correctness": "error",
     "suspicious": "error",
     "perf": "error",
+    "pedantic": "error",
     "style": "warn"
   },
   "rules": {
