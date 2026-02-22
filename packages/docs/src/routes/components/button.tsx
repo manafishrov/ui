@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const ButtonPage: Component = () => (

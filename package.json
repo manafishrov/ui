@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "@manafish/ui-workspace",
+  "name": "@manafishrov/ui-workspace",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "workspaces": [
