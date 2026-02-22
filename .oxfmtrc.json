@@ -17,5 +17,8 @@
     "stylesheet": "./packages/lib/src/theme.css",
     "functions": ["tv", "cn", "cx", "cnMerge"],
     "preserveWhitespace": true
+  },
+  "experimentalSortPackageJson": {
+    "sortScripts": true
   }
 }
