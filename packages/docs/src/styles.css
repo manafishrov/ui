@@ -1,6 +1,2 @@
 @import 'tailwindcss';
 @import 'manafish-ui/theme';
-
-body {
-  @apply bg-background text-foreground;
-}

@@ -1,4 +1,4 @@
-import type { JSX } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { createFileRoute } from '@tanstack/solid-router';
 import { Button } from 'manafish-ui/button';
@@ -11,16 +11,16 @@ import {
   CardFooter,
 } from 'manafish-ui/card';
 
-const CardPage = (): JSX.Element => (
+const CardPage: Component = () => (
   <div class='space-y-8'>
     <div>
       <h1 class='text-3xl font-bold'>Card</h1>
-      <p class='text-muted-foreground mt-2'>
+      <p class='mt-2 text-muted-foreground'>
         A container component for displaying content in a structured way.
       </p>
     </div>
 
-    <div class='grid gap-6 md:grid-cols-2'>
+    <div class='gap-6 md:grid-cols-2 grid'>
       <Card>
         <CardHeader>
           <CardTitle>Simple Card</CardTitle>

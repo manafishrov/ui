@@ -1,4 +1,4 @@
-import type { JSX } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { createFileRoute, Link } from '@tanstack/solid-router';
 
@@ -20,7 +20,7 @@ const components = [
   },
 ];
 
-const HomePage = (): JSX.Element => (
+const HomePage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
       <h1 class='text-4xl font-bold tracking-tight'>Manafish UI</h1>
@@ -31,14 +31,14 @@ const HomePage = (): JSX.Element => (
 
     <div class='space-y-4'>
       <h2 class='text-2xl font-semibold'>Components</h2>
-      <div class='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+      <div class='gap-4 md:grid-cols-2 lg:grid-cols-3 grid'>
         {components.map((component) => (
           <Link
             to={component.to}
-            class='block rounded-lg border border-border p-4 hover:border-primary hover:bg-muted/50 transition-colors'
+            class='p-4 block rounded-lg border border-border transition-colors hover:border-primary hover:bg-muted/50'
           >
             <h3 class='font-semibold'>{component.name}</h3>
-            <p class='text-sm text-muted-foreground mt-1'>{component.description}</p>
+            <p class='text-sm mt-1 text-muted-foreground'>{component.description}</p>
           </Link>
         ))}
       </div>

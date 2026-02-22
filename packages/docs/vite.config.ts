@@ -6,12 +6,12 @@ import solid from 'vite-plugin-solid';
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     tanstackRouter({
       target: 'solid',
       autoCodeSplitting: true,
     }),
     solid(),
-    tailwindcss(),
   ],
   resolve: {
     alias: {
