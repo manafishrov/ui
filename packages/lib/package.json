@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "manafish-ui",
+  "name": "@manafish/ui",
   "version": "0.1.0",
   "description": "User interface components for Manafish",
   "license": "AGPL-3.0-or-later",

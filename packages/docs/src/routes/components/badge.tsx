@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 
+import { Badge } from '@manafish/ui/badge';
 import { createFileRoute } from '@tanstack/solid-router';
-import { Badge } from 'manafish-ui/badge';
 
 const BadgePage: Component = () => (
   <div class='space-y-8'>

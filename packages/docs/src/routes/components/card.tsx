@@ -1,7 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { createFileRoute } from '@tanstack/solid-router';
-import { Button } from 'manafish-ui/button';
+import { Button } from '@manafish/ui/button';
 import {
   Card,
   CardHeader,
@@ -9,7 +8,8 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from 'manafish-ui/card';
+} from '@manafish/ui/card';
+import { createFileRoute } from '@tanstack/solid-router';
 
 const CardPage: Component = () => (
   <div class='space-y-8'>

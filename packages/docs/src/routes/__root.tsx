@@ -1,13 +1,13 @@
 import type { Component } from 'solid-js';
 
-import { HeadContent, Link, Outlet, createRootRoute } from '@tanstack/solid-router';
-import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
 import {
   ScrollArea,
   ScrollAreaContent,
   ScrollAreaScrollbar,
   ScrollAreaViewport,
-} from 'manafish-ui/scroll-area';
+} from '@manafish/ui/scroll-area';
+import { HeadContent, Link, Outlet, createRootRoute } from '@tanstack/solid-router';
+import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
 
 const RootComponent: Component = () => (
   <div class='flex h-full flex-col'>

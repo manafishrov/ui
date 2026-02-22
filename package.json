@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "manafish-ui-monorepo",
+  "name": "@manafish/ui-workspace",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "workspaces": [
@@ -8,15 +8,15 @@
   ],
   "type": "module",
   "scripts": {
-    "prepare": "lefthook install",
-    "dev": "cd packages/docs && bunx vite --port 3000",
     "build": "bun run build:lib && bun run build:docs",
-    "build:lib": "cd packages/lib && bunx vite build",
     "build:docs": "cd packages/docs && bunx vite build",
-    "lint": "oxlint --type-aware --type-check",
-    "lint:fix": "oxlint --type-aware --type-check --fix",
+    "build:lib": "cd packages/lib && bunx vite build",
+    "dev": "cd packages/docs && bunx vite --port 3000",
     "fmt": "oxfmt --write packages/**/*.ts packages/**/*.tsx",
     "fmt:check": "oxfmt --check packages/**/*.ts packages/**/*.tsx",
+    "lint": "oxlint --type-aware --type-check",
+    "lint:fix": "oxlint --type-aware --type-check --fix",
+    "prepare": "lefthook install",
     "publish": "bun run build:lib && cd packages/lib && npm publish"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 
+import { Button } from '@manafish/ui/button';
 import { createFileRoute } from '@tanstack/solid-router';
-import { Button } from 'manafish-ui/button';
 
 const ButtonPage: Component = () => (
   <div class='space-y-8'>
