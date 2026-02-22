@@ -1,9 +1,11 @@
-@import 'tailwindcss';
 @import 'tw-animate-css';
 @import '@fontsource-variable/exo';
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/inter/wght-italic';
 @import '@fontsource/chakra-petch/500';
+
+@source './components/**/*.tsx';
+@source './components/**/*.js';
 
 @custom-variant dark (&:is(.dark *));
 

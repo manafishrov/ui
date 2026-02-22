@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "prepare": "lefthook install",
-    "dev": "cd packages/docs && bunx vite",
+    "dev": "cd packages/docs && bunx vite --port 3000",
     "build": "bun run build:lib && bun run build:docs",
     "build:lib": "cd packages/lib && bunx vite build",
     "build:docs": "cd packages/docs && bunx vite build",
