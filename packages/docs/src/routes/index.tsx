@@ -248,11 +248,11 @@ const components = [
   //   to: '/components/tree-view',
   //   description: 'Documentation for the TreeView component.',
   // },
-  // {
-  //   name: 'Typography',
-  //   to: '/components/typography',
-  //   description: 'Documentation for the Typography component.',
-  // },
+  {
+    name: 'Typography',
+    to: '/components/typography',
+    description: 'Documentation for the Typography component.',
+  },
 ];
 
 const HomePage: Component = () => (

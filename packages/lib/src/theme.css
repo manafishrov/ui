@@ -1,7 +1,6 @@
 @import 'tw-animate-css';
-@import '@fontsource-variable/exo';
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/inter/wght-italic';
+@import '@fontsource/rajdhani';
+@import '@fontsource/roboto';
 @import '@fontsource/chakra-petch/500';
 
 @source './components/**/*.js';
@@ -78,10 +77,10 @@
 
 @theme inline {
   --font-default:
-    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Roboto', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-heading:
-    'Exo Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Rajdhani', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-branding:
     'Chakra Petch', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
