@@ -30,6 +30,8 @@ export default defineConfig({
         'src/components/Dialog.tsx',
         'src/components/Empty.tsx',
         'src/components/Field.tsx',
+        'src/components/HoverCard.tsx',
+
         'src/components/Input.tsx',
         'src/components/Item.tsx',
         'src/components/Kbd.tsx',

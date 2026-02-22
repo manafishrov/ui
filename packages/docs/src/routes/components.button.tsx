@@ -1,9 +1,9 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafishrov/ui/button';
+import { Button, ButtonGroup, ButtonGroupText, ButtonGroupSeparator } from '@manafish/ui/button';
 import { createFileRoute } from '@tanstack/solid-router';
 
-const ButtonPage: Component = () => (
+const ButtonDocPage: Component = () => (
   <div class='space-y-8'>
     <div>
       <h1 class='text-3xl font-bold'>Button</h1>
@@ -32,14 +32,18 @@ const ButtonPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>States</h2>
-      <div class='gap-4 flex flex-wrap'>
-        <Button disabled>Disabled</Button>
-      </div>
+      <h2 class='text-xl font-semibold'>Group</h2>
+      <ButtonGroup>
+        <Button>First</Button>
+        <ButtonGroupSeparator />
+        <ButtonGroupText>Or</ButtonGroupText>
+        <ButtonGroupSeparator />
+        <Button variant='secondary'>Second</Button>
+      </ButtonGroup>
     </div>
   </div>
 );
 
 export const Route = createFileRoute('/components/button')({
-  component: ButtonPage,
+  component: ButtonDocPage,
 });

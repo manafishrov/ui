@@ -79,6 +79,10 @@
       "types": "./dist/components/Field.d.ts",
       "import": "./dist/components/Field.js"
     },
+    "./hover-card": {
+      "types": "./dist/components/HoverCard.d.ts",
+      "import": "./dist/components/HoverCard.js"
+    },
     "./input": {
       "types": "./dist/components/Input.d.ts",
       "import": "./dist/components/Input.js"
