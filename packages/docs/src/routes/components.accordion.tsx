@@ -4,8 +4,8 @@ import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
-  AccordionIndicator,
   AccordionContent,
+  AccordionIndicator,
 } from '@manafish/ui/accordion';
 import { createFileRoute } from '@tanstack/solid-router';
 
@@ -17,28 +17,37 @@ const AccordionDocPage: Component = () => (
         A vertically stacked set of interactive headings that each reveal a section of content.
       </p>
     </div>
-
-    <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
-      <Accordion defaultValue={['item-1']} class='max-w-md w-full'>
-        <AccordionItem value='item-1'>
-          <AccordionTrigger>
-            Is it accessible?
-            <AccordionIndicator />
-          </AccordionTrigger>
-          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-        </AccordionItem>
-        <AccordionItem value='item-2'>
-          <AccordionTrigger>
-            Is it styled?
-            <AccordionIndicator />
-          </AccordionTrigger>
-          <AccordionContent>
-            Yes. It comes with default styles that match the other components.
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </div>
+    <Accordion collapsible defaultValue={['shipping']} class='max-w-lg w-full'>
+      <AccordionItem value='shipping'>
+        <AccordionTrigger>
+          What are your shipping options?
+          <AccordionIndicator />
+        </AccordionTrigger>
+        <AccordionContent>
+          We offer standard (5-7 days), express (2-3 days), and overnight
+          shipping. Free shipping on international orders.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value='returns'>
+        <AccordionTrigger>
+          What is your return policy?
+          <AccordionIndicator />
+        </AccordionTrigger>
+        <AccordionContent>
+          Returns accepted within 30 days. Items must be unused and in original
+          packaging. Refunds processed within 5-7 business days.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value='support'>
+        <AccordionTrigger>
+          How can I contact customer support?
+          <AccordionIndicator />
+        </AccordionTrigger>
+        <AccordionContent>
+          Reach us via email, live chat, or phone. We respond within 24 hours during business days.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   </div>
 );
 
