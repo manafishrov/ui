@@ -2,17 +2,14 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "env": {
     "browser": true,
-    "es2024": true
+    "es2022": true
   },
   "plugins": ["eslint", "typescript", "unicorn", "oxc"],
   "categories": {
     "correctness": "error",
     "suspicious": "error",
-    "restriction": "error",
     "perf": "error",
-    "pedantic": "error",
-    "style": "warn",
-    "nursery": "warn"
+    "style": "warn"
   },
   "rules": {
     "sort-keys": "off",
@@ -69,6 +66,12 @@
             "case": "pascalCase"
           }
         ]
+      }
+    },
+    {
+      "files": ["packages/docs/src/routes/**/*.tsx", "packages/docs/src/main.tsx"],
+      "rules": {
+        "unicorn/filename-case": "off"
       }
     }
   ]
