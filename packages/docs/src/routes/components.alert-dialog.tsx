@@ -3,12 +3,9 @@ import type { Component } from 'solid-js';
 import {
   AlertDialog,
   AlertDialogTrigger,
-  AlertDialogOverlay,
-  AlertDialogPositioner,
   AlertDialogContent,
   AlertDialogHeader,
   AlertDialogFooter,
-  AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogAction,
@@ -25,7 +22,6 @@ const AlertDialogDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <AlertDialog>
         <AlertDialogTrigger
           asChild={(props) => (

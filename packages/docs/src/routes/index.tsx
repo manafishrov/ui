@@ -8,11 +8,11 @@ const components = [
     to: '/components/accordion',
     description: 'Documentation for the Accordion component.',
   },
-  // {
-  //   name: 'AlertDialog',
-  //   to: '/components/alert-dialog',
-  //   description: 'Documentation for the AlertDialog component.',
-  // },
+  {
+    name: 'AlertDialog',
+    to: '/components/alert-dialog',
+    description: 'Documentation for the AlertDialog component.',
+  },
   // {
   //   name: 'AspectRatio',
   //   to: '/components/aspect-ratio',
