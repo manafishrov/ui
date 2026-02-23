@@ -20,9 +20,8 @@ const AvatarDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Avatar>
-        <AvatarImage src='https://github.com/solidjs.png' alt='@solidjs' />
+        <AvatarImage src='https://github.com/michaelbrusegard.png' alt='@michaelbrusegard' />
         <AvatarFallback>SJ</AvatarFallback>
         <AvatarBadge class='bg-green-500' />
       </Avatar>
@@ -37,7 +36,7 @@ const AvatarDocPage: Component = () => (
         <Avatar>
           <AvatarFallback>B</AvatarFallback>
         </Avatar>
-        <AvatarGroupCount count={3} />
+        <AvatarGroupCount>+2</AvatarGroupCount>
       </AvatarGroup>
     </div>
   </div>

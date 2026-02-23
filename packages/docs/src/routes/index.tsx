@@ -13,16 +13,16 @@ const components = [
     to: '/components/alert-dialog',
     description: 'Documentation for the AlertDialog component.',
   },
-  // {
-  //   name: 'AspectRatio',
-  //   to: '/components/aspect-ratio',
-  //   description: 'Documentation for the AspectRatio component.',
-  // },
-  // {
-  //   name: 'Avatar',
-  //   to: '/components/avatar',
-  //   description: 'Documentation for the Avatar component.',
-  // },
+  {
+    name: 'AspectRatio',
+    to: '/components/aspect-ratio',
+    description: 'Documentation for the AspectRatio component.',
+  },
+  {
+    name: 'Avatar',
+    to: '/components/avatar',
+    description: 'Documentation for the Avatar component.',
+  },
   {
     name: 'Badge',
     to: '/components/badge',
@@ -260,7 +260,7 @@ const HomePage: Component = () => (
     <div class='space-y-2'>
       <h1 class='text-4xl font-bold tracking-tight font-branding'>Manafish UI</h1>
       <p class='text-lg text-muted-foreground'>
-        A component library for SolidJS built with Ark UI, Tailwind CSS, and TanStack Form.
+        A component library for SolidJS built with Ark UI, Tailwind CSS, and TanStack.
       </p>
     </div>
 
