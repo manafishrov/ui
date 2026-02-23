@@ -23,21 +23,21 @@ const components = [
   //   to: '/components/avatar',
   //   description: 'Documentation for the Avatar component.',
   // },
-  // {
-  //   name: 'Badge',
-  //   to: '/components/badge',
-  //   description: 'A small label component for status or counts.',
-  // },
+  {
+    name: 'Badge',
+    to: '/components/badge',
+    description: 'A small label component for status or counts.',
+  },
   // {
   //   name: 'Breadcrumb',
   //   to: '/components/breadcrumb',
   //   description: 'Documentation for the Breadcrumb component.',
   // },
-  // {
-  //   name: 'Button',
-  //   to: '/components/button',
-  //   description: 'A clickable button component with multiple variants.',
-  // },
+  {
+    name: 'Button',
+    to: '/components/button',
+    description: 'A clickable button component with multiple variants.',
+  },
   // {
   //   name: 'Card',
   //   to: '/components/card',
@@ -258,7 +258,7 @@ const components = [
 const HomePage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
-      <h1 class='text-4xl font-bold tracking-tight'>Manafish UI</h1>
+      <h1 class='text-4xl font-bold tracking-tight font-branding'>Manafish UI</h1>
       <p class='text-lg text-muted-foreground'>
         A component library for SolidJS built with Ark UI, Tailwind CSS, and TanStack Form.
       </p>

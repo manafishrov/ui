@@ -34,11 +34,22 @@ const ButtonDocPage: Component = () => (
     <div class='space-y-4'>
       <h2 class='text-xl font-semibold'>Group</h2>
       <ButtonGroup>
-        <Button>First</Button>
-        <ButtonGroupSeparator />
+        <Button variant='outline'>First</Button>
         <ButtonGroupText>Or</ButtonGroupText>
+        <Button variant='outline'>Second</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variant='outline'>Archive</Button>
+        <Button variant='outline'>Report</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variant='secondary' size='sm'>
+          Copy
+        </Button>
         <ButtonGroupSeparator />
-        <Button variant='secondary'>Second</Button>
+        <Button variant='secondary' size='sm'>
+          Paste
+        </Button>
       </ButtonGroup>
     </div>
   </div>

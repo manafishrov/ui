@@ -2,7 +2,7 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { type VariantProps, tv } from 'tailwind-variants';
 
 export const separatorVariants = tv({
-  base: 'bg-border shrink-0',
+  base: 'shrink-0 bg-border',
   variants: {
     orientation: {
       horizontal: 'h-px w-full',
@@ -25,6 +25,7 @@ export const Separator: Component<SeparatorProps> = (props) => {
   return (
     <div
       data-slot='separator'
+      data-orientation={local.orientation ?? 'horizontal'}
       {...(local.decorative === true
         ? { role: 'none' }
         : {
