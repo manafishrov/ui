@@ -20,20 +20,18 @@ const TypographyDocPage: Component = () => (
   <div class='space-y-8'>
     <div>
       <h1 class='text-3xl font-bold'>Typography</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Styles for headings, paragraphs, lists, and more.
-      </p>
+      <p class='mt-2 text-muted-foreground'>Styles for headings, paragraphs, lists, and more.</p>
     </div>
 
     <div class='space-y-8'>
-      <div class='grid gap-4'>
+      <div class='gap-4 grid'>
         <H1>Heading 1</H1>
         <H2>Heading 2</H2>
         <H3>Heading 3</H3>
         <H4>Heading 4</H4>
       </div>
 
-      <div class='grid gap-4'>
+      <div class='gap-4 grid'>
         <P>
           The king, seeing how much happier his subjects were, realized the error of his ways and
           repealed the joke tax.
@@ -46,7 +44,7 @@ const TypographyDocPage: Component = () => (
         <Muted>Enter your email address.</Muted>
       </div>
 
-      <div class='grid gap-4'>
+      <div class='gap-4 grid'>
         <Blockquote>
           "After all," he said, "everyone enjoys a good joke, so it's only fair that they should pay
           for the privilege."

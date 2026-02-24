@@ -2,7 +2,7 @@ import { MdOutlineChevron_right, MdOutlineMore_horiz } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { useLocale } from '@/Locale';
+import * as messages from '@/paraglide/messages';
 
 export const Breadcrumb: Component<ComponentProps<'nav'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -15,7 +15,7 @@ export const BreadcrumbList: Component<ComponentProps<'ol'>> = (props) => {
     <ol
       data-slot='breadcrumb-list'
       class={cn(
-        'text-muted-foreground gap-1.5 text-sm flex flex-wrap items-center break-words',
+        'gap-1.5 text-sm flex flex-wrap items-center break-words text-muted-foreground',
         local.class,
       )}
       {...others}
@@ -39,7 +39,7 @@ export const BreadcrumbLink: Component<ComponentProps<'a'>> = (props) => {
   return (
     <a
       data-slot='breadcrumb-link'
-      class={cn('hover:text-foreground transition-colors', local.class)}
+      class={cn('transition-colors hover:text-foreground', local.class)}
       {...others}
     />
   );
@@ -53,7 +53,7 @@ export const BreadcrumbPage: Component<ComponentProps<'span'>> = (props) => {
       role='link'
       aria-disabled='true'
       aria-current='page'
-      class={cn('text-foreground font-normal', local.class)}
+      class={cn('font-normal text-foreground', local.class)}
       {...others}
     />
   );
@@ -76,7 +76,7 @@ export const BreadcrumbSeparator: Component<ComponentProps<'li'>> = (props) => {
 
 export const BreadcrumbEllipsis: Component<ComponentProps<'span'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const t = useLocale();
+  
 
   return (
     <span
@@ -87,7 +87,7 @@ export const BreadcrumbEllipsis: Component<ComponentProps<'span'>> = (props) => 
       {...others}
     >
       <MdOutlineMore_horiz class='size-4' />
-      <span class='sr-only'>{String(t('ui.common.more'))}</span>
+      <span class='sr-only'>{messages.ui_common_more()}</span>
     </span>
   );
 };

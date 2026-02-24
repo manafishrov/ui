@@ -10,7 +10,7 @@ export { createTreeCollection };
 
 export const TreeViewTree: Component<TreeViewPrimitive.TreeProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return <TreeViewPrimitive.Tree class={cn('flex flex-col gap-1', local.class)} {...others} />;
+  return <TreeViewPrimitive.Tree class={cn('gap-1 flex flex-col', local.class)} {...others} />;
 };
 
 export const TreeViewItem: Component<TreeViewPrimitive.ItemProps> = (props) => {
@@ -18,7 +18,7 @@ export const TreeViewItem: Component<TreeViewPrimitive.ItemProps> = (props) => {
   return (
     <TreeViewPrimitive.Item
       class={cn(
-        'data-selected:bg-accent data-selected:text-accent-foreground hover:bg-accent/50 hover:text-accent-foreground/50 relative flex cursor-pointer select-none items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-none transition-colors disabled:pointer-events-none disabled:opacity-50',
+        'gap-2 px-2 py-1.5 text-sm relative flex cursor-pointer items-center rounded-md transition-colors outline-none select-none hover:bg-accent/50 hover:text-accent-foreground/50 disabled:pointer-events-none disabled:opacity-50 data-selected:bg-accent data-selected:text-accent-foreground',
         local.class,
       )}
       {...others}
@@ -40,7 +40,7 @@ export const TreeViewBranchControl: Component<TreeViewPrimitive.BranchControlPro
   return (
     <TreeViewPrimitive.BranchControl
       class={cn(
-        'hover:bg-accent/50 hover:text-accent-foreground/50 flex cursor-pointer select-none items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-none transition-colors disabled:pointer-events-none disabled:opacity-50',
+        'gap-2 px-2 py-1.5 text-sm flex cursor-pointer items-center rounded-md transition-colors outline-none select-none hover:bg-accent/50 hover:text-accent-foreground/50 disabled:pointer-events-none disabled:opacity-50',
         local.class,
       )}
       {...others}

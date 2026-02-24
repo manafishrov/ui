@@ -4,14 +4,14 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
-import { useLocale } from '@/Locale';
+import * as messages from '@/paraglide/messages';
 
 export const Pagination: Component<PaginationPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <PaginationPrimitive.Root
       data-slot='pagination'
-      class={cn('mx-auto flex w-full justify-center gap-1', local.class)}
+      class={cn('gap-1 mx-auto flex w-full justify-center', local.class)}
       {...others}
     />
   );
@@ -46,7 +46,7 @@ export const PaginationLink: Component<PaginationPrimitive.ItemProps> = (props) 
           variant: 'ghost',
           size: 'icon',
         }),
-        'data-selected:bg-background data-selected:text-foreground data-selected:border-border data-selected:border data-selected:hover:bg-muted data-selected:hover:text-foreground',
+        'data-selected:border data-selected:border-border data-selected:bg-background data-selected:text-foreground data-selected:hover:bg-muted data-selected:hover:text-foreground',
         local.class,
       )}
     >
@@ -57,7 +57,7 @@ export const PaginationLink: Component<PaginationPrimitive.ItemProps> = (props) 
 
 export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
-  const t = useLocale();
+  
   return (
     <PaginationPrimitive.PrevTrigger
       {...others}
@@ -74,7 +74,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
       {local.children ?? (
         <>
           <MdOutlineChevron_left />
-          <span>{String(t('ui.pagination.previous'))}</span>
+          <span>{messages.ui_pagination_previous()}</span>
         </>
       )}
     </PaginationPrimitive.PrevTrigger>
@@ -83,7 +83,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
 
 export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
-  const t = useLocale();
+  
   return (
     <PaginationPrimitive.NextTrigger
       {...others}
@@ -99,7 +99,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
     >
       {local.children ?? (
         <>
-          <span>{String(t('ui.pagination.next'))}</span>
+          <span>{messages.ui_pagination_next()}</span>
           <MdOutlineChevron_right />
         </>
       )}
@@ -109,15 +109,15 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
 
 export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const t = useLocale();
+  
   return (
     <PaginationPrimitive.Ellipsis
       {...others}
       data-slot='pagination-ellipsis'
-      class={cn('flex h-9 w-9 items-center justify-center', local.class)}
+      class={cn('h-9 w-9 flex items-center justify-center', local.class)}
     >
       <MdOutlineMore_horiz class='size-4' />
-      <span class='sr-only'>{String(t('ui.pagination.more'))}</span>
+      <span class='sr-only'>{messages.ui_pagination_more()}</span>
     </PaginationPrimitive.Ellipsis>
   );
 };

@@ -65,14 +65,14 @@ export const FieldGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const fieldVariants = tv({
-  base: 'data-invalid:text-destructive gap-2 group/field flex w-full transition-colors',
+  base: 'gap-2 group/field flex w-full transition-colors data-invalid:text-destructive',
   variants: {
     orientation: {
       vertical: 'flex-col [&>*]:w-full [&>.sr-only]:w-auto',
       horizontal:
-        'flex-row items-center [&>[data-slot=field-label]]:flex-auto has-data-[slot=field-content]:items-start has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px',
+        'flex-row items-center has-data-[slot=field-content]:items-start [&>[data-slot=field-label]]:flex-auto has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px',
       responsive:
-        'flex-col [&>*]:w-full [&>.sr-only]:w-auto @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:w-auto @md/field-group:[&>[data-slot=field-label]]:flex-auto @md/field-group:has-data-[slot=field-content]:items-start @md/field-group:has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px',
+        '@md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:w-auto @md/field-group:[&>[data-slot=field-label]]:flex-auto @md/field-group:has-data-[slot=field-content]:items-start @md/field-group:has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px flex-col [&>*]:w-full [&>.sr-only]:w-auto',
     },
   },
   defaultVariants: {
@@ -100,7 +100,7 @@ export const FieldContent: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='field-content'
-      class={cn('gap-0.5 group/field-content flex flex-1 flex-col leading-snug', local.class)}
+      class={cn('gap-0.5 group/field-content leading-snug flex flex-1 flex-col', local.class)}
       {...others}
     />
   );
@@ -114,7 +114,7 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
       asChild={(labelProps) => (
         <Label
           class={cn(
-            'has-[[data-state=checked]]:bg-primary/5 has-[[data-state=checked]]:border-primary/30 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10 gap-2 group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border *:data-[slot=field]:p-2.5 group/field-label peer/field-label flex w-fit leading-snug',
+            'gap-2 *:data-[slot=field]:p-2.5 group/field-label peer/field-label leading-snug flex w-fit group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border has-[[data-state=checked]]:border-primary/30 has-[[data-state=checked]]:bg-primary/5 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10',
             'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
             local.class,
           )}
@@ -134,7 +134,7 @@ export const FieldRequiredIndicator: Component<PrimitiveField.RequiredIndicatorP
   return (
     <PrimitiveField.RequiredIndicator
       fallback={local.fallback ?? '*'}
-      class={cn('text-destructive text-sm leading-none font-medium', local.class)}
+      class={cn('text-sm font-medium leading-none text-destructive', local.class)}
       {...others}
     />
   );
@@ -146,7 +146,7 @@ export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='field-label'
       class={cn(
-        'gap-2 text-sm font-medium group-data-disabled/field:opacity-50 flex w-fit items-center leading-snug',
+        'gap-2 text-sm font-medium leading-snug flex w-fit items-center group-data-disabled/field:opacity-50',
         local.class,
       )}
       {...others}
@@ -160,9 +160,9 @@ export const FieldDescription: Component<PrimitiveField.HelperTextProps> = (prop
     <PrimitiveField.HelperText
       data-slot='field-description'
       class={cn(
-        'text-muted-foreground text-left text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal group-has-data-[orientation=horizontal]/field:text-balance',
+        'text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal text-left text-muted-foreground group-has-data-[orientation=horizontal]/field:text-balance',
         'last:mt-0 nth-last-2:-mt-1',
-        '[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',
+        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
         local.class,
       )}
       {...others}
@@ -186,10 +186,10 @@ export const FieldSeparator: Component<FieldSeparatorProps> = (props) => {
       )}
       {...others}
     >
-      <Separator class='absolute inset-0 top-1/2' />
+      <Separator class='inset-0 absolute top-1/2' />
       <Show when={local.children}>
         <span
-          class='text-muted-foreground bg-background relative mx-auto block w-fit px-2'
+          class='px-2 relative mx-auto block w-fit bg-background text-muted-foreground'
           data-slot='field-separator-content'
         >
           {local.children}
@@ -228,7 +228,7 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
     <div data-slot='field-error-container' class='min-h-5'>
       <PrimitiveField.ErrorText
         data-slot='field-error'
-        class={cn('text-destructive text-sm font-normal', local.class)}
+        class={cn('text-sm font-normal text-destructive', local.class)}
         {...others}
       >
         <Show
@@ -236,7 +236,7 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
           fallback={
             <Show when={uniqueErrors().length > 0}>
               <Show when={uniqueErrors().length > 1} fallback={uniqueErrors().at(0)}>
-                <ul class='ml-4 flex list-disc flex-col gap-1'>
+                <ul class='ml-4 gap-1 flex list-disc flex-col'>
                   <For each={uniqueErrors()}>{(error) => <li>{error}</li>}</For>
                 </ul>
               </Show>

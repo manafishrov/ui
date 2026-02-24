@@ -33,7 +33,7 @@ export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props
 
 export const DatePickerControl: Component<DatePickerPrimitive.ControlProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return <DatePickerPrimitive.Control class={cn('flex flex-row gap-2', local.class)} {...others} />;
+  return <DatePickerPrimitive.Control class={cn('gap-2 flex flex-row', local.class)} {...others} />;
 };
 
 export const DatePickerInput: Component<DatePickerPrimitive.InputProps> = (props) => {
@@ -41,7 +41,7 @@ export const DatePickerInput: Component<DatePickerPrimitive.InputProps> = (props
   return (
     <DatePickerPrimitive.Input
       class={cn(
-        'border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        'h-9 px-3 py-2 text-sm file:text-sm file:font-medium flex w-full rounded-md border border-input bg-background ring-offset-background file:border-0 file:bg-transparent placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -75,7 +75,7 @@ export const DatePickerContent: Component<DatePickerPrimitive.ContentProps> = (p
   return (
     <DatePickerPrimitive.Content
       class={cn(
-        'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 rounded-lg p-3 shadow-md ring-1 outline-none',
+        'p-3 shadow-md rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         local.class,
       )}
       {...others}
@@ -89,7 +89,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
     <DatePickerPrimitive.PrevTrigger
       class={cn(
         buttonVariants({ variant: 'outline' }),
-        'size-7 bg-transparent p-0 opacity-50 hover:opacity-100',
+        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100',
         local.class,
       )}
       {...others}
@@ -105,7 +105,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
     <DatePickerPrimitive.NextTrigger
       class={cn(
         buttonVariants({ variant: 'outline' }),
-        'size-7 bg-transparent p-0 opacity-50 hover:opacity-100',
+        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100',
         local.class,
       )}
       {...others}
@@ -128,8 +128,8 @@ export const DatePickerTableCellTrigger: Component<DatePickerPrimitive.TableCell
         'data-selected:bg-primary data-selected:text-primary-foreground data-selected:hover:bg-primary data-selected:hover:text-primary-foreground data-selected:focus:bg-primary data-selected:focus:text-primary-foreground',
         'data-disabled:text-muted-foreground data-disabled:opacity-50',
         'data-outside-range:text-muted-foreground data-outside-range:opacity-50',
-        'data-in-range:bg-accent data-in-range:text-accent-foreground data-in-range:rounded-none',
-        'data-range-start:rounded-l-md data-range-end:rounded-r-md',
+        'data-in-range:rounded-none data-in-range:bg-accent data-in-range:text-accent-foreground',
+        'data-range-end:rounded-r-md data-range-start:rounded-l-md',
         local.class,
       )}
       {...others}
@@ -141,7 +141,7 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <DatePickerPrimitive.ViewControl
-      class={cn('flex items-center justify-between pb-4', local.class)}
+      class={cn('pb-4 flex items-center justify-between', local.class)}
       {...others}
     >
       <DatePickerPrevTrigger />
@@ -171,7 +171,7 @@ export const DatePickerDayView: Component = () => (
               <For each={api().weekDays}>
                 {(weekDay) => (
                   <DatePickerTableHeader
-                    class='text-muted-foreground w-9 rounded-md text-[0.8rem] font-normal'
+                    class='w-9 font-normal rounded-md text-[0.8rem] text-muted-foreground'
                     aria-label={weekDay.narrow}
                   >
                     {weekDay.narrow}
@@ -221,7 +221,7 @@ export const DatePickerMonthView: Component = () => (
                         <DatePickerTableCellTrigger
                           class={cn(
                             buttonVariants({ variant: 'ghost' }),
-                            'w-full font-normal data-selected:bg-primary data-selected:text-primary-foreground',
+                            'font-normal w-full data-selected:bg-primary data-selected:text-primary-foreground',
                           )}
                         >
                           {month.label}
@@ -255,7 +255,7 @@ export const DatePickerYearView: Component = () => (
                         <DatePickerTableCellTrigger
                           class={cn(
                             buttonVariants({ variant: 'ghost' }),
-                            'w-full font-normal data-selected:bg-primary data-selected:text-primary-foreground',
+                            'font-normal w-full data-selected:bg-primary data-selected:text-primary-foreground',
                           )}
                         >
                           {year.label}

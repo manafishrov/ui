@@ -8,7 +8,7 @@ import {
   SheetPositioner,
   SheetTitle,
 } from '@/components/Sheet';
-import { useLocale } from '@/Locale';
+import * as messages from '@/paraglide/messages';
 
 import type { SidebarProps } from './Sidebar';
 
@@ -18,7 +18,7 @@ import { useSidebar } from './context';
 export const SidebarMobile: Component<SidebarProps> = (props) => {
   const [local] = splitProps(props, ['side', 'children']);
   const { openMobile, setOpenMobile } = useSidebar();
-  const t = useLocale();
+  
 
   return (
     <Sheet
@@ -32,15 +32,15 @@ export const SidebarMobile: Component<SidebarProps> = (props) => {
           data-sidebar='sidebar'
           data-slot='sidebar'
           data-mobile='true'
-          class='bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden'
+          class='p-0 w-(--sidebar-width) bg-sidebar text-sidebar-foreground [&>button]:hidden'
           style={{
             '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
           }}
         >
           <div class='sr-only'>
             <SheetHeader>
-              <SheetTitle>{String(t('ui.sidebar.title'))}</SheetTitle>
-              <SheetDescription>{String(t('ui.sidebar.description'))}</SheetDescription>
+              <SheetTitle>{messages.ui_sidebar_title()}</SheetTitle>
+              <SheetDescription>{messages.ui_sidebar_description()}</SheetDescription>
             </SheetHeader>
           </div>
           <div class='flex h-full w-full flex-col'>{local.children}</div>

@@ -17,7 +17,7 @@ export const AlertDialogOverlay: Component<AlertDialogPrimitive.BackdropProps> =
     <AlertDialogPrimitive.Backdrop
       data-slot='alert-dialog-overlay'
       class={cn(
-        'bg-black/10 fixed inset-0 z-50 duration-100 backdrop-blur-xs isolate',
+        'bg-black/10 inset-0 backdrop-blur-xs fixed isolate z-50 duration-100',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         local.class,
@@ -32,7 +32,7 @@ export const AlertDialogPositioner: Component<AlertDialogPrimitive.PositionerPro
   return (
     <AlertDialogPrimitive.Positioner
       data-slot='alert-dialog-positioner'
-      class={cn('fixed inset-0 z-50 flex items-center justify-center', local.class)}
+      class={cn('inset-0 fixed z-50 flex items-center justify-center', local.class)}
       {...others}
     />
   );
@@ -51,7 +51,7 @@ export const AlertDialogContent: Component<AlertDialogContentProps> = (props) =>
       data-slot='alert-dialog-content'
       data-size={size}
       class={cn(
-        'bg-background ring-foreground/10 grid w-full gap-4 rounded-xl p-4 ring-1 shadow-lg duration-100 outline-none isolate relative',
+        'gap-4 p-4 shadow-lg relative isolate grid w-full rounded-xl bg-background ring-1 ring-foreground/10 duration-100 outline-none',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
         'data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',
@@ -69,8 +69,8 @@ export const AlertDialogHeader: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='alert-dialog-header'
       class={cn(
-        'grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center',
-        'has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4',
+        'gap-1.5 grid grid-rows-[auto_1fr] place-items-center text-center',
+        'has-data-[slot=alert-dialog-media]:gap-x-4 has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr]',
         'sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left',
         'sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr]',
         local.class,
@@ -86,7 +86,7 @@ export const AlertDialogFooter: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='alert-dialog-footer'
       class={cn(
-        'bg-muted/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4',
+        '-mx-4 -mb-4 gap-2 p-4 flex flex-col-reverse rounded-b-xl border-t bg-muted/50',
         'sm:flex-row sm:justify-end',
         'group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2',
         local.class,
@@ -102,7 +102,7 @@ export const AlertDialogMedia: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='alert-dialog-media'
       class={cn(
-        'bg-muted mb-2 inline-flex size-10 items-center justify-center rounded-md',
+        'mb-2 size-10 inline-flex items-center justify-center rounded-md bg-muted',
         'sm:group-data-[size=default]/alert-dialog-content:row-span-2',
         '*:[svg:not([class*="size-"])]:size-6',
         local.class,
@@ -133,7 +133,7 @@ export const AlertDialogDescription: Component<AlertDialogPrimitive.DescriptionP
     <AlertDialogPrimitive.Description
       data-slot='alert-dialog-description'
       class={cn(
-        'text-muted-foreground text-sm text-balance md:text-pretty',
+        'text-sm md:text-pretty text-balance text-muted-foreground',
         '*:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground',
         local.class,
       )}

@@ -4,15 +4,15 @@ import { createContext, useContext, type Component, type JSX, splitProps } from 
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 export const toggleVariants = tv({
-  base: 'hover:text-foreground data-[state=on]:bg-muted data-pressed:bg-muted focus-visible:border-ring focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive gap-1 rounded-lg text-sm font-medium transition-all [&_svg:not([class*="size-"])]:size-4 group/toggle hover:bg-muted inline-flex items-center justify-center whitespace-nowrap outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+  base: 'gap-1 text-sm font-medium [&_svg:not([class*="size-"])]:size-4 group/toggle inline-flex items-center justify-center rounded-lg whitespace-nowrap transition-all outline-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-destructive/20 data-pressed:bg-muted data-[state=on]:bg-muted dark:data-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0',
   variants: {
     variant: {
       default: 'bg-transparent',
-      outline: 'border-input hover:bg-muted border bg-transparent',
+      outline: 'border border-input bg-transparent hover:bg-muted',
     },
     size: {
       default: 'h-8 min-w-8 px-2',
-      sm: 'h-7 min-w-7 rounded-[min(var(--radius-md),12px)] px-1.5 text-[0.8rem]',
+      sm: 'h-7 min-w-7 px-1.5 rounded-[min(var(--radius-md),12px)] text-[0.8rem]',
       lg: 'h-9 min-w-9 px-2.5',
     },
   },
@@ -78,7 +78,7 @@ export const ToggleGroup: Component<ToggleGroupProps> = (props) => {
       orientation={local.orientation ?? 'horizontal'}
       style={{ '--gap': `${contextValue.spacing}px` } as JSX.CSSProperties}
       class={cn(
-        'rounded-lg data-[size=sm]:rounded-[min(var(--radius-md),10px)] group/toggle-group flex w-fit flex-row items-center gap-(--gap) data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch',
+        'group/toggle-group flex w-fit flex-row items-center gap-(--gap) rounded-lg data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
         local.class,
       )}
       {...others}
@@ -110,7 +110,7 @@ export const ToggleGroupItem: Component<ToggleGroupItemProps> = (props) => {
       data-size={size()}
       data-spacing={spacing()}
       class={cn(
-        'group-data-[spacing=0]/toggle-group:rounded-none group-data-[spacing=0]/toggle-group:px-2 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:first:rounded-l-lg group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:first:rounded-t-lg group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:last:rounded-r-lg group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:last:rounded-b-lg shrink-0 focus:z-10 focus-visible:z-10 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[variant=outline]:border-l-0 group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[variant=outline]:border-t-0 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-l group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-t',
+        'group-data-[spacing=0]/toggle-group:px-2 shrink-0 group-data-[spacing=0]/toggle-group:rounded-none focus:z-10 focus-visible:z-10 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:first:rounded-l-lg group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:first:rounded-t-lg group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:last:rounded-r-lg group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:last:rounded-b-lg group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[variant=outline]:border-l-0 group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[variant=outline]:border-t-0 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-l group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-t',
         toggleVariants({
           variant: variant(),
           size: size(),

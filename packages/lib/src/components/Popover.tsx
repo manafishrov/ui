@@ -26,7 +26,7 @@ export const PopoverContent: Component<PopoverPrimitive.ContentProps> = (props) 
     <PopoverPrimitive.Content
       data-slot='popover-content'
       class={cn(
-        'bg-popover text-popover-foreground rounded-lg p-2.5 text-sm shadow-md ring-1 ring-foreground/10 z-50 w-72 origin-(--transform-origin) outline-none duration-100',
+        'p-2.5 text-sm shadow-md w-72 z-50 origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
         'data-[side=bottom]:slide-in-from-top-2',
@@ -35,7 +35,7 @@ export const PopoverContent: Component<PopoverPrimitive.ContentProps> = (props) 
         'data-[side=top]:slide-in-from-bottom-2',
         'data-[side=inline-start]:slide-in-from-right-2',
         'data-[side=inline-end]:slide-in-from-left-2',
-        'flex flex-col gap-2.5',
+        'gap-2.5 flex flex-col',
         local.class,
       )}
       {...others}
@@ -51,7 +51,7 @@ export const PopoverArrow: Component<PopoverPrimitive.ArrowProps> = (props) => {
       class={cn('z-50 [--arrow-size:10px]', local.class)}
       {...others}
     >
-      <PopoverPrimitive.ArrowTip class='bg-popover border-border border' />
+      <PopoverPrimitive.ArrowTip class='border border-border bg-popover' />
     </PopoverPrimitive.Arrow>
   );
 };
@@ -61,7 +61,7 @@ export const PopoverHeader: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='popover-header'
-      class={cn('flex flex-col gap-0.5 text-sm', local.class)}
+      class={cn('gap-0.5 text-sm flex flex-col', local.class)}
       {...others}
     />
   );

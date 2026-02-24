@@ -21,7 +21,7 @@ export const ComboboxTrigger: Component<ComboboxPrimitive.TriggerProps> = (props
       {...others}
     >
       {local.children}
-      <MdOutlineExpand_more class='text-muted-foreground pointer-events-none size-4' />
+      <MdOutlineExpand_more class='size-4 pointer-events-none text-muted-foreground' />
     </ComboboxPrimitive.Trigger>
   );
 };
@@ -74,7 +74,7 @@ export const ComboboxInput: Component<
                 disabled={local.disabled}
                 {...triggerProps()}
               >
-                <MdOutlineExpand_more class='text-muted-foreground pointer-events-none size-4' />
+                <MdOutlineExpand_more class='size-4 pointer-events-none text-muted-foreground' />
               </InputGroupButton>
             )}
           />
@@ -99,7 +99,7 @@ export const ComboboxContent: Component<ComboboxPrimitive.ContentProps> = (props
     <ComboboxPrimitive.Content
       data-slot='combobox-content'
       class={cn(
-        'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 overflow-hidden rounded-lg shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+var(--spacing-7))] origin-(--transform-origin) data-[chips=true]:min-w-(--anchor-width)',
+        'shadow-md *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 group/combobox-content relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+var(--spacing-7))] origin-(--transform-origin) overflow-hidden rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 duration-100 data-[chips=true]:min-w-(--anchor-width) data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 *:data-[slot=input-group]:border-input/30 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:shadow-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         local.class,
       )}
       {...others}
@@ -113,13 +113,13 @@ export const ComboboxItem: Component<ComboboxPrimitive.ItemProps> = (props) => {
     <ComboboxPrimitive.Item
       data-slot='combobox-item'
       class={cn(
-        'data-highlighted:bg-accent data-highlighted:text-accent-foreground gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm [&_svg:not([class*="size-"])]:size-4 relative flex w-full cursor-default items-center outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+        'gap-2 py-1 pr-8 pl-1.5 text-sm [&_svg:not([class*="size-"])]:size-4 relative flex w-full cursor-default items-center rounded-md outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0',
         local.class,
       )}
       {...others}
     >
       <ComboboxPrimitive.ItemText>{local.children}</ComboboxPrimitive.ItemText>
-      <ComboboxPrimitive.ItemIndicator class='pointer-events-none absolute right-2 flex size-4 items-center justify-center'>
+      <ComboboxPrimitive.ItemIndicator class='right-2 size-4 pointer-events-none absolute flex items-center justify-center'>
         <MdOutlineCheck class='pointer-events-none' />
       </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
@@ -138,7 +138,7 @@ export const ComboboxItemGroupLabel: Component<ComboboxPrimitive.ItemGroupLabelP
   return (
     <ComboboxPrimitive.ItemGroupLabel
       data-slot='combobox-label'
-      class={cn('text-muted-foreground px-2 py-1.5 text-xs', local.class)}
+      class={cn('px-2 py-1.5 text-xs text-muted-foreground', local.class)}
       {...others}
     />
   );
@@ -150,7 +150,7 @@ export const ComboboxEmpty: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='combobox-empty'
       class={cn(
-        'text-muted-foreground hidden w-full justify-center py-2 text-center text-sm group-data-empty/combobox-content:flex',
+        'py-2 text-sm hidden w-full justify-center text-center text-muted-foreground group-data-empty/combobox-content:flex',
         local.class,
       )}
       {...others}
@@ -163,7 +163,7 @@ export const ComboboxSeparator: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='combobox-separator'
-      class={cn('bg-border -mx-1 my-1 h-px', local.class)}
+      class={cn('-mx-1 my-1 h-px bg-border', local.class)}
       {...others}
     />
   );
@@ -175,7 +175,7 @@ export const ComboboxChips: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='combobox-chips'
       class={cn(
-        'dark:bg-input/30 border-input focus-within:border-ring focus-within:ring-ring/50 has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:border-destructive dark:has-data-invalid:border-destructive/50 flex min-h-8 flex-wrap items-center gap-1 rounded-lg border bg-transparent bg-clip-padding px-2.5 py-1 text-sm transition-colors focus-within:ring-[3px] has-data-invalid:ring-[3px] has-data-[slot=combobox-chip]:px-1',
+        'min-h-8 gap-1 px-2.5 py-1 text-sm has-data-[slot=combobox-chip]:px-1 flex flex-wrap items-center rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50 has-data-invalid:border-destructive has-data-invalid:ring-[3px] has-data-invalid:ring-destructive/20 dark:bg-input/30 dark:has-data-invalid:border-destructive/50 dark:has-data-invalid:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -191,7 +191,7 @@ export const ComboboxChip: Component<ComponentProps<'div'> & { showRemove?: bool
     <div
       data-slot='combobox-chip'
       class={cn(
-        'bg-muted text-foreground flex h-5.25 w-fit items-center justify-center gap-1 rounded-sm px-1.5 text-xs font-medium whitespace-nowrap has-data-[slot=combobox-chip-remove]:pr-0 has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50',
+        'h-5.25 gap-1 px-1.5 text-xs font-medium has-data-[slot=combobox-chip-remove]:pr-0 flex w-fit items-center justify-center rounded-sm bg-muted whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -215,7 +215,7 @@ export const ComboboxChipsInput: Component<ComboboxPrimitive.InputProps> = (prop
       asChild={(inputProps) => (
         <input
           data-slot='combobox-chip-input'
-          class={cn('min-w-16 flex-1 outline-none bg-transparent', local.class)}
+          class={cn('min-w-16 flex-1 bg-transparent outline-none', local.class)}
           {...inputProps()}
           {...others}
         />

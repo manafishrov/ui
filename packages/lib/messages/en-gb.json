@@ -1,0 +1,13 @@
+{
+  "ui_common_close": "Close",
+  "ui_common_loading": "Loading",
+  "ui_common_more": "More",
+  "ui_skeleton_loading": "Loading content",
+  "ui_sidebar_title": "Sidebar",
+  "ui_sidebar_description": "Displays the mobile sidebar.",
+  "ui_sidebar_toggle": "Toggle Sidebar",
+  "ui_checkbox_checked": "Checked",
+  "ui_pagination_previous": "Previous",
+  "ui_pagination_next": "Next",
+  "ui_pagination_more": "More pages"
+}

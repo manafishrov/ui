@@ -35,11 +35,11 @@ export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
           data-invalid={field().invalid ? '' : false}
           data-readonly={field().readOnly ? '' : false}
           class={cn(
-            'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-            'has-focus-visible:border-ring has-focus-visible:ing-ring/50 has-focus-visible:ring-[3px]',
-            'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
-            'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
-            'data-readonly:has-focus-visible:ring-0 data-readonly:has-focus-visible:border-input',
+            'min-w-0 h-8 relative flex w-full items-center overflow-hidden rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
+            'has-focus-visible:ing-ring/50 has-focus-visible:border-ring has-focus-visible:ring-[3px]',
+            'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
+            'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
+            'data-readonly:has-focus-visible:border-input data-readonly:has-focus-visible:ring-0',
             'has-[textarea]:h-auto',
             local.class,
           )}

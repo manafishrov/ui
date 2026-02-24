@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 
 import { createFileRoute, Link } from '@tanstack/solid-router';
+import * as m from '@/paraglide/messages';
 
 const components = [
   {
@@ -258,14 +259,14 @@ const components = [
 const HomePage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
-      <h1 class='text-4xl font-bold tracking-tight font-branding'>Manafish UI</h1>
+      <h1 class='text-4xl font-bold tracking-tight font-branding'>{m.docs_title()}</h1>
       <p class='text-lg text-muted-foreground'>
-        A component library for SolidJS built with Ark UI, Tailwind CSS, and TanStack.
+        {m.docs_description()}
       </p>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-2xl font-semibold'>Components</h2>
+      <h2 class='text-2xl font-semibold'>{m.docs_components_title()}</h2>
       <div class='gap-4 md:grid-cols-2 lg:grid-cols-3 grid'>
         {components.map((component) => (
           <Link

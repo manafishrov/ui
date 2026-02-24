@@ -10,7 +10,7 @@ export const RadioGroup: Component<RadioGroupPrimitive.RootProps> = (props) => {
   return (
     <RadioGroupPrimitive.Root
       data-slot='radio-group'
-      class={cn('group/radio-group grid gap-2 w-full', local.class)}
+      class={cn('group/radio-group gap-2 grid w-full', local.class)}
       {...others}
     />
   );
@@ -36,7 +36,7 @@ export const RadioGroupItem: Component<RadioGroupPrimitive.ItemProps> = (props) 
   return (
     <RadioGroupPrimitive.Item
       data-slot='radio-group-item'
-      class={cn('group/radio-group-item flex items-center gap-2', local.class)}
+      class={cn('group/radio-group-item gap-2 flex items-center', local.class)}
       {...others}
     >
       {local.children}
@@ -50,7 +50,7 @@ export const RadioGroupItemControl: Component<RadioGroupPrimitive.ItemControlPro
   return (
     <RadioGroupPrimitive.ItemControl
       class={cn(
-        'border-input text-primary dark:bg-input/30 data-focus-visible:border-ring data-focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 flex size-4 rounded-full data-focus-visible:ring-[3px] data-invalid:ring-[3px] group/radio-group-item peer relative aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 data-disabled:cursor-not-allowed data-disabled:opacity-50',
+        'size-4 group/radio-group-item peer after:-inset-x-3 after:-inset-y-2 relative flex aspect-square shrink-0 rounded-full border border-input text-primary outline-none after:absolute data-disabled:cursor-not-allowed data-disabled:opacity-50 data-focus-visible:border-ring data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -58,9 +58,9 @@ export const RadioGroupItemControl: Component<RadioGroupPrimitive.ItemControlPro
       {local.children ?? (
         <RadioGroupPrimitive.Indicator
           data-slot='radio-group-indicator'
-          class='group-data-invalid/radio-group-item:text-destructive text-primary flex size-4 items-center justify-center'
+          class='size-4 flex items-center justify-center text-primary group-data-invalid/radio-group-item:text-destructive'
         >
-          <MdFillCircle class='absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 fill-current' />
+          <MdFillCircle class='size-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current' />
         </RadioGroupPrimitive.Indicator>
       )}
     </RadioGroupPrimitive.ItemControl>
@@ -72,7 +72,7 @@ export const RadioGroupItemText: Component<RadioGroupPrimitive.ItemTextProps> = 
   return (
     <RadioGroupPrimitive.ItemText
       class={cn(
-        'text-sm leading-none font-medium select-none data-disabled:cursor-not-allowed data-disabled:opacity-70',
+        'text-sm font-medium leading-none select-none data-disabled:cursor-not-allowed data-disabled:opacity-70',
         local.class,
       )}
       {...others}

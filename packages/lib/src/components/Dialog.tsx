@@ -4,7 +4,7 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
-import { useLocale } from '@/Locale';
+import * as messages from '@/paraglide/messages';
 
 export const Dialog = DialogPrimitive.Root;
 export const DialogTrigger = DialogPrimitive.Trigger;
@@ -17,7 +17,7 @@ export const DialogOverlay: Component<DialogPrimitive.BackdropProps> = (props) =
     <DialogPrimitive.Backdrop
       data-slot='dialog-overlay'
       class={cn(
-        'bg-black/10 fixed inset-0 z-50 duration-100 backdrop-blur-xs isolate',
+        'bg-black/10 inset-0 backdrop-blur-xs fixed isolate z-50 duration-100',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         local.class,
@@ -32,7 +32,7 @@ export const DialogPositioner: Component<DialogPrimitive.PositionerProps> = (pro
   return (
     <DialogPrimitive.Positioner
       data-slot='dialog-positioner'
-      class={cn('fixed inset-0 z-50 flex items-center justify-center', local.class)}
+      class={cn('inset-0 fixed z-50 flex items-center justify-center', local.class)}
       {...others}
     />
   );
@@ -45,7 +45,7 @@ export const DialogContent: Component<DialogPrimitive.ContentProps> = (props) =>
     <DialogPrimitive.Content
       data-slot='dialog-content'
       class={cn(
-        'bg-background ring-foreground/10 grid w-full max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 shadow-lg duration-100 sm:max-w-sm outline-none isolate relative',
+        'gap-4 p-4 text-sm shadow-lg sm:max-w-sm relative isolate grid w-full max-w-[calc(100%-2rem)] rounded-xl bg-background ring-1 ring-foreground/10 duration-100 outline-none',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
         local.class,
@@ -57,16 +57,16 @@ export const DialogContent: Component<DialogPrimitive.ContentProps> = (props) =>
 
 export const DialogCloseButton: Component<DialogPrimitive.CloseTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const t = useLocale();
+  
 
   return (
     <DialogPrimitive.CloseTrigger
-      class={cn('absolute top-2 right-2', local.class)}
+      class={cn('top-2 right-2 absolute', local.class)}
       asChild={(triggerProps) => (
         <Button
           variant='ghost'
           size='icon-sm'
-          aria-label={t('ui.common.close')}
+          aria-label={messages.ui_common_close()}
           {...triggerProps()}
           {...others}
         >
@@ -80,7 +80,7 @@ export const DialogCloseButton: Component<DialogPrimitive.CloseTriggerProps> = (
 export const DialogHeader: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <div data-slot='dialog-header' class={cn('flex flex-col gap-2', local.class)} {...others} />
+    <div data-slot='dialog-header' class={cn('gap-2 flex flex-col', local.class)} {...others} />
   );
 };
 
@@ -91,7 +91,7 @@ export const DialogFooter: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='dialog-footer'
       class={cn(
-        'bg-muted/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 sm:flex-row sm:justify-end',
+        '-mx-4 -mb-4 gap-2 p-4 sm:flex-row sm:justify-end flex flex-col-reverse rounded-b-xl border-t bg-muted/50',
         local.class,
       )}
       {...others}
@@ -116,7 +116,7 @@ export const DialogDescription: Component<DialogPrimitive.DescriptionProps> = (p
     <DialogPrimitive.Description
       data-slot='dialog-description'
       class={cn(
-        'text-muted-foreground text-sm *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground',
+        'text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground',
         local.class,
       )}
       {...others}

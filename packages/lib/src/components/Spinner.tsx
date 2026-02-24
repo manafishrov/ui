@@ -2,16 +2,16 @@ import { MdOutlineRefresh } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { useLocale } from '@/Locale';
+import * as messages from '@/paraglide/messages';
 
 export const Spinner: Component<ComponentProps<typeof MdOutlineRefresh>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const t = useLocale();
+  
 
   return (
     <MdOutlineRefresh
       role='status'
-      aria-label={t('ui.common.loading')}
+      aria-label={messages.ui_common_loading()}
       class={cn('size-4 animate-spin shrink-0', local.class)}
       {...others}
     />

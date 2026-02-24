@@ -15,7 +15,7 @@ export const TagsInputControl: Component<TagsInputPrimitive.ControlProps> = (pro
   return (
     <TagsInputPrimitive.Control
       class={cn(
-        'border-input focus-within:border-ring focus-within:ring-ring/50 has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:border-destructive dark:has-data-invalid:border-destructive/50 flex min-h-9 flex-wrap items-center gap-1.5 rounded-lg border bg-transparent bg-clip-padding px-3 py-1.5 text-sm transition-colors focus-within:ring-[3px] has-data-invalid:ring-[3px] has-disabled:cursor-not-allowed has-disabled:opacity-50',
+        'min-h-9 gap-1.5 px-3 py-1.5 text-sm flex flex-wrap items-center rounded-lg border border-input bg-transparent bg-clip-padding transition-colors focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50 has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-invalid:border-destructive has-data-invalid:ring-[3px] has-data-invalid:ring-destructive/20 dark:has-data-invalid:border-destructive/50 dark:has-data-invalid:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -57,7 +57,7 @@ export const TagsInputItem: Component<TagsInputPrimitive.ItemProps> = (props) =>
   return (
     <TagsInputPrimitive.Item
       class={cn(
-        'bg-muted ring-ring/10 text-foreground data-highlighted:bg-accent data-highlighted:text-accent-foreground flex h-5.25 w-fit items-center justify-center gap-1 rounded-[calc(var(--radius-lg)-4px)] px-1.5 text-[0.8rem] font-medium whitespace-nowrap ring-1 transition-all has-data-[slot=tags-input-item-delete-trigger]:pr-0',
+        'h-5.25 gap-1 px-1.5 font-medium has-data-[slot=tags-input-item-delete-trigger]:pr-0 flex w-fit items-center justify-center rounded-[calc(var(--radius-lg)-4px)] bg-muted text-[0.8rem] whitespace-nowrap text-foreground ring-1 ring-ring/10 transition-all data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         local.class,
       )}
       {...others}
@@ -84,7 +84,7 @@ export const TagsInputItemDeleteTrigger: Component<TagsInputPrimitive.ItemDelete
           {...others}
           class='size-4 rounded-[calc(var(--radius-lg)-6px)]'
         >
-          {local.children ?? <MdOutlineClose class='pointer-events-none size-3' />}
+          {local.children ?? <MdOutlineClose class='size-3 pointer-events-none' />}
         </InputGroupButton>
       )}
     />

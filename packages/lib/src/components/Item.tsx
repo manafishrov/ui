@@ -31,12 +31,12 @@ export const ItemSeparator: Component<ComponentProps<typeof Separator>> = (props
 };
 
 export const itemVariants = tv({
-  base: '[a]:hover:bg-muted rounded-lg border text-sm w-full group/item focus-visible:border-ring focus-visible:ring-ring/50 flex items-center flex-wrap outline-none transition-colors duration-100 focus-visible:ring-[3px] [a]:transition-colors',
+  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:transition-colors [a]:hover:bg-muted',
   variants: {
     variant: {
       default: 'border-transparent',
       outline: 'border-border',
-      muted: 'bg-muted/50 border-transparent',
+      muted: 'border-transparent bg-muted/50',
     },
     size: {
       default: 'gap-2.5 px-3 py-2.5',
@@ -66,13 +66,13 @@ export const Item: Component<ItemProps> = (props) => {
 };
 
 export const itemMediaVariants = tv({
-  base: 'gap-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none group-has-[[data-slot=item-description]]/item:translate-y-0.5 group-has-[[data-slot=item-description]]/item:self-start',
+  base: 'gap-2 group-has-[[data-slot=item-description]]/item:translate-y-0.5 flex shrink-0 items-center justify-center group-has-[[data-slot=item-description]]/item:self-start [&_svg]:pointer-events-none',
   variants: {
     variant: {
       default: 'bg-transparent',
       icon: '[&_svg:not([class*="size-"])]:size-4',
       image:
-        'size-10 overflow-hidden rounded-sm group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&_img]:size-full [&_img]:object-cover',
+        'size-10 group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 overflow-hidden rounded-sm [&_img]:size-full [&_img]:object-cover',
     },
   },
   defaultVariants: {
@@ -100,7 +100,7 @@ export const ItemContent: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='item-content'
       class={cn(
-        'gap-1 flex flex-1 flex-col [&+data-[slot=item-content]:flex-none group-data-[size=xs]/item:gap-0',
+        'gap-1 [&+data-[slot=item-content]:flex-none group-data-[size=xs]/item:gap-0 flex flex-1 flex-col',
         local.class,
       )}
       {...others}
@@ -114,7 +114,7 @@ export const ItemTitle: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='item-title'
       class={cn(
-        'gap-2 text-sm leading-snug font-medium underline-offset-4 line-clamp-1 flex w-fit items-center',
+        'gap-2 text-sm leading-snug font-medium line-clamp-1 flex w-fit items-center underline-offset-4',
         local.class,
       )}
       {...others}
@@ -128,7 +128,7 @@ export const ItemDescription: Component<ComponentProps<'p'>> = (props) => {
     <p
       data-slot='item-description'
       class={cn(
-        'text-muted-foreground text-left text-sm leading-normal font-normal line-clamp-2',
+        'text-sm leading-normal font-normal line-clamp-2 text-left text-muted-foreground',
         'group-data-[size=xs]/item:text-xs',
         '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
         local.class,

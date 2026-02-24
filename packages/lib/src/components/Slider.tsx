@@ -9,7 +9,7 @@ export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
   return (
     <SliderPrimitive.Root
       class={cn(
-        'data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full flex flex-col',
+        'flex flex-col data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full',
         local.class,
       )}
       data-slot='slider'
@@ -25,7 +25,7 @@ export const SliderLabel: Component<SliderPrimitive.LabelProps> = (props) => {
       asChild={(labelProps) => (
         <Label
           {...labelProps()}
-          class={cn('text-sm font-medium leading-none mb-2', local.class)}
+          class={cn('text-sm font-medium mb-2 leading-none', local.class)}
           {...others}
         />
       )}
@@ -37,7 +37,7 @@ export const SliderValueText: Component<SliderPrimitive.ValueTextProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <SliderPrimitive.ValueText
-      class={cn('text-muted-foreground text-sm mb-2 tabular-nums', local.class)}
+      class={cn('text-sm mb-2 text-muted-foreground tabular-nums', local.class)}
       {...others}
     />
   );
@@ -48,7 +48,7 @@ export const SliderControl: Component<SliderPrimitive.ControlProps> = (props) =>
   return (
     <SliderPrimitive.Control
       class={cn(
-        'relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
+        'data-[orientation=vertical]:min-h-40 relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
         local.class,
       )}
       {...others}
@@ -62,7 +62,7 @@ export const SliderTrack: Component<SliderPrimitive.TrackProps> = (props) => {
     <SliderPrimitive.Track
       data-slot='slider-track'
       class={cn(
-        'bg-muted relative grow overflow-hidden rounded-full select-none data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5',
+        'data-[orientation=horizontal]:h-1.5 data-[orientation=vertical]:w-1.5 relative grow overflow-hidden rounded-full bg-muted select-none data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full',
         local.class,
       )}
       {...others}
@@ -90,7 +90,7 @@ export const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => {
     <SliderPrimitive.Thumb
       data-slot='slider-thumb'
       class={cn(
-        'border-ring ring-ring/50 relative block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] select-none after:absolute after:-inset-2 data-hover:ring-[3px] data-focus-visible:ring-[3px] focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50',
+        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 data-focus-visible:ring-[3px] data-hover:ring-[3px]',
         local.class,
       )}
       {...others}
@@ -111,7 +111,7 @@ export const SliderMarker: Component<SliderPrimitive.MarkerProps> = (props) => {
   return (
     <SliderPrimitive.Marker
       class={cn(
-        'text-muted-foreground text-[10px] data-[orientation=horizontal]:-translate-x-1/2 data-[orientation=vertical]:-translate-y-1/2 data-[state=at-value]:text-foreground data-[state=at-value]:font-medium',
+        'data-[state=at-value]:font-medium text-[10px] text-muted-foreground data-[orientation=horizontal]:-translate-x-1/2 data-[orientation=vertical]:-translate-y-1/2 data-[state=at-value]:text-foreground',
         local.class,
       )}
       {...others}

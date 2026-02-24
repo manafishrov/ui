@@ -12,7 +12,7 @@ export const NumberInput: Component<PrimitiveNumberInput.RootProps> = (props) =>
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveNumberInput.Root
-      class={cn('group/number-input flex w-full flex-col gap-1.5', local.class)}
+      class={cn('group/number-input gap-1.5 flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -38,11 +38,11 @@ export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = 
     <PrimitiveNumberInput.Control
       data-slot='number-input-control'
       class={cn(
-        'border-input dark:bg-input/30 relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none overflow-hidden',
-        'data-focus:border-ring data-focus:ring-ring/50 data-focus:ring-[3px]',
-        'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
-        'data-disabled:bg-input/50 dark:data-disabled:bg-input/80 data-disabled:opacity-50',
-        'data-readonly:data-focus:ring-0 data-readonly:data-focus:border-input',
+        'min-w-0 h-8 relative flex w-full items-center overflow-hidden rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
+        'data-focus:border-ring data-focus:ring-[3px] data-focus:ring-ring/50',
+        'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
+        'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
+        'data-readonly:data-focus:border-input data-readonly:data-focus:ring-0',
         local.class,
       )}
       {...others}
@@ -58,7 +58,7 @@ export const NumberInputInput: Component<PrimitiveNumberInput.InputProps> = (pro
         <Input
           variant='ghost'
           class={cn(
-            'pl-2.5 pr-2.5 transition-all group-has-data-[slot=number-input-triggers]/number-input:pr-8',
+            'pl-2.5 pr-2.5 group-has-data-[slot=number-input-triggers]/number-input:pr-8 transition-all',
             local.class,
           )}
           {...inputProps()}
@@ -79,7 +79,7 @@ export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => 
           data-focus={api().focused ? '' : false}
           data-invalid={api().invalid ? '' : false}
           class={cn(
-            'border-input absolute top-0 right-0 flex h-full flex-col border-l transition-colors',
+            'top-0 right-0 absolute flex h-full flex-col border-l border-input transition-colors',
             'data-focus:border-ring data-invalid:border-destructive',
             local.class,
           )}
@@ -105,7 +105,7 @@ export const NumberInputIncrementTrigger: Component<PrimitiveNumberInput.Increme
     <PrimitiveNumberInput.IncrementTrigger
       data-slot='number-input-increment-trigger'
       class={cn(
-        'text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-50 flex flex-1 cursor-pointer items-center justify-center border-b px-1 transition-colors last:border-b-0',
+        'px-1 flex flex-1 cursor-pointer items-center justify-center border-b text-muted-foreground transition-colors last:border-b-0 hover:bg-muted hover:text-foreground disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -123,7 +123,7 @@ export const NumberInputDecrementTrigger: Component<PrimitiveNumberInput.Decreme
     <PrimitiveNumberInput.DecrementTrigger
       data-slot='number-input-decrement-trigger'
       class={cn(
-        'text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-50 flex flex-1 cursor-pointer items-center justify-center border-b px-1 transition-colors last:border-b-0',
+        'px-1 flex flex-1 cursor-pointer items-center justify-center border-b text-muted-foreground transition-colors last:border-b-0 hover:bg-muted hover:text-foreground disabled:opacity-50',
         local.class,
       )}
       {...others}

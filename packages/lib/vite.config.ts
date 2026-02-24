@@ -1,3 +1,4 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import path from 'node:path';
 import dts from 'unplugin-dts/vite';
 import { defineConfig, type PluginOption } from 'vite';
@@ -31,7 +32,6 @@ export default defineConfig({
         'src/components/Empty.tsx',
         'src/components/Field.tsx',
         'src/components/HoverCard.tsx',
-
         'src/components/Input.tsx',
         'src/components/Item.tsx',
         'src/components/Kbd.tsx',
@@ -76,7 +76,6 @@ export default defineConfig({
         'solid-js/web',
         '@tanstack/solid-router',
         '@tanstack/solid-form',
-        '@solid-primitives/i18n',
         'solid-icons',
         'tailwindcss',
       ],
@@ -91,6 +90,12 @@ export default defineConfig({
     sourcemap: true,
   },
   plugins: [
+    paraglideVitePlugin({
+      project: './project.inlang',
+      outdir: './src/paraglide',
+      // Use globalVariable strategy for library - consumer controls locale
+      strategy: ['globalVariable', 'baseLocale'],
+    }),
     solid(),
     // oxlint-disable-next-line typescript-oxlint/no-unsafe-type-assertion
     dts({

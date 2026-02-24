@@ -9,7 +9,7 @@ export const NavigationMenu: Component<ComponentProps<'nav'>> = (props) => {
     <nav
       data-slot='navigation-menu'
       class={cn(
-        'max-w-max group/navigation-menu relative flex flex-1 items-center justify-center',
+        'group/navigation-menu relative flex max-w-max flex-1 items-center justify-center',
         local.class,
       )}
       {...others}
@@ -54,14 +54,14 @@ export const NavigationMenuTrigger: Component<HoverCardPrimitive.TriggerProps> =
     <HoverCardPrimitive.Trigger
       data-slot='navigation-menu-trigger'
       class={cn(
-        'group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-active:bg-accent/50 data-[state=open]:bg-accent/50',
+        'group h-9 px-4 py-2 text-sm font-medium inline-flex w-max items-center justify-center rounded-md bg-background transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-active:bg-accent/50 data-[state=open]:bg-accent/50',
         local.class,
       )}
       {...others}
     >
       {local.children}{' '}
       <MdOutlineExpand_more
-        class='relative top-px ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180'
+        class='ml-1 size-3 relative top-px transition duration-300 group-data-[state=open]:rotate-180'
         aria-hidden='true'
       />
     </HoverCardPrimitive.Trigger>
@@ -75,7 +75,7 @@ export const NavigationMenuContent: Component<HoverCardPrimitive.ContentProps> =
       <HoverCardPrimitive.Content
         data-slot='navigation-menu-content'
         class={cn(
-          'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 h-auto w-auto rounded-md p-4 shadow-md ring-1 origin-(--transform-origin) outline-none',
+          'p-4 shadow-md h-auto w-auto origin-(--transform-origin) rounded-md bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
           local.class,
         )}
         {...others}
@@ -90,7 +90,7 @@ export const NavigationMenuLink: Component<ComponentProps<'a'>> = (props) => {
     <a
       data-slot='navigation-menu-link'
       class={cn(
-        'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none',
+        'space-y-1 p-3 block rounded-md leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
         local.class,
       )}
       {...others}

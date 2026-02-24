@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { createListCollection } from '@ark-ui/solid';
+import { createListCollection } from '@manafish/ui';
 import { Button } from '@manafish/ui/button';
 import {
   Combobox,

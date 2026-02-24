@@ -23,7 +23,7 @@ export const HoverCardContent: Component<HoverCardPrimitive.ContentProps> = (pro
     <HoverCardPrimitive.Content
       data-slot='hover-card-content'
       class={cn(
-        'bg-popover text-popover-foreground rounded-lg p-4 text-sm shadow-md ring-1 ring-foreground/10 z-50 w-64 origin-(--transform-origin) outline-none duration-100',
+        'p-4 text-sm shadow-md w-64 z-50 origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
         'data-[side=bottom]:slide-in-from-top-2',
@@ -45,7 +45,7 @@ export const HoverCardArrow: Component<HoverCardPrimitive.ArrowProps> = (props) 
       class={cn('z-50 [--arrow-size:10px]', local.class)}
       {...others}
     >
-      <HoverCardPrimitive.ArrowTip class='bg-popover border-border border' />
+      <HoverCardPrimitive.ArrowTip class='border border-border bg-popover' />
     </HoverCardPrimitive.Arrow>
   );
 };

@@ -4,7 +4,7 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
-import { useLocale } from '@/Locale';
+import * as messages from '@/paraglide/messages';
 
 export const Sheet = SheetPrimitive.Root;
 export const SheetTrigger = SheetPrimitive.Trigger;
@@ -17,7 +17,7 @@ export const SheetOverlay: Component<SheetPrimitive.BackdropProps> = (props) => 
     <SheetPrimitive.Backdrop
       data-slot='sheet-overlay'
       class={cn(
-        'bg-black/10 fixed inset-0 z-50 duration-100 backdrop-blur-xs',
+        'bg-black/10 inset-0 backdrop-blur-xs fixed z-50 duration-100',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         local.class,
@@ -36,11 +36,11 @@ export const SheetPositioner: Component<
     <SheetPrimitive.Positioner
       data-side={side}
       class={cn(
-        'fixed z-50 flex flex-col transition ease-in-out duration-200',
+        'ease-in-out fixed z-50 flex flex-col transition duration-200',
         'data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:border-b',
         'data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:border-t',
-        'data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:w-3/4 data-[side=left]:sm:max-w-sm data-[side=left]:border-r',
-        'data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:w-3/4 data-[side=right]:sm:max-w-sm data-[side=right]:border-l',
+        'data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:sm:max-w-sm data-[side=left]:w-3/4 data-[side=left]:border-r',
+        'data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:sm:max-w-sm data-[side=right]:w-3/4 data-[side=right]:border-l',
         local.class,
       )}
       {...others}
@@ -55,8 +55,8 @@ export const SheetContent: Component<SheetPrimitive.ContentProps> = (props) => {
     <SheetPrimitive.Content
       data-slot='sheet-content'
       class={cn(
-        'bg-background relative flex h-full w-full flex-col gap-4 bg-clip-padding p-6 text-sm shadow-lg outline-none',
-        'data-[state=open]:animate-in data-[state=closed]:animate-out',
+        'gap-4 p-6 text-sm shadow-lg relative flex h-full w-full flex-col bg-background bg-clip-padding outline-none',
+        'data-[state=closed]:animate-out data-[state=open]:animate-in',
         'data-[side=right]:data-[state=closed]:slide-out-to-right-full data-[side=right]:data-[state=open]:slide-in-from-right-full',
         'data-[side=left]:data-[state=closed]:slide-out-to-left-full data-[side=left]:data-[state=open]:slide-in-from-left-full',
         'data-[side=top]:data-[state=closed]:slide-out-to-top-full data-[side=top]:data-[state=open]:slide-in-from-top-full',
@@ -72,20 +72,20 @@ export const SheetContent: Component<SheetPrimitive.ContentProps> = (props) => {
 
 export const SheetCloseButton: Component<SheetPrimitive.CloseTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  const t = useLocale();
+  
   return (
     <SheetPrimitive.CloseTrigger
-      class={cn('absolute top-3 right-3', local.class)}
+      class={cn('top-3 right-3 absolute', local.class)}
       asChild={(triggerProps) => (
         <Button
           variant='ghost'
           size='icon-sm'
-          aria-label={String(t('ui.common.close'))}
+          aria-label={messages.ui_common_close()}
           {...triggerProps()}
           {...others}
         >
           <MdOutlineClose aria-hidden='true' />
-          <span class='sr-only'>{String(t('ui.common.close'))}</span>
+          <span class='sr-only'>{messages.ui_common_close()}</span>
         </Button>
       )}
     />
@@ -97,7 +97,7 @@ export const SheetHeader: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='sheet-header'
-      class={cn('flex flex-col gap-1.5 p-4', local.class)}
+      class={cn('gap-1.5 p-4 flex flex-col', local.class)}
       {...others}
     />
   );
@@ -108,7 +108,7 @@ export const SheetFooter: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='sheet-footer'
-      class={cn('mt-auto flex flex-col gap-2 p-4', local.class)}
+      class={cn('gap-2 p-4 mt-auto flex flex-col', local.class)}
       {...others}
     />
   );
@@ -119,7 +119,7 @@ export const SheetTitle: Component<SheetPrimitive.TitleProps> = (props) => {
   return (
     <SheetPrimitive.Title
       data-slot='sheet-title'
-      class={cn('text-foreground text-lg font-semibold', local.class)}
+      class={cn('text-lg font-semibold text-foreground', local.class)}
       {...others}
     />
   );
@@ -130,7 +130,7 @@ export const SheetDescription: Component<SheetPrimitive.DescriptionProps> = (pro
   return (
     <SheetPrimitive.Description
       data-slot='sheet-description'
-      class={cn('text-muted-foreground text-sm', local.class)}
+      class={cn('text-sm text-muted-foreground', local.class)}
       {...others}
     />
   );

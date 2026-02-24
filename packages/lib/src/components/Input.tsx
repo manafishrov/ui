@@ -5,12 +5,12 @@ import { Button } from '@/components/Button';
 import { Textarea } from '@/components/Textarea';
 
 export const inputVariants = tv({
-  base: 'placeholder:text-muted-foreground flex w-full min-w-0 bg-transparent text-base transition-colors outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm data-readonly:cursor-default',
+  base: 'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
   variants: {
     variant: {
       outline:
-        'border-input dark:bg-input/30 focus-visible:border-ring focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border px-2.5 py-1 focus-visible:ring-[3px] data-invalid:ring-[3px] data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
-      ghost: 'h-full border-none bg-transparent px-0 py-0 shadow-none ring-0 focus-visible:ring-0',
+        'h-8 px-2.5 py-1 rounded-lg border border-input focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:bg-input/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+      ghost: 'px-0 py-0 h-full border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
     },
   },
   defaultVariants: {
@@ -39,10 +39,10 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='input-group'
       class={cn(
-        'border-input dark:bg-input/30 group/input-group relative flex w-full min-w-0 items-center rounded-lg border h-8 transition-colors outline-none',
-        'has-focus-visible:border-ring has-focus-visible:ring-ring/50 has-focus-visible:ring-[3px]',
-        'has-data-invalid:border-destructive has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40 has-data-invalid:ring-[3px]',
-        'has-disabled:bg-input/50 dark:has-disabled:bg-input/80 has-disabled:opacity-50',
+        'group/input-group min-w-0 h-8 relative flex w-full items-center rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
+        'has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
+        'has-data-invalid:border-destructive has-data-invalid:ring-[3px] has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40',
+        'has-disabled:bg-input/50 has-disabled:opacity-50 dark:has-disabled:bg-input/80',
         'has-data-[align=block-end]:h-auto has-data-[align=block-end]:flex-col',
         'has-data-[align=block-start]:h-auto has-data-[align=block-start]:flex-col',
         'has-data-[align=block-end]:[&>input]:pt-3',
@@ -58,11 +58,11 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "text-muted-foreground h-auto gap-2 py-1.5 text-sm font-medium group-data-disabled/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4 flex cursor-text items-center justify-center select-none",
+  base: "gap-2 py-1.5 text-sm font-medium [&>svg:not([class*='size-'])]:size-4 flex h-auto cursor-text items-center justify-center text-muted-foreground select-none group-data-disabled/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)]",
   variants: {
     align: {
-      'inline-start': 'pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem] order-first',
-      'inline-end': 'pr-2 has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem] order-last',
+      'inline-start': 'pl-2 order-first has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]',
+      'inline-end': 'pr-2 order-last has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem]',
       'block-start':
         'px-2.5 pt-2 has-[>input]:pt-2 [.border-b]:pb-2 order-first w-full justify-start',
       'block-end': 'px-2.5 pb-2 has-[>input]:pb-2 [.border-t]:pt-2 order-last w-full justify-start',
@@ -106,12 +106,12 @@ export const InputGroupAddon: Component<InputGroupAddonProps> = (props) => {
 };
 
 export const inputGroupButtonVariants = tv({
-  base: 'gap-2 text-sm shadow-none flex items-center',
+  base: 'gap-2 text-sm flex items-center shadow-none',
   variants: {
     size: {
-      xs: 'h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*="size-"])]:size-3.5',
+      xs: 'h-6 gap-1 px-1.5 [&>svg:not([class*="size-"])]:size-3.5 rounded-[calc(var(--radius)-3px)]',
       sm: '',
-      'icon-xs': 'size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0',
+      'icon-xs': 'size-6 p-0 has-[>svg]:p-0 rounded-[calc(var(--radius)-3px)]',
       'icon-sm': 'size-8 p-0 has-[>svg]:p-0',
     },
   },
@@ -141,7 +141,7 @@ export const InputGroupText: Component<ComponentProps<'span'>> = (props) => {
   return (
     <span
       class={cn(
-        'text-muted-foreground gap-2 text-sm [&_svg:not([class*="size-"])]:size-4 flex items-center [&_svg]:pointer-events-none',
+        'gap-2 text-sm [&_svg:not([class*="size-"])]:size-4 flex items-center text-muted-foreground [&_svg]:pointer-events-none',
         local.class,
       )}
       {...others}
@@ -155,7 +155,7 @@ export const InputGroupInput: Component<ComponentProps<typeof Input>> = (props) 
     <Input
       data-slot='input-group-control'
       class={cn(
-        'rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent flex-1',
+        'flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent',
         local.class,
       )}
       {...others}
@@ -169,7 +169,7 @@ export const InputGroupTextarea: Component<ComponentProps<typeof Textarea>> = (p
     <Textarea
       data-slot='input-group-control'
       class={cn(
-        'rounded-none border-0 bg-transparent py-2 shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent flex-1 resize-none',
+        'py-2 flex-1 resize-none rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent',
         local.class,
       )}
       {...others}

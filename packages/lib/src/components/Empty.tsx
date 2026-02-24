@@ -7,7 +7,7 @@ export const Empty: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='empty'
       class={cn(
-        'gap-4 rounded-lg border-dashed border p-6 flex w-full min-w-0 flex-1 flex-col items-center justify-center text-center text-balance',
+        'gap-4 p-6 min-w-0 flex w-full flex-1 flex-col items-center justify-center rounded-lg border border-dashed text-center text-balance',
         local.class,
       )}
       {...others}
@@ -20,7 +20,7 @@ export const EmptyHeader: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='empty-header'
-      class={cn('gap-2 flex max-w-sm flex-col items-center', local.class)}
+      class={cn('gap-2 max-w-sm flex flex-col items-center', local.class)}
       {...others}
     />
   );
@@ -31,7 +31,7 @@ export const emptyMediaVariants = tv({
   variants: {
     variant: {
       default: 'bg-transparent',
-      icon: 'bg-muted text-foreground flex size-8 shrink-0 items-center justify-center rounded-lg [&_svg:not([class*="size-"])]:size-4',
+      icon: 'size-8 [&_svg:not([class*="size-"])]:size-4 flex shrink-0 items-center justify-center rounded-lg bg-muted text-foreground',
     },
   },
   defaultVariants: {
@@ -84,7 +84,7 @@ export const EmptyContent: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='empty-content'
       class={cn(
-        'gap-2.5 text-sm flex w-full max-w-sm min-w-0 flex-col items-center text-balance',
+        'gap-2.5 text-sm max-w-sm min-w-0 flex w-full flex-col items-center text-balance',
         local.class,
       )}
       {...others}

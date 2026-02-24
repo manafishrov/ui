@@ -17,7 +17,7 @@ const SidebarDesktopContainer: Component<SidebarDesktopContainerProps> = (props)
     <div
       data-slot='sidebar-container'
       class={cn(
-        'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
+        'inset-y-0 md:flex fixed z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear',
         local.side === 'left'
           ? 'left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
           : 'right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
@@ -31,7 +31,7 @@ const SidebarDesktopContainer: Component<SidebarDesktopContainerProps> = (props)
       <div
         data-sidebar='sidebar'
         data-slot='sidebar-inner'
-        class='bg-sidebar group-data-[variant=floating]:ring-sidebar-border flex size-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1'
+        class='group-data-[variant=floating]:shadow-sm flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border'
       >
         {local.children}
       </div>
@@ -51,7 +51,7 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
 
   return (
     <div
-      class='group peer text-sidebar-foreground hidden md:block'
+      class='group peer md:block hidden text-sidebar-foreground'
       data-state={state()}
       data-collapsible={state() === 'collapsed' ? (local.collapsible ?? 'offcanvas') : ''}
       data-variant={local.variant ?? 'sidebar'}
@@ -61,7 +61,7 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
       <div
         data-slot='sidebar-gap'
         class={cn(
-          'transition-[width] duration-200 ease-linear relative w-(--sidebar-width) bg-transparent',
+          'relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
           'group-data-[collapsible=offcanvas]:w-0',
           'group-data-[side=right]:rotate-180',
           local.variant === 'floating' || local.variant === 'inset'

@@ -2,12 +2,12 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 export const textareaVariants = tv({
-  base: 'placeholder:text-muted-foreground flex field-sizing-content min-h-16 w-full bg-transparent text-base transition-colors outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm data-readonly:cursor-default',
+  base: 'min-h-16 text-base md:text-sm flex field-sizing-content w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
   variants: {
     variant: {
       outline:
-        'border-input dark:bg-input/30 focus-visible:border-ring focus-visible:ring-ring/50 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:border-destructive dark:data-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 rounded-lg border px-2.5 py-2 focus-visible:ring-[3px] data-invalid:ring-[3px] data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
-      ghost: 'border-none bg-transparent px-0 py-0 shadow-none ring-0 focus-visible:ring-0',
+        'px-2.5 py-2 rounded-lg border border-input focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:bg-input/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+      ghost: 'px-0 py-0 border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
     },
   },
   defaultVariants: {

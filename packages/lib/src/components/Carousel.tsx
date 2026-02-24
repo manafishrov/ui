@@ -55,7 +55,7 @@ export const CarouselPrevious: Component<
           variant={local.variant ?? 'outline'}
           size={local.size ?? 'icon'}
           class={cn(
-            'absolute h-8 w-8 rounded-full',
+            'h-8 w-8 absolute rounded-full',
             'data-[orientation=horizontal]:-left-12 data-[orientation=horizontal]:top-1/2 data-[orientation=horizontal]:-translate-y-1/2',
             'data-[orientation=vertical]:-top-12 data-[orientation=vertical]:left-1/2 data-[orientation=vertical]:-translate-x-1/2 data-[orientation=vertical]:rotate-90',
             local.class,
@@ -86,7 +86,7 @@ export const CarouselNext: Component<
           variant={local.variant ?? 'outline'}
           size={local.size ?? 'icon'}
           class={cn(
-            'absolute h-8 w-8 rounded-full',
+            'h-8 w-8 absolute rounded-full',
             'data-[orientation=horizontal]:-right-12 data-[orientation=horizontal]:top-1/2 data-[orientation=horizontal]:-translate-y-1/2',
             'data-[orientation=vertical]:-bottom-12 data-[orientation=vertical]:left-1/2 data-[orientation=vertical]:-translate-x-1/2 data-[orientation=vertical]:rotate-90',
             local.class,

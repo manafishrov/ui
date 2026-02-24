@@ -7,7 +7,7 @@ export const Tabs: Component<TabsPrimitive.RootProps> = (props) => {
   return (
     <TabsPrimitive.Root
       data-slot='tabs'
-      class={cn('flex flex-col gap-2 w-full', local.class)}
+      class={cn('gap-2 flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -19,7 +19,7 @@ export const TabsList: Component<TabsPrimitive.ListProps> = (props) => {
     <TabsPrimitive.List
       data-slot='tabs-list'
       class={cn(
-        'bg-muted text-muted-foreground inline-flex h-9 items-center justify-center rounded-lg p-1 w-full',
+        'h-9 p-1 inline-flex w-full items-center justify-center rounded-lg bg-muted text-muted-foreground',
         local.class,
       )}
       {...others}
@@ -33,8 +33,8 @@ export const TabsTrigger: Component<TabsPrimitive.TriggerProps> = (props) => {
     <TabsPrimitive.Trigger
       data-slot='tabs-trigger'
       class={cn(
-        'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-        'data-selected:bg-background data-selected:text-foreground data-selected:shadow-sm',
+        'px-3 py-1 text-sm font-medium inline-flex items-center justify-center rounded-md whitespace-nowrap ring-offset-background transition-all outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+        'data-selected:shadow-sm data-selected:bg-background data-selected:text-foreground',
         local.class,
       )}
       {...others}
@@ -48,7 +48,7 @@ export const TabsContent: Component<TabsPrimitive.ContentProps> = (props) => {
     <TabsPrimitive.Content
       data-slot='tabs-content'
       class={cn(
-        'ring-offset-background focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 mt-2 outline-none',
+        'mt-2 ring-offset-background outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2',
         local.class,
       )}
       {...others}
@@ -62,7 +62,7 @@ export const TabsIndicator: Component<TabsPrimitive.IndicatorProps> = (props) =>
     <TabsPrimitive.Indicator
       data-slot='tabs-indicator'
       class={cn(
-        'bg-primary absolute bottom-0 left-0 h-0.5 w-(--width) translate-x-(--left) transition-[width,transform]',
+        'bottom-0 left-0 h-0.5 absolute w-(--width) translate-x-(--left) bg-primary transition-[width,transform]',
         local.class,
       )}
       {...others}

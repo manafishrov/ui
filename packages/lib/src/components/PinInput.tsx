@@ -13,7 +13,7 @@ export const PinInput: Component<PrimitivePinInput.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePinInput.Root
-      class={cn('group/pin-input flex w-full flex-col gap-1.5', local.class)}
+      class={cn('group/pin-input gap-1.5 flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -37,7 +37,7 @@ export const PinInputControl: Component<PrimitivePinInput.ControlProps> = (props
   return (
     <PrimitivePinInput.Control
       data-slot='pin-input-control'
-      class={cn('flex items-center gap-2', local.class)}
+      class={cn('gap-2 flex items-center', local.class)}
       {...others}
     />
   );
@@ -49,7 +49,7 @@ export const PinInputGroup: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='pin-input-group'
       class={cn(
-        'group-data-invalid/pin-input:border-destructive group-data-invalid/pin-input:ring-destructive/20 dark:group-data-invalid/pin-input:ring-destructive/40 group-data-invalid/pin-input:ring-[3px] flex items-center',
+        'flex items-center group-data-invalid/pin-input:border-destructive group-data-invalid/pin-input:ring-[3px] group-data-invalid/pin-input:ring-destructive/20 dark:group-data-invalid/pin-input:ring-destructive/40',
         'group-data-disabled/pin-input:opacity-50',
         local.class,
       )}
@@ -67,9 +67,9 @@ export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) =>
         <Input
           variant='ghost'
           class={cn(
-            'dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 size-9 border-y border-r text-sm transition-all outline-none first:rounded-l-lg first:border-l last:rounded-r-lg focus-visible:ring-[3px] relative flex items-center justify-center focus-visible:z-10 bg-transparent text-center placeholder:text-muted-foreground disabled:opacity-50 selection:bg-primary selection:text-primary-foreground',
-            'data-invalid:border-destructive data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40 data-invalid:ring-[3px]',
-            'data-readonly:cursor-default data-readonly:focus-visible:ring-0 data-readonly:focus-visible:border-input',
+            'size-9 text-sm relative flex items-center justify-center border-y border-r border-input bg-transparent text-center transition-all outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground first:rounded-l-lg first:border-l last:rounded-r-lg focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:opacity-50 dark:bg-input/30',
+            'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
+            'data-readonly:cursor-default data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0',
             local.class,
           )}
           {...inputProps()}
@@ -86,7 +86,7 @@ export const PinInputSeparator: Component<ComponentProps<'div'>> = (props) => {
     <div
       aria-hidden='true'
       data-slot='pin-input-separator'
-      class={cn('text-muted-foreground flex items-center justify-center', local.class)}
+      class={cn('flex items-center justify-center text-muted-foreground', local.class)}
       {...others}
     >
       <MdOutlineRemove class='size-4' />

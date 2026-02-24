@@ -24,7 +24,7 @@ export const MarqueeEdge: Component<MarqueePrimitive.EdgeProps> = (props) => {
   return (
     <MarqueePrimitive.Edge
       class={cn(
-        'bg-linear-to-r from-background via-background to-transparent absolute inset-y-0 z-10 w-20 from-0% via-50% to-100%',
+        'inset-y-0 w-20 absolute z-10 bg-linear-to-r from-background from-0% via-background via-50% to-transparent to-100%',
         local.class,
       )}
       {...others}

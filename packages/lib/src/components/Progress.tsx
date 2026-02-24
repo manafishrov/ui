@@ -16,7 +16,7 @@ export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
   return (
     <ProgressPrimitive.Root
       data-slot='progress'
-      class={cn('flex w-full flex-col gap-2', local.class)}
+      class={cn('gap-2 flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -27,7 +27,7 @@ export const ProgressTrack: Component<ProgressPrimitive.TrackProps> = (props) =>
   return (
     <ProgressPrimitive.Track
       class={cn(
-        'bg-muted h-2 rounded-full relative flex w-full items-center overflow-x-hidden',
+        'h-2 relative flex w-full items-center overflow-x-hidden rounded-full bg-muted',
         local.class,
       )}
       data-slot='progress-track'
@@ -41,7 +41,7 @@ export const ProgressIndicator: Component<ProgressPrimitive.RangeProps> = (props
   return (
     <ProgressPrimitive.Range
       data-slot='progress-indicator'
-      class={cn('bg-primary h-full transition-all', local.class)}
+      class={cn('h-full bg-primary transition-all', local.class)}
       {...others}
     />
   );
@@ -69,7 +69,7 @@ export const ProgressValue: Component<ProgressPrimitive.ValueTextProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.ValueText
-      class={cn('text-muted-foreground ml-auto text-sm tabular-nums', local.class)}
+      class={cn('text-sm ml-auto text-muted-foreground tabular-nums', local.class)}
       data-slot='progress-value'
       {...others}
     />

@@ -1,0 +1,13 @@
+{
+  "ui_common_close": "Lukk",
+  "ui_common_loading": "Laster",
+  "ui_common_more": "Mer",
+  "ui_skeleton_loading": "Laster innhold",
+  "ui_sidebar_title": "Sidebar",
+  "ui_sidebar_description": "Viser mobil-sidefeltet.",
+  "ui_sidebar_toggle": "Veksle sidefelt",
+  "ui_checkbox_checked": "Avmerket",
+  "ui_pagination_previous": "Forrige",
+  "ui_pagination_next": "Neste",
+  "ui_pagination_more": "Flere sider"
+}
