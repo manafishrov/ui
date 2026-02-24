@@ -1,3 +1,5 @@
+import type { Component } from 'solid-js';
+
 import { LocaleProvider } from '@manafishrov/ui';
 import {
   ScrollArea,
@@ -5,60 +7,53 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaViewport,
 } from '@manafishrov/ui/scroll-area';
-import { HeadContent, Link, Outlet, createRootRoute, redirect } from '@tanstack/solid-router';
+import { HeadContent, Outlet, createRootRoute, redirect } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
-import { For, type Component } from 'solid-js';
 
-import { getLocale, locales, setLocale, shouldRedirect } from '@/paraglide/runtime';
-const RootComponent: Component = () => (
-  <LocaleProvider locale={getLocale()}>
-    <div class='flex h-full flex-col'>
+import { Header } from '@/components/Header';
+import * as m from '@/paraglide/messages';
+import { getLocale, shouldRedirect } from '@/paraglide/runtime';
+
+const RootComponent: Component = () => {
+
+  return (
+    <>
       <HeadContent />
-      <header class='top-0 backdrop-blur sticky z-50 shrink-0 border-b border-border bg-background/95 supports-backdrop-filter:bg-background/60'>
-        <div class='px-4 py-4 container mx-auto'>
-          <nav class='gap-6 flex items-center justify-between'>
-            <Link to='/' class='text-lg font-semibold font-branding hover:text-primary'>
-              Manafish UI
-            </Link>
-            <div class='gap-2 flex'>
-              <For each={locales}>
-                {(locale) => (
-                  <button
-                    type='button'
-                    onClick={() => setLocale(locale)}
-                    class='text-sm font-medium hover:text-primary'
-                    classList={{ 'text-primary': locale === getLocale() }}
-                  >
-                    {locale === 'en-gb' ? 'EN' : 'NB'}
-                  </button>
-                )}
-              </For>
-            </div>
-          </nav>
-        </div>
-      </header>
-      <ScrollArea class='flex-1'>
-        <ScrollAreaViewport>
-          <ScrollAreaContent>
-            <main class='px-4 py-8 container mx-auto'>
-              <Outlet />
-            </main>
-          </ScrollAreaContent>
-        </ScrollAreaViewport>
-        <ScrollAreaScrollbar orientation='vertical' />
-      </ScrollArea>
       <TanStackRouterDevtools position='bottom-right' />
-    </div>
-  </LocaleProvider>
-);
+      <LocaleProvider locale={getLocale()}>
+        <div class='flex h-full flex-col'>
+          <Header />
+          <ScrollArea class='flex-1'>
+            <ScrollAreaViewport>
+              <ScrollAreaContent>
+                <main class='px-4 py-8 container mx-auto'>
+                  <Outlet />
+                </main>
+              </ScrollAreaContent>
+            </ScrollAreaViewport>
+            <ScrollAreaScrollbar orientation='vertical' />
+          </ScrollArea>
+        </div>
+      </LocaleProvider>
+    </>
+  );
+};
+
 export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      {
+        title: m.docs_page_title(),
+      },
+      {
+        name: 'description',
+        content: m.docs_description(),
+      },
+    ],
+  }),
   beforeLoad: async () => {
-    // Set the HTML lang attribute for accessibility and SEO
     document.documentElement.setAttribute('lang', getLocale());
-
-    // Check if URL needs to be redirected to match the current locale
     const decision = await shouldRedirect({ url: window.location.href });
-
     if (decision.redirectUrl) {
       throw redirect({ href: decision.redirectUrl.href });
     }

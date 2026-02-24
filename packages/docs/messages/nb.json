@@ -1,5 +1,13 @@
 {
   "docs_title": "Manafish UI",
+  "docs_page_title": "Manafish UI Dokumentasjon",
   "docs_description": "Et komponentbibliotek for SolidJS bygget med Ark UI, Tailwind CSS og TanStack.",
-  "docs_components_title": "Komponenter"
+  "docs_components_title": "Komponenter",
+  "docs_component_accordion_description": "Et sett med vertikalt stablede interaktive overskrifter som avslører innhold.",
+  "docs_component_alert_dialog_description": "En modal dialog som avbryter brukeren med viktig innhold.",
+  "docs_component_aspect_ratio_description": "Viser innhold innenfor et ønsket sideforhold.",
+  "docs_component_avatar_description": "Et bildeelement med en reserve for å representere brukeren.",
+  "docs_component_badge_description": "En liten etikett-komponent for status eller antall.",
+  "docs_component_button_description": "En klikkbar knapp-komponent med flere varianter.",
+  "docs_component_typography_description": "Tekstkomponenter for konsistent typografistyling."
 }

@@ -1,4 +1,4 @@
-import { Select as SelectPrimitive, createListCollection } from '@ark-ui/solid/select';
+import { Select as SelectPrimitive } from '@ark-ui/solid/select';
 import { MdOutlineCheck, MdOutlineClose, MdOutlineUnfold_more } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
@@ -10,9 +10,10 @@ export const SelectItemContext = SelectPrimitive.ItemContext;
 export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
 export const SelectList = SelectPrimitive.List;
 export const SelectContext = SelectPrimitive.Context;
-export { createListCollection };
 
-export const Select: Component<SelectPrimitive.RootProps<unknown>> = (props) => {
+export const Select = <T extends { value: string; label: string }>(
+  props: SelectPrimitive.RootProps<T> & { class?: string },
+) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <SelectPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />

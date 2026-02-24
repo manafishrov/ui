@@ -1,43 +1,45 @@
 import type { Component } from 'solid-js';
 
+import { Card, CardDescription, CardHeader, CardTitle } from '@manafishrov/ui/card';
+import { H1, H3, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute, Link } from '@tanstack/solid-router';
-import * as m from '@/paraglide/messages';
 
+import * as m from '@/paraglide/messages';
 const components = [
   {
     name: 'Accordion',
     to: '/components/accordion',
-    description: 'Documentation for the Accordion component.',
+    descriptionKey: 'docs_component_accordion_description',
   },
   {
     name: 'AlertDialog',
     to: '/components/alert-dialog',
-    description: 'Documentation for the AlertDialog component.',
+    descriptionKey: 'docs_component_alert_dialog_description',
   },
   {
     name: 'AspectRatio',
     to: '/components/aspect-ratio',
-    description: 'Documentation for the AspectRatio component.',
+    descriptionKey: 'docs_component_aspect_ratio_description',
   },
   {
     name: 'Avatar',
     to: '/components/avatar',
-    description: 'Documentation for the Avatar component.',
+    descriptionKey: 'docs_component_avatar_description',
   },
   {
     name: 'Badge',
     to: '/components/badge',
-    description: 'A small label component for status or counts.',
+    descriptionKey: 'docs_component_badge_description',
   },
   // {
   //   name: 'Breadcrumb',
   //   to: '/components/breadcrumb',
-  //   description: 'Documentation for the Breadcrumb component.',
+  //   descriptionKey: 'docs_component_breadcrumb_description',
   // },
   {
     name: 'Button',
     to: '/components/button',
-    description: 'A clickable button component with multiple variants.',
+    descriptionKey: 'docs_component_button_description',
   },
   // {
   //   name: 'Card',
@@ -247,34 +249,35 @@ const components = [
   // {
   //   name: 'TreeView',
   //   to: '/components/tree-view',
-  //   description: 'Documentation for the TreeView component.',
+  //   descriptionKey: 'docs_component_tree_view_description',
   // },
   {
     name: 'Typography',
     to: '/components/typography',
-    description: 'Documentation for the Typography component.',
+    descriptionKey: 'docs_component_typography_description',
   },
 ];
 
 const HomePage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
-      <h1 class='text-4xl font-bold tracking-tight font-branding'>{m.docs_title()}</h1>
-      <p class='text-lg text-muted-foreground'>
-        {m.docs_description()}
-      </p>
+      <H1 class='font-branding'>{m.docs_title()}</H1>
+      <Lead>{m.docs_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-2xl font-semibold'>{m.docs_components_title()}</h2>
+      <H3 class='pb-0 border-none'>{m.docs_components_title()}</H3>
       <div class='gap-4 md:grid-cols-2 lg:grid-cols-3 grid'>
         {components.map((component) => (
-          <Link
-            to={component.to}
-            class='p-4 block rounded-lg border border-border transition-colors hover:border-primary hover:bg-muted/50'
-          >
-            <h3 class='font-semibold'>{component.name}</h3>
-            <p class='text-sm mt-1 text-muted-foreground'>{component.description}</p>
+          <Link to={component.to} class='block'>
+            <Card class='h-full cursor-pointer transition-all hover:bg-muted/50 hover:ring-primary'>
+              <CardHeader>
+                <CardTitle>{component.name}</CardTitle>
+                <CardDescription>
+                  {m[component.descriptionKey as Exclude<keyof typeof m, 'm'>]()}
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </Link>
         ))}
       </div>
