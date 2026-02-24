@@ -1,9 +1,9 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import tailwindcss from '@tailwindcss/vite';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import path from 'node:path';
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
-import { paraglideVitePlugin } from '@inlang/paraglide-js';
 
 export default defineConfig({
   plugins: [
@@ -12,6 +12,7 @@ export default defineConfig({
       project: './project.inlang',
       outdir: './src/paraglide',
       strategy: ['url', 'cookie', 'baseLocale'],
+      emitTsDeclarations: true,
     }),
     tanstackRouter({
       target: 'solid',

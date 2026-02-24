@@ -1,7 +1,7 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import path from 'node:path';
 import dts from 'unplugin-dts/vite';
-import { defineConfig, type PluginOption } from 'vite';
+import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 
 export default defineConfig({
@@ -93,13 +93,12 @@ export default defineConfig({
     paraglideVitePlugin({
       project: './project.inlang',
       outdir: './src/paraglide',
-      // Use globalVariable strategy for library - consumer controls locale
       strategy: ['globalVariable', 'baseLocale'],
+      emitTsDeclarations: true,
     }),
     solid(),
-    // oxlint-disable-next-line typescript-oxlint/no-unsafe-type-assertion
     dts({
       tsconfigPath: './tsconfig.json',
-    }) as unknown as PluginOption,
+    }),
   ],
 });

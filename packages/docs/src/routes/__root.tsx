@@ -1,4 +1,4 @@
-import { LocaleProvider, type Locale } from '@manafish/ui';
+import { LocaleProvider } from '@manafish/ui';
 import {
   ScrollArea,
   ScrollAreaContent,
@@ -12,7 +12,7 @@ import { For, type Component } from 'solid-js';
 import { getLocale, locales, setLocale, shouldRedirect } from '@/paraglide/runtime';
 const RootComponent: Component = () => {
   return (
-    <LocaleProvider locale={getLocale() as Locale}>
+    <LocaleProvider locale={getLocale()}>
       <div class='flex h-full flex-col'>
         <HeadContent />
         <header class='top-0 backdrop-blur sticky z-50 shrink-0 border-b border-border bg-background/95 supports-backdrop-filter:bg-background/60'>
