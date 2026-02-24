@@ -7,7 +7,7 @@ import {
   AvatarBadge,
   AvatarGroup,
   AvatarGroupCount,
-} from '@manafish/ui/avatar';
+} from '@manafishrov/ui/avatar';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const AvatarDocPage: Component = () => (

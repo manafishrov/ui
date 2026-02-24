@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Kbd, KbdGroup } from '@manafish/ui/kbd';
+import { Kbd, KbdGroup } from '@manafishrov/ui/kbd';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const KbdDocPage: Component = () => (

@@ -10,7 +10,7 @@ import {
   SliderThumb,
   SliderMarkerGroup,
   SliderMarker,
-} from '@manafish/ui/slider';
+} from '@manafishrov/ui/slider';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const SliderDocPage: Component = () => (

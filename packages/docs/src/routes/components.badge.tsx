@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Badge } from '@manafish/ui/badge';
+import { Badge } from '@manafishrov/ui/badge';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const BadgeDocPage: Component = () => (

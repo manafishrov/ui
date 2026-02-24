@@ -9,7 +9,7 @@ import {
   TagsInputClearTrigger,
   TagsInputItem,
   TagsInputItemDeleteTrigger,
-} from '@manafish/ui/tags-input';
+} from '@manafishrov/ui/tags-input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TagsInputDocPage: Component = () => (

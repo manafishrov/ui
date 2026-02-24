@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   Menu,
   MenuTrigger,
@@ -15,7 +15,7 @@ import {
   MenuCheckboxItem,
   MenuRadioItem,
   MenuShortcut,
-} from '@manafish/ui/menu';
+} from '@manafishrov/ui/menu';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const MenuDocPage: Component = () => (

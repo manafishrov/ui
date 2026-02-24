@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   Dialog,
   DialogTrigger,
@@ -13,7 +13,7 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-} from '@manafish/ui/dialog';
+} from '@manafishrov/ui/dialog';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const DialogDocPage: Component = () => (

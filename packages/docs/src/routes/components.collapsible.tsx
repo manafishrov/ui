@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@manafish/ui/collapsible';
+import { Button } from '@manafishrov/ui/button';
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@manafishrov/ui/collapsible';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const CollapsibleDocPage: Component = () => (
@@ -28,7 +28,7 @@ const CollapsibleDocPage: Component = () => (
         </div>
         <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>@solidjs/solid</div>
         <CollapsibleContent class='space-y-2'>
-          <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>@manafish/ui</div>
+          <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>@manafishrov/ui</div>
           <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>
             @tanstack/solid-router
           </div>

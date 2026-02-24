@@ -10,7 +10,7 @@ import {
   ProgressIndicator,
   ProgressLabel,
   ProgressValue,
-} from '@manafish/ui/progress';
+} from '@manafishrov/ui/progress';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const ProgressDocPage: Component = () => (

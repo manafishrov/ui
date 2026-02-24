@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { AspectRatio } from '@manafish/ui/aspect-ratio';
+import { AspectRatio } from '@manafishrov/ui/aspect-ratio';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const AspectRatioDocPage: Component = () => (

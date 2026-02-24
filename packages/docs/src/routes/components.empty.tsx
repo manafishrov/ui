@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   Empty,
   EmptyHeader,
@@ -8,7 +8,7 @@ import {
   EmptyTitle,
   EmptyDescription,
   EmptyContent,
-} from '@manafish/ui/empty';
+} from '@manafishrov/ui/empty';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const EmptyDocPage: Component = () => (

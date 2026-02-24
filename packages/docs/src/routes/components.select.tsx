@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 
-import { createListCollection } from '@manafish/ui';
-import { Button } from '@manafish/ui/button';
+import { createListCollection } from '@manafishrov/ui';
+import { Button } from '@manafishrov/ui/button';
 import {
   SelectControl,
   SelectHiddenSelect,
@@ -18,7 +18,7 @@ import {
   SelectItemGroupLabel,
   SelectItem,
   SelectSeparator,
-} from '@manafish/ui/select';
+} from '@manafishrov/ui/select';
 import { createFileRoute } from '@tanstack/solid-router';
 const frameworks = createListCollection({
   items: [

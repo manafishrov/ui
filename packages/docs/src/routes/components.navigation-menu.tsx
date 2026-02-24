@@ -7,7 +7,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
   NavigationMenuLink,
-} from '@manafish/ui/navigation-menu';
+} from '@manafishrov/ui/navigation-menu';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const NavigationMenuDocPage: Component = () => (
@@ -30,7 +30,7 @@ const NavigationMenuDocPage: Component = () => (
                     class='p-6 focus:shadow-md flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted no-underline outline-none select-none'
                     href='/'
                   >
-                    <div class='mb-2 mt-4 text-lg font-medium'>@manafish/ui</div>
+                    <div class='mb-2 mt-4 text-lg font-medium'>@manafishrov/ui</div>
                     <p class='text-sm leading-tight text-muted-foreground'>
                       Beautifully designed components.
                     </p>

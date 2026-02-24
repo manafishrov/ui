@@ -7,7 +7,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaCorner,
-} from '@manafish/ui/scroll-area';
+} from '@manafishrov/ui/scroll-area';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const ScrollAreaDocPage: Component = () => (

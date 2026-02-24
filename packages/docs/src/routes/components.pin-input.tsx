@@ -8,7 +8,7 @@ import {
   PinInputGroup,
   PinInputInput,
   PinInputSeparator,
-} from '@manafish/ui/pin-input';
+} from '@manafishrov/ui/pin-input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const PinInputDocPage: Component = () => (

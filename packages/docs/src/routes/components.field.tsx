@@ -12,8 +12,8 @@ import {
   FieldDescription,
   FieldSeparator,
   FieldError,
-} from '@manafish/ui/field';
-import { Input } from '@manafish/ui/input';
+} from '@manafishrov/ui/field';
+import { Input } from '@manafishrov/ui/input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const FieldDocPage: Component = () => (

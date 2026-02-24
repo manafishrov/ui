@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Toggle, ToggleGroup, ToggleGroupItem } from '@manafish/ui/toggle';
+import { Toggle, ToggleGroup, ToggleGroupItem } from '@manafishrov/ui/toggle';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const ToggleDocPage: Component = () => (

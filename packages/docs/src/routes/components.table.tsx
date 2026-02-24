@@ -9,7 +9,7 @@ import {
   TableHead,
   TableCell,
   TableCaption,
-} from '@manafish/ui/table';
+} from '@manafishrov/ui/table';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TableDocPage: Component = () => (

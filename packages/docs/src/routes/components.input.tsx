@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   Input,
   InputGroup,
@@ -9,7 +9,7 @@ import {
   InputGroupText,
   InputGroupInput,
   InputGroupTextarea,
-} from '@manafish/ui/input';
+} from '@manafishrov/ui/input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const InputDocPage: Component = () => (

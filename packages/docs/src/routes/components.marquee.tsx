@@ -6,7 +6,7 @@ import {
   MarqueeContent,
   MarqueeItem,
   MarqueeEdge,
-} from '@manafish/ui/marquee';
+} from '@manafishrov/ui/marquee';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const MarqueeDocPage: Component = () => (

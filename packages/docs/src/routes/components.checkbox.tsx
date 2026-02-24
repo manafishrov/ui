@@ -6,7 +6,7 @@ import {
   CheckboxControl,
   CheckboxIndicator,
   CheckboxLabel,
-} from '@manafish/ui/checkbox';
+} from '@manafishrov/ui/checkbox';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const CheckboxDocPage: Component = () => (

@@ -10,8 +10,8 @@ import {
   AlertDialogDescription,
   AlertDialogAction,
   AlertDialogCancel,
-} from '@manafish/ui/alert-dialog';
-import { Button } from '@manafish/ui/button';
+} from '@manafishrov/ui/alert-dialog';
+import { Button } from '@manafishrov/ui/button';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const AlertDialogDocPage: Component = () => (

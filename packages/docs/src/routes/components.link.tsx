@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Link } from '@manafish/ui/link';
+import { Link } from '@manafishrov/ui/link';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const LinkDocPage: Component = () => (

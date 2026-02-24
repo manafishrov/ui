@@ -1,13 +1,13 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   HoverCard,
   HoverCardTrigger,
   HoverCardPositioner,
   HoverCardContent,
   HoverCardArrow,
-} from '@manafish/ui/hover-card';
+} from '@manafishrov/ui/hover-card';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const HoverCardDocPage: Component = () => (

@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Spinner } from '@manafish/ui/spinner';
+import { Spinner } from '@manafishrov/ui/spinner';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const SpinnerDocPage: Component = () => (

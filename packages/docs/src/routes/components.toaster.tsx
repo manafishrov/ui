@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Toaster } from '@manafish/ui/toaster';
+import { Toaster } from '@manafishrov/ui/toaster';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const ToasterDocPage: Component = () => (

@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Textarea } from '@manafish/ui/textarea';
+import { Textarea } from '@manafishrov/ui/textarea';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TextareaDocPage: Component = () => (

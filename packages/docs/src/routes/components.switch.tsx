@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Switch, SwitchControl, SwitchThumb, SwitchLabel } from '@manafish/ui/switch';
+import { Switch, SwitchControl, SwitchThumb, SwitchLabel } from '@manafishrov/ui/switch';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const SwitchDocPage: Component = () => (

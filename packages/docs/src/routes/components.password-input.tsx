@@ -7,7 +7,7 @@ import {
   PasswordInputInput,
   PasswordInputVisibilityTrigger,
   PasswordInputIndicator,
-} from '@manafish/ui/password-input';
+} from '@manafishrov/ui/password-input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const PasswordInputDocPage: Component = () => (

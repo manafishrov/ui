@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Label } from '@manafish/ui/label';
+import { Label } from '@manafishrov/ui/label';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const LabelDocPage: Component = () => (

@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
   AccordionContent,
   AccordionIndicator,
-} from '@manafish/ui/accordion';
+} from '@manafishrov/ui/accordion';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const AccordionDocPage: Component = () => (

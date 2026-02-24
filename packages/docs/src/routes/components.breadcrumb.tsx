@@ -8,7 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
-} from '@manafish/ui/breadcrumb';
+} from '@manafishrov/ui/breadcrumb';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const BreadcrumbDocPage: Component = () => (

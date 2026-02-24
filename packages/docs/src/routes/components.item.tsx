@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   ItemGroup,
   ItemSeparator,
@@ -12,7 +12,7 @@ import {
   ItemActions,
   ItemHeader,
   ItemFooter,
-} from '@manafish/ui/item';
+} from '@manafishrov/ui/item';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const ItemDocPage: Component = () => (

@@ -8,7 +8,7 @@ import {
   PaginationPrevious,
   PaginationNext,
   PaginationEllipsis,
-} from '@manafish/ui/pagination';
+} from '@manafishrov/ui/pagination';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const PaginationDocPage: Component = () => (

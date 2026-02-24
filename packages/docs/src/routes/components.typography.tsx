@@ -13,7 +13,7 @@ import {
   Muted,
   P,
   Small,
-} from '@manafish/ui/typography';
+} from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TypographyDocPage: Component = () => (
@@ -57,7 +57,7 @@ const TypographyDocPage: Component = () => (
         </List>
 
         <P>
-          Use <InlineCode>@manafish/ui</InlineCode> to build your component library.
+          Use <InlineCode>@manafishrov/ui</InlineCode> to build your component library.
         </P>
       </div>
     </div>

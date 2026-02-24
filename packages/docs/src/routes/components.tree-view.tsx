@@ -9,7 +9,7 @@ import {
   TreeViewBranch,
   TreeViewBranchControl,
   TreeViewBranchContent,
-} from '@manafish/ui/tree-view';
+} from '@manafishrov/ui/tree-view';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TreeViewDocPage: Component = () => (

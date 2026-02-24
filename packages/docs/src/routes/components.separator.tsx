@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Separator } from '@manafish/ui/separator';
+import { Separator } from '@manafishrov/ui/separator';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const SeparatorDocPage: Component = () => (

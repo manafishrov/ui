@@ -10,7 +10,7 @@ import {
   NumberInputDecrementTrigger,
   NumberInputScrubber,
   NumberInputValueText,
-} from '@manafish/ui/number-input';
+} from '@manafishrov/ui/number-input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const NumberInputDocPage: Component = () => (

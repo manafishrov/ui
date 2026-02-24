@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   Popover,
   PopoverTrigger,
@@ -13,7 +13,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverDescription,
-} from '@manafish/ui/popover';
+} from '@manafishrov/ui/popover';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const PopoverDocPage: Component = () => (

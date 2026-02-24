@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Tabs, TabsList, TabsTrigger, TabsContent, TabsIndicator } from '@manafish/ui/tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent, TabsIndicator } from '@manafishrov/ui/tabs';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TabsDocPage: Component = () => (

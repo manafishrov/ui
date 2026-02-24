@@ -6,7 +6,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from '@manafish/ui/carousel';
+} from '@manafishrov/ui/carousel';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const CarouselDocPage: Component = () => (

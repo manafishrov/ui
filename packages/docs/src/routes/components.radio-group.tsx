@@ -6,7 +6,7 @@ import {
   RadioGroupItem,
   RadioGroupItemControl,
   RadioGroupItemText,
-} from '@manafish/ui/radio-group';
+} from '@manafishrov/ui/radio-group';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const RadioGroupDocPage: Component = () => (

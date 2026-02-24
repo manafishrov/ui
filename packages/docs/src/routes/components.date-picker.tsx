@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Button } from '@manafish/ui/button';
+import { Button } from '@manafishrov/ui/button';
 import {
   DatePicker,
   DatePickerView,
@@ -27,7 +27,7 @@ import {
   DatePickerYearView,
   DatePickerViews,
   Calendar,
-} from '@manafish/ui/date-picker';
+} from '@manafishrov/ui/date-picker';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const DatePickerDocPage: Component = () => (

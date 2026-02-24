@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Skeleton } from '@manafish/ui/skeleton';
+import { Skeleton } from '@manafishrov/ui/skeleton';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const SkeletonDocPage: Component = () => (

@@ -8,7 +8,7 @@ import {
   TextInputArea,
   TextInputHelperText,
   TextInputErrorText,
-} from '@manafish/ui/text-input';
+} from '@manafishrov/ui/text-input';
 import { createFileRoute } from '@tanstack/solid-router';
 
 const TextInputDocPage: Component = () => (
