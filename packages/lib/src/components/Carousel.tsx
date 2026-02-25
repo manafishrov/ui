@@ -4,6 +4,7 @@ import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { Button, type ButtonVariantProps } from '@/components/Button';
+import * as messages from '@/paraglide/messages';
 
 export const CarouselContext = CarouselPrimitive.Context;
 
@@ -50,6 +51,7 @@ export const CarouselPrevious: Component<
   return (
     <CarouselPrimitive.PrevTrigger
       data-slot='carousel-previous'
+      {...others}
       asChild={(triggerProps) => (
         <Button
           variant={local.variant ?? 'outline'}
@@ -61,10 +63,9 @@ export const CarouselPrevious: Component<
             local.class,
           )}
           {...triggerProps()}
-          {...others}
         >
-          {local.children ?? <MdOutlineChevron_left />}
-          <span class='sr-only'>Previous slide</span>
+          {local.children ?? <MdOutlineChevron_left class='size-5' />}
+          <span class='sr-only'>{messages.ui_carousel_previous()}</span>
         </Button>
       )}
     />
@@ -81,6 +82,7 @@ export const CarouselNext: Component<
   return (
     <CarouselPrimitive.NextTrigger
       data-slot='carousel-next'
+      {...others}
       asChild={(triggerProps) => (
         <Button
           variant={local.variant ?? 'outline'}
@@ -92,10 +94,9 @@ export const CarouselNext: Component<
             local.class,
           )}
           {...triggerProps()}
-          {...others}
         >
-          {local.children ?? <MdOutlineChevron_right />}
-          <span class='sr-only'>Next slide</span>
+          {local.children ?? <MdOutlineChevron_right class='size-5' />}
+          <span class='sr-only'>{messages.ui_carousel_next()}</span>
         </Button>
       )}
     />

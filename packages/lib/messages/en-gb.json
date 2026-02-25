@@ -9,5 +9,7 @@
   "ui_checkbox_checked": "Checked",
   "ui_pagination_previous": "Previous",
   "ui_pagination_next": "Next",
-  "ui_pagination_more": "More pages"
+  "ui_pagination_more": "More pages",
+  "ui_carousel_previous": "Previous slide",
+  "ui_carousel_next": "Next slide"
 }

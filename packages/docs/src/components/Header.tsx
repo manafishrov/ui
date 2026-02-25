@@ -80,7 +80,7 @@ export const Header: Component = () => {
               }}
             >
               <SelectTrigger>
-                <SelectValue placeholder='Language' />
+                <SelectValue />
                 <SelectIndicator />
               </SelectTrigger>
               <SelectPositioner>
@@ -104,7 +104,7 @@ export const Header: Component = () => {
               }}
             >
               <SelectTrigger>
-                <SelectValue placeholder='Theme' />
+                <SelectValue />
                 <SelectIndicator />
               </SelectTrigger>
               <SelectPositioner>
