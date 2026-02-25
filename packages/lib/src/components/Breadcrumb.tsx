@@ -89,7 +89,7 @@ export const BreadcrumbEllipsis: Component<ComponentProps<'span'>> = (props) => 
       {...others}
     >
       <MdOutlineMore_horiz class='size-5' />
-      <span class='sr-only'>
+      <span class='p-0 absolute -m-px h-px w-px overflow-hidden border-0 whitespace-nowrap'>
         {messages.ui_common_more()}
       </span>
     </span>
