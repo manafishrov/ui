@@ -14,19 +14,19 @@ import {
   FieldError,
 } from '@manafishrov/ui/field';
 import { Input } from '@manafishrov/ui/input';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const FieldDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Field</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A field component provides a set of components that can be used to build forms.
-      </p>
+    <div class='space-y-2'>
+      <H1>Field</H1>
+      <Lead>{m.docs_component_field_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <FieldSet class='max-w-sm space-y-6'>
         <FieldLegend>
           <FieldTitle>Personal Information</FieldTitle>

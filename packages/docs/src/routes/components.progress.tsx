@@ -11,30 +11,31 @@ import {
   ProgressLabel,
   ProgressValue,
 } from '@manafishrov/ui/progress';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const ProgressDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Progress</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Displays an indicator showing the completion progress of a task.
-      </p>
+    <div class='space-y-2'>
+      <H1>Progress</H1>
+      <Lead>{m.docs_component_progress_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Linear</h2>
+      <H2 class='border-none pb-0'>{m.docs_example_linear()}</H2>
       <Progress value={33} class='w-[60%]'>
         <ProgressLabel>Downloading...</ProgressLabel>
         <ProgressTrack>
           <ProgressIndicator />
         </ProgressTrack>
-        <ProgressValueText />
+        <ProgressValue />
       </Progress>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Circular</h2>
+      <H2 class='border-none pb-0'>{m.docs_example_circular()}</H2>
       <ProgressCircle value={33}>
         <ProgressLabel>Loading...</ProgressLabel>
         <ProgressCircleTrack />

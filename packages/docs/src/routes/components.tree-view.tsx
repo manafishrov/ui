@@ -1,26 +1,19 @@
 import type { Component } from 'solid-js';
 
-import {
-  TreeView,
-  TreeViewLabel,
-  TreeViewNodeProvider,
-  TreeViewTree,
-  TreeViewItem,
-  TreeViewBranch,
-  TreeViewBranchControl,
-  TreeViewBranchContent,
-} from '@manafishrov/ui/tree-view';
+import { TreeView } from '@manafishrov/ui/tree-view';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const TreeViewDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>TreeView</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the TreeView component.</p>
+    <div class='space-y-2'>
+      <H1>Tree View</H1>
+      <Lead>{m.docs_component_tree_view_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='gap-4 flex flex-wrap'>
         <TreeView>Example</TreeView>
       </div>

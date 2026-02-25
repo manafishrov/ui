@@ -13,19 +13,19 @@ import {
   ItemHeader,
   ItemFooter,
 } from '@manafishrov/ui/item';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const ItemDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Item</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A layout component used to display a generic item with actions.
-      </p>
+    <div class='space-y-2'>
+      <H1>Item</H1>
+      <Lead>{m.docs_component_item_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <ItemGroup class='w-[400px]'>
         <Item>
           <ItemMedia>

@@ -14,19 +14,19 @@ import {
   SheetTitle,
   SheetDescription,
 } from '@manafishrov/ui/sheet';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const SheetDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Sheet</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Extends the Dialog component to display content that complements the main UI.
-      </p>
+    <div class='space-y-2'>
+      <H1>Sheet</H1>
+      <Lead>{m.docs_component_sheet_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Sheet>
         <SheetTrigger
           asChild={(props) => (

@@ -16,11 +16,13 @@ import {
 } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
+import * as m from '@/paraglide/messages';
+
 const TypographyDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Typography</h1>
-      <p class='mt-2 text-muted-foreground'>Styles for headings, paragraphs, lists, and more.</p>
+    <div class='space-y-2'>
+      <H1>Typography</H1>
+      <Lead>{m.docs_component_typography_description()}</Lead>
     </div>
 
     <div class='space-y-8'>

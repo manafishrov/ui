@@ -13,7 +13,6 @@ import { useSidebar } from './context';
 export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) => {
   const [local, others] = splitProps(props, ['class', 'onClick']);
   const { toggleSidebar } = useSidebar();
-  
 
   const handleClick = (
     event: MouseEvent & { currentTarget: HTMLButtonElement; target: Element },
@@ -43,7 +42,6 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
 export const SidebarRail: Component<ComponentProps<'button'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   const { toggleSidebar } = useSidebar();
-  
 
   return (
     <button

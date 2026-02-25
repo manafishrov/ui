@@ -7,15 +7,16 @@ import {
   AccordionContent,
   AccordionIndicator,
 } from '@manafishrov/ui/accordion';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const AccordionDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Accordion</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A vertically stacked set of interactive headings that each reveal a section of content.
-      </p>
+    <div class='space-y-2'>
+      <H1>Accordion</H1>
+      <Lead>{m.docs_component_accordion_description()}</Lead>
     </div>
     <Accordion collapsible defaultValue={['shipping']} class='max-w-lg w-full'>
       <AccordionItem value='shipping'>

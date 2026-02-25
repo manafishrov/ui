@@ -10,26 +10,26 @@ import {
   InputGroupInput,
   InputGroupTextarea,
 } from '@manafishrov/ui/input';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const InputDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Input</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Displays a form input field or a component that looks like an input field.
-      </p>
+    <div class='space-y-2'>
+      <H1>Input</H1>
+      <Lead>{m.docs_component_input_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='w-[300px]'>
         <Input type='text' placeholder='Email' />
       </div>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Input Group</h2>
+      <H2 class='border-none pb-0'>{m.docs_example_group()}</H2>
       <InputGroup class='w-[300px]'>
         <InputGroupAddon>
           <InputGroupText>https://</InputGroupText>

@@ -9,19 +9,19 @@ import {
   PaginationNext,
   PaginationEllipsis,
 } from '@manafishrov/ui/pagination';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const PaginationDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Pagination</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Pagination with page navigation, next and previous links.
-      </p>
+    <div class='space-y-2'>
+      <H1>Pagination</H1>
+      <Lead>{m.docs_component_pagination_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Pagination count={100} pageSize={10} siblingCount={1}>
         {({ pages }) => (
           <PaginationContent>

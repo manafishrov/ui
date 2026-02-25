@@ -20,7 +20,9 @@ type Theme = (typeof THEMES)[number];
 function getLocaleLabel(locale: string): string {
   const displayNames = new Intl.DisplayNames([locale], { type: 'language' });
   const label = displayNames.of(locale);
-  if (!label) return locale;
+  if (!label) {
+    return locale;
+  }
   return label.charAt(0).toUpperCase() + label.slice(1);
 }
 
@@ -43,7 +45,9 @@ export const Header: Component = () => {
 
   onMount(() => {
     const stored = localStorage.getItem('theme') as Theme | null;
-    if (stored && THEMES.includes(stored)) setTheme(stored);
+    if (stored && THEMES.includes(stored)) {
+      setTheme(stored);
+    }
   });
 
   createEffect(() => {
@@ -70,7 +74,9 @@ export const Header: Component = () => {
               value={[getLocale()]}
               onValueChange={(details) => {
                 const newLocale = details.value[0];
-                if (newLocale && isLocale(newLocale)) setLocale(newLocale);
+                if (newLocale && isLocale(newLocale)) {
+                  setLocale(newLocale);
+                }
               }}
             >
               <SelectTrigger>
@@ -92,7 +98,9 @@ export const Header: Component = () => {
               value={[theme()]}
               onValueChange={(details) => {
                 const newTheme = details.value[0] as Theme;
-                if (newTheme) setTheme(newTheme);
+                if (newTheme) {
+                  setTheme(newTheme);
+                }
               }}
             >
               <SelectTrigger>

@@ -14,19 +14,19 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@manafishrov/ui/dialog';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const DialogDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Dialog</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A window overlaid on either the primary window or another dialog window.
-      </p>
+    <div class='space-y-2'>
+      <H1>Dialog</H1>
+      <Lead>{m.docs_component_dialog_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Dialog>
         <DialogTrigger
           asChild={(props) => (

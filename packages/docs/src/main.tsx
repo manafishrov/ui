@@ -1,9 +1,9 @@
 import { RouterProvider, createRouter } from '@tanstack/solid-router';
 import { render } from 'solid-js/web';
 
-import { routeTree } from './routeTree.gen';
-import './styles.css';
 import { deLocalizeUrl, localizeUrl } from './paraglide/runtime.js';
+import './styles.css';
+import { routeTree } from './routeTree.gen';
 
 const router = createRouter({
   routeTree,

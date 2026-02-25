@@ -7,17 +7,19 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from '@manafishrov/ui/carousel';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const CarouselDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Carousel</h1>
-      <p class='mt-2 text-muted-foreground'>A carousel with motion and swipe built using Embla.</p>
+    <div class='space-y-2'>
+      <H1>Carousel</H1>
+      <Lead>{m.docs_component_carousel_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='max-w-xs mx-auto w-full'>
         <Carousel>
           <CarouselContent>

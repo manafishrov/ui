@@ -9,19 +9,19 @@ import {
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
 } from '@manafishrov/ui/breadcrumb';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const BreadcrumbDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Breadcrumb</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Displays the path to the current resource using a hierarchy of links.
-      </p>
+    <div class='space-y-2'>
+      <H1>Breadcrumb</H1>
+      <Lead>{m.docs_component_breadcrumb_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

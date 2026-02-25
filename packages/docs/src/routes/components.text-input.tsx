@@ -5,23 +5,29 @@ import {
   TextInputLabel,
   TextInputControl,
   TextInputInput,
-  TextInputArea,
   TextInputHelperText,
-  TextInputErrorText,
 } from '@manafishrov/ui/text-input';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const TextInputDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>TextInput</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the TextInput component.</p>
+    <div class='space-y-2'>
+      <H1>Text Input</H1>
+      <Lead>{m.docs_component_text_input_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='gap-4 flex flex-wrap'>
-        <TextInput>Example</TextInput>
+        <TextInput class='w-[300px]'>
+          <TextInputLabel>Email</TextInputLabel>
+          <TextInputControl>
+            <TextInputInput placeholder='Enter your email' />
+          </TextInputControl>
+          <TextInputHelperText>We'll never share your email.</TextInputHelperText>
+        </TextInput>
       </div>
     </div>
   </div>

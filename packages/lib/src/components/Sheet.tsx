@@ -72,7 +72,7 @@ export const SheetContent: Component<SheetPrimitive.ContentProps> = (props) => {
 
 export const SheetCloseButton: Component<SheetPrimitive.CloseTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  
+
   return (
     <SheetPrimitive.CloseTrigger
       class={cn('top-3 right-3 absolute', local.class)}

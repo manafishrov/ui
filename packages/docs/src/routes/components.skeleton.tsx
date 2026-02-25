@@ -1,17 +1,19 @@
 import type { Component } from 'solid-js';
 
 import { Skeleton } from '@manafishrov/ui/skeleton';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const SkeletonDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Skeleton</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the Skeleton component.</p>
+    <div class='space-y-2'>
+      <H1>Skeleton</H1>
+      <Lead>{m.docs_component_skeleton_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='space-x-4 flex items-center'>
         <Skeleton class='h-12 w-12 rounded-full' />
         <div class='space-y-2'>

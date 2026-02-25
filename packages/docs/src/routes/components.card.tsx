@@ -10,17 +10,19 @@ import {
   CardContent,
   CardFooter,
 } from '@manafishrov/ui/card';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const CardDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Card</h1>
-      <p class='mt-2 text-muted-foreground'>A container component for displaying content.</p>
+    <div class='space-y-2'>
+      <H1>Card</H1>
+      <Lead>{m.docs_component_card_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Card class='w-[350px]'>
         <CardHeader>
           <CardTitle>Create project</CardTitle>

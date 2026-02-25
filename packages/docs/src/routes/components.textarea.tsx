@@ -1,17 +1,19 @@
 import type { Component } from 'solid-js';
 
 import { Textarea } from '@manafishrov/ui/textarea';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const TextareaDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Textarea</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the Textarea component.</p>
+    <div class='space-y-2'>
+      <H1>Textarea</H1>
+      <Lead>{m.docs_component_textarea_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='gap-4 max-w-sm flex flex-wrap'>
         <Textarea placeholder='Type your message here.' />
       </div>

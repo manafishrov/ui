@@ -8,19 +8,19 @@ import {
   HoverCardContent,
   HoverCardArrow,
 } from '@manafishrov/ui/hover-card';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const HoverCardDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>HoverCard</h1>
-      <p class='mt-2 text-muted-foreground'>
-        For sighted users to preview content available behind a link.
-      </p>
+    <div class='space-y-2'>
+      <H1>Hover Card</H1>
+      <Lead>{m.docs_component_hover_card_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <HoverCard>
         <HoverCardTrigger
           asChild={(props) => (

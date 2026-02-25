@@ -8,15 +8,16 @@ import {
   AvatarGroup,
   AvatarGroupCount,
 } from '@manafishrov/ui/avatar';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const AvatarDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Avatar</h1>
-      <p class='mt-2 text-muted-foreground'>
-        An image element with a fallback for representing the user.
-      </p>
+    <div class='space-y-2'>
+      <H1>Avatar</H1>
+      <Lead>{m.docs_component_avatar_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
@@ -28,7 +29,7 @@ const AvatarDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Group</h2>
+      <H2 class='border-none pb-0'>{m.docs_example_group()}</H2>
       <AvatarGroup>
         <Avatar>
           <AvatarFallback>A</AvatarFallback>

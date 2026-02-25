@@ -7,20 +7,19 @@ import {
   RadioGroupItemControl,
   RadioGroupItemText,
 } from '@manafishrov/ui/radio-group';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const RadioGroupDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>RadioGroup</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A set of checkable buttons—known as radio buttons—where no more than one of the buttons can
-        be checked at a time.
-      </p>
+    <div class='space-y-2'>
+      <H1>Radio Group</H1>
+      <Lead>{m.docs_component_radio_group_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <RadioGroup defaultValue='comfortable'>
         <RadioGroupLabel>Spacing</RadioGroupLabel>
         <div class='space-y-2 mt-2'>

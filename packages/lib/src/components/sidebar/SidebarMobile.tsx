@@ -18,7 +18,6 @@ import { useSidebar } from './context';
 export const SidebarMobile: Component<SidebarProps> = (props) => {
   const [local] = splitProps(props, ['side', 'children']);
   const { openMobile, setOpenMobile } = useSidebar();
-  
 
   return (
     <Sheet

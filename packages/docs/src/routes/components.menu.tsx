@@ -16,19 +16,19 @@ import {
   MenuRadioItem,
   MenuShortcut,
 } from '@manafishrov/ui/menu';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const MenuDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Menu</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Displays a menu to the user—such as a set of actions or functions—triggered by a button.
-      </p>
+    <div class='space-y-2'>
+      <H1>Menu</H1>
+      <Lead>{m.docs_component_menu_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Menu>
         <MenuTrigger
           asChild={(props) => (

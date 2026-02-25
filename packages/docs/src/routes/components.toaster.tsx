@@ -1,19 +1,32 @@
 import type { Component } from 'solid-js';
 
-import { Toaster } from '@manafishrov/ui/toaster';
+import { Button } from '@manafishrov/ui/button';
+import { toast, Toaster } from '@manafishrov/ui/toaster';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const ToasterDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Toaster</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the Toaster component.</p>
+    <div class='space-y-2'>
+      <H1>Toaster</H1>
+      <Lead>{m.docs_component_toaster_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='gap-4 flex flex-wrap'>
-        <Toaster>Example</Toaster>
+        <Button
+          onClick={() =>
+            toast.create({
+              title: 'Event created',
+              description: 'Your event has been scheduled.',
+            })
+          }
+        >
+          Show Toast
+        </Button>
+        <Toaster />
       </div>
     </div>
   </div>

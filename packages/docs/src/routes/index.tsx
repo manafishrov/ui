@@ -5,6 +5,9 @@ import { H1, H3, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute, Link } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
+
+type MessageKey = Exclude<keyof typeof m, 'm'>;
+
 const components = [
   {
     name: 'Accordion',
@@ -12,12 +15,12 @@ const components = [
     descriptionKey: 'docs_component_accordion_description',
   },
   {
-    name: 'AlertDialog',
+    name: 'Alert Dialog',
     to: '/components/alert-dialog',
     descriptionKey: 'docs_component_alert_dialog_description',
   },
   {
-    name: 'AspectRatio',
+    name: 'Aspect Ratio',
     to: '/components/aspect-ratio',
     descriptionKey: 'docs_component_aspect_ratio_description',
   },
@@ -31,226 +34,226 @@ const components = [
     to: '/components/badge',
     descriptionKey: 'docs_component_badge_description',
   },
-  // {
-  //   name: 'Breadcrumb',
-  //   to: '/components/breadcrumb',
-  //   descriptionKey: 'docs_component_breadcrumb_description',
-  // },
+  {
+    name: 'Breadcrumb',
+    to: '/components/breadcrumb',
+    descriptionKey: 'docs_component_breadcrumb_description',
+  },
   {
     name: 'Button',
     to: '/components/button',
     descriptionKey: 'docs_component_button_description',
   },
-  // {
-  //   name: 'Card',
-  //   to: '/components/card',
-  //   description: 'A container component for displaying content.',
-  // },
-  // {
-  //   name: 'Carousel',
-  //   to: '/components/carousel',
-  //   description: 'Documentation for the Carousel component.',
-  // },
-  // {
-  //   name: 'Checkbox',
-  //   to: '/components/checkbox',
-  //   description: 'Documentation for the Checkbox component.',
-  // },
-  // {
-  //   name: 'Collapsible',
-  //   to: '/components/collapsible',
-  //   description: 'Documentation for the Collapsible component.',
-  // },
-  // {
-  //   name: 'Combobox',
-  //   to: '/components/combobox',
-  //   description: 'Documentation for the Combobox component.',
-  // },
-  // {
-  //   name: 'DatePicker',
-  //   to: '/components/date-picker',
-  //   description: 'Documentation for the DatePicker component.',
-  // },
-  // {
-  //   name: 'Dialog',
-  //   to: '/components/dialog',
-  //   description: 'Documentation for the Dialog component.',
-  // },
-  // {
-  //   name: 'Empty',
-  //   to: '/components/empty',
-  //   description: 'Documentation for the Empty component.',
-  // },
-  // {
-  //   name: 'Field',
-  //   to: '/components/field',
-  //   description: 'Documentation for the Field component.',
-  // },
-  // {
-  //   name: 'HoverCard',
-  //   to: '/components/hover-card',
-  //   description: 'Documentation for the HoverCard component.',
-  // },
-  // {
-  //   name: 'Input',
-  //   to: '/components/input',
-  //   description: 'Documentation for the Input component.',
-  // },
-  // {
-  //   name: 'Item',
-  //   to: '/components/item',
-  //   description: 'Documentation for the Item component.',
-  // },
-  // {
-  //   name: 'Kbd',
-  //   to: '/components/kbd',
-  //   description: 'Documentation for the Kbd component.',
-  // },
-  // {
-  //   name: 'Label',
-  //   to: '/components/label',
-  //   description: 'Documentation for the Label component.',
-  // },
-  // {
-  //   name: 'Link',
-  //   to: '/components/link',
-  //   description: 'Documentation for the Link component.',
-  // },
-  // {
-  //   name: 'Marquee',
-  //   to: '/components/marquee',
-  //   description: 'Documentation for the Marquee component.',
-  // },
-  // {
-  //   name: 'Menu',
-  //   to: '/components/menu',
-  //   description: 'Documentation for the Menu component.',
-  // },
-  // {
-  //   name: 'NavigationMenu',
-  //   to: '/components/navigation-menu',
-  //   description: 'Documentation for the NavigationMenu component.',
-  // },
-  // {
-  //   name: 'NumberInput',
-  //   to: '/components/number-input',
-  //   description: 'Documentation for the NumberInput component.',
-  // },
-  // {
-  //   name: 'Pagination',
-  //   to: '/components/pagination',
-  //   description: 'Documentation for the Pagination component.',
-  // },
-  // {
-  //   name: 'PasswordInput',
-  //   to: '/components/password-input',
-  //   description: 'Documentation for the PasswordInput component.',
-  // },
-  // {
-  //   name: 'PinInput',
-  //   to: '/components/pin-input',
-  //   description: 'Documentation for the PinInput component.',
-  // },
-  // {
-  //   name: 'Popover',
-  //   to: '/components/popover',
-  //   description: 'Documentation for the Popover component.',
-  // },
-  // {
-  //   name: 'Progress',
-  //   to: '/components/progress',
-  //   description: 'Documentation for the Progress component.',
-  // },
-  // {
-  //   name: 'RadioGroup',
-  //   to: '/components/radio-group',
-  //   description: 'Documentation for the RadioGroup component.',
-  // },
-  // {
-  //   name: 'ScrollArea',
-  //   to: '/components/scroll-area',
-  //   description: 'Documentation for the ScrollArea component.',
-  // },
-  // {
-  //   name: 'Select',
-  //   to: '/components/select',
-  //   description: 'Documentation for the Select component.',
-  // },
-  // {
-  //   name: 'Separator',
-  //   to: '/components/separator',
-  //   description: 'Documentation for the Separator component.',
-  // },
-  // {
-  //   name: 'Sheet',
-  //   to: '/components/sheet',
-  //   description: 'Documentation for the Sheet component.',
-  // },
-  // {
-  //   name: 'Skeleton',
-  //   to: '/components/skeleton',
-  //   description: 'Documentation for the Skeleton component.',
-  // },
-  // {
-  //   name: 'Slider',
-  //   to: '/components/slider',
-  //   description: 'Documentation for the Slider component.',
-  // },
-  // {
-  //   name: 'Spinner',
-  //   to: '/components/spinner',
-  //   description: 'Documentation for the Spinner component.',
-  // },
-  // {
-  //   name: 'Switch',
-  //   to: '/components/switch',
-  //   description: 'Documentation for the Switch component.',
-  // },
-  // {
-  //   name: 'Table',
-  //   to: '/components/table',
-  //   description: 'Documentation for the Table component.',
-  // },
-  // {
-  //   name: 'Tabs',
-  //   to: '/components/tabs',
-  //   description: 'Documentation for the Tabs component.',
-  // },
-  // {
-  //   name: 'TagsInput',
-  //   to: '/components/tags-input',
-  //   description: 'Documentation for the TagsInput component.',
-  // },
-  // {
-  //   name: 'Textarea',
-  //   to: '/components/textarea',
-  //   description: 'Documentation for the Textarea component.',
-  // },
-  // {
-  //   name: 'TextInput',
-  //   to: '/components/text-input',
-  //   description: 'Documentation for the TextInput component.',
-  // },
-  // {
-  //   name: 'Toaster',
-  //   to: '/components/toaster',
-  //   description: 'Documentation for the Toaster component.',
-  // },
-  // {
-  //   name: 'Toggle',
-  //   to: '/components/toggle',
-  //   description: 'Documentation for the Toggle component.',
-  // },
-  // {
-  //   name: 'Tooltip',
-  //   to: '/components/tooltip',
-  //   description: 'Documentation for the Tooltip component.',
-  // },
-  // {
-  //   name: 'TreeView',
-  //   to: '/components/tree-view',
-  //   descriptionKey: 'docs_component_tree_view_description',
-  // },
+  {
+    name: 'Card',
+    to: '/components/card',
+    descriptionKey: 'docs_component_card_description',
+  },
+  {
+    name: 'Carousel',
+    to: '/components/carousel',
+    descriptionKey: 'docs_component_carousel_description',
+  },
+  {
+    name: 'Checkbox',
+    to: '/components/checkbox',
+    descriptionKey: 'docs_component_checkbox_description',
+  },
+  {
+    name: 'Collapsible',
+    to: '/components/collapsible',
+    descriptionKey: 'docs_component_collapsible_description',
+  },
+  {
+    name: 'Combobox',
+    to: '/components/combobox',
+    descriptionKey: 'docs_component_combobox_description',
+  },
+  {
+    name: 'Date Picker',
+    to: '/components/date-picker',
+    descriptionKey: 'docs_component_date_picker_description',
+  },
+  {
+    name: 'Dialog',
+    to: '/components/dialog',
+    descriptionKey: 'docs_component_dialog_description',
+  },
+  {
+    name: 'Empty',
+    to: '/components/empty',
+    descriptionKey: 'docs_component_empty_description',
+  },
+  {
+    name: 'Field',
+    to: '/components/field',
+    descriptionKey: 'docs_component_field_description',
+  },
+  {
+    name: 'Hover Card',
+    to: '/components/hover-card',
+    descriptionKey: 'docs_component_hover_card_description',
+  },
+  {
+    name: 'Input',
+    to: '/components/input',
+    descriptionKey: 'docs_component_input_description',
+  },
+  {
+    name: 'Item',
+    to: '/components/item',
+    descriptionKey: 'docs_component_item_description',
+  },
+  {
+    name: 'Kbd',
+    to: '/components/kbd',
+    descriptionKey: 'docs_component_kbd_description',
+  },
+  {
+    name: 'Label',
+    to: '/components/label',
+    descriptionKey: 'docs_component_label_description',
+  },
+  {
+    name: 'Link',
+    to: '/components/link',
+    descriptionKey: 'docs_component_link_description',
+  },
+  {
+    name: 'Marquee',
+    to: '/components/marquee',
+    descriptionKey: 'docs_component_marquee_description',
+  },
+  {
+    name: 'Menu',
+    to: '/components/menu',
+    descriptionKey: 'docs_component_menu_description',
+  },
+  {
+    name: 'Navigation Menu',
+    to: '/components/navigation-menu',
+    descriptionKey: 'docs_component_navigation_menu_description',
+  },
+  {
+    name: 'Number Input',
+    to: '/components/number-input',
+    descriptionKey: 'docs_component_number_input_description',
+  },
+  {
+    name: 'Pagination',
+    to: '/components/pagination',
+    descriptionKey: 'docs_component_pagination_description',
+  },
+  {
+    name: 'Password Input',
+    to: '/components/password-input',
+    descriptionKey: 'docs_component_password_input_description',
+  },
+  {
+    name: 'Pin Input',
+    to: '/components/pin-input',
+    descriptionKey: 'docs_component_pin_input_description',
+  },
+  {
+    name: 'Popover',
+    to: '/components/popover',
+    descriptionKey: 'docs_component_popover_description',
+  },
+  {
+    name: 'Progress',
+    to: '/components/progress',
+    descriptionKey: 'docs_component_progress_description',
+  },
+  {
+    name: 'Radio Group',
+    to: '/components/radio-group',
+    descriptionKey: 'docs_component_radio_group_description',
+  },
+  {
+    name: 'Scroll Area',
+    to: '/components/scroll-area',
+    descriptionKey: 'docs_component_scroll_area_description',
+  },
+  {
+    name: 'Select',
+    to: '/components/select',
+    descriptionKey: 'docs_component_select_description',
+  },
+  {
+    name: 'Separator',
+    to: '/components/separator',
+    descriptionKey: 'docs_component_separator_description',
+  },
+  {
+    name: 'Sheet',
+    to: '/components/sheet',
+    descriptionKey: 'docs_component_sheet_description',
+  },
+  {
+    name: 'Skeleton',
+    to: '/components/skeleton',
+    descriptionKey: 'docs_component_skeleton_description',
+  },
+  {
+    name: 'Slider',
+    to: '/components/slider',
+    descriptionKey: 'docs_component_slider_description',
+  },
+  {
+    name: 'Spinner',
+    to: '/components/spinner',
+    descriptionKey: 'docs_component_spinner_description',
+  },
+  {
+    name: 'Switch',
+    to: '/components/switch',
+    descriptionKey: 'docs_component_switch_description',
+  },
+  {
+    name: 'Table',
+    to: '/components/table',
+    descriptionKey: 'docs_component_table_description',
+  },
+  {
+    name: 'Tabs',
+    to: '/components/tabs',
+    descriptionKey: 'docs_component_tabs_description',
+  },
+  {
+    name: 'Tags Input',
+    to: '/components/tags-input',
+    descriptionKey: 'docs_component_tags_input_description',
+  },
+  {
+    name: 'Text Input',
+    to: '/components/text-input',
+    descriptionKey: 'docs_component_text_input_description',
+  },
+  {
+    name: 'Textarea',
+    to: '/components/textarea',
+    descriptionKey: 'docs_component_textarea_description',
+  },
+  {
+    name: 'Toaster',
+    to: '/components/toaster',
+    descriptionKey: 'docs_component_toaster_description',
+  },
+  {
+    name: 'Toggle',
+    to: '/components/toggle',
+    descriptionKey: 'docs_component_toggle_description',
+  },
+  {
+    name: 'Tooltip',
+    to: '/components/tooltip',
+    descriptionKey: 'docs_component_tooltip_description',
+  },
+  {
+    name: 'Tree View',
+    to: '/components/tree-view',
+    descriptionKey: 'docs_component_tree_view_description',
+  },
   {
     name: 'Typography',
     to: '/components/typography',
@@ -273,9 +276,7 @@ const HomePage: Component = () => (
             <Card class='h-full cursor-pointer transition-all hover:bg-muted/50 hover:ring-primary'>
               <CardHeader>
                 <CardTitle>{component.name}</CardTitle>
-                <CardDescription>
-                  {m[component.descriptionKey as Exclude<keyof typeof m, 'm'>]()}
-                </CardDescription>
+                <CardDescription>{m[component.descriptionKey as MessageKey]()}</CardDescription>
               </CardHeader>
             </Card>
           </Link>

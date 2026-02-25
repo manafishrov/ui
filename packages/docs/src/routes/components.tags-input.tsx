@@ -2,32 +2,52 @@ import type { Component } from 'solid-js';
 
 import {
   TagsInput,
-  TagsInputHiddenInput,
-  TagsInputLabel,
-  TagsInputControl,
-  TagsInputInput,
   TagsInputClearTrigger,
+  TagsInputContext,
+  TagsInputControl,
+  TagsInputHiddenInput,
+  TagsInputInput,
   TagsInputItem,
   TagsInputItemDeleteTrigger,
+  TagsInputLabel,
 } from '@manafishrov/ui/tags-input';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+import { Index } from 'solid-js';
 
+import * as m from '@/paraglide/messages';
 const TagsInputDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>TagsInput</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the TagsInput component.</p>
+    <div class='space-y-2'>
+      <H1>Tags Input</H1>
+      <Lead>{m.docs_component_tags_input_description()}</Lead>
     </div>
-
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
-      <div class='gap-4 flex flex-wrap'>
-        <TagsInput>Example</TagsInput>
+      <div class='flex flex-wrap gap-4'>
+        <TagsInput defaultValue={['SolidJS', 'TypeScript']}>
+          <TagsInputLabel>Technologies</TagsInputLabel>
+          <TagsInputControl>
+            <TagsInputContext>
+              {(context) => (
+                <Index each={context().value}>
+                  {(value, index) => (
+                    <TagsInputItem index={index} value={value()}>
+                      {value()}
+                      <TagsInputItemDeleteTrigger />
+                    </TagsInputItem>
+                  )}
+                </Index>
+              )}
+            </TagsInputContext>
+            <TagsInputInput placeholder='Add tag...' />
+          </TagsInputControl>
+          <TagsInputHiddenInput />
+          <TagsInputClearTrigger>Clear all</TagsInputClearTrigger>
+        </TagsInput>
       </div>
     </div>
   </div>
 );
-
 export const Route = createFileRoute('/components/tags-input')({
   component: TagsInputDocPage,
 });

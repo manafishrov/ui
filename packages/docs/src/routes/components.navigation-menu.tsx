@@ -8,17 +8,19 @@ import {
   NavigationMenuContent,
   NavigationMenuLink,
 } from '@manafishrov/ui/navigation-menu';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const NavigationMenuDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>NavigationMenu</h1>
-      <p class='mt-2 text-muted-foreground'>A collection of links for navigating websites.</p>
+    <div class='space-y-2'>
+      <H1>Navigation Menu</H1>
+      <Lead>{m.docs_component_navigation_menu_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>

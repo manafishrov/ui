@@ -9,19 +9,19 @@ import {
   EmptyDescription,
   EmptyContent,
 } from '@manafishrov/ui/empty';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const EmptyDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Empty</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Display an empty state when there is no data to show.
-      </p>
+    <div class='space-y-2'>
+      <H1>Empty</H1>
+      <Lead>{m.docs_component_empty_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Empty>
         <EmptyMedia>
           <div class='h-20 w-20 flex items-center justify-center rounded-full bg-muted'>📭</div>

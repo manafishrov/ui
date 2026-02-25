@@ -8,20 +8,19 @@ import {
   TooltipArrow,
   TooltipPositioner,
 } from '@manafishrov/ui/tooltip';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const TooltipDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Tooltip</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A popup that displays information related to an element when the element receives keyboard
-        focus or the mouse hovers over it.
-      </p>
+    <div class='space-y-2'>
+      <H1>Tooltip</H1>
+      <Lead>{m.docs_component_tooltip_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Tooltip>
         <TooltipTrigger
           asChild={(props) => (

@@ -11,17 +11,19 @@ import {
   SliderMarkerGroup,
   SliderMarker,
 } from '@manafishrov/ui/slider';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const SliderDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Slider</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the Slider component.</p>
+    <div class='space-y-2'>
+      <H1>Slider</H1>
+      <Lead>{m.docs_component_slider_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Slider defaultValue={[33]} max={100} step={1} class='w-[60%]'>
         <SliderLabel>Volume</SliderLabel>
         <SliderControl>

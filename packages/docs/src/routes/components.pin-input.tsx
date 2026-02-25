@@ -9,19 +9,19 @@ import {
   PinInputInput,
   PinInputSeparator,
 } from '@manafishrov/ui/pin-input';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const PinInputDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>PinInput</h1>
-      <p class='mt-2 text-muted-foreground'>
-        For entering a sequence of digits, often used for two-factor authentication.
-      </p>
+    <div class='space-y-2'>
+      <H1>Pin Input</H1>
+      <Lead>{m.docs_component_pin_input_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <PinInput length={4}>
         <PinInputLabel>Verify your identity</PinInputLabel>
         <PinInputControl>

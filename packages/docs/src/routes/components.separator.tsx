@@ -1,17 +1,19 @@
 import type { Component } from 'solid-js';
 
 import { Separator } from '@manafishrov/ui/separator';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const SeparatorDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Separator</h1>
-      <p class='mt-2 text-muted-foreground'>Visually or semantically separates content.</p>
+    <div class='space-y-2'>
+      <H1>Separator</H1>
+      <Lead>{m.docs_component_separator_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <div class='max-w-md'>
         <div class='space-y-1'>
           <h4 class='text-sm font-medium leading-none'>Radix Primitives</h4>

@@ -2,19 +2,19 @@ import type { Component } from 'solid-js';
 
 import { Button } from '@manafishrov/ui/button';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@manafishrov/ui/collapsible';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const CollapsibleDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Collapsible</h1>
-      <p class='mt-2 text-muted-foreground'>
-        An interactive component which expands/collapses a panel.
-      </p>
+    <div class='space-y-2'>
+      <H1>Collapsible</H1>
+      <Lead>{m.docs_component_collapsible_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Collapsible class='space-y-2 w-[350px]'>
         <div class='space-x-4 px-4 flex items-center justify-between'>
           <h4 class='text-sm font-semibold'>@peduarte starred 3 repositories</h4>

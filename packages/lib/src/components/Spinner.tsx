@@ -6,7 +6,6 @@ import * as messages from '@/paraglide/messages';
 
 export const Spinner: Component<ComponentProps<typeof MdOutlineRefresh>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  
 
   return (
     <MdOutlineRefresh

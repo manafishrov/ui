@@ -20,7 +20,10 @@ import {
   ComboboxChip,
   ComboboxChipsInput,
 } from '@manafishrov/ui/combobox';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 const frameworks = createListCollection({
   items: [
     { label: 'Solid', value: 'solid' },
@@ -31,15 +34,12 @@ const frameworks = createListCollection({
 
 const ComboboxDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Combobox</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Autocomplete input and command palette with a list of suggestions.
-      </p>
+    <div class='space-y-2'>
+      <H1>Combobox</H1>
+      <Lead>{m.docs_component_combobox_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Combobox collection={frameworks} class='w-[300px]'>
         <ComboboxLabel>Framework</ComboboxLabel>
         <div class='gap-2 flex items-center'>
@@ -77,7 +77,7 @@ const ComboboxDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>With Chips</h2>
+      <H2 class='border-none pb-0'>{m.docs_example_multiple()}</H2>
       <Combobox collection={frameworks} multiple class='w-[300px]'>
         <ComboboxLabel>Frameworks (Multiple)</ComboboxLabel>
         <div class='gap-2 flex items-center'>

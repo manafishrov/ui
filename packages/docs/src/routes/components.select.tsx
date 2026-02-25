@@ -19,7 +19,10 @@ import {
   SelectItem,
   SelectSeparator,
 } from '@manafishrov/ui/select';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 const frameworks = createListCollection({
   items: [
     { label: 'Solid', value: 'solid' },
@@ -30,15 +33,12 @@ const frameworks = createListCollection({
 
 const SelectDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Select</h1>
-      <p class='mt-2 text-muted-foreground'>
-        Displays a list of options for the user to pick from.
-      </p>
+    <div class='space-y-2'>
+      <H1>Select</H1>
+      <Lead>{m.docs_component_select_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Select collection={frameworks} class='w-[300px]'>
         <SelectLabel>Framework</SelectLabel>
         <div class='gap-2 flex items-center'>

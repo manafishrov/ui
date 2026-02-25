@@ -14,30 +14,27 @@ import { Header } from '@/components/Header';
 import * as m from '@/paraglide/messages';
 import { getLocale, shouldRedirect } from '@/paraglide/runtime';
 
-const RootComponent: Component = () => {
-
-  return (
-    <>
-      <HeadContent />
-      <TanStackRouterDevtools position='bottom-right' />
-      <LocaleProvider locale={getLocale()}>
-        <div class='flex h-full flex-col'>
-          <Header />
-          <ScrollArea class='flex-1'>
-            <ScrollAreaViewport>
-              <ScrollAreaContent>
-                <main class='px-4 py-8 container mx-auto'>
-                  <Outlet />
-                </main>
-              </ScrollAreaContent>
-            </ScrollAreaViewport>
-            <ScrollAreaScrollbar orientation='vertical' />
-          </ScrollArea>
-        </div>
-      </LocaleProvider>
-    </>
-  );
-};
+const RootComponent: Component = () => (
+  <>
+    <HeadContent />
+    <TanStackRouterDevtools position='bottom-right' />
+    <LocaleProvider locale={getLocale()}>
+      <div class='flex h-full flex-col'>
+        <Header />
+        <ScrollArea class='flex-1'>
+          <ScrollAreaViewport>
+            <ScrollAreaContent>
+              <main class='px-4 py-8 container mx-auto'>
+                <Outlet />
+              </main>
+            </ScrollAreaContent>
+          </ScrollAreaViewport>
+          <ScrollAreaScrollbar orientation='vertical' />
+        </ScrollArea>
+      </div>
+    </LocaleProvider>
+  </>
+);
 
 export const Route = createRootRoute({
   head: () => ({

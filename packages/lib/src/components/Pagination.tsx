@@ -57,7 +57,7 @@ export const PaginationLink: Component<PaginationPrimitive.ItemProps> = (props) 
 
 export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
-  
+
   return (
     <PaginationPrimitive.PrevTrigger
       {...others}
@@ -83,7 +83,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
 
 export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
-  
+
   return (
     <PaginationPrimitive.NextTrigger
       {...others}
@@ -109,7 +109,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
 
 export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  
+
   return (
     <PaginationPrimitive.Ellipsis
       {...others}

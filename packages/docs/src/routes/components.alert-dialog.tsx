@@ -10,15 +10,20 @@ import {
   AlertDialogDescription,
   AlertDialogAction,
   AlertDialogCancel,
+  AlertDialogPositioner,
+  AlertDialogOverlay,
 } from '@manafishrov/ui/alert-dialog';
 import { Button } from '@manafishrov/ui/button';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const AlertDialogDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>AlertDialog</h1>
-      <p class='mt-2 text-muted-foreground'>Documentation for the AlertDialog component.</p>
+    <div class='space-y-2'>
+      <H1>Alert Dialog</H1>
+      <Lead>{m.docs_component_alert_dialog_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
@@ -30,16 +35,19 @@ const AlertDialogDocPage: Component = () => (
             </Button>
           )}
         />
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
+        <AlertDialogOverlay />
+        <AlertDialogPositioner>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogPositioner>
       </AlertDialog>
     </div>
   </div>

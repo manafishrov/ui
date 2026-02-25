@@ -57,7 +57,6 @@ export const DialogContent: Component<DialogPrimitive.ContentProps> = (props) =>
 
 export const DialogCloseButton: Component<DialogPrimitive.CloseTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  
 
   return (
     <DialogPrimitive.CloseTrigger

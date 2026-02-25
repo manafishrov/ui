@@ -1,19 +1,19 @@
 import type { Component } from 'solid-js';
 
 import { Tabs, TabsList, TabsTrigger, TabsContent, TabsIndicator } from '@manafishrov/ui/tabs';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+
+import * as m from '@/paraglide/messages';
 
 const TabsDocPage: Component = () => (
   <div class='space-y-8'>
-    <div>
-      <h1 class='text-3xl font-bold'>Tabs</h1>
-      <p class='mt-2 text-muted-foreground'>
-        A set of layered sections of content—known as tab panels—that are displayed one at a time.
-      </p>
+    <div class='space-y-2'>
+      <H1>Tabs</H1>
+      <Lead>{m.docs_component_tabs_description()}</Lead>
     </div>
 
     <div class='space-y-4'>
-      <h2 class='text-xl font-semibold'>Default</h2>
       <Tabs defaultValue='account' class='w-[400px]'>
         <TabsList>
           <TabsIndicator />

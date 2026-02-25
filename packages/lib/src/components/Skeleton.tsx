@@ -5,7 +5,6 @@ import * as messages from '@/paraglide/messages';
 
 export const Skeleton: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  
 
   return (
     <div
