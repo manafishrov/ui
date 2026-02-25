@@ -3,7 +3,7 @@
 @import '@fontsource/roboto';
 @import '@fontsource/chakra-petch/500';
 
-@source './components/**/*.js';
+@source '../src/**/*.{ts,tsx}';
 
 @custom-variant dark (&:is(.dark *));
 
