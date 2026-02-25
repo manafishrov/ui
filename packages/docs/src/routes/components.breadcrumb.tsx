@@ -25,7 +25,7 @@ const BreadcrumbDocPage: Component = () => (
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+            <BreadcrumbLink to='/'>Home</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

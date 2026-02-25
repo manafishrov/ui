@@ -235,7 +235,7 @@
   },
   "peerDependencies": {
     "@tanstack/solid-form": "1.28.0",
-    "@tanstack/solid-router": "1.157.16",
+    "@tanstack/solid-router": "1.162.1",
     "solid-icons": "1.2.0",
     "solid-js": "1.9.0",
     "tailwindcss": "4.0.0"
