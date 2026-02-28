@@ -21,20 +21,18 @@ const EmptyDocPage: Component = () => (
       <Lead>{m.docs_component_empty_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Empty>
-        <EmptyMedia>
-          <div class='h-20 w-20 flex items-center justify-center rounded-full bg-muted'>📭</div>
-        </EmptyMedia>
-        <EmptyHeader>
-          <EmptyTitle>No items found</EmptyTitle>
-          <EmptyDescription>You haven't created any items yet.</EmptyDescription>
-        </EmptyHeader>
-        <EmptyContent>
-          <Button>Create Item</Button>
-        </EmptyContent>
-      </Empty>
-    </div>
+    <Empty>
+      <EmptyMedia>
+        <div class='h-20 w-20 flex items-center justify-center rounded-full bg-muted'>📭</div>
+      </EmptyMedia>
+      <EmptyHeader>
+        <EmptyTitle>No items found</EmptyTitle>
+        <EmptyDescription>You haven't created any items yet.</EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
+        <Button>Create Item</Button>
+      </EmptyContent>
+    </Empty>
   </div>
 );
 

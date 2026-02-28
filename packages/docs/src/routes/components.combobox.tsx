@@ -37,36 +37,34 @@ const ComboboxDocPage: Component = () => (
       <Lead>{m.docs_component_combobox_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Combobox collection={frameworks} class='w-[300px]'>
-        <ComboboxLabel>Framework</ComboboxLabel>
-        <ComboboxControl>
-          <ComboboxInput placeholder='Select framework...' />
-          <div class='gap-1 flex items-center'>
-            <ComboboxClearTrigger />
-            <ComboboxTrigger />
-          </div>
-        </ComboboxControl>
-        <ComboboxPositioner>
-          <ComboboxContent>
-            <ComboboxList>
-              <ComboboxItemGroup>
-                <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
-                <ComboboxSeparator />
-                <For each={frameworks.items}>
-                  {(item) => <ComboboxItem item={item}>{item.label}</ComboboxItem>}
-                </For>
-              </ComboboxItemGroup>
-              <ComboboxEmpty>No results found.</ComboboxEmpty>
-            </ComboboxList>
-          </ComboboxContent>
-        </ComboboxPositioner>
-      </Combobox>
-    </div>
+    <Combobox collection={frameworks} class='max-w-xs'>
+      <ComboboxLabel>Framework</ComboboxLabel>
+      <ComboboxControl>
+        <ComboboxInput placeholder='Select framework...' />
+        <div class='gap-1 flex items-center'>
+          <ComboboxClearTrigger />
+          <ComboboxTrigger />
+        </div>
+      </ComboboxControl>
+      <ComboboxPositioner>
+        <ComboboxContent>
+          <ComboboxList>
+            <ComboboxItemGroup>
+              <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
+              <ComboboxSeparator />
+              <For each={frameworks.items}>
+                {(item) => <ComboboxItem item={item}>{item.label}</ComboboxItem>}
+              </For>
+            </ComboboxItemGroup>
+            <ComboboxEmpty>No results found.</ComboboxEmpty>
+          </ComboboxList>
+        </ComboboxContent>
+      </ComboboxPositioner>
+    </Combobox>
 
     <div class='space-y-4'>
       <H2 class='pb-0 border-none'>{m.docs_example_multiple()}</H2>
-      <Combobox collection={frameworks} multiple class='w-[300px]'>
+      <Combobox collection={frameworks} multiple class='max-w-xs'>
         <ComboboxLabel>Frameworks (Multiple)</ComboboxLabel>
         <ComboboxControl>
           <ComboboxContext>

@@ -26,47 +26,45 @@ const PopoverDocPage: Component = () => (
       <Lead>{m.docs_component_popover_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Popover>
-        <PopoverTrigger
-          asChild={(props) => (
-            <Button variant='outline' {...props()}>
-              Open Popover
-            </Button>
-          )}
-        />
-        <PopoverPositioner>
-          <PopoverContent>
-            <PopoverArrow />
-            <PopoverHeader>
-              <PopoverTitle>Dimensions</PopoverTitle>
-              <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
-            </PopoverHeader>
-            <div class='gap-4 py-4 grid'>
-              <div class='gap-4 grid grid-cols-3 items-center'>
-                <span class='text-sm'>Width</span>
-                <input
-                  class='h-9 px-3 py-1 text-sm shadow-sm col-span-2 flex w-full rounded-md border border-input bg-transparent'
-                  value='100%'
-                />
-              </div>
+    <Popover>
+      <PopoverTrigger
+        asChild={(props) => (
+          <Button variant='outline' {...props()}>
+            Open Popover
+          </Button>
+        )}
+      />
+      <PopoverPositioner>
+        <PopoverContent>
+          <PopoverArrow />
+          <PopoverHeader>
+            <PopoverTitle>Dimensions</PopoverTitle>
+            <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
+          </PopoverHeader>
+          <div class='gap-4 py-4 grid'>
+            <div class='gap-4 grid grid-cols-3 items-center'>
+              <span class='text-sm'>Width</span>
+              <input
+                class='h-9 px-3 py-1 text-sm shadow-sm col-span-2 flex w-full rounded-md border border-input bg-transparent'
+                value='100%'
+              />
             </div>
-            <PopoverCloseTrigger
-              asChild={(props) => (
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  class='right-4 top-4 h-6 w-6 absolute'
-                  {...props()}
-                >
-                  ✕
-                </Button>
-              )}
-            />
-          </PopoverContent>
-        </PopoverPositioner>
-      </Popover>
-    </div>
+          </div>
+          <PopoverCloseTrigger
+            asChild={(props) => (
+              <Button
+                variant='ghost'
+                size='icon'
+                class='right-4 top-4 h-6 w-6 absolute'
+                {...props()}
+              >
+                ✕
+              </Button>
+            )}
+          />
+        </PopoverContent>
+      </PopoverPositioner>
+    </Popover>
   </div>
 );
 

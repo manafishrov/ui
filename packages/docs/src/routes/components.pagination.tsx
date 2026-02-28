@@ -21,31 +21,29 @@ const PaginationDocPage: Component = () => (
       <Lead>{m.docs_component_pagination_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Pagination count={100} pageSize={10} siblingCount={1}>
-        {({ pages }) => (
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious />
-            </PaginationItem>
-            {pages.map((page, index) =>
-              page.type === 'page' ? (
-                <PaginationItem>
-                  <PaginationLink value={page.value}>{page.value}</PaginationLink>
-                </PaginationItem>
-              ) : (
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-              ),
-            )}
-            <PaginationItem>
-              <PaginationNext />
-            </PaginationItem>
-          </PaginationContent>
-        )}
-      </Pagination>
-    </div>
+    <Pagination count={100} pageSize={10} siblingCount={1}>
+      {({ pages }) => (
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious />
+          </PaginationItem>
+          {pages.map((page, index) =>
+            page.type === 'page' ? (
+              <PaginationItem>
+                <PaginationLink value={page.value}>{page.value}</PaginationLink>
+              </PaginationItem>
+            ) : (
+              <PaginationItem>
+                <PaginationEllipsis />
+              </PaginationItem>
+            ),
+          )}
+          <PaginationItem>
+            <PaginationNext />
+          </PaginationItem>
+        </PaginationContent>
+      )}
+    </Pagination>
   </div>
 );
 

@@ -20,13 +20,11 @@ const AvatarDocPage: Component = () => (
       <Lead>{m.docs_component_avatar_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Avatar>
-        <AvatarImage src='https://github.com/michaelbrusegard.png' alt='@michaelbrusegard' />
-        <AvatarFallback>SJ</AvatarFallback>
-        <AvatarBadge class='bg-green-500' />
-      </Avatar>
-    </div>
+    <Avatar>
+      <AvatarImage src='https://github.com/michaelbrusegard.png' alt='@michaelbrusegard' />
+      <AvatarFallback>SJ</AvatarFallback>
+      <AvatarBadge class='bg-green-500' />
+    </Avatar>
 
     <div class='space-y-4'>
       <H2 class='pb-0 border-none'>{m.docs_example_group()}</H2>

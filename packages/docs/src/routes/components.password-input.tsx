@@ -20,17 +20,15 @@ const PasswordInputDocPage: Component = () => (
       <Lead>{m.docs_component_password_input_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <PasswordInput class='w-[300px]'>
-        <PasswordInputLabel>Password</PasswordInputLabel>
-        <PasswordInputControl>
-          <PasswordInputInput placeholder='Enter your password' />
-          <PasswordInputVisibilityTrigger>
-            <PasswordInputIndicator />
-          </PasswordInputVisibilityTrigger>
-        </PasswordInputControl>
-      </PasswordInput>
-    </div>
+    <PasswordInput class='max-w-xs'>
+      <PasswordInputLabel>Password</PasswordInputLabel>
+      <PasswordInputControl>
+        <PasswordInputInput placeholder='Enter your password' />
+        <PasswordInputVisibilityTrigger>
+          <PasswordInputIndicator />
+        </PasswordInputVisibilityTrigger>
+      </PasswordInputControl>
+    </PasswordInput>
   </div>
 );
 

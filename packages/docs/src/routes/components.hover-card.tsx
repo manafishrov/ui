@@ -20,28 +20,26 @@ const HoverCardDocPage: Component = () => (
       <Lead>{m.docs_component_hover_card_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <HoverCard>
-        <HoverCardTrigger
-          asChild={(props) => (
-            <Button variant='link' {...props()}>
-              @manafish
-            </Button>
-          )}
-        />
-        <HoverCardPositioner>
-          <HoverCardContent>
-            <HoverCardArrow />
-            <div class='space-x-4 flex justify-between'>
-              <div class='space-y-1'>
-                <h4 class='text-sm font-semibold'>@manafish</h4>
-                <p class='text-sm'>The Manafish UI component library.</p>
-              </div>
+    <HoverCard>
+      <HoverCardTrigger
+        asChild={(props) => (
+          <Button variant='link' {...props()}>
+            @manafish
+          </Button>
+        )}
+      />
+      <HoverCardPositioner>
+        <HoverCardContent>
+          <HoverCardArrow />
+          <div class='space-x-4 flex justify-between'>
+            <div class='space-y-1'>
+              <h4 class='text-sm font-semibold'>@manafish</h4>
+              <p class='text-sm'>The Manafish UI component library.</p>
             </div>
-          </HoverCardContent>
-        </HoverCardPositioner>
-      </HoverCard>
-    </div>
+          </div>
+        </HoverCardContent>
+      </HoverCardPositioner>
+    </HoverCard>
   </div>
 );
 

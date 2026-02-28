@@ -13,10 +13,8 @@ const TreeViewDocPage: Component = () => (
       <Lead>{m.docs_component_tree_view_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='gap-4 flex flex-wrap'>
-        <TreeView>Example</TreeView>
-      </div>
+    <div class='gap-4 flex flex-wrap'>
+      <TreeView>Example</TreeView>
     </div>
   </div>
 );

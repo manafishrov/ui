@@ -13,9 +13,7 @@ const LinkDocPage: Component = () => (
       <Lead>{m.docs_component_link_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Link href='#'>Click me to go somewhere</Link>
-    </div>
+    <Link href='#'>Click me to go somewhere</Link>
   </div>
 );
 

@@ -12,11 +12,7 @@ const KbdDocPage: Component = () => (
       <H1>Kbd</H1>
       <Lead>{m.docs_component_kbd_description()}</Lead>
     </div>
-
-    <div class='space-y-4'>
-      <Kbd>⌘</Kbd> <Kbd>K</Kbd>
-    </div>
-
+    <Kbd>⌘</Kbd> <Kbd>K</Kbd>
     <div class='space-y-4'>
       <H2 class='pb-0 border-none'>{m.docs_example_group()}</H2>
       <KbdGroup>

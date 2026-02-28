@@ -25,43 +25,39 @@ const ItemDocPage: Component = () => (
       <Lead>{m.docs_component_item_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <ItemGroup class='w-[400px]'>
-        <Item>
-          <ItemMedia>
-            <div class='h-10 w-10 bg-blue-100 flex items-center justify-center rounded-full'>1</div>
-          </ItemMedia>
-          <ItemContent>
-            <ItemHeader>
-              <ItemTitle>Notification title</ItemTitle>
-              <ItemDescription>2 hours ago</ItemDescription>
-            </ItemHeader>
-            <ItemFooter>
-              <span class='text-xs text-muted-foreground'>System message</span>
-            </ItemFooter>
-          </ItemContent>
-          <ItemActions>
-            <Button variant='ghost' size='sm'>
-              Mark read
-            </Button>
-          </ItemActions>
-        </Item>
-        <ItemSeparator />
-        <Item>
-          <ItemMedia>
-            <div class='h-10 w-10 bg-green-100 flex items-center justify-center rounded-full'>
-              2
-            </div>
-          </ItemMedia>
-          <ItemContent>
-            <ItemHeader>
-              <ItemTitle>Update available</ItemTitle>
-              <ItemDescription>1 day ago</ItemDescription>
-            </ItemHeader>
-          </ItemContent>
-        </Item>
-      </ItemGroup>
-    </div>
+    <ItemGroup class='max-w-sm'>
+      <Item>
+        <ItemMedia>
+          <div class='h-10 w-10 bg-blue-100 flex items-center justify-center rounded-full'>1</div>
+        </ItemMedia>
+        <ItemContent>
+          <ItemHeader>
+            <ItemTitle>Notification title</ItemTitle>
+            <ItemDescription>2 hours ago</ItemDescription>
+          </ItemHeader>
+          <ItemFooter>
+            <span class='text-xs text-muted-foreground'>System message</span>
+          </ItemFooter>
+        </ItemContent>
+        <ItemActions>
+          <Button variant='ghost' size='sm'>
+            Mark read
+          </Button>
+        </ItemActions>
+      </Item>
+      <ItemSeparator />
+      <Item>
+        <ItemMedia>
+          <div class='h-10 w-10 bg-green-100 flex items-center justify-center rounded-full'>2</div>
+        </ItemMedia>
+        <ItemContent>
+          <ItemHeader>
+            <ItemTitle>Update available</ItemTitle>
+            <ItemDescription>1 day ago</ItemDescription>
+          </ItemHeader>
+        </ItemContent>
+      </Item>
+    </ItemGroup>
   </div>
 );
 

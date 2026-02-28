@@ -22,29 +22,27 @@ const TagsInputDocPage: Component = () => (
       <H1>Tags Input</H1>
       <Lead>{m.docs_component_tags_input_description()}</Lead>
     </div>
-    <div class='space-y-4'>
-      <div class='gap-4 flex flex-wrap'>
-        <TagsInput defaultValue={['SolidJS', 'TypeScript']}>
-          <TagsInputLabel>Technologies</TagsInputLabel>
-          <TagsInputControl>
-            <TagsInputContext>
-              {(context) => (
-                <Index each={context().value}>
-                  {(value, index) => (
-                    <TagsInputItem index={index} value={value()}>
-                      {value()}
-                      <TagsInputItemDeleteTrigger />
-                    </TagsInputItem>
-                  )}
-                </Index>
-              )}
-            </TagsInputContext>
-            <TagsInputInput placeholder='Add tag...' />
-          </TagsInputControl>
-          <TagsInputHiddenInput />
-          <TagsInputClearTrigger>Clear all</TagsInputClearTrigger>
-        </TagsInput>
-      </div>
+    <div class='gap-4 flex flex-wrap'>
+      <TagsInput defaultValue={['SolidJS', 'TypeScript']}>
+        <TagsInputLabel>Technologies</TagsInputLabel>
+        <TagsInputControl>
+          <TagsInputContext>
+            {(context) => (
+              <Index each={context().value}>
+                {(value, index) => (
+                  <TagsInputItem index={index} value={value()}>
+                    {value()}
+                    <TagsInputItemDeleteTrigger />
+                  </TagsInputItem>
+                )}
+              </Index>
+            )}
+          </TagsInputContext>
+          <TagsInputInput placeholder='Add tag...' />
+        </TagsInputControl>
+        <TagsInputHiddenInput />
+        <TagsInputClearTrigger>Clear all</TagsInputClearTrigger>
+      </TagsInput>
     </div>
   </div>
 );

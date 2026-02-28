@@ -19,25 +19,23 @@ const RadioGroupDocPage: Component = () => (
       <Lead>{m.docs_component_radio_group_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <RadioGroup defaultValue='comfortable'>
-        <RadioGroupLabel>Spacing</RadioGroupLabel>
-        <div class='space-y-2 mt-2'>
-          <RadioGroupItem value='default'>
-            <RadioGroupItemControl />
-            <RadioGroupItemText>Default</RadioGroupItemText>
-          </RadioGroupItem>
-          <RadioGroupItem value='comfortable'>
-            <RadioGroupItemControl />
-            <RadioGroupItemText>Comfortable</RadioGroupItemText>
-          </RadioGroupItem>
-          <RadioGroupItem value='compact'>
-            <RadioGroupItemControl />
-            <RadioGroupItemText>Compact</RadioGroupItemText>
-          </RadioGroupItem>
-        </div>
-      </RadioGroup>
-    </div>
+    <RadioGroup defaultValue='comfortable'>
+      <RadioGroupLabel>Spacing</RadioGroupLabel>
+      <div class='space-y-2 mt-2'>
+        <RadioGroupItem value='default'>
+          <RadioGroupItemControl />
+          <RadioGroupItemText>Default</RadioGroupItemText>
+        </RadioGroupItem>
+        <RadioGroupItem value='comfortable'>
+          <RadioGroupItemControl />
+          <RadioGroupItemText>Comfortable</RadioGroupItemText>
+        </RadioGroupItem>
+        <RadioGroupItem value='compact'>
+          <RadioGroupItemControl />
+          <RadioGroupItemText>Compact</RadioGroupItemText>
+        </RadioGroupItem>
+      </div>
+    </RadioGroup>
   </div>
 );
 

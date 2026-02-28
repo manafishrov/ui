@@ -13,10 +13,8 @@ const SpinnerDocPage: Component = () => (
       <Lead>{m.docs_component_spinner_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='gap-4 flex flex-wrap'>
-        <Spinner>Example</Spinner>
-      </div>
+    <div class='gap-4 flex flex-wrap'>
+      <Spinner>Example</Spinner>
     </div>
   </div>
 );

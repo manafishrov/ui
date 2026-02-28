@@ -20,23 +20,21 @@ const TooltipDocPage: Component = () => (
       <Lead>{m.docs_component_tooltip_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Tooltip>
-        <TooltipTrigger
-          asChild={(props) => (
-            <Button variant='outline' {...props()}>
-              Hover me
-            </Button>
-          )}
-        />
-        <TooltipPositioner>
-          <TooltipContent>
-            <TooltipArrow />
-            <p>Add to library</p>
-          </TooltipContent>
-        </TooltipPositioner>
-      </Tooltip>
-    </div>
+    <Tooltip>
+      <TooltipTrigger
+        asChild={(props) => (
+          <Button variant='outline' {...props()}>
+            Hover me
+          </Button>
+        )}
+      />
+      <TooltipPositioner>
+        <TooltipContent>
+          <TooltipArrow />
+          <p>Add to library</p>
+        </TooltipContent>
+      </TooltipPositioner>
+    </Tooltip>
   </div>
 );
 

@@ -13,14 +13,12 @@ const SwitchDocPage: Component = () => (
       <Lead>{m.docs_component_switch_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Switch>
-        <SwitchControl>
-          <SwitchThumb />
-        </SwitchControl>
-        <SwitchLabel>Airplane Mode</SwitchLabel>
-      </Switch>
-    </div>
+    <Switch>
+      <SwitchControl>
+        <SwitchThumb />
+      </SwitchControl>
+      <SwitchLabel>Airplane Mode</SwitchLabel>
+    </Switch>
   </div>
 );
 

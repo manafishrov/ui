@@ -20,27 +20,25 @@ const ScrollAreaDocPage: Component = () => (
       <Lead>{m.docs_component_scroll_area_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <ScrollArea class='p-4 h-[200px] w-[350px] rounded-md border'>
-        <ScrollAreaViewport class='h-full w-full'>
-          <ScrollAreaContent>
-            <div class='pr-4'>
-              <h4 class='mb-4 text-sm font-medium leading-none'>Tags</h4>
-              {Array.from({ length: 20 }).map((_, i, a) => (
-                <>
-                  <div class='text-sm'>v1.2.0-beta.{a.length - i}</div>
-                  <hr class='my-2 border-muted' />
-                </>
-              ))}
-            </div>
-          </ScrollAreaContent>
-        </ScrollAreaViewport>
-        <ScrollAreaScrollbar>
-          <ScrollAreaThumb />
-        </ScrollAreaScrollbar>
-        <ScrollAreaCorner />
-      </ScrollArea>
-    </div>
+    <ScrollArea class='p-4 h-48 max-w-sm rounded-md border'>
+      <ScrollAreaViewport class='h-full w-full'>
+        <ScrollAreaContent>
+          <div class='pr-4'>
+            <h4 class='mb-4 text-sm font-medium leading-none'>Tags</h4>
+            {Array.from({ length: 20 }).map((_, i, a) => (
+              <>
+                <div class='text-sm'>v1.2.0-beta.{a.length - i}</div>
+                <hr class='my-2 border-muted' />
+              </>
+            ))}
+          </div>
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+      <ScrollAreaCorner />
+    </ScrollArea>
   </div>
 );
 

@@ -14,20 +14,18 @@ const ToasterDocPage: Component = () => (
       <Lead>{m.docs_component_toaster_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='gap-4 flex flex-wrap'>
-        <Button
-          onClick={() =>
-            toast.create({
-              title: 'Event created',
-              description: 'Your event has been scheduled.',
-            })
-          }
-        >
-          Show Toast
-        </Button>
-        <Toaster />
-      </div>
+    <div class='gap-4 flex flex-wrap'>
+      <Button
+        onClick={() =>
+          toast.create({
+            title: 'Event created',
+            description: 'Your event has been scheduled.',
+          })
+        }
+      >
+        Show Toast
+      </Button>
+      <Toaster />
     </div>
   </div>
 );

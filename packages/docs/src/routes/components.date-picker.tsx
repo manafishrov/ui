@@ -1,6 +1,6 @@
-import MdOutlineCalendar_month from '@icons/ic/outline-calendar-month';
 import type { Component } from 'solid-js';
 
+import MdOutlineCalendar_month from '@icons/ic/outline-calendar-month';
 import { Button } from '@manafishrov/ui/button';
 import {
   DatePicker,
@@ -24,26 +24,24 @@ const DatePickerDocPage: Component = () => (
       <Lead>{m.docs_component_date_picker_description()}</Lead>
     </div>
 
-    <div class='space-y-4 max-w-sm'>
-      <DatePicker>
-        <DatePickerLabel>Date</DatePickerLabel>
-        <DatePickerControl>
-          <DatePickerInput />
-          <DatePickerTrigger
-            asChild={(props) => (
-              <Button variant='outline' size='icon' {...props()}>
-                <MdOutlineCalendar_month class='size-4' />
-              </Button>
-            )}
-          />
-        </DatePickerControl>
-        <DatePickerPositioner>
-          <DatePickerContent>
-            <DatePickerViews />
-          </DatePickerContent>
-        </DatePickerPositioner>
-      </DatePicker>
-    </div>
+    <DatePicker class='max-w-xs'>
+      <DatePickerLabel>Date</DatePickerLabel>
+      <DatePickerControl>
+        <DatePickerInput />
+        <DatePickerTrigger
+          asChild={(props) => (
+            <Button variant='outline' size='icon' {...props()}>
+              <MdOutlineCalendar_month class='size-4' />
+            </Button>
+          )}
+        />
+      </DatePickerControl>
+      <DatePickerPositioner>
+        <DatePickerContent>
+          <DatePickerViews />
+        </DatePickerContent>
+      </DatePickerPositioner>
+    </DatePicker>
   </div>
 );
 

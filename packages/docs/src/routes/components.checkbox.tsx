@@ -19,14 +19,12 @@ const CheckboxDocPage: Component = () => (
       <Lead>{m.docs_component_checkbox_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Checkbox>
-        <CheckboxControl>
-          <CheckboxIndicator />
-        </CheckboxControl>
-        <CheckboxLabel>Accept terms and conditions</CheckboxLabel>
-      </Checkbox>
-    </div>
+    <Checkbox>
+      <CheckboxControl>
+        <CheckboxIndicator />
+      </CheckboxControl>
+      <CheckboxLabel>Accept terms and conditions</CheckboxLabel>
+    </Checkbox>
 
     <div class='space-y-4'>
       <H2 class='pb-0 border-none'>{m.docs_example_group()}</H2>

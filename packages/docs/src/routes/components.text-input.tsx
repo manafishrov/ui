@@ -19,16 +19,14 @@ const TextInputDocPage: Component = () => (
       <Lead>{m.docs_component_text_input_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='gap-4 flex flex-wrap'>
-        <TextInput class='w-[300px]'>
-          <TextInputLabel>Email</TextInputLabel>
-          <TextInputControl>
-            <TextInputInput placeholder='Enter your email' />
-          </TextInputControl>
-          <TextInputHelperText>We'll never share your email.</TextInputHelperText>
-        </TextInput>
-      </div>
+    <div class='gap-4 flex flex-wrap'>
+      <TextInput class='max-w-xs'>
+        <TextInputLabel>Email</TextInputLabel>
+        <TextInputControl>
+          <TextInputInput placeholder='Enter your email' />
+        </TextInputControl>
+        <TextInputHelperText>We'll never share your email.</TextInputHelperText>
+      </TextInput>
     </div>
   </div>
 );

@@ -28,41 +28,39 @@ const MenuDocPage: Component = () => (
       <Lead>{m.docs_component_menu_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Menu>
-        <MenuTrigger
-          asChild={(props) => (
-            <Button variant='outline' {...props()}>
-              Open Menu
-            </Button>
-          )}
-        />
-        <MenuPositioner>
-          <MenuContent>
-            <MenuItemGroup>
-              <MenuItemGroupLabel>My Account</MenuItemGroupLabel>
-              <MenuSeparator />
-              <MenuItem value='profile'>Profile</MenuItem>
-              <MenuItem value='billing'>Billing</MenuItem>
-              <MenuItem value='settings'>
-                Settings
-                <MenuShortcut>⌘S</MenuShortcut>
-              </MenuItem>
-            </MenuItemGroup>
+    <Menu>
+      <MenuTrigger
+        asChild={(props) => (
+          <Button variant='outline' {...props()}>
+            Open Menu
+          </Button>
+        )}
+      />
+      <MenuPositioner>
+        <MenuContent>
+          <MenuItemGroup>
+            <MenuItemGroupLabel>My Account</MenuItemGroupLabel>
             <MenuSeparator />
-            <MenuItemGroup>
-              <MenuItemGroupLabel>Preferences</MenuItemGroupLabel>
-              <MenuSeparator />
-              <MenuCheckboxItem checked>Show Toolbar</MenuCheckboxItem>
-              <MenuCheckboxItem>Show Full Path</MenuCheckboxItem>
-              <MenuSeparator />
-              <MenuRadioItem value='light'>Light Mode</MenuRadioItem>
-              <MenuRadioItem value='dark'>Dark Mode</MenuRadioItem>
-            </MenuItemGroup>
-          </MenuContent>
-        </MenuPositioner>
-      </Menu>
-    </div>
+            <MenuItem value='profile'>Profile</MenuItem>
+            <MenuItem value='billing'>Billing</MenuItem>
+            <MenuItem value='settings'>
+              Settings
+              <MenuShortcut>⌘S</MenuShortcut>
+            </MenuItem>
+          </MenuItemGroup>
+          <MenuSeparator />
+          <MenuItemGroup>
+            <MenuItemGroupLabel>Preferences</MenuItemGroupLabel>
+            <MenuSeparator />
+            <MenuCheckboxItem checked>Show Toolbar</MenuCheckboxItem>
+            <MenuCheckboxItem>Show Full Path</MenuCheckboxItem>
+            <MenuSeparator />
+            <MenuRadioItem value='light'>Light Mode</MenuRadioItem>
+            <MenuRadioItem value='dark'>Dark Mode</MenuRadioItem>
+          </MenuItemGroup>
+        </MenuContent>
+      </MenuPositioner>
+    </Menu>
   </div>
 );
 

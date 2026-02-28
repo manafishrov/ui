@@ -112,7 +112,7 @@ const SidebarDocPage: Component = () => (
               <span class='text-sm font-medium'>Dashboard</span>
             </header>
             <div class='p-4'>
-              <div class='h-[400px] rounded-xl border bg-muted/50' />
+              <div class='h-96 rounded-xl border bg-muted/50' />
             </div>
           </SidebarInset>
         </SidebarProvider>
@@ -170,7 +170,7 @@ const SidebarDocPage: Component = () => (
               <span class='text-sm font-medium'>Dashboard</span>
             </header>
             <div class='p-4'>
-              <div class='h-[400px] rounded-xl border bg-muted/50' />
+              <div class='h-96 rounded-xl border bg-muted/50' />
             </div>
           </SidebarInset>
         </SidebarProvider>
@@ -234,7 +234,7 @@ const SidebarDocPage: Component = () => (
               <span class='text-sm font-medium'>Documentation</span>
             </header>
             <div class='p-4'>
-              <div class='h-[400px] rounded-xl border bg-muted/50' />
+              <div class='h-96 rounded-xl border bg-muted/50' />
             </div>
           </SidebarInset>
         </SidebarProvider>

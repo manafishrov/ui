@@ -21,21 +21,19 @@ const PinInputDocPage: Component = () => (
       <Lead>{m.docs_component_pin_input_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <PinInput length={4}>
-        <PinInputLabel>Verify your identity</PinInputLabel>
-        <PinInputControl>
-          <PinInputHiddenInput />
-          <PinInputGroup>
-            <PinInputInput index={0} />
-            <PinInputInput index={1} />
-            <PinInputSeparator />
-            <PinInputInput index={2} />
-            <PinInputInput index={3} />
-          </PinInputGroup>
-        </PinInputControl>
-      </PinInput>
-    </div>
+    <PinInput length={4}>
+      <PinInputLabel>Verify your identity</PinInputLabel>
+      <PinInputControl>
+        <PinInputHiddenInput />
+        <PinInputGroup>
+          <PinInputInput index={0} />
+          <PinInputInput index={1} />
+          <PinInputSeparator />
+          <PinInputInput index={2} />
+          <PinInputInput index={3} />
+        </PinInputGroup>
+      </PinInputControl>
+    </PinInput>
   </div>
 );
 

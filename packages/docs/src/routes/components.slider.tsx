@@ -23,17 +23,15 @@ const SliderDocPage: Component = () => (
       <Lead>{m.docs_component_slider_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Slider defaultValue={[33]} max={100} step={1} class='w-[60%]'>
-        <SliderLabel>Volume</SliderLabel>
-        <SliderControl>
-          <SliderTrack>
-            <SliderRange />
-          </SliderTrack>
-          <SliderThumb />
-        </SliderControl>
-      </Slider>
-    </div>
+    <Slider defaultValue={[33]} max={100} step={1} class='w-[60%]'>
+      <SliderLabel>Volume</SliderLabel>
+      <SliderControl>
+        <SliderTrack>
+          <SliderRange />
+        </SliderTrack>
+        <SliderThumb />
+      </SliderControl>
+    </Slider>
   </div>
 );
 

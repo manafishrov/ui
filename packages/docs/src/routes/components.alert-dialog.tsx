@@ -26,30 +26,28 @@ const AlertDialogDocPage: Component = () => (
       <Lead>{m.docs_component_alert_dialog_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <AlertDialog>
-        <AlertDialogTrigger
-          asChild={(props) => (
-            <Button variant='outline' {...props()}>
-              Show Dialog
-            </Button>
-          )}
-        />
-        <AlertDialogOverlay />
-        <AlertDialogPositioner>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-              <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction>Continue</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogPositioner>
-      </AlertDialog>
-    </div>
+    <AlertDialog>
+      <AlertDialogTrigger
+        asChild={(props) => (
+          <Button variant='outline' {...props()}>
+            Show Dialog
+          </Button>
+        )}
+      />
+      <AlertDialogOverlay />
+      <AlertDialogPositioner>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Continue</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialogPositioner>
+    </AlertDialog>
   </div>
 );
 

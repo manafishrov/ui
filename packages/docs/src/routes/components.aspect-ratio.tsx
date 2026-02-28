@@ -13,13 +13,12 @@ const AspectRatioDocPage: Component = () => (
       <Lead>{m.docs_component_aspect_ratio_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='w-[400px]'>
-        <AspectRatio ratio={16 / 9} class='flex items-center justify-center rounded-md bg-muted'>
-          <span class='text-muted-foreground'>16:9</span>
-        </AspectRatio>
-      </div>
-    </div>
+    <AspectRatio
+      ratio={16 / 9}
+      class='max-w-md flex items-center justify-center rounded-md bg-muted'
+    >
+      <span class='text-muted-foreground'>16:9</span>
+    </AspectRatio>
   </div>
 );
 

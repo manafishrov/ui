@@ -23,19 +23,17 @@ const NumberInputDocPage: Component = () => (
       <Lead>{m.docs_component_number_input_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <NumberInput class='w-[300px]' defaultValue='10' min={0} max={100}>
-        <NumberInputLabel>Quantity</NumberInputLabel>
-        <NumberInputControl>
-          <NumberInputInput />
-          <NumberInputTriggers>
-            <NumberInputIncrementTrigger>▲</NumberInputIncrementTrigger>
-            <NumberInputDecrementTrigger>▼</NumberInputDecrementTrigger>
-          </NumberInputTriggers>
-        </NumberInputControl>
-        <NumberInputScrubber />
-      </NumberInput>
-    </div>
+    <NumberInput class='max-w-xs' defaultValue='10' min={0} max={100}>
+      <NumberInputLabel>Quantity</NumberInputLabel>
+      <NumberInputControl>
+        <NumberInputInput />
+        <NumberInputTriggers>
+          <NumberInputIncrementTrigger>▲</NumberInputIncrementTrigger>
+          <NumberInputDecrementTrigger>▼</NumberInputDecrementTrigger>
+        </NumberInputTriggers>
+      </NumberInputControl>
+      <NumberInputScrubber />
+    </NumberInput>
   </div>
 );
 

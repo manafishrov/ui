@@ -38,43 +38,41 @@ const SelectDocPage: Component = () => (
       <Lead>{m.docs_component_select_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Select collection={frameworks} class='w-[300px]'>
-        <SelectLabel>Framework</SelectLabel>
-        <div class='gap-2 flex items-center'>
-          <SelectControl>
-            <SelectTrigger
-              asChild={(props) => (
-                <Button variant='outline' class='w-[200px] justify-between' {...props()}>
-                  <SelectValue placeholder='Select a framework' />
-                  <SelectIndicator />
-                </Button>
-              )}
-            />
-          </SelectControl>
-          <SelectClearTrigger
+    <Select collection={frameworks} class='max-w-xs'>
+      <SelectLabel>Framework</SelectLabel>
+      <div class='gap-2 flex items-center'>
+        <SelectControl>
+          <SelectTrigger
             asChild={(props) => (
-              <Button variant='ghost' size='icon' {...props()}>
-                ✕
+              <Button variant='outline' class='w-48 justify-between' {...props()}>
+                <SelectValue placeholder='Select a framework' />
+                <SelectIndicator />
               </Button>
             )}
           />
-        </div>
-        <SelectPositioner>
-          <SelectContent>
-            <SelectList>
-              <SelectGroup>
-                <SelectItemGroupLabel>Frameworks</SelectItemGroupLabel>
-                <SelectSeparator />
-                {frameworks.items.map((item) => (
-                  <SelectItem item={item}>{item.label}</SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectList>
-          </SelectContent>
-        </SelectPositioner>
-      </Select>
-    </div>
+        </SelectControl>
+        <SelectClearTrigger
+          asChild={(props) => (
+            <Button variant='ghost' size='icon' {...props()}>
+              ✕
+            </Button>
+          )}
+        />
+      </div>
+      <SelectPositioner>
+        <SelectContent>
+          <SelectList>
+            <SelectGroup>
+              <SelectItemGroupLabel>Frameworks</SelectItemGroupLabel>
+              <SelectSeparator />
+              {frameworks.items.map((item) => (
+                <SelectItem item={item}>{item.label}</SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectList>
+        </SelectContent>
+      </SelectPositioner>
+    </Select>
   </div>
 );
 

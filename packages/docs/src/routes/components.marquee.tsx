@@ -19,20 +19,16 @@ const MarqueeDocPage: Component = () => (
       <Lead>{m.docs_component_marquee_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='w-[400px] rounded-md border'>
-        <Marquee>
-          <MarqueeEdge />
-          <MarqueeViewport>
-            <MarqueeContent>
-              <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 1</MarqueeItem>
-              <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 2</MarqueeItem>
-              <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 3</MarqueeItem>
-            </MarqueeContent>
-          </MarqueeViewport>
-        </Marquee>
-      </div>
-    </div>
+    <Marquee class='max-w-md rounded-md border'>
+      <MarqueeEdge />
+      <MarqueeViewport>
+        <MarqueeContent>
+          <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 1</MarqueeItem>
+          <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 2</MarqueeItem>
+          <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 3</MarqueeItem>
+        </MarqueeContent>
+      </MarqueeViewport>
+    </Marquee>
   </div>
 );
 

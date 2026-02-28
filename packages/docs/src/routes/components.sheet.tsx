@@ -26,59 +26,57 @@ const SheetDocPage: Component = () => (
       <Lead>{m.docs_component_sheet_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <Sheet>
-        <SheetTrigger
-          asChild={(props) => (
-            <Button variant='outline' {...props()}>
-              Open Sheet
-            </Button>
-          )}
-        />
-        <SheetOverlay />
-        <SheetPositioner side='right'>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Edit profile</SheetTitle>
-              <SheetDescription>
-                Make changes to your profile here. Click save when you're done.
-              </SheetDescription>
-            </SheetHeader>
-            <div class='gap-4 py-4 grid'>
-              <div class='gap-4 grid grid-cols-4 items-center'>
-                <span class='text-sm text-right'>Name</span>
-                <input
-                  class='h-9 px-3 py-1 text-sm shadow-sm col-span-3 flex w-full rounded-md border border-input bg-transparent transition-colors'
-                  value='Pedro Duarte'
-                />
-              </div>
-            </div>
-            <SheetFooter>
-              <SheetCloseTrigger
-                asChild={(props) => (
-                  <Button variant='outline' {...props()}>
-                    Cancel
-                  </Button>
-                )}
+    <Sheet>
+      <SheetTrigger
+        asChild={(props) => (
+          <Button variant='outline' {...props()}>
+            Open Sheet
+          </Button>
+        )}
+      />
+      <SheetOverlay />
+      <SheetPositioner side='right'>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Edit profile</SheetTitle>
+            <SheetDescription>
+              Make changes to your profile here. Click save when you're done.
+            </SheetDescription>
+          </SheetHeader>
+          <div class='gap-4 py-4 grid'>
+            <div class='gap-4 grid grid-cols-4 items-center'>
+              <span class='text-sm text-right'>Name</span>
+              <input
+                class='h-9 px-3 py-1 text-sm shadow-sm col-span-3 flex w-full rounded-md border border-input bg-transparent transition-colors'
+                value='Pedro Duarte'
               />
-              <Button type='submit'>Save changes</Button>
-            </SheetFooter>
-            <SheetCloseButton
+            </div>
+          </div>
+          <SheetFooter>
+            <SheetCloseTrigger
               asChild={(props) => (
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  class='right-4 top-4 h-6 w-6 absolute'
-                  {...props()}
-                >
-                  ✕
+                <Button variant='outline' {...props()}>
+                  Cancel
                 </Button>
               )}
             />
-          </SheetContent>
-        </SheetPositioner>
-      </Sheet>
-    </div>
+            <Button type='submit'>Save changes</Button>
+          </SheetFooter>
+          <SheetCloseButton
+            asChild={(props) => (
+              <Button
+                variant='ghost'
+                size='icon'
+                class='right-4 top-4 h-6 w-6 absolute'
+                {...props()}
+              >
+                ✕
+              </Button>
+            )}
+          />
+        </SheetContent>
+      </SheetPositioner>
+    </Sheet>
   </div>
 );
 
