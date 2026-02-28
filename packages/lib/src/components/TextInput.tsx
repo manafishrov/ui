@@ -4,7 +4,15 @@ import { cn } from 'tailwind-variants';
 
 import { FieldDescription, FieldError } from './Field';
 
-export const TextInput = PrimitiveField.Root;
+export const TextInput: Component<PrimitiveField.RootProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <PrimitiveField.Root
+      class={cn('group/text-input gap-1.5 flex w-full flex-col', local.class)}
+      {...others}
+    />
+  );
+};
 
 export const TextInputLabel: Component<PrimitiveField.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
