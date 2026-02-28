@@ -7,7 +7,12 @@ import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
 
-export const DatePicker = DatePickerPrimitive.Root;
+export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <DatePickerPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />
+  );
+};
 export const DatePickerContext = DatePickerPrimitive.Context;
 export const DatePickerView = DatePickerPrimitive.View;
 export const DatePickerViewTrigger = DatePickerPrimitive.ViewTrigger;
@@ -83,7 +88,7 @@ export const DatePickerInput: Component<DatePickerPrimitive.InputProps> = (props
   return (
     <DatePickerPrimitive.Input
       class={cn(
-        'h-9 px-3 py-2 text-sm file:text-sm file:font-medium flex w-full rounded-md border border-input bg-background ring-offset-background file:border-0 file:bg-transparent placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        'h-9 px-3 py-2 text-sm file:text-sm file:font-medium flex w-full rounded-lg border border-input bg-background shadow-sm transition-colors file:border-0 file:bg-transparent placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50',
         local.class,
       )}
       {...others}
@@ -117,7 +122,7 @@ export const DatePickerContent: Component<DatePickerPrimitive.ContentProps> = (p
   return (
     <DatePickerPrimitive.Content
       class={cn(
-        'p-3 shadow-md rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+        'w-[280px] p-3 shadow-md rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         local.class,
       )}
       {...others}
@@ -183,7 +188,7 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <DatePickerPrimitive.ViewControl
-      class={cn('pt-1 mb-4 relative flex items-center justify-center', local.class)}
+      class={cn('pt-1 mb-4 relative flex items-center justify-center px-8', local.class)}
       {...others}
     >
       <DatePickerPrevTrigger />
@@ -230,7 +235,7 @@ export const DatePickerDayView: Component = () => (
                   <For each={week}>
                     {(day) => (
                       <DatePickerTableCell value={day}>
-                        <DatePickerTableCellTrigger />
+                        <DatePickerTableCellTrigger>{day.day}</DatePickerTableCellTrigger>
                       </DatePickerTableCell>
                     )}
                   </For>
@@ -253,10 +258,10 @@ export const DatePickerMonthView: Component = () => (
           {(api) => (
             <For each={api().getMonthsGrid({ columns: 4, format: 'short' })}>
               {(months) => (
-                <DatePickerTableRow>
+                <DatePickerTableRow class='w-full gap-2'>
                   <For each={months}>
                     {(month) => (
-                      <DatePickerTableCell value={month.value}>
+                      <DatePickerTableCell value={month.value} class='flex-1'>
                         <DatePickerTableCellTrigger class='w-full'>
                           {month.label}
                         </DatePickerTableCellTrigger>
@@ -282,10 +287,10 @@ export const DatePickerYearView: Component = () => (
           {(api) => (
             <For each={api().getYearsGrid({ columns: 4 })}>
               {(years) => (
-                <DatePickerTableRow>
+                <DatePickerTableRow class='w-full gap-2'>
                   <For each={years}>
                     {(year) => (
-                      <DatePickerTableCell value={year.value}>
+                      <DatePickerTableCell value={year.value} class='flex-1'>
                         <DatePickerTableCellTrigger class='w-full'>
                           {year.label}
                         </DatePickerTableCellTrigger>
