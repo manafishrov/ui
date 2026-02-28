@@ -1,4 +1,4 @@
-import MdOutlineView_sidebar from '@icons/ic/outline-view-sidebar';
+import OutlineViewSidebarIcon from '~icons/ic/outline-view-sidebar';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -33,7 +33,7 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
       onClick={handleClick}
       {...others}
     >
-      <MdOutlineView_sidebar aria-hidden='true' />
+      <OutlineViewSidebarIcon aria-hidden='true' />
     </Button>
   );
 };

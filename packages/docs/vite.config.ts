@@ -26,7 +26,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@icons': '~icons',
       '@': path.resolve(__dirname, 'src'),
     },
     dedupe: ['solid-js', '@tanstack/solid-router', '@tanstack/solid-form', 'tailwindcss'],

@@ -1,5 +1,5 @@
-import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
-import MdOutlineMore_horiz from '@icons/ic/outline-more-horiz';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
 import { Link, type LinkProps } from '@tanstack/solid-router';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
@@ -73,7 +73,7 @@ export const BreadcrumbSeparator: Component<ComponentProps<'li'>> = (props) => {
       class={cn('[&>svg]:size-4.5', local.class)}
       {...others}
     >
-      {local.children ?? <MdOutlineChevron_right />}
+      {local.children ?? <OutlineChevronRightIcon />}
     </li>
   );
 };
@@ -89,7 +89,7 @@ export const BreadcrumbEllipsis: Component<ComponentProps<'span'>> = (props) => 
       class={cn('size-6 relative flex items-center justify-center', local.class)}
       {...others}
     >
-      <MdOutlineMore_horiz class='size-5' />
+      <OutlineMoreHorizIcon class='size-5' />
       <span class='sr-only'>{messages.ui_common_more()}</span>
     </span>
   );

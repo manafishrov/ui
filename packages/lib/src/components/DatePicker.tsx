@@ -1,7 +1,7 @@
 import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
-import MdOutlineCalendar_month from '@icons/ic/outline-calendar-month';
-import MdOutlineChevron_left from '@icons/ic/outline-chevron-left';
-import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
+import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
+import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 import { type Component, For, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -107,7 +107,7 @@ export const DatePickerTrigger: Component<DatePickerPrimitive.TriggerProps> = (p
       )}
       {...others}
     >
-      {local.children ?? <MdOutlineCalendar_month class='size-4' />}
+      {local.children ?? <OutlineCalendarMonthIcon class='size-4' />}
     </DatePickerPrimitive.Trigger>
   );
 };
@@ -141,7 +141,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <MdOutlineChevron_left class='size-4' />}
+      {local.children ?? <OutlineChevronLeftIcon class='size-4' />}
     </DatePickerPrimitive.PrevTrigger>
   );
 };
@@ -157,7 +157,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <MdOutlineChevron_right class='size-4' />}
+      {local.children ?? <OutlineChevronRightIcon class='size-4' />}
     </DatePickerPrimitive.NextTrigger>
   );
 };

@@ -1,7 +1,7 @@
 import { Select as SelectPrimitive } from '@ark-ui/solid/select';
-import MdOutlineCheck from '@icons/ic/outline-check';
-import MdOutlineClose from '@icons/ic/outline-close';
-import MdOutlineUnfold_more from '@icons/ic/outline-unfold-more';
+import OutlineCheckIcon from '~icons/ic/outline-check';
+import OutlineCloseIcon from '~icons/ic/outline-close';
+import OutlineUnfoldMoreIcon from '~icons/ic/outline-unfold-more';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -82,7 +82,7 @@ export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <SelectPrimitive.Indicator class={cn(local.class)} {...others}>
-      {local.children ?? <MdOutlineUnfold_more class='size-4 text-muted-foreground' />}
+      {local.children ?? <OutlineUnfoldMoreIcon class='size-4 text-muted-foreground' />}
     </SelectPrimitive.Indicator>
   );
 };
@@ -94,7 +94,7 @@ export const SelectClearTrigger: Component<SelectPrimitive.ClearTriggerProps> = 
       class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
-      {local.children ?? <MdOutlineClose class='size-3.5' />}
+      {local.children ?? <OutlineCloseIcon class='size-3.5' />}
     </SelectPrimitive.ClearTrigger>
   );
 };
@@ -144,7 +144,7 @@ export const SelectItem: Component<SelectPrimitive.ItemProps> = (props) => {
         {local.children}
       </SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator class='right-2 size-4 pointer-events-none absolute flex items-center justify-center'>
-        <MdOutlineCheck class='pointer-events-none' />
+        <OutlineCheckIcon class='pointer-events-none' />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   );

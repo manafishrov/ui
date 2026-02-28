@@ -1,5 +1,5 @@
 import { Dialog as DialogPrimitive } from '@ark-ui/solid/dialog';
-import MdOutlineClose from '@icons/ic/outline-close';
+import OutlineCloseIcon from '~icons/ic/outline-close';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -69,7 +69,7 @@ export const DialogCloseButton: Component<DialogPrimitive.CloseTriggerProps> = (
           {...triggerProps()}
           {...others}
         >
-          <MdOutlineClose aria-hidden='true' />
+          <OutlineCloseIcon aria-hidden='true' />
         </Button>
       )}
     />

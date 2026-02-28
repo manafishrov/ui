@@ -4,7 +4,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@icons/*": ["~icons/*"],
       "@/*": ["./src/*"]
     },
     "types": ["vite/client", "unplugin-icons/types/solid"]

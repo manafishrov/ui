@@ -1,5 +1,5 @@
 import { HoverCard as HoverCardPrimitive } from '@ark-ui/solid/hover-card';
-import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -60,7 +60,7 @@ export const NavigationMenuTrigger: Component<HoverCardPrimitive.TriggerProps> =
       {...others}
     >
       {local.children}{' '}
-      <MdOutlineExpand_more
+      <OutlineExpandMoreIcon
         class='ml-1 size-3 relative top-px transition duration-300 group-data-[state=open]:rotate-180'
         aria-hidden='true'
       />

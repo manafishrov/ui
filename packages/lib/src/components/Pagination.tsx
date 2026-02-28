@@ -1,7 +1,7 @@
 import { Pagination as PaginationPrimitive } from '@ark-ui/solid/pagination';
-import MdOutlineChevron_left from '@icons/ic/outline-chevron-left';
-import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
-import MdOutlineMore_horiz from '@icons/ic/outline-more-horiz';
+import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -75,7 +75,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
     >
       {local.children ?? (
         <>
-          <MdOutlineChevron_left />
+          <OutlineChevronLeftIcon />
           <span>{messages.ui_pagination_previous()}</span>
         </>
       )}
@@ -102,7 +102,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
       {local.children ?? (
         <>
           <span>{messages.ui_pagination_next()}</span>
-          <MdOutlineChevron_right />
+          <OutlineChevronRightIcon />
         </>
       )}
     </PaginationPrimitive.NextTrigger>
@@ -118,7 +118,7 @@ export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = 
       data-slot='pagination-ellipsis'
       class={cn('h-9 w-9 flex items-center justify-center', local.class)}
     >
-      <MdOutlineMore_horiz class='size-4' />
+      <OutlineMoreHorizIcon class='size-4' />
       <span class='sr-only'>{messages.ui_pagination_more()}</span>
     </PaginationPrimitive.Ellipsis>
   );

@@ -1,6 +1,6 @@
 import { NumberInput as PrimitiveNumberInput } from '@ark-ui/solid/number-input';
-import MdOutlineExpand_less from '@icons/ic/outline-expand-less';
-import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
+import OutlineExpandLessIcon from '~icons/ic/outline-expand-less';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -104,7 +104,7 @@ export const NumberInputIncrementTrigger: Component<PrimitiveNumberInput.Increme
       )}
       {...others}
     >
-      {local.children ?? <MdOutlineExpand_less class='size-3.5' />}
+      {local.children ?? <OutlineExpandLessIcon class='size-3.5' />}
     </PrimitiveNumberInput.IncrementTrigger>
   );
 };
@@ -122,7 +122,7 @@ export const NumberInputDecrementTrigger: Component<PrimitiveNumberInput.Decreme
       )}
       {...others}
     >
-      {local.children ?? <MdOutlineExpand_more class='size-3.5' />}
+      {local.children ?? <OutlineExpandMoreIcon class='size-3.5' />}
     </PrimitiveNumberInput.DecrementTrigger>
   );
 };

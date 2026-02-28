@@ -8,7 +8,6 @@ import solid from 'vite-plugin-solid';
 export default defineConfig({
   resolve: {
     alias: {
-      '@icons': '~icons',
       '@': path.resolve(__dirname, 'src'),
     },
   },

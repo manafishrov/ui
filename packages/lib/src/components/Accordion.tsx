@@ -1,5 +1,5 @@
 import { Accordion as AccordionPrimitive, useAccordion } from '@ark-ui/solid/accordion';
-import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -57,7 +57,7 @@ export const AccordionIndicator: Component<AccordionPrimitive.ItemIndicatorProps
       )}
       {...others}
     >
-      <MdOutlineExpand_more aria-hidden='true' class='size-full' />
+      <OutlineExpandMoreIcon aria-hidden='true' class='size-full' />
     </AccordionPrimitive.ItemIndicator>
   );
 };

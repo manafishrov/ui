@@ -1,9 +1,9 @@
 import type { CollectionItem } from '@ark-ui/solid/combobox';
 
-import { Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
-import MdOutlineCheck from '@icons/ic/outline-check';
-import MdOutlineClose from '@icons/ic/outline-close';
-import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
+import { useComboboxContext, Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
+import OutlineCheckIcon from '~icons/ic/outline-check';
+import OutlineCloseIcon from '~icons/ic/outline-close';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 import { type Component, type ComponentProps, Show, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -44,6 +44,7 @@ export const ComboboxLabel: Component<ComboboxPrimitive.LabelProps> = (props) =>
 
 export const ComboboxControl: Component<ComboboxPrimitive.ControlProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
+
   return (
     <ComboboxPrimitive.Control
       data-slot='combobox-control'
@@ -61,7 +62,40 @@ export const ComboboxControl: Component<ComboboxPrimitive.ControlProps> = (props
 };
 
 export const ComboboxInput: Component<ComboboxPrimitive.InputProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'onKeyDown']);
+  const context = useComboboxContext();
+
+  let isRemoving = false;
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (
+      e.key === 'Backspace' &&
+      (e.target as HTMLInputElement).value === '' &&
+      context().value.length > 0 &&
+      !isRemoving
+    ) {
+      isRemoving = true;
+      e.preventDefault();
+
+      // Request an animation frame so that Reactivity can finish any ongoing updates
+      // and we don't accidentally pop multiple values while state is unstable.
+      requestAnimationFrame(() => {
+        const val = context().value;
+        context().setValue(val.slice(0, -1));
+
+        setTimeout(() => {
+          isRemoving = false;
+        }, 50);
+      });
+    }
+
+    if (typeof local.onKeyDown === 'function') {
+      local.onKeyDown(e as any);
+    } else if (Array.isArray(local.onKeyDown)) {
+      local.onKeyDown[0](local.onKeyDown[1], e as any);
+    }
+  };
+
   return (
     <ComboboxPrimitive.Input
       data-slot='combobox-input'
@@ -69,6 +103,7 @@ export const ComboboxInput: Component<ComboboxPrimitive.InputProps> = (props) =>
         'min-w-16 flex-1 bg-transparent outline-none placeholder:text-muted-foreground group-has-data-[slot=combobox-tag]:placeholder:text-transparent',
         local.class,
       )}
+      onKeyDown={handleKeyDown}
       {...others}
     />
   );
@@ -82,11 +117,10 @@ export const ComboboxTrigger: Component<ComboboxPrimitive.TriggerProps> = (props
       class={cn('text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
-      {local.children ?? <MdOutlineExpand_more class='size-4' />}
+      {local.children ?? <OutlineExpandMoreIcon class='size-4' />}
     </ComboboxPrimitive.Trigger>
   );
 };
-
 export const ComboboxClearTrigger: Component<ComboboxPrimitive.ClearTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
@@ -95,7 +129,7 @@ export const ComboboxClearTrigger: Component<ComboboxPrimitive.ClearTriggerProps
       class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
-      {local.children ?? <MdOutlineClose class='size-3.5' />}
+      {local.children ?? <OutlineCloseIcon class='size-3.5' />}
     </ComboboxPrimitive.ClearTrigger>
   );
 };
@@ -134,7 +168,7 @@ export const ComboboxItem: Component<ComboboxPrimitive.ItemProps> = (props) => {
         {local.children}
       </ComboboxPrimitive.ItemText>
       <ComboboxPrimitive.ItemIndicator class='right-2 size-4 pointer-events-none absolute flex items-center justify-center'>
-        <MdOutlineCheck class='pointer-events-none' />
+        <OutlineCheckIcon class='pointer-events-none' />
       </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
   );
@@ -211,7 +245,7 @@ export const ComboboxTag: Component<
               local.onRemove?.();
             }}
           >
-            <MdOutlineClose class='size-3 pointer-events-none' />
+            <OutlineCloseIcon class='size-3 pointer-events-none' />
           </button>
         </div>
       </Show>

@@ -1,6 +1,6 @@
 import { Menu as MenuPrimitive } from '@ark-ui/solid/menu';
-import MdOutlineCheck from '@icons/ic/outline-check';
-import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
+import OutlineCheckIcon from '~icons/ic/outline-check';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -61,7 +61,7 @@ export const MenuTriggerItem: Component<MenuPrimitive.TriggerItemProps> = (props
       {...others}
     >
       {local.children}
-      <MdOutlineChevron_right class='size-4 ml-auto' />
+      <OutlineChevronRightIcon class='size-4 ml-auto' />
     </MenuPrimitive.TriggerItem>
   );
 };
@@ -96,7 +96,7 @@ export const MenuItemIndicator: Component<MenuPrimitive.ItemIndicatorProps> = (p
       class={cn('right-2 size-3.5 absolute flex items-center justify-center', local.class)}
       {...others}
     >
-      {local.children ?? <MdOutlineCheck class='size-4' />}
+      {local.children ?? <OutlineCheckIcon class='size-4' />}
     </MenuPrimitive.ItemIndicator>
   );
 };
@@ -113,7 +113,7 @@ export const MenuCheckboxItem: Component<MenuPrimitive.CheckboxItemProps> = (pro
       {...others}
     >
       <MenuPrimitive.ItemIndicator class='left-2 size-3.5 absolute flex items-center justify-center'>
-        <MdOutlineCheck class='size-4' />
+        <OutlineCheckIcon class='size-4' />
       </MenuPrimitive.ItemIndicator>
       <MenuPrimitive.ItemText>{local.children}</MenuPrimitive.ItemText>
     </MenuPrimitive.CheckboxItem>
