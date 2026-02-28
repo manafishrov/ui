@@ -1,12 +1,18 @@
 import {
-  Slider,
-  SliderLabel,
-  SliderControl,
-  SliderTrack,
-  SliderRange,
-  SliderThumb,
-  SliderMarkerGroup,
+Slider,
+SliderLabel,
+SliderControl,
+SliderTrack,
+SliderRange,
+SliderThumb,
+SliderMarkerGroup,
   SliderMarker,
+  SliderValueText,
+  SliderCircle,
+  SliderCircleTrack,
+  SliderCircleThumb,
+  SliderCircleMarkerGroup,
+  SliderCircleMarker,
 } from '@manafishrov/ui/slider';
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
@@ -62,6 +68,22 @@ const SliderDocPage: Component = () => (
           </For>
         </SliderMarkerGroup>
       </Slider>
+    </div>
+
+    <div class='space-y-4'>
+      <H2 class='pb-0 border-none'>{m.docs_example_circular()}</H2>
+      <SliderCircle defaultValue={45}>
+        <SliderLabel>Rotation</SliderLabel>
+        <SliderCircleTrack>
+          <SliderCircleMarkerGroup>
+            <For each={[0, 45, 90, 135, 180, 225, 270, 315]}>
+              {(value) => <SliderCircleMarker value={value} />}
+            </For>
+          </SliderCircleMarkerGroup>
+          <SliderCircleThumb />
+        </SliderCircleTrack>
+        <SliderValueText />
+      </SliderCircle>
     </div>
   </div>
 );

@@ -20,11 +20,6 @@ const components = [
     descriptionKey: 'docs_component_alert_dialog_description',
   },
   {
-    name: 'Angle Slider',
-    to: '/components/angle-slider',
-    descriptionKey: 'docs_component_angle_slider_description',
-  },
-  {
     name: 'Aspect Ratio',
     to: '/components/aspect-ratio',
     descriptionKey: 'docs_component_aspect_ratio_description',

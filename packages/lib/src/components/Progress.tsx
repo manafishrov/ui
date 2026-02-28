@@ -6,14 +6,18 @@ export const ProgressView = ProgressPrimitive.View;
 export const ProgressContext = ProgressPrimitive.Context;
 
 export const ProgressCircle: Component<ProgressPrimitive.CircleProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Circle
-      class={cn('h-10 w-10 text-primary', local.class)}
+      class={cn(
+        'size-10 text-primary shrink-0',
+        '[--size:100%] [--thickness:4px]',
+        local.class,
+      )}
       data-slot='progress-circle'
       {...others}
     >
-      {props.children}
+      {local.children}
     </ProgressPrimitive.Circle>
   );
 };
@@ -94,7 +98,9 @@ export const ProgressLabel: Component<ProgressPrimitive.LabelProps> = (props) =>
         local.class,
       )}
       {...others}
-    />
+    >
+      {local.children}
+    </ProgressPrimitive.Label>
   );
 };
 

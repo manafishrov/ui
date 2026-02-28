@@ -58,7 +58,6 @@ import { Route as ComponentsBreadcrumbRouteImport } from './routes/components.br
 import { Route as ComponentsBadgeRouteImport } from './routes/components.badge'
 import { Route as ComponentsAvatarRouteImport } from './routes/components.avatar'
 import { Route as ComponentsAspectRatioRouteImport } from './routes/components.aspect-ratio'
-import { Route as ComponentsAngleSliderRouteImport } from './routes/components.angle-slider'
 import { Route as ComponentsAlertDialogRouteImport } from './routes/components.alert-dialog'
 import { Route as ComponentsAccordionRouteImport } from './routes/components.accordion'
 
@@ -308,11 +307,6 @@ const ComponentsAspectRatioRoute = ComponentsAspectRatioRouteImport.update({
   path: '/components/aspect-ratio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ComponentsAngleSliderRoute = ComponentsAngleSliderRouteImport.update({
-  id: '/components/angle-slider',
-  path: '/components/angle-slider',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ComponentsAlertDialogRoute = ComponentsAlertDialogRouteImport.update({
   id: '/components/alert-dialog',
   path: '/components/alert-dialog',
@@ -328,7 +322,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/components/accordion': typeof ComponentsAccordionRoute
   '/components/alert-dialog': typeof ComponentsAlertDialogRoute
-  '/components/angle-slider': typeof ComponentsAngleSliderRoute
   '/components/aspect-ratio': typeof ComponentsAspectRatioRoute
   '/components/avatar': typeof ComponentsAvatarRoute
   '/components/badge': typeof ComponentsBadgeRoute
@@ -382,7 +375,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/components/accordion': typeof ComponentsAccordionRoute
   '/components/alert-dialog': typeof ComponentsAlertDialogRoute
-  '/components/angle-slider': typeof ComponentsAngleSliderRoute
   '/components/aspect-ratio': typeof ComponentsAspectRatioRoute
   '/components/avatar': typeof ComponentsAvatarRoute
   '/components/badge': typeof ComponentsBadgeRoute
@@ -437,7 +429,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/components/accordion': typeof ComponentsAccordionRoute
   '/components/alert-dialog': typeof ComponentsAlertDialogRoute
-  '/components/angle-slider': typeof ComponentsAngleSliderRoute
   '/components/aspect-ratio': typeof ComponentsAspectRatioRoute
   '/components/avatar': typeof ComponentsAvatarRoute
   '/components/badge': typeof ComponentsBadgeRoute
@@ -493,7 +484,6 @@ export interface FileRouteTypes {
     | '/'
     | '/components/accordion'
     | '/components/alert-dialog'
-    | '/components/angle-slider'
     | '/components/aspect-ratio'
     | '/components/avatar'
     | '/components/badge'
@@ -547,7 +537,6 @@ export interface FileRouteTypes {
     | '/'
     | '/components/accordion'
     | '/components/alert-dialog'
-    | '/components/angle-slider'
     | '/components/aspect-ratio'
     | '/components/avatar'
     | '/components/badge'
@@ -601,7 +590,6 @@ export interface FileRouteTypes {
     | '/'
     | '/components/accordion'
     | '/components/alert-dialog'
-    | '/components/angle-slider'
     | '/components/aspect-ratio'
     | '/components/avatar'
     | '/components/badge'
@@ -656,7 +644,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComponentsAccordionRoute: typeof ComponentsAccordionRoute
   ComponentsAlertDialogRoute: typeof ComponentsAlertDialogRoute
-  ComponentsAngleSliderRoute: typeof ComponentsAngleSliderRoute
   ComponentsAspectRatioRoute: typeof ComponentsAspectRatioRoute
   ComponentsAvatarRoute: typeof ComponentsAvatarRoute
   ComponentsBadgeRoute: typeof ComponentsBadgeRoute
@@ -1052,13 +1039,6 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof ComponentsAspectRatioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/components/angle-slider': {
-      id: '/components/angle-slider'
-      path: '/components/angle-slider'
-      fullPath: '/components/angle-slider'
-      preLoaderRoute: typeof ComponentsAngleSliderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/components/alert-dialog': {
       id: '/components/alert-dialog'
       path: '/components/alert-dialog'
@@ -1080,7 +1060,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComponentsAccordionRoute: ComponentsAccordionRoute,
   ComponentsAlertDialogRoute: ComponentsAlertDialogRoute,
-  ComponentsAngleSliderRoute: ComponentsAngleSliderRoute,
   ComponentsAspectRatioRoute: ComponentsAspectRatioRoute,
   ComponentsAvatarRoute: ComponentsAvatarRoute,
   ComponentsBadgeRoute: ComponentsBadgeRoute,

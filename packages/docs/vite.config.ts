@@ -32,7 +32,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      '@zag-js/dom-query': '@zag-js/dom-query/dist/index.mjs',
     },
     dedupe: ['solid-js', '@tanstack/solid-router', '@tanstack/solid-form', 'tailwindcss'],
   },

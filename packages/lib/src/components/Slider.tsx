@@ -1,3 +1,4 @@
+import { AngleSlider as AngleSliderPrimitive } from '@ark-ui/solid/angle-slider';
 import { Slider as SliderPrimitive } from '@ark-ui/solid/slider';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
@@ -87,7 +88,7 @@ export const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => {
     <SliderPrimitive.Thumb
       data-slot='slider-thumb'
       class={cn(
-        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 data-focus-visible:ring-[3px] hover:ring-[3px]',
+        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute hover:ring-[3px] focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 data-focus-visible:ring-[3px]',
         local.class,
       )}
       {...others}
@@ -113,5 +114,100 @@ export const SliderMarker: Component<SliderPrimitive.MarkerProps> = (props) => {
       )}
       {...others}
     />
+  );
+};
+
+export const SliderCircle: Component<AngleSliderPrimitive.RootProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <AngleSliderPrimitive.Root
+      class={cn('gap-4 flex flex-col items-center', local.class)}
+      data-slot='slider-circle'
+      {...others}
+    >
+      {local.children}
+    </AngleSliderPrimitive.Root>
+  );
+};
+
+export const SliderCircleTrack: Component<AngleSliderPrimitive.ControlProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <AngleSliderPrimitive.Control
+      class={cn(
+        'size-24 relative flex items-center justify-center rounded-full bg-muted select-none data-disabled:opacity-50 data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
+        local.class,
+      )}
+      data-slot='slider-circle-track'
+      {...others}
+    />
+  );
+};
+
+export const SliderCircleRange: Component<AngleSliderPrimitive.ThumbProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <AngleSliderPrimitive.Thumb
+      class={cn(
+        'top-0 bottom-0 w-0.5 absolute left-1/2 -translate-x-1/2 outline-none',
+        'after:w-1 after:h-10 after:absolute after:bottom-1/2 after:left-1/2 after:-translate-x-1/2 after:rounded-full after:bg-primary',
+        'data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
+        local.class,
+      )}
+      data-slot='slider-circle-range'
+      {...others}
+    >
+      {local.children}
+    </AngleSliderPrimitive.Thumb>
+  );
+};
+
+export const SliderCircleThumb: Component<AngleSliderPrimitive.ThumbProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <AngleSliderPrimitive.Thumb
+      class={cn(
+        'top-0 bottom-0 w-0.5 absolute left-1/2 -translate-x-1/2 outline-none',
+        'before:top-1 before:size-4 before:bg-white before:shadow-sm before:absolute before:left-1/2 before:-translate-x-1/2 before:rounded-full before:border before:border-ring before:transition-[color,box-shadow] before:data-active:ring-[3px] before:data-active:ring-ring/50',
+        'data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
+        local.class,
+      )}
+data-slot='slider-circle-thumb'
+{...others}
+>
+{local.children}
+<AngleSliderPrimitive.HiddenInput />
+</AngleSliderPrimitive.Thumb>
+);
+};
+
+export const SliderCircleMarkerGroup: Component<AngleSliderPrimitive.MarkerGroupProps> = (
+  props,
+) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <AngleSliderPrimitive.MarkerGroup
+      class={cn('inset-0 pointer-events-none absolute rounded-full', local.class)}
+      {...others}
+    >
+      {local.children}
+    </AngleSliderPrimitive.MarkerGroup>
+  );
+};
+
+export const SliderCircleMarker: Component<AngleSliderPrimitive.MarkerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <AngleSliderPrimitive.Marker
+      class={cn(
+        'top-0 bottom-0 w-0.5 absolute left-1/2 -translate-x-1/2',
+        'before:top-2 before:w-0.5 before:h-1.5 before:absolute before:left-1/2 before:-translate-x-1/2 before:rounded-full before:bg-border',
+        'data-[state=at-value]:before:bg-primary data-[state=under-value]:before:bg-primary/50',
+        local.class,
+      )}
+      {...others}
+    >
+      {local.children}
+    </AngleSliderPrimitive.Marker>
   );
 };

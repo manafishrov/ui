@@ -24,10 +24,6 @@
       "types": "./dist/components/AlertDialog.d.ts",
       "import": "./dist/components/AlertDialog.js"
     },
-    "./angle-slider": {
-      "types": "./dist/components/AngleSlider.d.ts",
-      "import": "./dist/components/AngleSlider.js"
-    },
     "./aspect-ratio": {
       "types": "./dist/components/AspectRatio.d.ts",
       "import": "./dist/components/AspectRatio.js"
