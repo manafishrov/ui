@@ -4,6 +4,7 @@ import { cn, tv, type VariantProps } from 'tailwind-variants';
 import { Button } from '@/components/Button';
 
 export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
 
   return (
     <div

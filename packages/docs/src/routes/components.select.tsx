@@ -47,7 +47,7 @@ const SelectDocPage: Component = () => (
               asChild={(props) => (
                 <Button variant='outline' class='w-[200px] justify-between' {...props()}>
                   <SelectValue placeholder='Select a framework' />
-                  <SelectIndicator>▼</SelectIndicator>
+                  <SelectIndicator />
                 </Button>
               )}
             />

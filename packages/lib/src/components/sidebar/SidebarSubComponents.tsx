@@ -5,6 +5,8 @@ import { cn } from 'tailwind-variants';
 import { Button } from '@/components/Button';
 
 import { Separator } from '@/components/Separator';
+
+import { ScrollArea } from '@/components/ScrollArea';
 import * as messages from '@/paraglide/messages';
 
 import { useSidebar } from './context';
@@ -79,7 +81,7 @@ export const SidebarInset: Component<ComponentProps<'main'>> = (props) => {
   );
 };
 
-export const SidebarInput: Component<ComponentProps<typeof Input>> = (props) => {
+export const SidebarInput: Component<ComponentProps<'input'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
       <input
@@ -92,7 +94,8 @@ export const SidebarInput: Component<ComponentProps<typeof Input>> = (props) => 
           local.class
         )}
         {...others}
-      />
+    />
+  );
 };
 
 export const SidebarHeader: Component<ComponentProps<'div'>> = (props) => {

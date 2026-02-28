@@ -3,7 +3,6 @@ import { MdOutlineExpand_less, MdOutlineExpand_more } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-
 export const NumberInputContext = PrimitiveNumberInput.Context;
 
 export const NumberInput: Component<PrimitiveNumberInput.RootProps> = (props) => {
@@ -20,9 +19,13 @@ export const NumberInputLabel: Component<PrimitiveNumberInput.LabelProps> = (pro
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveNumberInput.Label
-      class={cn('gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50', local.class)}
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
+      )}
       {...others}
-    />)
+    />
+  );
 };
 
 export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = (props) => {
@@ -55,7 +58,6 @@ export const NumberInputInput: Component<PrimitiveNumberInput.InputProps> = (pro
         local.class,
       )}
       {...others}
-    />
     />
   );
 };

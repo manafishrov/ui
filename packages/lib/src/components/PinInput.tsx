@@ -68,7 +68,6 @@ export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) =>
       )}
       {...others}
     />
-    />
   );
 };
 

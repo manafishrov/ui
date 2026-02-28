@@ -84,10 +84,6 @@
       "types": "./dist/components/HoverCard.d.ts",
       "import": "./dist/components/HoverCard.js"
     },
-    "./input": {
-      "types": "./dist/components/Input.d.ts",
-      "import": "./dist/components/Input.js"
-    },
     "./item": {
       "types": "./dist/components/Item.d.ts",
       "import": "./dist/components/Item.js"
@@ -95,10 +91,6 @@
     "./kbd": {
       "types": "./dist/components/Kbd.d.ts",
       "import": "./dist/components/Kbd.js"
-    },
-    "./label": {
-      "types": "./dist/components/Label.d.ts",
-      "import": "./dist/components/Label.js"
     },
     "./link": {
       "types": "./dist/components/Link.d.ts",
@@ -191,10 +183,6 @@
     "./text-input": {
       "types": "./dist/components/TextInput.d.ts",
       "import": "./dist/components/TextInput.js"
-    },
-    "./textarea": {
-      "types": "./dist/components/Textarea.d.ts",
-      "import": "./dist/components/Textarea.js"
     },
     "./toggle": {
       "types": "./dist/components/Toggle.d.ts",
