@@ -71,5 +71,6 @@
   "docs_example_custom": "Tilpasset",
   "docs_example_states": "Tilstander",
   "docs_example_linear": "Lineær",
-  "docs_example_circular": "Sirkulær"
+  "docs_example_circular": "Sirkulær",
+  "docs_component_sidebar_description": "En sammenleggbar sidefelt med menyer, grupper, overskrifter og bunntekster."
 }

@@ -76,6 +76,10 @@
       "types": "./dist/components/Empty.d.ts",
       "import": "./dist/components/Empty.js"
     },
+    "./form": {
+      "types": "./dist/components/form/index.d.ts",
+      "import": "./dist/components/form/index.js"
+    },
     "./field": {
       "types": "./dist/components/Field.d.ts",
       "import": "./dist/components/Field.js"

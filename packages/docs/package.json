@@ -8,7 +8,9 @@
     "@manafishrov/ui": "workspace:*",
     "@tailwindcss/vite": "4.2.0",
     "@tanstack/router-plugin": "1.162.1",
+    "@tanstack/solid-form": "^1.28.3",
     "@tanstack/solid-router": "1.162.1",
+    "solid-icons": "^1.2.0",
     "solid-js": "1.9.0",
     "tailwindcss": "4.2.0"
   },

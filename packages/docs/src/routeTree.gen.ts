@@ -23,6 +23,7 @@ import { Route as ComponentsSwitchRouteImport } from './routes/components.switch
 import { Route as ComponentsSpinnerRouteImport } from './routes/components.spinner'
 import { Route as ComponentsSliderRouteImport } from './routes/components.slider'
 import { Route as ComponentsSkeletonRouteImport } from './routes/components.skeleton'
+import { Route as ComponentsSidebarRouteImport } from './routes/components.sidebar'
 import { Route as ComponentsSheetRouteImport } from './routes/components.sheet'
 import { Route as ComponentsSeparatorRouteImport } from './routes/components.separator'
 import { Route as ComponentsSelectRouteImport } from './routes/components.select'
@@ -41,6 +42,7 @@ import { Route as ComponentsLinkRouteImport } from './routes/components.link'
 import { Route as ComponentsKbdRouteImport } from './routes/components.kbd'
 import { Route as ComponentsItemRouteImport } from './routes/components.item'
 import { Route as ComponentsHoverCardRouteImport } from './routes/components.hover-card'
+import { Route as ComponentsFormRouteImport } from './routes/components.form'
 import { Route as ComponentsFieldRouteImport } from './routes/components.field'
 import { Route as ComponentsEmptyRouteImport } from './routes/components.empty'
 import { Route as ComponentsDialogRouteImport } from './routes/components.dialog'
@@ -126,6 +128,11 @@ const ComponentsSliderRoute = ComponentsSliderRouteImport.update({
 const ComponentsSkeletonRoute = ComponentsSkeletonRouteImport.update({
   id: '/components/skeleton',
   path: '/components/skeleton',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSidebarRoute = ComponentsSidebarRouteImport.update({
+  id: '/components/sidebar',
+  path: '/components/sidebar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsSheetRoute = ComponentsSheetRouteImport.update({
@@ -217,6 +224,11 @@ const ComponentsItemRoute = ComponentsItemRouteImport.update({
 const ComponentsHoverCardRoute = ComponentsHoverCardRouteImport.update({
   id: '/components/hover-card',
   path: '/components/hover-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsFormRoute = ComponentsFormRouteImport.update({
+  id: '/components/form',
+  path: '/components/form',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsFieldRoute = ComponentsFieldRouteImport.update({
@@ -318,6 +330,7 @@ export interface FileRoutesByFullPath {
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/empty': typeof ComponentsEmptyRoute
   '/components/field': typeof ComponentsFieldRoute
+  '/components/form': typeof ComponentsFormRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
@@ -336,6 +349,7 @@ export interface FileRoutesByFullPath {
   '/components/select': typeof ComponentsSelectRoute
   '/components/separator': typeof ComponentsSeparatorRoute
   '/components/sheet': typeof ComponentsSheetRoute
+  '/components/sidebar': typeof ComponentsSidebarRoute
   '/components/skeleton': typeof ComponentsSkeletonRoute
   '/components/slider': typeof ComponentsSliderRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
@@ -368,6 +382,7 @@ export interface FileRoutesByTo {
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/empty': typeof ComponentsEmptyRoute
   '/components/field': typeof ComponentsFieldRoute
+  '/components/form': typeof ComponentsFormRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
@@ -386,6 +401,7 @@ export interface FileRoutesByTo {
   '/components/select': typeof ComponentsSelectRoute
   '/components/separator': typeof ComponentsSeparatorRoute
   '/components/sheet': typeof ComponentsSheetRoute
+  '/components/sidebar': typeof ComponentsSidebarRoute
   '/components/skeleton': typeof ComponentsSkeletonRoute
   '/components/slider': typeof ComponentsSliderRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
@@ -419,6 +435,7 @@ export interface FileRoutesById {
   '/components/dialog': typeof ComponentsDialogRoute
   '/components/empty': typeof ComponentsEmptyRoute
   '/components/field': typeof ComponentsFieldRoute
+  '/components/form': typeof ComponentsFormRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
@@ -437,6 +454,7 @@ export interface FileRoutesById {
   '/components/select': typeof ComponentsSelectRoute
   '/components/separator': typeof ComponentsSeparatorRoute
   '/components/sheet': typeof ComponentsSheetRoute
+  '/components/sidebar': typeof ComponentsSidebarRoute
   '/components/skeleton': typeof ComponentsSkeletonRoute
   '/components/slider': typeof ComponentsSliderRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
@@ -471,6 +489,7 @@ export interface FileRouteTypes {
     | '/components/dialog'
     | '/components/empty'
     | '/components/field'
+    | '/components/form'
     | '/components/hover-card'
     | '/components/item'
     | '/components/kbd'
@@ -489,6 +508,7 @@ export interface FileRouteTypes {
     | '/components/select'
     | '/components/separator'
     | '/components/sheet'
+    | '/components/sidebar'
     | '/components/skeleton'
     | '/components/slider'
     | '/components/spinner'
@@ -521,6 +541,7 @@ export interface FileRouteTypes {
     | '/components/dialog'
     | '/components/empty'
     | '/components/field'
+    | '/components/form'
     | '/components/hover-card'
     | '/components/item'
     | '/components/kbd'
@@ -539,6 +560,7 @@ export interface FileRouteTypes {
     | '/components/select'
     | '/components/separator'
     | '/components/sheet'
+    | '/components/sidebar'
     | '/components/skeleton'
     | '/components/slider'
     | '/components/spinner'
@@ -571,6 +593,7 @@ export interface FileRouteTypes {
     | '/components/dialog'
     | '/components/empty'
     | '/components/field'
+    | '/components/form'
     | '/components/hover-card'
     | '/components/item'
     | '/components/kbd'
@@ -589,6 +612,7 @@ export interface FileRouteTypes {
     | '/components/select'
     | '/components/separator'
     | '/components/sheet'
+    | '/components/sidebar'
     | '/components/skeleton'
     | '/components/slider'
     | '/components/spinner'
@@ -622,6 +646,7 @@ export interface RootRouteChildren {
   ComponentsDialogRoute: typeof ComponentsDialogRoute
   ComponentsEmptyRoute: typeof ComponentsEmptyRoute
   ComponentsFieldRoute: typeof ComponentsFieldRoute
+  ComponentsFormRoute: typeof ComponentsFormRoute
   ComponentsHoverCardRoute: typeof ComponentsHoverCardRoute
   ComponentsItemRoute: typeof ComponentsItemRoute
   ComponentsKbdRoute: typeof ComponentsKbdRoute
@@ -640,6 +665,7 @@ export interface RootRouteChildren {
   ComponentsSelectRoute: typeof ComponentsSelectRoute
   ComponentsSeparatorRoute: typeof ComponentsSeparatorRoute
   ComponentsSheetRoute: typeof ComponentsSheetRoute
+  ComponentsSidebarRoute: typeof ComponentsSidebarRoute
   ComponentsSkeletonRoute: typeof ComponentsSkeletonRoute
   ComponentsSliderRoute: typeof ComponentsSliderRoute
   ComponentsSpinnerRoute: typeof ComponentsSpinnerRoute
@@ -753,6 +779,13 @@ declare module '@tanstack/solid-router' {
       path: '/components/skeleton'
       fullPath: '/components/skeleton'
       preLoaderRoute: typeof ComponentsSkeletonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/sidebar': {
+      id: '/components/sidebar'
+      path: '/components/sidebar'
+      fullPath: '/components/sidebar'
+      preLoaderRoute: typeof ComponentsSidebarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/sheet': {
@@ -879,6 +912,13 @@ declare module '@tanstack/solid-router' {
       path: '/components/hover-card'
       fullPath: '/components/hover-card'
       preLoaderRoute: typeof ComponentsHoverCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/form': {
+      id: '/components/form'
+      path: '/components/form'
+      fullPath: '/components/form'
+      preLoaderRoute: typeof ComponentsFormRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/field': {
@@ -1014,6 +1054,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsDialogRoute: ComponentsDialogRoute,
   ComponentsEmptyRoute: ComponentsEmptyRoute,
   ComponentsFieldRoute: ComponentsFieldRoute,
+  ComponentsFormRoute: ComponentsFormRoute,
   ComponentsHoverCardRoute: ComponentsHoverCardRoute,
   ComponentsItemRoute: ComponentsItemRoute,
   ComponentsKbdRoute: ComponentsKbdRoute,
@@ -1032,6 +1073,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsSelectRoute: ComponentsSelectRoute,
   ComponentsSeparatorRoute: ComponentsSeparatorRoute,
   ComponentsSheetRoute: ComponentsSheetRoute,
+  ComponentsSidebarRoute: ComponentsSidebarRoute,
   ComponentsSkeletonRoute: ComponentsSkeletonRoute,
   ComponentsSliderRoute: ComponentsSliderRoute,
   ComponentsSpinnerRoute: ComponentsSpinnerRoute,

@@ -90,6 +90,11 @@ const components = [
     descriptionKey: 'docs_component_field_description',
   },
   {
+    name: 'Form',
+    to: '/components/form',
+    descriptionKey: 'docs_component_form_description',
+  },
+  {
     name: 'Hover Card',
     to: '/components/hover-card',
     descriptionKey: 'docs_component_hover_card_description',
@@ -188,6 +193,11 @@ const components = [
     name: 'Sheet',
     to: '/components/sheet',
     descriptionKey: 'docs_component_sheet_description',
+  },
+  {
+    name: 'Sidebar',
+    to: '/components/sidebar',
+    descriptionKey: 'docs_component_sidebar_description',
   },
   {
     name: 'Skeleton',

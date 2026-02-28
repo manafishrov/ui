@@ -19,6 +19,7 @@
   "docs_component_dialog_description": "A modal window that appears over the main content.",
   "docs_component_empty_description": "A placeholder component for empty states.",
   "docs_component_field_description": "A wrapper component for form inputs with labels and errors.",
+  "docs_component_form_description": "A comprehensive form component with validation and various field types.",
   "docs_component_hover_card_description": "A card that appears when hovering over an element.",
   "docs_component_input_description": "A basic text input component.",
   "docs_component_item_description": "A flexible item component for lists and menus.",
@@ -71,5 +72,6 @@
   "docs_example_custom": "Custom",
   "docs_example_states": "States",
   "docs_example_linear": "Linear",
-  "docs_example_circular": "Circular"
+  "docs_example_circular": "Circular",
+  "docs_component_sidebar_description": "A collapsible sidebar with menus, groups, headers, and footers."
 }

@@ -14,12 +14,53 @@ export const DatePickerContext = DatePickerPrimitive.Context;
 export const DatePickerView = DatePickerPrimitive.View;
 export const DatePickerViewTrigger = DatePickerPrimitive.ViewTrigger;
 export const DatePickerRangeText = DatePickerPrimitive.RangeText;
-export const DatePickerTable = DatePickerPrimitive.Table;
-export const DatePickerTableBody = DatePickerPrimitive.TableBody;
-export const DatePickerTableCell = DatePickerPrimitive.TableCell;
-export const DatePickerTableHead = DatePickerPrimitive.TableHead;
-export const DatePickerTableHeader = DatePickerPrimitive.TableHeader;
-export const DatePickerTableRow = DatePickerPrimitive.TableRow;
+export const DatePickerTable: Component<DatePickerPrimitive.TableProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <DatePickerPrimitive.Table
+      class={cn('w-full border-collapse space-y-1', local.class)}
+      {...others}
+    />
+  );
+};
+
+export const DatePickerTableBody: Component<DatePickerPrimitive.TableBodyProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return <DatePickerPrimitive.TableBody class={cn('', local.class)} {...others} />;
+};
+
+export const DatePickerTableCell: Component<DatePickerPrimitive.TableCellProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <DatePickerPrimitive.TableCell
+      class={cn(
+        'text-center text-sm p-0 relative [&:has([data-selected])]:bg-accent first:[&:has([data-selected])]:rounded-l-md last:[&:has([data-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const DatePickerTableHead: Component<DatePickerPrimitive.TableHeadProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return <DatePickerPrimitive.TableHead class={cn('', local.class)} {...others} />;
+};
+
+export const DatePickerTableHeader: Component<DatePickerPrimitive.TableHeaderProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <DatePickerPrimitive.TableHeader
+      class={cn('text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]', local.class)}
+      {...others}
+    />
+  );
+};
+
+export const DatePickerTableRow: Component<DatePickerPrimitive.TableRowProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return <DatePickerPrimitive.TableRow class={cn('flex w-full mt-2', local.class)} {...others} />;
+};
 
 export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -92,7 +133,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
     <DatePickerPrimitive.PrevTrigger
       class={cn(
         buttonVariants({ variant: 'outline' }),
-        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100',
+        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100 absolute left-1',
         local.class,
       )}
       {...others}
@@ -108,7 +149,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
     <DatePickerPrimitive.NextTrigger
       class={cn(
         buttonVariants({ variant: 'outline' }),
-        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100',
+        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100 absolute right-1',
         local.class,
       )}
       {...others}
@@ -126,13 +167,13 @@ export const DatePickerTableCellTrigger: Component<DatePickerPrimitive.TableCell
     <DatePickerPrimitive.TableCellTrigger
       class={cn(
         buttonVariants({ variant: 'ghost' }),
-        'size-9 p-0 font-normal aria-selected:opacity-100',
-        'data-today:bg-accent data-today:text-accent-foreground',
-        'data-selected:bg-primary data-selected:text-primary-foreground data-selected:hover:bg-primary data-selected:hover:text-primary-foreground data-selected:focus:bg-primary data-selected:focus:text-primary-foreground',
-        'data-disabled:text-muted-foreground data-disabled:opacity-50',
-        'data-outside-range:text-muted-foreground data-outside-range:opacity-50',
-        'data-in-range:rounded-none data-in-range:bg-accent data-in-range:text-accent-foreground',
-        'data-range-end:rounded-r-md data-range-start:rounded-l-md',
+        'size-9 p-0 font-normal data-[selected]:opacity-100',
+        'data-[today]:bg-accent data-[today]:text-accent-foreground',
+        'data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground',
+        'data-[disabled]:text-muted-foreground data-[disabled]:opacity-50',
+        'data-[outside-range]:text-muted-foreground data-[outside-range]:opacity-50',
+        'data-[in-range]:rounded-none data-[in-range]:bg-accent data-[in-range]:text-accent-foreground',
+        'data-[range-end]:rounded-r-md data-[range-start]:rounded-l-md',
         local.class,
       )}
       {...others}
@@ -144,7 +185,7 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <DatePickerPrimitive.ViewControl
-      class={cn('pb-4 flex items-center justify-between', local.class)}
+      class={cn('flex justify-center pt-1 relative items-center mb-4', local.class)}
       {...others}
     >
       <DatePickerPrevTrigger />
@@ -173,11 +214,8 @@ export const DatePickerDayView: Component = () => (
             {(api) => (
               <For each={api().weekDays}>
                 {(weekDay) => (
-                  <DatePickerTableHeader
-                    class='w-9 font-normal rounded-md text-[0.8rem] text-muted-foreground'
-                    aria-label={weekDay.narrow}
-                  >
-                    {weekDay.narrow}
+                  <DatePickerTableHeader aria-label={weekDay.narrow}>
+                    {weekDay.short}
                   </DatePickerTableHeader>
                 )}
               </For>
@@ -215,18 +253,13 @@ export const DatePickerMonthView: Component = () => (
       <DatePickerTableBody>
         <DatePickerContext>
           {(api) => (
-            <For each={api().getMonthsGrid({ columns: 3, format: 'short' })}>
+            <For each={api().getMonthsGrid({ columns: 4, format: 'short' })}>
               {(months) => (
                 <DatePickerTableRow>
                   <For each={months}>
                     {(month) => (
                       <DatePickerTableCell value={month.value}>
-                        <DatePickerTableCellTrigger
-                          class={cn(
-                            buttonVariants({ variant: 'ghost' }),
-                            'font-normal w-full data-selected:bg-primary data-selected:text-primary-foreground',
-                          )}
-                        >
+                        <DatePickerTableCellTrigger class='w-full'>
                           {month.label}
                         </DatePickerTableCellTrigger>
                       </DatePickerTableCell>
@@ -255,12 +288,7 @@ export const DatePickerYearView: Component = () => (
                   <For each={years}>
                     {(year) => (
                       <DatePickerTableCell value={year.value}>
-                        <DatePickerTableCellTrigger
-                          class={cn(
-                            buttonVariants({ variant: 'ghost' }),
-                            'font-normal w-full data-selected:bg-primary data-selected:text-primary-foreground',
-                          )}
-                        >
+                        <DatePickerTableCellTrigger class='w-full'>
                           {year.label}
                         </DatePickerTableCellTrigger>
                       </DatePickerTableCell>
