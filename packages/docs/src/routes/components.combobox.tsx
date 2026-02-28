@@ -72,7 +72,7 @@ const ComboboxDocPage: Component = () => (
           <ComboboxContext>
             {(context) => (
               <For each={context().selectedItems}>
-                {(item: { label: string; value: string }) => (
+                {(item) => (
                   <ComboboxTag
                     onRemove={() =>
                       context().setValue(context().value.filter((v) => v !== item.value))

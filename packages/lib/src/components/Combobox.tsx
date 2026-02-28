@@ -1,10 +1,19 @@
 import { Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
+import { type CollectionItem } from '@ark-ui/solid/combobox';
 import { MdOutlineCheck, MdOutlineClose, MdOutlineExpand_more } from 'solid-icons/md';
 import { type Component, type ComponentProps, Show, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const Combobox = ComboboxPrimitive.Root;
 export const ComboboxContext = ComboboxPrimitive.Context;
+
+export const Combobox = <T extends CollectionItem>(
+  props: ComboboxPrimitive.RootProps<T> & { class?: string },
+) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <ComboboxPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />
+  );
+};
 
 export const ComboboxList: Component<ComboboxPrimitive.ListProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -22,7 +31,7 @@ export const ComboboxLabel: Component<ComboboxPrimitive.LabelProps> = (props) =>
   return (
     <ComboboxPrimitive.Label
       class={cn(
-        'mb-1.5 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
