@@ -4,6 +4,9 @@ import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
 import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
+import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
+import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -105,7 +108,7 @@ export const DatePickerTrigger: Component<DatePickerPrimitive.TriggerProps> = (p
       )}
       {...others}
     >
-      {local.children ?? <IconIcOutlineCalendarMonth class='size-4' />}
+      {local.children ?? <OutlineCalendarMonthIcon class='size-4' />}
     </DatePickerPrimitive.Trigger>
   );
 };
@@ -139,7 +142,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <IconIcOutlineChevronLeft class='size-4' />}
+      {local.children ?? <OutlineChevronLeftIcon class='size-4' />}
     </DatePickerPrimitive.PrevTrigger>
   );
 };
@@ -155,7 +158,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <IconIcOutlineChevronRight class='size-4' />}
+      {local.children ?? <OutlineChevronRightIcon class='size-4' />}
     </DatePickerPrimitive.NextTrigger>
   );
 };

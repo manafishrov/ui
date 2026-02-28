@@ -1,6 +1,7 @@
 import { Checkbox as CheckboxPrimitive } from '@ark-ui/solid/checkbox';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineCheckIcon from '~icons/ic/outline-check';
 export const CheckboxGroup = CheckboxPrimitive.Group;
 export const CheckboxContext = CheckboxPrimitive.Context;
 
@@ -55,7 +56,7 @@ export const CheckboxIndicator: Component<CheckboxPrimitive.IndicatorProps> = (p
       )}
       {...others}
     >
-      {local.children ?? <IconIcOutlineCheck />}
+      {local.children ?? <OutlineCheckIcon />}
     </CheckboxPrimitive.Indicator>
   );
 };

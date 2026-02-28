@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 
 import { Accordion as AccordionPrimitive, useAccordion } from '@ark-ui/solid/accordion';
 import { cn } from 'tailwind-variants';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 
 export { useAccordion };
 export const AccordionContext = AccordionPrimitive.Context;
@@ -57,7 +58,7 @@ export const AccordionIndicator: Component<AccordionPrimitive.ItemIndicatorProps
       )}
       {...others}
     >
-      <IconIcOutlineExpandMore aria-hidden='true' class='size-full' />
+      <OutlineExpandMoreIcon aria-hidden='true' class='size-full' />
     </AccordionPrimitive.ItemIndicator>
   );
 };

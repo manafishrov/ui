@@ -9,25 +9,6 @@ declare global {
   const Dynamic: typeof import('solid-js/web').Dynamic
   const ErrorBoundary: typeof import('solid-js').ErrorBoundary
   const For: typeof import('solid-js').For
-  const IconIcBaselineCircle: typeof import('~icons/ic/baseline-circle').default
-  const IconIcOutlineCalendarMonth: typeof import('~icons/ic/outline-calendar-month').default
-  const IconIcOutlineCheck: typeof import('~icons/ic/outline-check').default
-  const IconIcOutlineCheckCircle: typeof import('~icons/ic/outline-check-circle').default
-  const IconIcOutlineChevronLeft: typeof import('~icons/ic/outline-chevron-left').default
-  const IconIcOutlineChevronRight: typeof import('~icons/ic/outline-chevron-right').default
-  const IconIcOutlineClose: typeof import('~icons/ic/outline-close').default
-  const IconIcOutlineError: typeof import('~icons/ic/outline-error').default
-  const IconIcOutlineExpandLess: typeof import('~icons/ic/outline-expand-less').default
-  const IconIcOutlineExpandMore: typeof import('~icons/ic/outline-expand-more').default
-  const IconIcOutlineInfo: typeof import('~icons/ic/outline-info').default
-  const IconIcOutlineMoreHoriz: typeof import('~icons/ic/outline-more-horiz').default
-  const IconIcOutlineRefresh: typeof import('~icons/ic/outline-refresh').default
-  const IconIcOutlineRemove: typeof import('~icons/ic/outline-remove').default
-  const IconIcOutlineUnfoldMore: typeof import('~icons/ic/outline-unfold-more').default
-  const IconIcOutlineViewSidebar: typeof import('~icons/ic/outline-view-sidebar').default
-  const IconIcOutlineVisibility: typeof import('~icons/ic/outline-visibility').default
-  const IconIcOutlineVisibilityOff: typeof import('~icons/ic/outline-visibility-off').default
-  const IconIcOutlineWarning: typeof import('~icons/ic/outline-warning').default
   const Index: typeof import('solid-js').Index
   const Match: typeof import('solid-js').Match
   const Portal: typeof import('solid-js/web').Portal

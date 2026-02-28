@@ -6,6 +6,12 @@ import {
 } from '@ark-ui/solid/toast';
 import type { Component, Accessor } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineCheckCircleIcon from '~icons/ic/outline-check-circle';
+import OutlineInfoIcon from '~icons/ic/outline-info';
+import OutlineWarningIcon from '~icons/ic/outline-warning';
+import OutlineErrorIcon from '~icons/ic/outline-error';
+import OutlineRefreshIcon from '~icons/ic/outline-refresh';
+import OutlineCloseIcon from '~icons/ic/outline-close';
 
 export const toast = createToaster({
   placement: 'bottom-end',
@@ -23,19 +29,19 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
     )}
   >
     <Show when={props.toast().type === 'success'}>
-      <IconIcOutlineCheckCircle class={cn('size-5 text-green-500 shrink-0')} aria-hidden='true' />
+      <OutlineCheckCircleIcon class={cn('size-5 text-green-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'info'}>
-      <IconIcOutlineInfo class={cn('size-5 text-blue-500 shrink-0')} aria-hidden='true' />
+      <OutlineInfoIcon class={cn('size-5 text-blue-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'warning'}>
-      <IconIcOutlineWarning class={cn('size-5 text-amber-500 shrink-0')} aria-hidden='true' />
+      <OutlineWarningIcon class={cn('size-5 text-amber-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'error'}>
-      <IconIcOutlineError class={cn('size-5 text-red-500 shrink-0')} aria-hidden='true' />
+      <OutlineErrorIcon class={cn('size-5 text-red-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'loading'}>
-      <IconIcOutlineRefresh
+      <OutlineRefreshIcon
         class={cn('size-5 animate-spin shrink-0 text-muted-foreground')}
         aria-hidden='true'
       />
@@ -53,7 +59,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
       </Show>
     </div>
     <Toast.CloseTrigger class='top-2 right-2 p-1 absolute cursor-pointer rounded-md text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground focus:opacity-100 focus:ring-2 focus:outline-none'>
-      <IconIcOutlineClose class='size-4' />
+      <OutlineCloseIcon class='size-4' />
     </Toast.CloseTrigger>
   </Toast.Root>
 );

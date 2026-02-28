@@ -2,6 +2,8 @@ import { PasswordInput as PrimitivePasswordInput } from '@ark-ui/solid/password-
 import type { Component } from 'solid-js';
 
 import { cn } from 'tailwind-variants';
+import OutlineVisibilityOffIcon from '~icons/ic/outline-visibility-off';
+import OutlineVisibilityIcon from '~icons/ic/outline-visibility';
 export const PasswordInput = PrimitivePasswordInput.Root;
 export const PasswordInputContext = PrimitivePasswordInput.Context;
 
@@ -74,10 +76,10 @@ export const PasswordInputIndicator: Component<PrimitivePasswordInput.IndicatorP
   return (
     <PrimitivePasswordInput.Indicator
       class={cn(local.class)}
-      fallback={local.children ?? <IconIcOutlineVisibilityOff class='size-4' />}
+      fallback={local.children ?? <OutlineVisibilityOffIcon class='size-4' />}
       {...others}
     >
-      <IconIcOutlineVisibility class='size-4' />
+      <OutlineVisibilityIcon class='size-4' />
     </PrimitivePasswordInput.Indicator>
   );
 };

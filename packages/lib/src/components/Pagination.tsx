@@ -4,6 +4,9 @@ import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
+import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
 
 export const Pagination: Component<PaginationPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -72,7 +75,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
     >
       {local.children ?? (
         <>
-          <IconIcOutlineChevronLeft />
+          <OutlineChevronLeftIcon />
           <span>{messages.ui_pagination_previous()}</span>
         </>
       )}
@@ -99,7 +102,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
       {local.children ?? (
         <>
           <span>{messages.ui_pagination_next()}</span>
-          <IconIcOutlineChevronRight />
+          <OutlineChevronRightIcon />
         </>
       )}
     </PaginationPrimitive.NextTrigger>
@@ -115,7 +118,7 @@ export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = 
       data-slot='pagination-ellipsis'
       class={cn('h-9 w-9 flex items-center justify-center', local.class)}
     >
-      <IconIcOutlineMoreHoriz class='size-4' />
+      <OutlineMoreHorizIcon class='size-4' />
       <span class='sr-only'>{messages.ui_pagination_more()}</span>
     </PaginationPrimitive.Ellipsis>
   );

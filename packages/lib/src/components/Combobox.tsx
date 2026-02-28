@@ -3,6 +3,9 @@ import type { CollectionItem } from '@ark-ui/solid/combobox';
 import { useComboboxContext, Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
 import type { Component, ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
+import OutlineCloseIcon from '~icons/ic/outline-close';
+import OutlineCheckIcon from '~icons/ic/outline-check';
 
 export const ComboboxContext = ComboboxPrimitive.Context;
 
@@ -114,7 +117,7 @@ export const ComboboxTrigger: Component<ComboboxPrimitive.TriggerProps> = (props
       class={cn('text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
-      {local.children ?? <IconIcOutlineExpandMore class='size-4' />}
+      {local.children ?? <OutlineExpandMoreIcon class='size-4' />}
     </ComboboxPrimitive.Trigger>
   );
 };
@@ -126,7 +129,7 @@ export const ComboboxClearTrigger: Component<ComboboxPrimitive.ClearTriggerProps
       class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
-      {local.children ?? <IconIcOutlineClose class='size-3.5' />}
+      {local.children ?? <OutlineCloseIcon class='size-3.5' />}
     </ComboboxPrimitive.ClearTrigger>
   );
 };
@@ -165,7 +168,7 @@ export const ComboboxItem: Component<ComboboxPrimitive.ItemProps> = (props) => {
         {local.children}
       </ComboboxPrimitive.ItemText>
       <ComboboxPrimitive.ItemIndicator class='right-2 size-4 pointer-events-none absolute flex items-center justify-center'>
-        <IconIcOutlineCheck class='pointer-events-none' />
+        <OutlineCheckIcon class='pointer-events-none' />
       </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
   );
@@ -242,7 +245,7 @@ export const ComboboxTag: Component<
               local.onRemove?.();
             }}
           >
-            <IconIcOutlineClose class='size-3 pointer-events-none' />
+            <OutlineCloseIcon class='size-3 pointer-events-none' />
           </button>
         </div>
       </Show>

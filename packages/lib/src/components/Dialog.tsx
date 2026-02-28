@@ -4,6 +4,7 @@ import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
+import OutlineCloseIcon from '~icons/ic/outline-close';
 
 export const Dialog = DialogPrimitive.Root;
 export const DialogTrigger = DialogPrimitive.Trigger;
@@ -68,7 +69,7 @@ export const DialogCloseButton: Component<DialogPrimitive.CloseTriggerProps> = (
           {...triggerProps()}
           {...others}
         >
-          <IconIcOutlineClose aria-hidden='true' />
+          <OutlineCloseIcon aria-hidden='true' />
         </Button>
       )}
     />

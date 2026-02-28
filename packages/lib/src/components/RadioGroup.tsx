@@ -1,6 +1,7 @@
 import { RadioGroup as RadioGroupPrimitive } from '@ark-ui/solid/radio-group';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import BaselineCircleIcon from '~icons/ic/baseline-circle';
 
 
 export const RadioGroup: Component<RadioGroupPrimitive.RootProps> = (props) => {
@@ -57,7 +58,7 @@ export const RadioGroupItemControl: Component<RadioGroupPrimitive.ItemControlPro
           data-slot='radio-group-indicator'
           class='size-4 flex items-center justify-center text-primary group-data-invalid/radio-group-item:text-destructive'
         >
-          <IconIcBaselineCircle class='size-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current' />
+          <BaselineCircleIcon class='size-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current' />
         </RadioGroupPrimitive.Indicator>
       )}
     </RadioGroupPrimitive.ItemControl>

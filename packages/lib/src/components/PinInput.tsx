@@ -1,6 +1,7 @@
 import { PinInput as PrimitivePinInput } from '@ark-ui/solid/pin-input';
 import type { Component, ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineRemoveIcon from '~icons/ic/outline-remove';
 
 export const PinInputHiddenInput = PrimitivePinInput.HiddenInput;
 export const PinInputContext = PrimitivePinInput.Context;
@@ -81,7 +82,7 @@ export const PinInputSeparator: Component<ComponentProps<'div'>> = (props) => {
       class={cn('flex items-center justify-center text-muted-foreground', local.class)}
       {...others}
     >
-      <IconIcOutlineRemove class='size-4' />
+      <OutlineRemoveIcon class='size-4' />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
+import OutlineCloseIcon from '~icons/ic/outline-close';
 
 export const Sheet = SheetPrimitive.Root;
 export const SheetTrigger = SheetPrimitive.Trigger;
@@ -83,7 +84,7 @@ export const SheetCloseButton: Component<SheetPrimitive.CloseTriggerProps> = (pr
           {...triggerProps()}
           {...others}
         >
-          <IconIcOutlineClose aria-hidden='true' />
+          <OutlineCloseIcon aria-hidden='true' />
           <span class='sr-only'>{messages.ui_common_close()}</span>
         </Button>
       )}

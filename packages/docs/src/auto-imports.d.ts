@@ -9,14 +9,6 @@ declare global {
   const Dynamic: typeof import('solid-js/web').Dynamic
   const ErrorBoundary: typeof import('solid-js').ErrorBoundary
   const For: typeof import('solid-js').For
-  const IconIcBaselineCircle: typeof import('~icons/ic/baseline-circle').default
-  const IconIcOutlineCalendarMonth: typeof import('~icons/ic/outline-calendar-month').default
-  const IconIcOutlineCalendarToday: typeof import('~icons/ic/outline-calendar-today').default
-  const IconIcOutlineFolder: typeof import('~icons/ic/outline-folder').default
-  const IconIcOutlineHome: typeof import('~icons/ic/outline-home').default
-  const IconIcOutlineMail: typeof import('~icons/ic/outline-mail').default
-  const IconIcOutlinePerson: typeof import('~icons/ic/outline-person').default
-  const IconIcOutlineSettings: typeof import('~icons/ic/outline-settings').default
   const Index: typeof import('solid-js').Index
   const Match: typeof import('solid-js').Match
   const Portal: typeof import('solid-js/web').Portal

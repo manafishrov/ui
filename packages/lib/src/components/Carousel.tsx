@@ -4,6 +4,8 @@ import { cn } from 'tailwind-variants';
 
 import { Button, type ButtonVariantProps } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
+import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 export const CarouselContext = CarouselPrimitive.Context;
 
@@ -63,7 +65,7 @@ export const CarouselPrevious: Component<
           )}
           {...triggerProps()}
         >
-          {local.children ?? <IconIcOutlineChevronLeft class='size-5' />}
+          {local.children ?? <OutlineChevronLeftIcon class='size-5' />}
           <span class='sr-only'>{messages.ui_carousel_previous()}</span>
         </Button>
       )}
@@ -94,7 +96,7 @@ export const CarouselNext: Component<
           )}
           {...triggerProps()}
         >
-          {local.children ?? <IconIcOutlineChevronRight class='size-5' />}
+          {local.children ?? <OutlineChevronRightIcon class='size-5' />}
           <span class='sr-only'>{messages.ui_carousel_next()}</span>
         </Button>
       )}

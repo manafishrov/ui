@@ -14,6 +14,7 @@ import { createFileRoute } from '@tanstack/solid-router';
 import { type Component } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
+import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
 
 const DatePickerDocPage: Component = () => (
   <div class='space-y-8'>
@@ -29,7 +30,7 @@ const DatePickerDocPage: Component = () => (
         <DatePickerTrigger
           asChild={(props) => (
             <Button variant='outline' size='icon' {...props()}>
-              <IconIcOutlineCalendarMonth class='size-4' />
+              <OutlineCalendarMonthIcon class='size-4' />
             </Button>
           )}
         />

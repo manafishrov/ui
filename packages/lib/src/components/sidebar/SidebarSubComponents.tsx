@@ -7,6 +7,7 @@ import * as messages from '@/paraglide/messages';
 
 import { cn } from 'tailwind-variants';
 import { useSidebar } from './context';
+import OutlineViewSidebarIcon from '~icons/ic/outline-view-sidebar';
 
 export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) => {
   const [local, others] = splitProps(props, ['class', 'onClick']);
@@ -32,7 +33,7 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
       onClick={handleClick}
       {...others}
     >
-      <IconIcOutlineViewSidebar aria-hidden='true' />
+      <OutlineViewSidebarIcon aria-hidden='true' />
     </Button>
   );
 };

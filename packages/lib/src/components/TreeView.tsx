@@ -1,6 +1,7 @@
 import { TreeView as TreeViewPrimitive, createTreeCollection } from '@ark-ui/solid/tree-view';
 import type { Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 export const TreeView = TreeViewPrimitive.Root;
 export const TreeViewLabel = TreeViewPrimitive.Label;
@@ -45,7 +46,7 @@ export const TreeViewBranchControl: Component<TreeViewPrimitive.BranchControlPro
       {...others}
     >
       <TreeViewPrimitive.BranchIndicator class='text-muted-foreground transition-transform data-[state=open]:rotate-90'>
-        <IconIcOutlineChevronRight class='size-4' />
+        <OutlineChevronRightIcon class='size-4' />
       </TreeViewPrimitive.BranchIndicator>
       <Show when={local.children} fallback={<TreeViewPrimitive.BranchText />}>
         {local.children}
