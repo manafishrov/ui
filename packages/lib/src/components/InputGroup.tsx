@@ -9,17 +9,18 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='input-group'
+      role='group'
       class={cn(
         'group/input-group min-w-0 h-8 relative flex w-full items-center rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
         'has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
         'has-data-invalid:border-destructive has-data-invalid:ring-[3px] has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40',
         'has-disabled:bg-input/50 has-disabled:opacity-50 dark:has-disabled:bg-input/80',
-        'has-data-[align=block-end]:h-auto has-data-[align=block-end]:flex-col',
-        'has-data-[align=block-start]:h-auto has-data-[align=block-start]:flex-col',
-        'has-data-[align=block-end]:[&>input]:pt-3',
-        'has-data-[align=block-start]:[&>input]:pb-3',
-        'has-data-[align=inline-end]:[&>input]:pr-1.5',
-        'has-data-[align=inline-start]:[&>input]:pl-1.5',
+        'has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col',
+        'has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col',
+        'has-[>[data-align=block-end]]:[&>input]:pt-3',
+        'has-[>[data-align=block-start]]:[&>input]:pb-3',
+        'has-[>[data-align=inline-end]]:[&>input]:pr-1.5',
+        'has-[>[data-align=inline-start]]:[&>input]:pl-1.5',
         'has-[>textarea]:h-auto',
         local.class,
       )}
@@ -29,7 +30,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "gap-2 py-1.5 text-sm font-medium [&>svg:not([class*='size-'])]:size-4 flex h-auto cursor-text items-center justify-center text-muted-foreground select-none [&>kbd]:rounded-[calc(var(--radius)-5px)]",
+  base: "gap-2 py-1.5 text-sm font-medium group-data-[disabled=true]/input-group:opacity-50 [&>svg:not([class*='size-'])]:size-4 flex h-auto cursor-text items-center justify-center text-muted-foreground select-none [&>kbd]:rounded-[calc(var(--radius)-5px)]",
   variants: {
     align: {
       'inline-start': 'pl-2 order-first has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]',
