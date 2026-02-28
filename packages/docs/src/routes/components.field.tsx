@@ -9,7 +9,6 @@ import {
   FieldLabel,
   FieldRequiredIndicator,
   FieldTitle,
-  FieldDescription,
   FieldSeparator,
   FieldError,
   FieldInput,
@@ -29,13 +28,14 @@ const FieldDocPage: Component = () => (
     <FieldSet class='max-w-sm space-y-6'>
       <FieldLegend>
         <FieldTitle>Personal Information</FieldTitle>
-        <FieldDescription>Please enter your personal details.</FieldDescription>
+        <p class='text-sm text-muted-foreground'>Please enter your personal details.</p>
       </FieldLegend>
       <FieldSeparator />
       <FieldGroup>
         <Field required>
-          <FieldLabel>
-            Email <FieldRequiredIndicator />
+          <FieldLabel class='gap-0'>
+            Email
+            <FieldRequiredIndicator />
           </FieldLabel>
           <FieldContent>
             <FieldInput type='email' placeholder='john@example.com' />
