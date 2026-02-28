@@ -2,7 +2,7 @@ import type { Component } from 'solid-js';
 
 import { Button } from '@manafishrov/ui/button';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@manafishrov/ui/collapsible';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
@@ -17,7 +17,7 @@ const CollapsibleDocPage: Component = () => (
     <div class='space-y-4'>
       <Collapsible class='space-y-2 w-[350px]'>
         <div class='space-x-4 px-4 flex items-center justify-between'>
-          <h4 class='text-sm font-semibold'>@peduarte starred 3 repositories</h4>
+          <h4 class='text-sm font-semibold'>@manafishrov starred 3 repositories</h4>
           <CollapsibleTrigger
             asChild={(props) => (
               <Button variant='ghost' size='sm' {...props()}>
