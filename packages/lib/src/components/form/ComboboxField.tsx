@@ -4,11 +4,14 @@ import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import {
-  Combobox,
-  ComboboxContent,
-  ComboboxInput,
-  ComboboxList,
+Combobox,
+ComboboxContent,
+ComboboxInput,
+ComboboxList,
   ComboboxPositioner,
+  ComboboxControl,
+  ComboboxTrigger,
+  ComboboxClearTrigger,
 } from '@/components/Combobox';
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 
@@ -19,15 +22,23 @@ export type ComboboxFieldProps = ComboboxRootProps<string> & {
   description?: string;
   showTrigger?: boolean;
   showClear?: boolean;
+} & { class?: string
 };
 
-const ComboboxInputGroup: Component<ComponentProps<typeof ComboboxInput>> = (props) => (
+const ComboboxInputGroup: Component<
+  ComponentProps<typeof ComboboxInput> & {
+    showTrigger?: boolean | undefined;
+    showClear?: boolean | undefined;
+  }
+> = (props) => (
   <>
-    <ComboboxInput
-      placeholder={props.placeholder}
-      showTrigger={props.showTrigger}
-      showClear={props.showClear}
-    />
+    <ComboboxControl>
+      <ComboboxInput placeholder={props.placeholder} />
+      <div class='flex items-center gap-1'>
+        {props.showClear && <ComboboxClearTrigger />}
+        {props.showTrigger && <ComboboxTrigger />}
+      </div>
+    </ComboboxControl>
     <ComboboxPositioner>
       <ComboboxContent>
         <ComboboxList>{props.children}</ComboboxList>
