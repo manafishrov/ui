@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 
 import { createListCollection } from '@manafishrov/ui';
+import { ComboboxItem } from '@manafishrov/ui/combobox';
 import {
   useAppForm,
   TextInputField,
@@ -24,7 +25,6 @@ import {
   RadioGroupItemText,
 } from '@manafishrov/ui/radio-group';
 import { SelectItem } from '@manafishrov/ui/select';
-import { ComboboxItem } from '@manafishrov/ui/combobox';
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
@@ -168,10 +168,7 @@ const FormDocPage: Component = () => {
                 }}
               >
                 {() => (
-                  <RadioGroupField
-                    label='Radio Group'
-                    description='A radio group field.'
-                  >
+                  <RadioGroupField label='Radio Group' description='A radio group field.'>
                     <RadioGroupItem value='1'>
                       <RadioGroupItemControl />
                       <RadioGroupItemText>Option 1</RadioGroupItemText>
@@ -195,11 +192,7 @@ const FormDocPage: Component = () => {
                 }}
               >
                 {() => (
-                  <SelectField
-                    label='Select'
-                    description='A select field.'
-                    collection={frameworks}
-                  >
+                  <SelectField label='Select' description='A select field.' collection={frameworks}>
                     {frameworks.items.map((item) => (
                       <SelectItem item={item}>{item.label}</SelectItem>
                     ))}

@@ -1,5 +1,5 @@
 import { TagsInput as TagsInputPrimitive } from '@ark-ui/solid/tags-input';
-import { MdOutlineClose } from 'solid-icons/md';
+import MdOutlineClose from '@icons/ic/outline-close';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

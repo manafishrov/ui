@@ -4,10 +4,10 @@ import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import {
-Combobox,
-ComboboxContent,
-ComboboxInput,
-ComboboxList,
+  Combobox,
+  ComboboxContent,
+  ComboboxInput,
+  ComboboxList,
   ComboboxPositioner,
   ComboboxControl,
   ComboboxTrigger,
@@ -22,8 +22,7 @@ export type ComboboxFieldProps = ComboboxRootProps<string> & {
   description?: string;
   showTrigger?: boolean;
   showClear?: boolean;
-} & { class?: string
-};
+} & { class?: string };
 
 const ComboboxInputGroup: Component<
   ComponentProps<typeof ComboboxInput> & {
@@ -34,7 +33,7 @@ const ComboboxInputGroup: Component<
   <>
     <ComboboxControl>
       <ComboboxInput placeholder={props.placeholder} />
-      <div class='flex items-center gap-1'>
+      <div class='gap-1 flex items-center'>
         {props.showClear && <ComboboxClearTrigger />}
         {props.showTrigger && <ComboboxTrigger />}
       </div>

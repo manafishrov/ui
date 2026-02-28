@@ -1,5 +1,5 @@
 import { RadioGroup as RadioGroupPrimitive } from '@ark-ui/solid/radio-group';
-import { MdFillCircle } from 'solid-icons/md';
+import MdFillCircle from '@icons/ic/baseline-circle';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

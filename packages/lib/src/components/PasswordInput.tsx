@@ -1,5 +1,6 @@
 import { PasswordInput as PrimitivePasswordInput } from '@ark-ui/solid/password-input';
-import { MdOutlineVisibility, MdOutlineVisibility_off } from 'solid-icons/md';
+import MdOutlineVisibility from '@icons/ic/outline-visibility';
+import MdOutlineVisibility_off from '@icons/ic/outline-visibility-off';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

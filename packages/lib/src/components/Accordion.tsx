@@ -1,5 +1,5 @@
 import { Accordion as AccordionPrimitive, useAccordion } from '@ark-ui/solid/accordion';
-import { MdOutlineExpand_more } from 'solid-icons/md';
+import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

@@ -1,5 +1,6 @@
 import { Menu as MenuPrimitive } from '@ark-ui/solid/menu';
-import { MdOutlineCheck, MdOutlineChevron_right } from 'solid-icons/md';
+import MdOutlineCheck from '@icons/ic/outline-check';
+import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

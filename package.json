@@ -20,6 +20,7 @@
     "publish": "bun run build:lib && cd packages/lib && npm publish"
   },
   "devDependencies": {
+    "@iconify-json/ic": "1.2.4",
     "@inlang/paraglide-js": "2.12.0",
     "@types/bun": "1.3.9",
     "lefthook": "2.1.1",
@@ -27,6 +28,7 @@
     "oxlint": "1.50.0",
     "oxlint-tsgolint": "0.15.0",
     "typescript": "5.9.3",
+    "unplugin-icons": "23.0.1",
     "vite": "7.3.1",
     "vite-plugin-solid": "2.11.10"
   }

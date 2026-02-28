@@ -1,4 +1,4 @@
-import { MdOutlineRefresh } from 'solid-icons/md';
+import MdOutlineRefresh from '@icons/ic/outline-refresh';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

@@ -4,14 +4,12 @@ import {
   createToaster,
   type ToastOptions,
 } from '@ark-ui/solid/toast';
-import {
-  MdOutlineCheck_circle,
-  MdOutlineClose,
-  MdOutlineError,
-  MdOutlineInfo,
-  MdOutlineRefresh,
-  MdOutlineWarning,
-} from 'solid-icons/md';
+import MdOutlineCheck_circle from '@icons/ic/outline-check-circle';
+import MdOutlineClose from '@icons/ic/outline-close';
+import MdOutlineError from '@icons/ic/outline-error';
+import MdOutlineInfo from '@icons/ic/outline-info';
+import MdOutlineRefresh from '@icons/ic/outline-refresh';
+import MdOutlineWarning from '@icons/ic/outline-warning';
 import { type Component, Show, type Accessor } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';

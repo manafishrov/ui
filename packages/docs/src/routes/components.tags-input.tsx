@@ -23,7 +23,7 @@ const TagsInputDocPage: Component = () => (
       <Lead>{m.docs_component_tags_input_description()}</Lead>
     </div>
     <div class='space-y-4'>
-      <div class='flex flex-wrap gap-4'>
+      <div class='gap-4 flex flex-wrap'>
         <TagsInput defaultValue={['SolidJS', 'TypeScript']}>
           <TagsInputLabel>Technologies</TagsInputLabel>
           <TagsInputControl>

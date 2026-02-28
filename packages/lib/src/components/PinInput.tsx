@@ -1,8 +1,7 @@
 import { PinInput as PrimitivePinInput } from '@ark-ui/solid/pin-input';
-import { MdOutlineRemove } from 'solid-icons/md';
+import MdOutlineRemove from '@icons/ic/outline-remove';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-
 
 export const PinInputHiddenInput = PrimitivePinInput.HiddenInput;
 export const PinInputContext = PrimitivePinInput.Context;
@@ -21,7 +20,10 @@ export const PinInputLabel: Component<PrimitivePinInput.LabelProps> = (props) =>
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePinInput.Label
-      class={cn('gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50', local.class)}
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
+      )}
       {...others}
     />
   );

@@ -1,5 +1,5 @@
 import { Dialog as SheetPrimitive } from '@ark-ui/solid/dialog';
-import { MdOutlineClose } from 'solid-icons/md';
+import MdOutlineClose from '@icons/ic/outline-close';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

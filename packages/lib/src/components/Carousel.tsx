@@ -1,5 +1,6 @@
 import { Carousel as CarouselPrimitive } from '@ark-ui/solid/carousel';
-import { MdOutlineChevron_left, MdOutlineChevron_right } from 'solid-icons/md';
+import MdOutlineChevron_left from '@icons/ic/outline-chevron-left';
+import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

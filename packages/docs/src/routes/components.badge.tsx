@@ -14,7 +14,7 @@ const BadgeDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <H2 class='border-none pb-0'>{m.docs_example_variants()}</H2>
+      <H2 class='pb-0 border-none'>{m.docs_example_variants()}</H2>
       <div class='gap-4 flex flex-wrap'>
         <Badge variant='default'>Default</Badge>
         <Badge variant='destructive'>Destructive</Badge>

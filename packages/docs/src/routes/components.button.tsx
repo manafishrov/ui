@@ -14,7 +14,7 @@ const ButtonDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <H2 class='border-none pb-0'>{m.docs_example_variants()}</H2>
+      <H2 class='pb-0 border-none'>{m.docs_example_variants()}</H2>
       <div class='gap-4 flex flex-wrap'>
         <Button variant='default'>Default</Button>
         <Button variant='destructive'>Destructive</Button>
@@ -26,7 +26,7 @@ const ButtonDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <H2 class='border-none pb-0'>{m.docs_example_sizes()}</H2>
+      <H2 class='pb-0 border-none'>{m.docs_example_sizes()}</H2>
       <div class='gap-4 flex flex-wrap items-center'>
         <Button size='sm'>Small</Button>
         <Button size='default'>Default</Button>
@@ -35,7 +35,7 @@ const ButtonDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <H2 class='border-none pb-0'>{m.docs_example_group()}</H2>
+      <H2 class='pb-0 border-none'>{m.docs_example_group()}</H2>
       <ButtonGroup>
         <Button variant='outline'>First</Button>
         <ButtonGroupText>Or</ButtonGroupText>

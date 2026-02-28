@@ -1,5 +1,7 @@
 import { Select as SelectPrimitive } from '@ark-ui/solid/select';
-import { MdOutlineCheck, MdOutlineClose, MdOutlineUnfold_more } from 'solid-icons/md';
+import MdOutlineCheck from '@icons/ic/outline-check';
+import MdOutlineClose from '@icons/ic/outline-close';
+import MdOutlineUnfold_more from '@icons/ic/outline-unfold-more';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

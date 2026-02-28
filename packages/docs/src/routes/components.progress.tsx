@@ -24,7 +24,7 @@ const ProgressDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <H2 class='border-none pb-0'>{m.docs_example_linear()}</H2>
+      <H2 class='pb-0 border-none'>{m.docs_example_linear()}</H2>
       <Progress value={33} class='w-[60%]'>
         <ProgressLabel>Downloading...</ProgressLabel>
         <ProgressTrack>
@@ -35,7 +35,7 @@ const ProgressDocPage: Component = () => (
     </div>
 
     <div class='space-y-4'>
-      <H2 class='border-none pb-0'>{m.docs_example_circular()}</H2>
+      <H2 class='pb-0 border-none'>{m.docs_example_circular()}</H2>
       <ProgressCircle value={33}>
         <ProgressLabel>Loading...</ProgressLabel>
         <ProgressCircleTrack />

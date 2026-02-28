@@ -1,6 +1,9 @@
+import type { CollectionItem } from '@ark-ui/solid/combobox';
+
 import { Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
-import { type CollectionItem } from '@ark-ui/solid/combobox';
-import { MdOutlineCheck, MdOutlineClose, MdOutlineExpand_more } from 'solid-icons/md';
+import MdOutlineCheck from '@icons/ic/outline-check';
+import MdOutlineClose from '@icons/ic/outline-close';
+import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
 import { type Component, type ComponentProps, Show, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

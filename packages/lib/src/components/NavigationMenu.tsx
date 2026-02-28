@@ -1,5 +1,5 @@
 import { HoverCard as HoverCardPrimitive } from '@ark-ui/solid/hover-card';
-import { MdOutlineExpand_more } from 'solid-icons/md';
+import MdOutlineExpand_more from '@icons/ic/outline-expand-more';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

@@ -1,5 +1,11 @@
 import type { Component } from 'solid-js';
 
+import MdOutlineCalendar_today from '@icons/ic/outline-calendar-today';
+import MdOutlineFolder from '@icons/ic/outline-folder';
+import MdOutlineHome from '@icons/ic/outline-home';
+import MdOutlineMail from '@icons/ic/outline-mail';
+import MdOutlinePerson from '@icons/ic/outline-person';
+import MdOutlineSettings from '@icons/ic/outline-settings';
 import {
   Sidebar,
   SidebarContent,
@@ -20,14 +26,6 @@ import {
 } from '@manafishrov/ui/sidebar';
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
-import {
-  MdOutlineHome,
-  MdOutlineSettings,
-  MdOutlinePerson,
-  MdOutlineMail,
-  MdOutlineCalendar_today,
-  MdOutlineFolder,
-} from 'solid-icons/md';
 
 import * as m from '@/paraglide/messages';
 

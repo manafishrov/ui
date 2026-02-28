@@ -1,9 +1,7 @@
 import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
-import {
-  MdOutlineCalendar_month,
-  MdOutlineChevron_left,
-  MdOutlineChevron_right,
-} from 'solid-icons/md';
+import MdOutlineCalendar_month from '@icons/ic/outline-calendar-month';
+import MdOutlineChevron_left from '@icons/ic/outline-chevron-left';
+import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
 import { type Component, For, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -18,7 +16,7 @@ export const DatePickerTable: Component<DatePickerPrimitive.TableProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <DatePickerPrimitive.Table
-      class={cn('w-full border-collapse space-y-1', local.class)}
+      class={cn('space-y-1 w-full border-collapse', local.class)}
       {...others}
     />
   );
@@ -34,7 +32,7 @@ export const DatePickerTableCell: Component<DatePickerPrimitive.TableCellProps> 
   return (
     <DatePickerPrimitive.TableCell
       class={cn(
-        'text-center text-sm p-0 relative [&:has([data-selected])]:bg-accent first:[&:has([data-selected])]:rounded-l-md last:[&:has([data-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
+        'text-sm p-0 relative text-center focus-within:relative focus-within:z-20 [&:has([data-selected])]:bg-accent first:[&:has([data-selected])]:rounded-l-md last:[&:has([data-selected])]:rounded-r-md',
         local.class,
       )}
       {...others}
@@ -51,7 +49,7 @@ export const DatePickerTableHeader: Component<DatePickerPrimitive.TableHeaderPro
   const [local, others] = splitProps(props, ['class']);
   return (
     <DatePickerPrimitive.TableHeader
-      class={cn('text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]', local.class)}
+      class={cn('w-9 font-normal rounded-md text-[0.8rem] text-muted-foreground', local.class)}
       {...others}
     />
   );
@@ -59,7 +57,7 @@ export const DatePickerTableHeader: Component<DatePickerPrimitive.TableHeaderPro
 
 export const DatePickerTableRow: Component<DatePickerPrimitive.TableRowProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return <DatePickerPrimitive.TableRow class={cn('flex w-full mt-2', local.class)} {...others} />;
+  return <DatePickerPrimitive.TableRow class={cn('mt-2 flex w-full', local.class)} {...others} />;
 };
 
 export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props) => {
@@ -133,7 +131,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
     <DatePickerPrimitive.PrevTrigger
       class={cn(
         buttonVariants({ variant: 'outline' }),
-        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100 absolute left-1',
+        'size-7 p-0 left-1 absolute bg-transparent opacity-50 hover:opacity-100',
         local.class,
       )}
       {...others}
@@ -149,7 +147,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
     <DatePickerPrimitive.NextTrigger
       class={cn(
         buttonVariants({ variant: 'outline' }),
-        'size-7 p-0 bg-transparent opacity-50 hover:opacity-100 absolute right-1',
+        'size-7 p-0 right-1 absolute bg-transparent opacity-50 hover:opacity-100',
         local.class,
       )}
       {...others}
@@ -185,7 +183,7 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <DatePickerPrimitive.ViewControl
-      class={cn('flex justify-center pt-1 relative items-center mb-4', local.class)}
+      class={cn('pt-1 mb-4 relative flex items-center justify-center', local.class)}
       {...others}
     >
       <DatePickerPrevTrigger />

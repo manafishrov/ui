@@ -1,5 +1,5 @@
 import { TreeView as TreeViewPrimitive, createTreeCollection } from '@ark-ui/solid/tree-view';
-import { MdOutlineChevron_right } from 'solid-icons/md';
+import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
 import { type Component, Show, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

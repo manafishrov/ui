@@ -1,5 +1,6 @@
+import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
+import MdOutlineMore_horiz from '@icons/ic/outline-more-horiz';
 import { Link, type LinkProps } from '@tanstack/solid-router';
-import { MdOutlineChevron_right, MdOutlineMore_horiz } from 'solid-icons/md';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 

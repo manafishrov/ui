@@ -1,12 +1,14 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import path from 'node:path';
 import dts from 'unplugin-dts/vite';
+import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 
 export default defineConfig({
   resolve: {
     alias: {
+      '@icons': '~icons',
       '@': path.resolve(__dirname, 'src'),
     },
   },
@@ -74,7 +76,6 @@ export default defineConfig({
         'solid-js/web',
         '@tanstack/solid-router',
         '@tanstack/solid-form',
-        'solid-icons',
         'tailwindcss',
       ],
       output: {
@@ -93,6 +94,9 @@ export default defineConfig({
       outdir: './src/paraglide',
       strategy: ['globalVariable', 'baseLocale'],
       emitTsDeclarations: true,
+    }),
+    Icons({
+      compiler: 'solid',
     }),
     solid(),
     dts({

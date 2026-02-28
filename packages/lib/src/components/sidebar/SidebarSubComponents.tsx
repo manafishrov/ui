@@ -1,12 +1,10 @@
-import { MdOutlineView_sidebar } from 'solid-icons/md';
+import MdOutlineView_sidebar from '@icons/ic/outline-view-sidebar';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
-
-import { Separator } from '@/components/Separator';
-
 import { ScrollArea } from '@/components/ScrollArea';
+import { Separator } from '@/components/Separator';
 import * as messages from '@/paraglide/messages';
 
 import { useSidebar } from './context';
@@ -84,16 +82,16 @@ export const SidebarInset: Component<ComponentProps<'main'>> = (props) => {
 export const SidebarInput: Component<ComponentProps<'input'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-      <input
-        data-slot='sidebar-input'
-        data-sidebar='input'
-        class={cn(
-          'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
-          'h-8 px-2.5 py-1 rounded-lg border border-input focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:bg-input/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
-          'h-8 w-full bg-background shadow-none',
-          local.class
-        )}
-        {...others}
+    <input
+      data-slot='sidebar-input'
+      data-sidebar='input'
+      class={cn(
+        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'h-8 px-2.5 py-1 rounded-lg border border-input focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:bg-input/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+        'h-8 w-full bg-background shadow-none',
+        local.class,
+      )}
+      {...others}
     />
   );
 };

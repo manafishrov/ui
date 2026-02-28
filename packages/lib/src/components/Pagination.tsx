@@ -1,5 +1,7 @@
 import { Pagination as PaginationPrimitive } from '@ark-ui/solid/pagination';
-import { MdOutlineChevron_left, MdOutlineChevron_right, MdOutlineMore_horiz } from 'solid-icons/md';
+import MdOutlineChevron_left from '@icons/ic/outline-chevron-left';
+import MdOutlineChevron_right from '@icons/ic/outline-chevron-right';
+import MdOutlineMore_horiz from '@icons/ic/outline-more-horiz';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
