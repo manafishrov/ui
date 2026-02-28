@@ -43,6 +43,7 @@ const FieldDocPage: Component = () => (
                 type='email'
                 placeholder='john@example.com'
               />
+            </FieldContent>
             <FieldError>Invalid email address</FieldError>
           </Field>
         </FieldGroup>
