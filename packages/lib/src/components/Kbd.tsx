@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const Kbd: Component<ComponentProps<'kbd'>> = (props) => {

@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, type JSX, splitProps } from 'solid-js';
+import type { Component, ComponentProps, JSX } from 'solid-js';
 
 import { Checkbox, CheckboxControl, CheckboxIndicator, CheckboxLabel } from '@/components/Checkbox';
 import { Field, FieldContent, FieldDescription, FieldError } from '@/components/Field';

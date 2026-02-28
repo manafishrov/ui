@@ -1,6 +1,3 @@
-import type { Component } from 'solid-js';
-
-import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
 import { Button } from '@manafishrov/ui/button';
 import {
   DatePicker,
@@ -12,8 +9,9 @@ import {
   DatePickerContent,
   DatePickerViews,
 } from '@manafishrov/ui/date-picker';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+import { type Component } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
 
@@ -31,7 +29,7 @@ const DatePickerDocPage: Component = () => (
         <DatePickerTrigger
           asChild={(props) => (
             <Button variant='outline' size='icon' {...props()}>
-              <OutlineCalendarMonthIcon class='size-4' />
+              <IconIcOutlineCalendarMonth class='size-4' />
             </Button>
           )}
         />

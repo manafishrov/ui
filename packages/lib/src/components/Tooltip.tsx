@@ -1,5 +1,5 @@
 import { Tooltip as TooltipPrimitive } from '@ark-ui/solid/tooltip';
-import { type Component, splitProps } from 'solid-js';
+import type { Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const Tooltip = TooltipPrimitive.Root;

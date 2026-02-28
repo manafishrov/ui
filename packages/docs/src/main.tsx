@@ -1,5 +1,4 @@
 import { RouterProvider, createRouter } from '@tanstack/solid-router';
-import { render } from 'solid-js/web';
 
 import { deLocalizeUrl, localizeUrl } from './paraglide/runtime.js';
 import './styles.css';

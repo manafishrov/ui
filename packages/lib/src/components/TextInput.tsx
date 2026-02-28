@@ -1,5 +1,5 @@
 import { Field as PrimitiveField } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { FieldDescription, FieldError } from './Field';

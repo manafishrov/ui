@@ -1,11 +1,3 @@
-import type { Component } from 'solid-js';
-
-import OutlineCalendarTodayIcon from '~icons/ic/outline-calendar-today';
-import OutlineFolderIcon from '~icons/ic/outline-folder';
-import OutlineHomeIcon from '~icons/ic/outline-home';
-import OutlineMailIcon from '~icons/ic/outline-mail';
-import OutlinePersonIcon from '~icons/ic/outline-person';
-import OutlineSettingsIcon from '~icons/ic/outline-settings';
 import {
   Sidebar,
   SidebarContent,
@@ -26,6 +18,7 @@ import {
 } from '@manafishrov/ui/sidebar';
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+import { type Component } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
 
@@ -44,7 +37,7 @@ const SidebarDocPage: Component = () => (
             <SidebarHeader>
               <div class='gap-2 px-2 py-1.5 flex items-center'>
                 <div class='size-6 flex items-center justify-center rounded-md bg-primary text-primary-foreground'>
-                  <OutlineFolderIcon class='size-4' />
+                  <IconIcOutlineFolder class='size-4' />
                 </div>
                 <span class='font-semibold'>Acme Inc</span>
               </div>
@@ -56,19 +49,19 @@ const SidebarDocPage: Component = () => (
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton isActive>
-                        <OutlineHomeIcon />
+                        <IconIcOutlineHome />
                         <span>Home</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <OutlineMailIcon />
+                        <IconIcOutlineMail />
                         <span>Inbox</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <OutlineCalendarTodayIcon />
+                        <IconIcOutlineCalendarToday />
                         <span>Calendar</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -81,13 +74,13 @@ const SidebarDocPage: Component = () => (
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <OutlinePersonIcon />
+                        <IconIcOutlinePerson />
                         <span>Profile</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <OutlineSettingsIcon />
+                        <IconIcOutlineSettings />
                         <span>Preferences</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -99,7 +92,7 @@ const SidebarDocPage: Component = () => (
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton>
-                    <OutlinePersonIcon />
+                    <IconIcOutlinePerson />
                     <span>User Account</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -127,7 +120,7 @@ const SidebarDocPage: Component = () => (
             <SidebarHeader>
               <div class='gap-2 px-2 py-1.5 flex items-center'>
                 <div class='size-6 flex items-center justify-center rounded-md bg-primary text-primary-foreground'>
-                  <OutlineFolderIcon class='size-4' />
+                  <IconIcOutlineFolder class='size-4' />
                 </div>
                 <span class='font-semibold group-data-[collapsible=icon]:hidden'>Acme Inc</span>
               </div>
@@ -139,13 +132,13 @@ const SidebarDocPage: Component = () => (
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton tooltip='Home' isActive>
-                        <OutlineHomeIcon />
+                        <IconIcOutlineHome />
                         <span>Home</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton tooltip='Inbox'>
-                        <OutlineMailIcon />
+                        <IconIcOutlineMail />
                         <span>Inbox</span>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -157,7 +150,7 @@ const SidebarDocPage: Component = () => (
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton tooltip='User Account'>
-                    <OutlinePersonIcon />
+                    <IconIcOutlinePerson />
                     <span>User Account</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -185,7 +178,7 @@ const SidebarDocPage: Component = () => (
             <SidebarHeader>
               <div class='gap-2 px-2 py-1.5 flex items-center'>
                 <div class='size-6 flex items-center justify-center rounded-md bg-primary text-primary-foreground'>
-                  <OutlineFolderIcon class='size-4' />
+                  <IconIcOutlineFolder class='size-4' />
                 </div>
                 <span class='font-semibold'>Acme Inc</span>
               </div>
@@ -197,7 +190,7 @@ const SidebarDocPage: Component = () => (
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <OutlineFolderIcon />
+                        <IconIcOutlineFolder />
                         <span>Getting Started</span>
                       </SidebarMenuButton>
                       <SidebarMenuSub>
@@ -211,7 +204,7 @@ const SidebarDocPage: Component = () => (
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <OutlineFolderIcon />
+                        <IconIcOutlineFolder />
                         <span>Components</span>
                       </SidebarMenuButton>
                       <SidebarMenuSub>

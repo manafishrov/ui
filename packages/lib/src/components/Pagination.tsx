@@ -1,8 +1,5 @@
 import { Pagination as PaginationPrimitive } from '@ark-ui/solid/pagination';
-import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
-import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
@@ -75,7 +72,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
     >
       {local.children ?? (
         <>
-          <OutlineChevronLeftIcon />
+          <IconIcOutlineChevronLeft />
           <span>{messages.ui_pagination_previous()}</span>
         </>
       )}
@@ -102,7 +99,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
       {local.children ?? (
         <>
           <span>{messages.ui_pagination_next()}</span>
-          <OutlineChevronRightIcon />
+          <IconIcOutlineChevronRight />
         </>
       )}
     </PaginationPrimitive.NextTrigger>
@@ -118,7 +115,7 @@ export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = 
       data-slot='pagination-ellipsis'
       class={cn('h-9 w-9 flex items-center justify-center', local.class)}
     >
-      <OutlineMoreHorizIcon class='size-4' />
+      <IconIcOutlineMoreHoriz class='size-4' />
       <span class='sr-only'>{messages.ui_pagination_more()}</span>
     </PaginationPrimitive.Ellipsis>
   );

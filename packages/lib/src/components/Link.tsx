@@ -1,5 +1,5 @@
 import { Link as RouterLink, type LinkProps as RouterLinkProps } from '@tanstack/solid-router';
-import { type Component, splitProps } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { buttonVariants, type ButtonVariantProps } from './Button';
 

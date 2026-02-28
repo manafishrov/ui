@@ -1,7 +1,7 @@
 import type { TagsInputRootProps } from '@ark-ui/solid';
 
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, For, splitProps } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {

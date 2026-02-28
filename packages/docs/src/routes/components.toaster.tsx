@@ -2,7 +2,7 @@ import type { Component } from 'solid-js';
 
 import { Button } from '@manafishrov/ui/button';
 import { toast, Toaster } from '@manafishrov/ui/toaster';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';

@@ -11,7 +11,7 @@ import {
   TagsInputItemDeleteTrigger,
   TagsInputLabel,
 } from '@manafishrov/ui/tags-input';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 import { Index } from 'solid-js';
 

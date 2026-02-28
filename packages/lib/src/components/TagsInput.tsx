@@ -1,5 +1,4 @@
 import { TagsInput as TagsInputPrimitive } from '@ark-ui/solid/tags-input';
-import OutlineCloseIcon from '~icons/ic/outline-close';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
@@ -44,7 +43,7 @@ export const TagsInputClearTrigger: Component<TagsInputPrimitive.ClearTriggerPro
       class={cn(local.class)}
       asChild={(triggerProps) => (
         <InputGroupButton variant='ghost' size='icon-xs' {...triggerProps()} {...others}>
-          {local.children ?? <OutlineCloseIcon class='pointer-events-none' />}
+          {local.children ?? <IconIcOutlineClose class='pointer-events-none' />}
         </InputGroupButton>
       )}
     />
@@ -83,7 +82,7 @@ export const TagsInputItemDeleteTrigger: Component<TagsInputPrimitive.ItemDelete
           {...others}
           class='size-4 rounded-[calc(var(--radius-lg)-6px)]'
         >
-          {local.children ?? <OutlineCloseIcon class='size-3 pointer-events-none' />}
+          {local.children ?? <IconIcOutlineClose class='size-3 pointer-events-none' />}
         </InputGroupButton>
       )}
     />

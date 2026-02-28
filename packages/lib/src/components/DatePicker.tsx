@@ -1,8 +1,6 @@
+import type { Component } from 'solid-js';
+
 import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
-import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
-import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
-import { type Component, For, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
@@ -88,7 +86,7 @@ export const DatePickerInput: Component<DatePickerPrimitive.InputProps> = (props
   return (
     <DatePickerPrimitive.Input
       class={cn(
-        'h-9 px-3 py-2 text-sm file:text-sm file:font-medium flex w-full rounded-lg border border-input bg-background shadow-sm transition-colors file:border-0 file:bg-transparent placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50',
+        'h-9 px-3 py-2 text-sm file:text-sm file:font-medium shadow-sm flex w-full rounded-lg border border-input bg-background transition-colors file:border-0 file:bg-transparent placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50',
         local.class,
       )}
       {...others}
@@ -107,7 +105,7 @@ export const DatePickerTrigger: Component<DatePickerPrimitive.TriggerProps> = (p
       )}
       {...others}
     >
-      {local.children ?? <OutlineCalendarMonthIcon class='size-4' />}
+      {local.children ?? <IconIcOutlineCalendarMonth class='size-4' />}
     </DatePickerPrimitive.Trigger>
   );
 };
@@ -141,7 +139,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <OutlineChevronLeftIcon class='size-4' />}
+      {local.children ?? <IconIcOutlineChevronLeft class='size-4' />}
     </DatePickerPrimitive.PrevTrigger>
   );
 };
@@ -157,7 +155,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <OutlineChevronRightIcon class='size-4' />}
+      {local.children ?? <IconIcOutlineChevronRight class='size-4' />}
     </DatePickerPrimitive.NextTrigger>
   );
 };
@@ -170,13 +168,13 @@ export const DatePickerTableCellTrigger: Component<DatePickerPrimitive.TableCell
     <DatePickerPrimitive.TableCellTrigger
       class={cn(
         buttonVariants({ variant: 'ghost' }),
-        'size-9 p-0 font-normal data-[selected]:opacity-100',
-        'data-[today]:bg-accent data-[today]:text-accent-foreground',
-        'data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground',
-        'data-[disabled]:text-muted-foreground data-[disabled]:opacity-50',
-        'data-[outside-range]:text-muted-foreground data-[outside-range]:opacity-50',
-        'data-[in-range]:rounded-none data-[in-range]:bg-accent data-[in-range]:text-accent-foreground',
-        'data-[range-end]:rounded-r-md data-[range-start]:rounded-l-md',
+        'size-9 p-0 font-normal data-selected:opacity-100',
+        'data-today:bg-accent data-today:text-accent-foreground',
+        'data-selected:bg-primary data-selected:text-primary-foreground data-selected:hover:bg-primary data-selected:hover:text-primary-foreground data-selected:focus:bg-primary data-selected:focus:text-primary-foreground',
+        'data-disabled:text-muted-foreground data-disabled:opacity-50',
+        'data-outside-range:text-muted-foreground data-outside-range:opacity-50',
+        'data-in-range:rounded-none data-in-range:bg-accent data-in-range:text-accent-foreground',
+        'data-range-end:rounded-r-md data-range-start:rounded-l-md',
         local.class,
       )}
       {...others}
@@ -188,7 +186,7 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <DatePickerPrimitive.ViewControl
-      class={cn('pt-1 mb-4 relative flex items-center justify-center px-8', local.class)}
+      class={cn('pt-1 mb-4 px-8 relative flex items-center justify-center', local.class)}
       {...others}
     >
       <DatePickerPrevTrigger />
@@ -258,7 +256,7 @@ export const DatePickerMonthView: Component = () => (
           {(api) => (
             <For each={api().getMonthsGrid({ columns: 4, format: 'short' })}>
               {(months) => (
-                <DatePickerTableRow class='w-full gap-2'>
+                <DatePickerTableRow class='gap-2 w-full'>
                   <For each={months}>
                     {(month) => (
                       <DatePickerTableCell value={month.value} class='flex-1'>
@@ -287,7 +285,7 @@ export const DatePickerYearView: Component = () => (
           {(api) => (
             <For each={api().getYearsGrid({ columns: 4 })}>
               {(years) => (
-                <DatePickerTableRow class='w-full gap-2'>
+                <DatePickerTableRow class='gap-2 w-full'>
                   <For each={years}>
                     {(year) => (
                       <DatePickerTableCell value={year.value} class='flex-1'>

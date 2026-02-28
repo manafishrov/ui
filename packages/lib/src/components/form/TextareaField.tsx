@@ -1,5 +1,5 @@
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import { TextInput, TextInputControl, TextInputArea } from '@/components/TextInput';

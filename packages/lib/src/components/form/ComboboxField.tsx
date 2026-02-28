@@ -1,7 +1,7 @@
 import type { ComboboxRootProps } from '@ark-ui/solid';
 
 import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 
 import {
   Combobox,

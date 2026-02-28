@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';

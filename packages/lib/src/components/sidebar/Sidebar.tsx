@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, Show } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 
 import { useSidebar } from './context';
 import { SidebarDesktop } from './SidebarDesktop';

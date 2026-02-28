@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, type JSX, splitProps } from 'solid-js';
+import type { Component, ComponentProps, JSX } from 'solid-js';
 
 import { Field, FieldContent, FieldDescription, FieldError } from '@/components/Field';
 import { Switch, SwitchControl, SwitchLabel, SwitchThumb } from '@/components/Switch';

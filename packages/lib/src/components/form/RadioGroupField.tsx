@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 
 import { Field, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import { RadioGroup } from '@/components/RadioGroup';

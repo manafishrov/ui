@@ -1,12 +1,11 @@
-import OutlineViewSidebarIcon from '~icons/ic/outline-view-sidebar';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
-import { cn } from 'tailwind-variants';
+import type { Component, ComponentProps } from 'solid-js';
 
 import { Button } from '@/components/Button';
 import { ScrollArea } from '@/components/ScrollArea';
 import { Separator } from '@/components/Separator';
 import * as messages from '@/paraglide/messages';
 
+import { cn } from 'tailwind-variants';
 import { useSidebar } from './context';
 
 export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) => {
@@ -33,7 +32,7 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
       onClick={handleClick}
       {...others}
     >
-      <OutlineViewSidebarIcon aria-hidden='true' />
+      <IconIcOutlineViewSidebar aria-hidden='true' />
     </Button>
   );
 };

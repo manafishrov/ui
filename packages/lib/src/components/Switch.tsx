@@ -1,5 +1,5 @@
 import { Switch as SwitchPrimitive } from '@ark-ui/solid/switch';
-import { type Component, splitProps } from 'solid-js';
+import type { Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const SwitchContext = SwitchPrimitive.Context;

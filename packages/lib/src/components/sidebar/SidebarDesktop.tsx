@@ -1,4 +1,5 @@
-import { splitProps, type Component, type ComponentProps, type JSXElement } from 'solid-js';
+import type { Component, ComponentProps, JSXElement } from 'solid-js';
+
 import { cn } from 'tailwind-variants';
 
 import type { SidebarProps } from './Sidebar';

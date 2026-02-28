@@ -1,6 +1,8 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import path from 'node:path';
+import AutoImport from 'unplugin-auto-import/vite';
 import dts from 'unplugin-dts/vite';
+import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
@@ -96,6 +98,15 @@ export default defineConfig({
     }),
     Icons({
       compiler: 'solid',
+    }),
+    AutoImport({
+      imports: ['solid-js'],
+      dts: './src/auto-imports.d.ts',
+      resolvers: [
+        IconsResolver({
+          prefix: 'Icon',
+        }),
+      ],
     }),
     solid(),
     dts({

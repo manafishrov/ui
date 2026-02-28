@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 
 import { TreeView } from '@manafishrov/ui/tree-view';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
