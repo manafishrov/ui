@@ -172,13 +172,13 @@ export const SliderCircleThumb: Component<AngleSliderPrimitive.ThumbProps> = (pr
         'data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
         local.class,
       )}
-data-slot='slider-circle-thumb'
-{...others}
->
-{local.children}
-<AngleSliderPrimitive.HiddenInput />
-</AngleSliderPrimitive.Thumb>
-);
+      data-slot='slider-circle-thumb'
+      {...others}
+    >
+      {local.children}
+      <AngleSliderPrimitive.HiddenInput />
+    </AngleSliderPrimitive.Thumb>
+  );
 };
 
 export const SliderCircleMarkerGroup: Component<AngleSliderPrimitive.MarkerGroupProps> = (
