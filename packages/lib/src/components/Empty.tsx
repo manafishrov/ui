@@ -1,4 +1,5 @@
 import type { Component, ComponentProps } from 'solid-js';
+
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 export const Empty: Component<ComponentProps<'div'>> = (props) => {

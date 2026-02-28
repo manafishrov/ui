@@ -1,5 +1,5 @@
 import { HoverCard as HoverCardPrimitive } from '@ark-ui/solid/hover-card';
-import type { Component } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const HoverCard = HoverCardPrimitive.Root;
@@ -23,7 +23,7 @@ export const HoverCardContent: Component<HoverCardPrimitive.ContentProps> = (pro
     <HoverCardPrimitive.Content
       data-slot='hover-card-content'
       class={cn(
-        'p-4 text-sm shadow-md w-64 z-50 origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none',
+        'p-4 text-sm shadow-md w-64 z-50 origin-(--transform-origin) rounded-lg bg-popover text-popover-foreground border border-border duration-100 outline-none',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
         'data-[side=bottom]:slide-in-from-top-2',

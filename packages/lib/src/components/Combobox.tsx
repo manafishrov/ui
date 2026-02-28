@@ -1,11 +1,11 @@
 import type { CollectionItem } from '@ark-ui/solid/combobox';
+import type { Component, ComponentProps } from 'solid-js';
 
 import { useComboboxContext, Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
-import type { Component, ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
-import OutlineCloseIcon from '~icons/ic/outline-close';
 import OutlineCheckIcon from '~icons/ic/outline-check';
+import OutlineCloseIcon from '~icons/ic/outline-close';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 
 export const ComboboxContext = ComboboxPrimitive.Context;
 

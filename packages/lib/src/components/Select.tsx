@@ -1,9 +1,9 @@
 import { Select as SelectPrimitive } from '@ark-ui/solid/select';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineUnfoldMoreIcon from '~icons/ic/outline-unfold-more';
-import OutlineCloseIcon from '~icons/ic/outline-close';
 import OutlineCheckIcon from '~icons/ic/outline-check';
+import OutlineCloseIcon from '~icons/ic/outline-close';
+import OutlineUnfoldMoreIcon from '~icons/ic/outline-unfold-more';
 
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;

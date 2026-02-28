@@ -35,6 +35,7 @@ export default defineConfig({
         'src/components/Field.tsx',
         'src/components/form/index.tsx',
         'src/components/HoverCard.tsx',
+        'src/components/InputGroup.tsx',
         'src/components/Item.tsx',
         'src/components/Kbd.tsx',
         'src/components/Link.tsx',

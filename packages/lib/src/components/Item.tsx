@@ -1,4 +1,4 @@
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Separator } from '@/components/Separator';
@@ -31,7 +31,7 @@ export const ItemSeparator: Component<ComponentProps<typeof Separator>> = (props
 };
 
 export const itemVariants = tv({
-  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:transition-colors [a]:hover:bg-muted',
+  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-[a]:transition-colors has-[a]:hover:bg-muted',
   variants: {
     variant: {
       default: 'border-transparent',
@@ -100,7 +100,7 @@ export const ItemContent: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='item-content'
       class={cn(
-        'gap-1 [&+data-[slot=item-content]:flex-none group-data-[size=xs]/item:gap-0 flex flex-1 flex-col',
+        'gap-1 [&+[data-slot=item-content]]:flex-none group-data-[size=xs]/item:gap-0 flex flex-1 flex-col',
         local.class,
       )}
       {...others}

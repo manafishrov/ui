@@ -1,4 +1,4 @@
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const H1: Component<ComponentProps<'h1'>> = (props) => {
@@ -47,6 +47,7 @@ export const H4: Component<ComponentProps<'h4'>> = (props) => {
   );
 };
 
+// eslint-disable-next-line id-length
 export const P: Component<ComponentProps<'p'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <p class={cn('leading-7', local.class)} {...others} />;

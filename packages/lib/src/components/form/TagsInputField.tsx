@@ -1,7 +1,6 @@
 import type { TagsInputRootProps } from '@ark-ui/solid';
 
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import type { Component } from 'solid-js';
+import { type Component, splitProps, For } from 'solid-js';
 
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {
@@ -54,7 +53,6 @@ const TAGS_INPUT_FIELD_PROPS = [
 
 export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, TAGS_INPUT_FIELD_PROPS);
 
   return (
@@ -67,7 +65,6 @@ export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
         <TagsInput
-          ids={{ control: primitiveField().ids.control }}
           value={field().state.value}
           onValueChange={(details) => {
             field().handleChange(details.value);

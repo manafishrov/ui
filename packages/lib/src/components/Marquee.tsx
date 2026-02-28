@@ -1,6 +1,6 @@
 import { Marquee as MarqueePrimitive } from '@ark-ui/solid/marquee';
+import { splitProps, type Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import type { Component } from 'solid-js';
 
 export const Marquee = MarqueePrimitive.Root;
 export const MarqueeContext = MarqueePrimitive.Context;

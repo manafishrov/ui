@@ -4,14 +4,15 @@ import {
   createToaster,
   type ToastOptions,
 } from '@ark-ui/solid/toast';
-import type { Component, Accessor } from 'solid-js';
+import { type Component, type Accessor, Show } from 'solid-js';
+import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
 import OutlineCheckCircleIcon from '~icons/ic/outline-check-circle';
-import OutlineInfoIcon from '~icons/ic/outline-info';
-import OutlineWarningIcon from '~icons/ic/outline-warning';
-import OutlineErrorIcon from '~icons/ic/outline-error';
-import OutlineRefreshIcon from '~icons/ic/outline-refresh';
 import OutlineCloseIcon from '~icons/ic/outline-close';
+import OutlineErrorIcon from '~icons/ic/outline-error';
+import OutlineInfoIcon from '~icons/ic/outline-info';
+import OutlineRefreshIcon from '~icons/ic/outline-refresh';
+import OutlineWarningIcon from '~icons/ic/outline-warning';
 
 export const toast = createToaster({
   placement: 'bottom-end',
@@ -66,6 +67,6 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
 
 export const Toaster: Component = () => (
   <Portal>
-    <ToasterPrimitive toaster={toast}>{(t) => <ToastItem toast={t} />}</ToasterPrimitive>
+    <ToasterPrimitive toaster={toast}>{(item) => <ToastItem toast={item} />}</ToasterPrimitive>
   </Portal>
 );

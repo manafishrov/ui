@@ -63,34 +63,6 @@ export const NumberInputInput: Component<PrimitiveNumberInput.InputProps> = (pro
   );
 };
 
-export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
-  return (
-    <PrimitiveNumberInput.Context>
-      {(api) => (
-        <div
-          data-slot='number-input-triggers'
-          data-focus={api().focused ? '' : false}
-          data-invalid={api().invalid ? '' : false}
-          class={cn(
-            'top-0 right-0 absolute flex h-full flex-col border-l border-input transition-colors',
-            'data-focus:border-ring data-invalid:border-destructive',
-            local.class,
-          )}
-          {...others}
-        >
-          {local.children ?? (
-            <>
-              <NumberInputIncrementTrigger />
-              <NumberInputDecrementTrigger />
-            </>
-          )}
-        </div>
-      )}
-    </PrimitiveNumberInput.Context>
-  );
-};
-
 export const NumberInputIncrementTrigger: Component<PrimitiveNumberInput.IncrementTriggerProps> = (
   props,
 ) => {
@@ -124,6 +96,34 @@ export const NumberInputDecrementTrigger: Component<PrimitiveNumberInput.Decreme
     >
       {local.children ?? <OutlineExpandMoreIcon class='size-3.5' />}
     </PrimitiveNumberInput.DecrementTrigger>
+  );
+};
+
+export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children']);
+  return (
+    <PrimitiveNumberInput.Context>
+      {(api) => (
+        <div
+          data-slot='number-input-triggers'
+          data-focus={api().focused ? '' : false}
+          data-invalid={api().invalid ? '' : false}
+          class={cn(
+            'top-0 right-0 absolute flex h-full flex-col border-l border-input transition-colors',
+            'data-focus:border-ring data-invalid:border-destructive',
+            local.class,
+          )}
+          {...others}
+        >
+          {local.children ?? (
+            <>
+              <NumberInputIncrementTrigger />
+              <NumberInputDecrementTrigger />
+            </>
+          )}
+        </div>
+      )}
+    </PrimitiveNumberInput.Context>
   );
 };
 

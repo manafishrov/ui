@@ -4,7 +4,6 @@ import {
   ProgressCircle,
   ProgressCircleRange,
   ProgressCircleTrack,
-  ProgressView,
   Progress,
   ProgressTrack,
   ProgressIndicator,
@@ -36,11 +35,13 @@ const ProgressDocPage: Component = () => (
 
     <div class='space-y-4'>
       <H2 class='pb-0 border-none'>{m.docs_example_circular()}</H2>
-      <ProgressCircle value={33}>
+      <Progress value={33}>
         <ProgressLabel>Loading...</ProgressLabel>
-        <ProgressCircleTrack />
-        <ProgressCircleRange />
-      </ProgressCircle>
+        <ProgressCircle>
+          <ProgressCircleTrack />
+          <ProgressCircleRange />
+        </ProgressCircle>
+      </Progress>
     </div>
   </div>
 );

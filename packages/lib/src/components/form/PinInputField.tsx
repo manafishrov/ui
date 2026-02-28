@@ -1,11 +1,11 @@
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps, Index } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
   PinInput,
   PinInputControl,
   PinInputInput,
+  PinInputGroup,
   PinInputHiddenInput,
 } from '@/components/PinInput';
 
@@ -14,13 +14,13 @@ import { useFieldContext } from './context';
 export type PinInputFieldProps = ComponentProps<typeof PinInput> & {
   label?: string;
   description?: string;
+  count?: number;
 };
 
 const DEFAULT_PIN_COUNT = 6;
 
 export const PinInputField: Component<PinInputFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
     'label',
     'description',
@@ -40,7 +40,6 @@ export const PinInputField: Component<PinInputFieldProps> = (props) => {
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
         <PinInput
-          ids={{ control: primitiveField().ids.control }}
           value={field().state.value}
           onValueChange={(details) => {
             field().handleChange(details.value);
@@ -52,12 +51,15 @@ export const PinInputField: Component<PinInputFieldProps> = (props) => {
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
           required={local.required ?? false}
+          count={local.count ?? DEFAULT_PIN_COUNT}
           {...others}
         >
           <PinInputControl>
-            <Index each={Array.from({ length: local.count ?? DEFAULT_PIN_COUNT })}>
-              {(_, index) => <PinInputInput index={index} />}
-            </Index>
+            <PinInputGroup>
+              <Index each={Array.from({ length: local.count ?? DEFAULT_PIN_COUNT })}>
+                {(_, index) => <PinInputInput index={index} />}
+              </Index>
+            </PinInputGroup>
           </PinInputControl>
           <PinInputHiddenInput />
         </PinInput>

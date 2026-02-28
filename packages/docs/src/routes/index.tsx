@@ -100,8 +100,8 @@ const components = [
     descriptionKey: 'docs_component_hover_card_description',
   },
   {
-    name: 'Input',
-    to: '/components/input',
+    name: 'Input Group',
+    to: '/components/input-group',
     descriptionKey: 'docs_component_input_description',
   },
   {
@@ -114,11 +114,7 @@ const components = [
     to: '/components/kbd',
     descriptionKey: 'docs_component_kbd_description',
   },
-  {
-    name: 'Label',
-    to: '/components/label',
-    descriptionKey: 'docs_component_label_description',
-  },
+
   {
     name: 'Link',
     to: '/components/link',
@@ -239,11 +235,7 @@ const components = [
     to: '/components/text-input',
     descriptionKey: 'docs_component_text_input_description',
   },
-  {
-    name: 'Textarea',
-    to: '/components/textarea',
-    descriptionKey: 'docs_component_textarea_description',
-  },
+
   {
     name: 'Toaster',
     to: '/components/toaster',

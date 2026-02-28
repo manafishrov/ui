@@ -1,5 +1,6 @@
-import { Avatar as AvatarPrimitive } from '@ark-ui/solid/avatar';
 import type { Component, ComponentProps } from 'solid-js';
+
+import { Avatar as AvatarPrimitive } from '@ark-ui/solid/avatar';
 import { cn } from 'tailwind-variants';
 
 export const Avatar: Component<AvatarPrimitive.RootProps & { size?: 'sm' | 'default' | 'lg' }> = (

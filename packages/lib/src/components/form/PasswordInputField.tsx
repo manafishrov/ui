@@ -1,5 +1,4 @@
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
@@ -7,6 +6,7 @@ import {
   PasswordInputControl,
   PasswordInputInput,
   PasswordInputVisibilityTrigger,
+  PasswordInputIndicator,
 } from '@/components/PasswordInput';
 
 import { useFieldContext } from './context';
@@ -18,7 +18,6 @@ export type PasswordInputFieldProps = ComponentProps<typeof PasswordInputInput> 
 
 export const PasswordInputField: Component<PasswordInputFieldProps> = (props) => {
   const field = useFieldContext<string>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
     'label',
     'description',
@@ -37,7 +36,6 @@ export const PasswordInputField: Component<PasswordInputFieldProps> = (props) =>
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
         <PasswordInput
-          id={primitiveField().ids.control}
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
@@ -54,7 +52,9 @@ export const PasswordInputField: Component<PasswordInputFieldProps> = (props) =>
               }}
               {...others}
             />
-            <PasswordInputVisibilityTrigger />
+            <PasswordInputVisibilityTrigger>
+              <PasswordInputIndicator />
+            </PasswordInputVisibilityTrigger>
           </PasswordInputControl>
         </PasswordInput>
         <FieldDescription>{local.description}</FieldDescription>

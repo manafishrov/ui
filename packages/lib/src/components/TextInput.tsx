@@ -1,5 +1,5 @@
 import { Field as PrimitiveField } from '@ark-ui/solid/field';
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { FieldDescription, FieldError } from './Field';
@@ -32,7 +32,7 @@ export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
           data-readonly={field().readOnly ? '' : false}
           class={cn(
             'min-w-0 h-8 relative flex w-full items-center overflow-hidden rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
-            'has-focus-visible:ing-ring/50 has-focus-visible:border-ring has-focus-visible:ring-[3px]',
+            'has-focus-visible:ring-ring/50 has-focus-visible:border-ring has-focus-visible:ring-[3px]',
             'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
             'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
             'data-readonly:has-focus-visible:border-input data-readonly:has-focus-visible:ring-0',

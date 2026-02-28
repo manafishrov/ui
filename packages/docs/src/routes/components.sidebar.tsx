@@ -19,14 +19,14 @@ import {
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 import { type Component } from 'solid-js';
-
-import * as m from '@/paraglide/messages';
+import OutlineCalendarTodayIcon from '~icons/ic/outline-calendar-today';
 import OutlineFolderIcon from '~icons/ic/outline-folder';
 import OutlineHomeIcon from '~icons/ic/outline-home';
 import OutlineMailIcon from '~icons/ic/outline-mail';
-import OutlineCalendarTodayIcon from '~icons/ic/outline-calendar-today';
 import OutlinePersonIcon from '~icons/ic/outline-person';
 import OutlineSettingsIcon from '~icons/ic/outline-settings';
+
+import * as m from '@/paraglide/messages';
 
 const SidebarDocPage: Component = () => (
   <div class='space-y-8'>

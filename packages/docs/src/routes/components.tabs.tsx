@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { Tabs, TabsList, TabsTrigger, TabsContent, TabsIndicator } from '@manafishrov/ui/tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@manafishrov/ui/tabs';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
@@ -15,7 +15,6 @@ const TabsDocPage: Component = () => (
 
     <Tabs defaultValue='account' class='max-w-sm'>
       <TabsList>
-        <TabsIndicator />
         <TabsTrigger value='account'>Account</TabsTrigger>
         <TabsTrigger value='password'>Password</TabsTrigger>
       </TabsList>

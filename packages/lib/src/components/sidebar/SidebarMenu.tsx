@@ -1,4 +1,5 @@
 import type { Component, ComponentProps } from 'solid-js';
+
 import { type VariantProps, tv, cn } from 'tailwind-variants';
 
 import { Skeleton } from '@/components/Skeleton';

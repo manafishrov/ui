@@ -4,7 +4,6 @@ import { createListCollection } from '@manafishrov/ui';
 import { Button } from '@manafishrov/ui/button';
 import {
   SelectControl,
-  SelectHiddenSelect,
   SelectList,
   Select,
   SelectLabel,
@@ -19,7 +18,7 @@ import {
   SelectItem,
   SelectSeparator,
 } from '@manafishrov/ui/select';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';

@@ -1,7 +1,5 @@
 import type { Component, ComponentProps, JSX } from 'solid-js';
 
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {
   Select,
@@ -35,7 +33,6 @@ export type SelectFieldProps = ComponentProps<typeof Select> & {
 
 export const SelectField: Component<SelectFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
     'label',
     'description',
@@ -56,7 +53,6 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
         <Select
-          ids={{ trigger: primitiveField().ids.control }}
           value={field().state.value}
           onValueChange={(details) => {
             field().handleChange(details.value);
@@ -67,7 +63,6 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
-          required={local.required ?? false}
           {...others}
         >
           <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>

@@ -1,6 +1,4 @@
 import type { ComboboxRootProps } from '@ark-ui/solid';
-
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
 import type { Component, ComponentProps } from 'solid-js';
 
 import {
@@ -60,7 +58,6 @@ const COMBOBOX_FIELD_PROPS = [
 
 export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, COMBOBOX_FIELD_PROPS);
 
   return (
@@ -73,7 +70,6 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
         <Combobox
-          ids={{ control: primitiveField().ids.control }}
           value={field().state.value}
           onValueChange={(details) => {
             field().handleChange(details.value);

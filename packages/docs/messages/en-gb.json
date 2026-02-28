@@ -22,6 +22,7 @@
   "docs_component_form_description": "A comprehensive form component with validation and various field types.",
   "docs_component_hover_card_description": "A card that appears when hovering over an element.",
   "docs_component_input_description": "A basic text input component.",
+  "docs_component_input_group_description": "A wrapper for grouping inputs with addons and buttons.",
   "docs_component_item_description": "A flexible item component for lists and menus.",
   "docs_component_kbd_description": "A component for displaying keyboard shortcuts.",
   "docs_component_label_description": "A text label for form controls.",

@@ -1,6 +1,6 @@
 import { Collapsible as CollapsiblePrimitive } from '@ark-ui/solid/collapsible';
-import { cn } from 'tailwind-variants';
 import { type Component, splitProps } from 'solid-js';
+import { cn } from 'tailwind-variants';
 
 export const Collapsible: Component<CollapsiblePrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);

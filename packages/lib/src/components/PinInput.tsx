@@ -1,5 +1,5 @@
 import { PinInput as PrimitivePinInput } from '@ark-ui/solid/pin-input';
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineRemoveIcon from '~icons/ic/outline-remove';
 
@@ -56,10 +56,9 @@ export const PinInputGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'index']);
+  const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePinInput.Input
-      index={local.index}
       class={cn(
         'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
         'px-0 py-0 h-full border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',

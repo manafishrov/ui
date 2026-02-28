@@ -1,5 +1,3 @@
-import type { Component } from 'solid-js';
-
 import {
   TagsInput,
   TagsInputClearTrigger,
@@ -13,7 +11,7 @@ import {
 } from '@manafishrov/ui/tags-input';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
-import { Index } from 'solid-js';
+import { type Component, Index } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
 const TagsInputDocPage: Component = () => (

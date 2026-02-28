@@ -7,7 +7,7 @@ import {
   MarqueeItem,
   MarqueeEdge,
 } from '@manafishrov/ui/marquee';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
@@ -20,7 +20,7 @@ const MarqueeDocPage: Component = () => (
     </div>
 
     <Marquee class='max-w-md rounded-md border'>
-      <MarqueeEdge />
+      <MarqueeEdge side='start' />
       <MarqueeViewport>
         <MarqueeContent>
           <MarqueeItem class='px-4 py-2 mr-4 rounded-md bg-muted'>Item 1</MarqueeItem>

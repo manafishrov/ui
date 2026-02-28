@@ -1,4 +1,4 @@
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
@@ -29,7 +29,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const inputGroupAddonVariants = tv({
-  base: "gap-2 py-1.5 text-sm font-medium [&>svg:not([class*='size-'])]:size-4 flex h-auto cursor-text items-center justify-center text-muted-foreground select-none group-data-disabled/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)]",
+  base: "gap-2 py-1.5 text-sm font-medium [&>svg:not([class*='size-'])]:size-4 flex h-auto cursor-text items-center justify-center text-muted-foreground select-none [&>kbd]:rounded-[calc(var(--radius)-5px)]",
   variants: {
     align: {
       'inline-start': 'pl-2 order-first has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]',

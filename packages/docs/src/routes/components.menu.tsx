@@ -8,15 +8,13 @@ import {
   MenuPositioner,
   MenuContent,
   MenuItem,
-  MenuTriggerItem,
   MenuItemGroupLabel,
   MenuSeparator,
-  MenuItemIndicator,
   MenuCheckboxItem,
   MenuRadioItem,
   MenuShortcut,
 } from '@manafishrov/ui/menu';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
@@ -52,8 +50,13 @@ const MenuDocPage: Component = () => (
           <MenuItemGroup>
             <MenuItemGroupLabel>Preferences</MenuItemGroupLabel>
             <MenuSeparator />
-            <MenuCheckboxItem checked>Show Toolbar</MenuCheckboxItem>
-            <MenuCheckboxItem>Show Full Path</MenuCheckboxItem>
+            <MenuCheckboxItem value='show-toolbar' checked>
+              Show Toolbar
+            </MenuCheckboxItem>
+            <MenuCheckboxItem value='show-full-path' checked={false}>
+              Show Full Path
+            </MenuCheckboxItem>
+
             <MenuSeparator />
             <MenuRadioItem value='light'>Light Mode</MenuRadioItem>
             <MenuRadioItem value='dark'>Dark Mode</MenuRadioItem>

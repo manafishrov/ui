@@ -1,10 +1,10 @@
 import { Dialog as SheetPrimitive } from '@ark-ui/solid/dialog';
-import type { Component, ComponentProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineCloseIcon from '~icons/ic/outline-close';
 
 import { Button } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
-import OutlineCloseIcon from '~icons/ic/outline-close';
 
 export const Sheet = SheetPrimitive.Root;
 export const SheetTrigger = SheetPrimitive.Trigger;

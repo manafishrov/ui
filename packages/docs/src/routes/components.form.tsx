@@ -52,8 +52,8 @@ const FormDocPage: Component = () => {
       checkbox: false,
       switch: false,
       radio: '',
-      select: '',
-      combobox: '',
+      select: [],
+      combobox: [],
       slider: [50],
       tags: [''],
       pin: ['', '', '', ''],
@@ -188,7 +188,8 @@ const FormDocPage: Component = () => {
               <form.AppField
                 name='select'
                 validators={{
-                  onChange: ({ value }) => (!value ? 'Please select an option' : undefined),
+                  onChange: ({ value }) =>
+                    value.length === 0 ? 'Please select an option' : undefined,
                 }}
               >
                 {() => (
@@ -203,7 +204,8 @@ const FormDocPage: Component = () => {
               <form.AppField
                 name='combobox'
                 validators={{
-                  onChange: ({ value }) => (!value ? 'Please select an option' : undefined),
+                  onChange: ({ value }) =>
+                    value.length === 0 ? 'Please select an option' : undefined,
                 }}
               >
                 {() => (

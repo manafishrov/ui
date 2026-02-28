@@ -1,4 +1,3 @@
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
 import type { Component, ComponentProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
@@ -19,7 +18,6 @@ export type NumberInputFieldProps = ComponentProps<typeof NumberInput> & {
 
 export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
   const field = useFieldContext<number>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
     'label',
     'description',
@@ -39,7 +37,6 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
         <NumberInput
-          id={primitiveField().ids.control}
           value={String(field().state.value)}
           onValueChange={(details) => {
             field().handleChange(details.valueAsNumber);

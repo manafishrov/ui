@@ -14,7 +14,7 @@ const SpinnerDocPage: Component = () => (
     </div>
 
     <div class='gap-4 flex flex-wrap'>
-      <Spinner>Example</Spinner>
+      <Spinner />
     </div>
   </div>
 );

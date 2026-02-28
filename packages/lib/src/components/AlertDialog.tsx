@@ -1,5 +1,6 @@
-import { Dialog as AlertDialogPrimitive } from '@ark-ui/solid/dialog';
 import type { Component, ComponentProps } from 'solid-js';
+
+import { Dialog as AlertDialogPrimitive } from '@ark-ui/solid/dialog';
 import { cn, type VariantProps } from 'tailwind-variants';
 
 import { Button, type buttonVariants } from '@/components/Button';

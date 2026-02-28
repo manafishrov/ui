@@ -88,6 +88,10 @@
       "types": "./dist/components/HoverCard.d.ts",
       "import": "./dist/components/HoverCard.js"
     },
+    "./input-group": {
+      "types": "./dist/components/InputGroup.d.ts",
+      "import": "./dist/components/InputGroup.js"
+    },
     "./item": {
       "types": "./dist/components/Item.d.ts",
       "import": "./dist/components/Item.js"

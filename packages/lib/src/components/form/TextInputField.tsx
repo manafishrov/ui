@@ -1,8 +1,7 @@
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
-import type { Component, ComponentProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
-import { TextInput, TextInputControl, TextInputInput } from '@/components/TextInput';
+import { TextInputControl, TextInputInput } from '@/components/TextInput';
 
 import { useFieldContext } from './context';
 
@@ -13,7 +12,6 @@ export type TextInputFieldProps = ComponentProps<typeof TextInputInput> & {
 
 export const TextInputField: Component<TextInputFieldProps> = (props) => {
   const field = useFieldContext<string>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
     'label',
     'description',
@@ -31,26 +29,18 @@ export const TextInputField: Component<TextInputFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <TextInput
-          id={primitiveField().ids.control}
-          invalid={field().state.meta.errors.length > 0}
-          disabled={local.disabled ?? false}
-          readOnly={local.readOnly ?? false}
-          required={local.required ?? false}
-        >
-          <TextInputControl>
-            <TextInputInput
-              value={field().state.value}
-              onInput={(event) => {
-                field().handleChange(event.target.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              {...others}
-            />
-          </TextInputControl>
-        </TextInput>
+        <TextInputControl>
+          <TextInputInput
+            value={field().state.value}
+            onInput={(event) => {
+              field().handleChange(event.target.value);
+            }}
+            onBlur={() => {
+              field().handleBlur();
+            }}
+            {...others}
+          />
+        </TextInputControl>
         <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
       </FieldContent>

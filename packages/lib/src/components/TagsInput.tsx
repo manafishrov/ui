@@ -1,9 +1,9 @@
 import { TagsInput as TagsInputPrimitive } from '@ark-ui/solid/tags-input';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineCloseIcon from '~icons/ic/outline-close';
 
 import { InputGroupButton } from '@/components/InputGroup';
-import OutlineCloseIcon from '~icons/ic/outline-close';
 export const TagsInput = TagsInputPrimitive.Root;
 export const TagsInputContext = TagsInputPrimitive.Context;
 export const TagsInputHiddenInput = TagsInputPrimitive.HiddenInput;

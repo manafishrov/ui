@@ -1,8 +1,8 @@
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineRefreshIcon from '~icons/ic/outline-refresh';
 
 import * as messages from '@/paraglide/messages';
-import OutlineRefreshIcon from '~icons/ic/outline-refresh';
 
 export const Spinner: Component<ComponentProps<typeof OutlineRefreshIcon>> = (props) => {
   const [local, others] = splitProps(props, ['class']);

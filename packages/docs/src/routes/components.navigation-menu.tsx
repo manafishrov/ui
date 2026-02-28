@@ -8,7 +8,7 @@ import {
   NavigationMenuContent,
   NavigationMenuLink,
 } from '@manafishrov/ui/navigation-menu';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
@@ -22,7 +22,7 @@ const NavigationMenuDocPage: Component = () => (
 
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
+        <NavigationMenuItem value='getting-started'>
           <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul class='gap-3 p-4 md:max-w-sm lg:max-w-md lg:grid-cols-[.75fr_1fr] grid'>
@@ -40,7 +40,7 @@ const NavigationMenuDocPage: Component = () => (
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem value='components'>
           <NavigationMenuTrigger>Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul class='gap-3 p-4 md:max-w-md md:grid-cols-2 lg:max-w-lg grid max-w-sm'>
@@ -63,7 +63,7 @@ const NavigationMenuDocPage: Component = () => (
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem value='documentation'>
           <NavigationMenuLink
             href='/docs'
             class='group h-10 px-4 py-2 text-sm font-medium inline-flex w-max items-center justify-center rounded-md bg-background transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'

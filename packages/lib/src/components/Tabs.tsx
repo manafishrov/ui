@@ -1,5 +1,5 @@
 import { Tabs as TabsPrimitive } from '@ark-ui/solid/tabs';
-import type { Component } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const Tabs: Component<TabsPrimitive.RootProps> = (props) => {

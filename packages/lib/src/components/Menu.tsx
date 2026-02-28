@@ -1,8 +1,8 @@
 import { Menu as MenuPrimitive } from '@ark-ui/solid/menu';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 import OutlineCheckIcon from '~icons/ic/outline-check';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 export const Menu = MenuPrimitive.Root;
 export const MenuTrigger = MenuPrimitive.Trigger;

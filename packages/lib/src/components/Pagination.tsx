@@ -1,12 +1,14 @@
 import { Pagination as PaginationPrimitive } from '@ark-ui/solid/pagination';
-import type { Component, ComponentProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-
-import { buttonVariants } from '@/components/Button';
-import * as messages from '@/paraglide/messages';
 import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
 import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
+
+import { buttonVariants } from '@/components/Button';
+import * as messages from '@/paraglide/messages';
+
+export const PaginationContext = PaginationPrimitive.Context;
 
 export const Pagination: Component<PaginationPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);

@@ -13,6 +13,10 @@ import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
 
+const DEFAULT_VOLUME = 33;
+const MAX_VOLUME = 100;
+const VOLUME_STEP = 1;
+
 const SliderDocPage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
@@ -20,13 +24,13 @@ const SliderDocPage: Component = () => (
       <Lead>{m.docs_component_slider_description()}</Lead>
     </div>
 
-    <Slider defaultValue={[33]} max={100} step={1} class='w-[60%]'>
+    <Slider defaultValue={[DEFAULT_VOLUME]} max={MAX_VOLUME} step={VOLUME_STEP} class='w-[60%]'>
       <SliderLabel>Volume</SliderLabel>
       <SliderControl>
         <SliderTrack>
           <SliderRange />
         </SliderTrack>
-        <SliderThumb />
+        <SliderThumb index={0} />
       </SliderControl>
     </Slider>
   </div>

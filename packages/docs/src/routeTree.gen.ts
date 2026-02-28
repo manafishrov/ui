@@ -41,6 +41,7 @@ import { Route as ComponentsMarqueeRouteImport } from './routes/components.marqu
 import { Route as ComponentsLinkRouteImport } from './routes/components.link'
 import { Route as ComponentsKbdRouteImport } from './routes/components.kbd'
 import { Route as ComponentsItemRouteImport } from './routes/components.item'
+import { Route as ComponentsInputGroupRouteImport } from './routes/components.input-group'
 import { Route as ComponentsHoverCardRouteImport } from './routes/components.hover-card'
 import { Route as ComponentsFormRouteImport } from './routes/components.form'
 import { Route as ComponentsFieldRouteImport } from './routes/components.field'
@@ -221,6 +222,11 @@ const ComponentsItemRoute = ComponentsItemRouteImport.update({
   path: '/components/item',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComponentsInputGroupRoute = ComponentsInputGroupRouteImport.update({
+  id: '/components/input-group',
+  path: '/components/input-group',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComponentsHoverCardRoute = ComponentsHoverCardRouteImport.update({
   id: '/components/hover-card',
   path: '/components/hover-card',
@@ -332,6 +338,7 @@ export interface FileRoutesByFullPath {
   '/components/field': typeof ComponentsFieldRoute
   '/components/form': typeof ComponentsFormRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
+  '/components/input-group': typeof ComponentsInputGroupRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
   '/components/link': typeof ComponentsLinkRoute
@@ -384,6 +391,7 @@ export interface FileRoutesByTo {
   '/components/field': typeof ComponentsFieldRoute
   '/components/form': typeof ComponentsFormRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
+  '/components/input-group': typeof ComponentsInputGroupRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
   '/components/link': typeof ComponentsLinkRoute
@@ -437,6 +445,7 @@ export interface FileRoutesById {
   '/components/field': typeof ComponentsFieldRoute
   '/components/form': typeof ComponentsFormRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
+  '/components/input-group': typeof ComponentsInputGroupRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
   '/components/link': typeof ComponentsLinkRoute
@@ -491,6 +500,7 @@ export interface FileRouteTypes {
     | '/components/field'
     | '/components/form'
     | '/components/hover-card'
+    | '/components/input-group'
     | '/components/item'
     | '/components/kbd'
     | '/components/link'
@@ -543,6 +553,7 @@ export interface FileRouteTypes {
     | '/components/field'
     | '/components/form'
     | '/components/hover-card'
+    | '/components/input-group'
     | '/components/item'
     | '/components/kbd'
     | '/components/link'
@@ -595,6 +606,7 @@ export interface FileRouteTypes {
     | '/components/field'
     | '/components/form'
     | '/components/hover-card'
+    | '/components/input-group'
     | '/components/item'
     | '/components/kbd'
     | '/components/link'
@@ -648,6 +660,7 @@ export interface RootRouteChildren {
   ComponentsFieldRoute: typeof ComponentsFieldRoute
   ComponentsFormRoute: typeof ComponentsFormRoute
   ComponentsHoverCardRoute: typeof ComponentsHoverCardRoute
+  ComponentsInputGroupRoute: typeof ComponentsInputGroupRoute
   ComponentsItemRoute: typeof ComponentsItemRoute
   ComponentsKbdRoute: typeof ComponentsKbdRoute
   ComponentsLinkRoute: typeof ComponentsLinkRoute
@@ -907,6 +920,13 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof ComponentsItemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/components/input-group': {
+      id: '/components/input-group'
+      path: '/components/input-group'
+      fullPath: '/components/input-group'
+      preLoaderRoute: typeof ComponentsInputGroupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/components/hover-card': {
       id: '/components/hover-card'
       path: '/components/hover-card'
@@ -1056,6 +1076,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsFieldRoute: ComponentsFieldRoute,
   ComponentsFormRoute: ComponentsFormRoute,
   ComponentsHoverCardRoute: ComponentsHoverCardRoute,
+  ComponentsInputGroupRoute: ComponentsInputGroupRoute,
   ComponentsItemRoute: ComponentsItemRoute,
   ComponentsKbdRoute: ComponentsKbdRoute,
   ComponentsLinkRoute: ComponentsLinkRoute,

@@ -13,7 +13,7 @@ import {
   ItemHeader,
   ItemFooter,
 } from '@manafishrov/ui/item';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';

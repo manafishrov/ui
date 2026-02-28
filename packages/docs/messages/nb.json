@@ -21,6 +21,7 @@
   "docs_component_field_description": "En innpakningskomponent for skjemainput med etiketter og feil.",
   "docs_component_hover_card_description": "Et kort som vises når man svever over et element.",
   "docs_component_input_description": "En grunnleggende tekstinntastingskomponent.",
+  "docs_component_input_group_description": "En innpakning for å gruppere inndata med tillegg og knapper.",
   "docs_component_item_description": "En fleksibel elementkomponent for lister og menyer.",
   "docs_component_kbd_description": "En komponent for å vise tastatursnarveier.",
   "docs_component_label_description": "En tekstetikett for skjemakontroller.",

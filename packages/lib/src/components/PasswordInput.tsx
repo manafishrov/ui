@@ -1,14 +1,22 @@
 import { PasswordInput as PrimitivePasswordInput } from '@ark-ui/solid/password-input';
-import type { Component } from 'solid-js';
-
+import { splitProps, type Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineVisibilityOffIcon from '~icons/ic/outline-visibility-off';
 import OutlineVisibilityIcon from '~icons/ic/outline-visibility';
-export const PasswordInput = PrimitivePasswordInput.Root;
+import OutlineVisibilityOffIcon from '~icons/ic/outline-visibility-off';
+export const PasswordInput: Component<PrimitivePasswordInput.RootProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <PrimitivePasswordInput.Root
+      class={cn('group/password-input gap-1.5 flex w-full flex-col', local.class)}
+      {...others}
+    />
+  );
+};
+
 export const PasswordInputContext = PrimitivePasswordInput.Context;
 
 export const PasswordInputLabel: Component<PrimitivePasswordInput.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.Label
       class={cn(

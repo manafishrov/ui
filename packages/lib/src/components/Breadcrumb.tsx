@@ -1,10 +1,11 @@
-import { Link, type LinkProps } from '@tanstack/solid-router';
 import type { Component, ComponentProps } from 'solid-js';
-import { cn } from 'tailwind-variants';
 
-import * as messages from '@/paraglide/messages';
+import { Link, type LinkProps } from '@tanstack/solid-router';
+import { cn } from 'tailwind-variants';
 import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
+
+import * as messages from '@/paraglide/messages';
 
 export const Breadcrumb: Component<ComponentProps<'nav'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);

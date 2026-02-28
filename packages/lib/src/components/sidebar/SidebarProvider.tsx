@@ -8,13 +8,13 @@ import {
   splitProps,
   type JSX,
 } from 'solid-js';
-
 import { cn } from 'tailwind-variants';
+
+import { useIsMobile } from '@/hooks/useMobile';
 
 import { SIDEBAR_KEYBOARD_SHORTCUT, SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './constants';
 import { SidebarContext, type SidebarContextProps } from './context';
 import { setSidebarCookie } from './utils';
-import { useIsMobile } from '@/hooks/useMobile';
 
 export type SidebarProviderProps = ComponentProps<'div'> & {
   defaultOpen?: boolean;

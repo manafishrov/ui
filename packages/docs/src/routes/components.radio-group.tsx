@@ -7,7 +7,7 @@ import {
   RadioGroupItemControl,
   RadioGroupItemText,
 } from '@manafishrov/ui/radio-group';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';

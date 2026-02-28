@@ -3,7 +3,6 @@ import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import BaselineCircleIcon from '~icons/ic/baseline-circle';
 
-
 export const RadioGroup: Component<RadioGroupPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (

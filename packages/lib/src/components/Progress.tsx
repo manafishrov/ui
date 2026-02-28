@@ -1,27 +1,60 @@
 import { Progress as ProgressPrimitive } from '@ark-ui/solid/progress';
-import type { Component } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-export const ProgressCircle = ProgressPrimitive.Circle;
-export const ProgressCircleRange = ProgressPrimitive.CircleRange;
-export const ProgressCircleTrack = ProgressPrimitive.CircleTrack;
+export const ProgressCircle: Component<ProgressPrimitive.CircleProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <ProgressPrimitive.Circle
+      class={cn('h-10 w-10 text-primary', local.class)}
+      data-slot='progress-circle'
+      {...others}
+    >
+      {props.children}
+    </ProgressPrimitive.Circle>
+  );
+};
+
+export const ProgressCircleRange: Component<ProgressPrimitive.CircleRangeProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <ProgressPrimitive.CircleRange
+      class={cn('stroke-current transition-all duration-300 ease-in-out', local.class)}
+      data-slot='progress-circle-range'
+      {...others}
+    />
+  );
+};
+
+export const ProgressCircleTrack: Component<ProgressPrimitive.CircleTrackProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <ProgressPrimitive.CircleTrack
+      class={cn('stroke-muted', local.class)}
+      data-slot='progress-circle-track'
+      {...others}
+    />
+  );
+};
 export const ProgressView = ProgressPrimitive.View;
 export const ProgressContext = ProgressPrimitive.Context;
 
 export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
 
   return (
     <ProgressPrimitive.Root
       data-slot='progress'
       class={cn('gap-2 flex w-full flex-col', local.class)}
       {...others}
-    />
+    >
+      {local.children}
+    </ProgressPrimitive.Root>
   );
 };
 
 export const ProgressTrack: Component<ProgressPrimitive.TrackProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Track
       class={cn(
@@ -30,18 +63,22 @@ export const ProgressTrack: Component<ProgressPrimitive.TrackProps> = (props) =>
       )}
       data-slot='progress-track'
       {...others}
-    />
+    >
+      {local.children}
+    </ProgressPrimitive.Track>
   );
 };
 
 export const ProgressIndicator: Component<ProgressPrimitive.RangeProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Range
       data-slot='progress-indicator'
       class={cn('h-full bg-primary transition-all', local.class)}
       {...others}
-    />
+    >
+      {local.children}
+    </ProgressPrimitive.Range>
   );
 };
 

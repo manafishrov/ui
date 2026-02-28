@@ -1,4 +1,3 @@
-import { useFieldContext as usePrimitiveFieldContext } from '@ark-ui/solid/field';
 import type { Component, ComponentProps } from 'solid-js';
 
 import { Field, FieldDescription, FieldError } from '@/components/Field';
@@ -50,7 +49,6 @@ export type SliderFieldProps = ComponentProps<typeof Slider> & {
 
 export const SliderField: Component<SliderFieldProps> = (props) => {
   const field = useFieldContext<number[]>();
-  const primitiveField = usePrimitiveFieldContext();
   const [local, others] = splitProps(props, [
     'label',
     'description',
@@ -69,7 +67,6 @@ export const SliderField: Component<SliderFieldProps> = (props) => {
     >
       <SliderLabel>{local.label}</SliderLabel>
       <Slider
-        ids={{ control: primitiveField().ids.control }}
         value={field().state.value}
         onValueChange={(details) => {
           field().handleChange(details.value);

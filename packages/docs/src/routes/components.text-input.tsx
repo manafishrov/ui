@@ -5,9 +5,10 @@ import {
   TextInputLabel,
   TextInputControl,
   TextInputInput,
+  TextInputArea,
   TextInputHelperText,
 } from '@manafishrov/ui/text-input';
-import { H1, Lead } from '@manafishrov/ui/typography';
+import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
@@ -27,6 +28,17 @@ const TextInputDocPage: Component = () => (
         </TextInputControl>
         <TextInputHelperText>We'll never share your email.</TextInputHelperText>
       </TextInput>
+    </div>
+    <div class='space-y-4'>
+      <H2 class='pb-0 border-none'>Text Area</H2>
+      <div class='gap-4 flex flex-wrap'>
+        <TextInput class='max-w-xs'>
+          <TextInputLabel>Message</TextInputLabel>
+          <TextInputControl>
+            <TextInputArea placeholder='Type your message...' />
+          </TextInputControl>
+        </TextInput>
+      </div>
     </div>
   </div>
 );

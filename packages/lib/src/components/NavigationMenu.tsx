@@ -1,12 +1,12 @@
-import { HoverCard as HoverCardPrimitive } from '@ark-ui/solid/hover-card';
-import type { Component, ComponentProps } from 'solid-js';
+import { NavigationMenu as NavigationMenuPrimitive } from '@ark-ui/solid/navigation-menu';
+import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 
-export const NavigationMenu: Component<ComponentProps<'nav'>> = (props) => {
+export const NavigationMenu: Component<NavigationMenuPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <nav
+    <NavigationMenuPrimitive.Root
       data-slot='navigation-menu'
       class={cn(
         'group/navigation-menu relative flex max-w-max flex-1 items-center justify-center',
@@ -15,14 +15,14 @@ export const NavigationMenu: Component<ComponentProps<'nav'>> = (props) => {
       {...others}
     >
       {local.children}
-    </nav>
+    </NavigationMenuPrimitive.Root>
   );
 };
 
-export const NavigationMenuList: Component<ComponentProps<'ul'>> = (props) => {
+export const NavigationMenuList: Component<NavigationMenuPrimitive.ListProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <ul
+    <NavigationMenuPrimitive.List
       data-slot='navigation-menu-list'
       class={cn('gap-1 group flex flex-1 list-none items-center justify-center', local.class)}
       {...others}
@@ -30,28 +30,23 @@ export const NavigationMenuList: Component<ComponentProps<'ul'>> = (props) => {
   );
 };
 
-export const NavigationMenuItem: Component<HoverCardPrimitive.RootProps & { class?: string }> = (
-  props,
-) => {
+export const NavigationMenuItem: Component<NavigationMenuPrimitive.ItemProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <HoverCardPrimitive.Root
-      openDelay={0}
-      closeDelay={200}
-      positioning={{ placement: 'bottom', gutter: 8 }}
+    <NavigationMenuPrimitive.Item
+      data-slot='navigation-menu-item'
+      class={cn('relative', local.class)}
       {...others}
     >
-      <li data-slot='navigation-menu-item' class={cn('relative', local.class)}>
-        {local.children}
-      </li>
-    </HoverCardPrimitive.Root>
+      {local.children}
+    </NavigationMenuPrimitive.Item>
   );
 };
 
-export const NavigationMenuTrigger: Component<HoverCardPrimitive.TriggerProps> = (props) => {
+export const NavigationMenuTrigger: Component<NavigationMenuPrimitive.TriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <HoverCardPrimitive.Trigger
+    <NavigationMenuPrimitive.Trigger
       data-slot='navigation-menu-trigger'
       class={cn(
         'group h-9 px-4 py-2 text-sm font-medium inline-flex w-max items-center justify-center rounded-md bg-background transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-active:bg-accent/50 data-[state=open]:bg-accent/50',
@@ -64,30 +59,73 @@ export const NavigationMenuTrigger: Component<HoverCardPrimitive.TriggerProps> =
         class='ml-1 size-3 relative top-px transition duration-300 group-data-[state=open]:rotate-180'
         aria-hidden='true'
       />
-    </HoverCardPrimitive.Trigger>
+    </NavigationMenuPrimitive.Trigger>
   );
 };
 
-export const NavigationMenuContent: Component<HoverCardPrimitive.ContentProps> = (props) => {
+export const NavigationMenuContent: Component<NavigationMenuPrimitive.ContentProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <HoverCardPrimitive.Positioner class='top-0 left-0 isolate z-50 w-full'>
-      <HoverCardPrimitive.Content
-        data-slot='navigation-menu-content'
-        class={cn(
-          'p-4 shadow-md h-auto w-auto origin-(--transform-origin) rounded-md bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
-          local.class,
-        )}
-        {...others}
-      />
-    </HoverCardPrimitive.Positioner>
+    <NavigationMenuPrimitive.Content
+      data-slot='navigation-menu-content'
+      class={cn(
+        'p-4 shadow-md h-auto w-auto origin-top-left rounded-md bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+        'absolute top-full left-0 mt-1.5 min-w-[12rem]',
+        local.class,
+      )}
+      {...others}
+    />
   );
 };
 
-export const NavigationMenuLink: Component<ComponentProps<'a'>> = (props) => {
+export const NavigationMenuIndicator: Component<NavigationMenuPrimitive.IndicatorProps> = (
+  props,
+) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <a
+    <NavigationMenuPrimitive.Indicator
+      data-slot='navigation-menu-indicator'
+      class={cn(
+        'top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const NavigationMenuArrow: Component<NavigationMenuPrimitive.ArrowProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <NavigationMenuPrimitive.Arrow
+      data-slot='navigation-menu-arrow'
+      class={cn(
+        'relative top-[70%] h-2 w-2 rotate-45 rounded-tl-sm border-l border-t bg-border shadow-md',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const NavigationMenuViewport: Component<NavigationMenuPrimitive.ViewportProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <NavigationMenuPrimitive.Viewport
+      data-slot='navigation-menu-viewport'
+      class={cn(
+        'origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
+
+export const NavigationMenuLink: Component<NavigationMenuPrimitive.LinkProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <NavigationMenuPrimitive.Link
       data-slot='navigation-menu-link'
       class={cn(
         'space-y-1 p-3 block rounded-md leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',

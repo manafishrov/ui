@@ -2,11 +2,11 @@ import type { Component } from 'solid-js';
 
 import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
 import { cn } from 'tailwind-variants';
-
-import { buttonVariants } from '@/components/Button';
 import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
 import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
 import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+
+import { buttonVariants } from '@/components/Button';
 
 export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);

@@ -8,7 +8,7 @@ import {
   ScrollAreaThumb,
   ScrollAreaCorner,
 } from '@manafishrov/ui/scroll-area';
-import { H1, H2, Lead } from '@manafishrov/ui/typography';
+import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
@@ -25,9 +25,9 @@ const ScrollAreaDocPage: Component = () => (
         <ScrollAreaContent>
           <div class='pr-4'>
             <h4 class='mb-4 text-sm font-medium leading-none'>Tags</h4>
-            {Array.from({ length: 20 }).map((_, i, a) => (
+            {Array.from({ length: 20 }).map((_, index, array) => (
               <>
-                <div class='text-sm'>v1.2.0-beta.{a.length - i}</div>
+                <div class='text-sm'>v1.2.0-beta.{array.length - index}</div>
                 <hr class='my-2 border-muted' />
               </>
             ))}

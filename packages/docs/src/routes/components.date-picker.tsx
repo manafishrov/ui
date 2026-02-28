@@ -12,9 +12,9 @@ import {
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 import { type Component } from 'solid-js';
+import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
 
 import * as m from '@/paraglide/messages';
-import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
 
 const DatePickerDocPage: Component = () => (
   <div class='space-y-8'>

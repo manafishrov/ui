@@ -1,11 +1,11 @@
 import { Carousel as CarouselPrimitive } from '@ark-ui/solid/carousel';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
+import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
+import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 import { Button, type ButtonVariantProps } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
-import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 export const CarouselContext = CarouselPrimitive.Context;
 

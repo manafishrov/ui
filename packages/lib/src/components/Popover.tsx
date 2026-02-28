@@ -1,5 +1,5 @@
 import { Popover as PopoverPrimitive } from '@ark-ui/solid/popover';
-import type { Component, ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const Popover = PopoverPrimitive.Root;
