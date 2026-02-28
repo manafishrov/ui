@@ -24,10 +24,10 @@ export const TooltipContent: Component<TooltipPrimitive.ContentProps> = (props) 
     <TooltipPrimitive.Content
       data-slot='tooltip-content'
       class={cn(
-        'px-3 py-1.5 text-xs shadow-md overflow-hidden rounded-md bg-foreground text-background',
+        'relative isolate px-3 py-1.5 text-xs shadow-md overflow-visible rounded-md bg-foreground text-background transform-gpu will-change-transform [--arrow-background:var(--foreground)]',
         'origin-(--transform-origin)',
-        'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
-        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+        'data-[state=open]:animate-in data-[state=open]:fade-in-0',
+        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         'data-[placement^=bottom]:slide-in-from-top-2',
         'data-[placement^=left]:slide-in-from-right-2',
         'data-[placement^=right]:slide-in-from-left-2',
@@ -41,9 +41,14 @@ export const TooltipContent: Component<TooltipPrimitive.ContentProps> = (props) 
 
 export const TooltipArrow: Component<TooltipPrimitive.ArrowProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
+
   return (
-    <TooltipPrimitive.Arrow data-slot='tooltip-arrow' class={cn('z-50', local.class)} {...others}>
-      <TooltipPrimitive.ArrowTip class='fill-foreground' />
+    <TooltipPrimitive.Arrow
+      data-slot='tooltip-arrow'
+      class={cn('z-50 [--arrow-size:10px]', local.class)}
+      {...others}
+    >
+      <TooltipPrimitive.ArrowTip class='rounded-[2px]' />
     </TooltipPrimitive.Arrow>
   );
 };
