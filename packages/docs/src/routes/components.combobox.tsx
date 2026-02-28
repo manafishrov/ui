@@ -22,6 +22,8 @@ import { createFileRoute } from '@tanstack/solid-router';
 import { type Component, For } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
+
+type FrameworkItem = (typeof frameworks.items)[number];
 const frameworks = createListCollection({
   items: [
     { label: 'Solid', value: 'solid' },
@@ -67,7 +69,7 @@ const ComboboxDocPage: Component = () => (
       <Combobox collection={frameworks} multiple class='max-w-xs'>
         <ComboboxLabel>Frameworks (Multiple)</ComboboxLabel>
         <ComboboxControl>
-          <ComboboxContext>
+          <ComboboxContext<FrameworkItem>>
             {(context) => (
               <For each={context().selectedItems}>
                 {(item) => (

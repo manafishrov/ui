@@ -20,7 +20,7 @@ const TextInputDocPage: Component = () => (
       <Lead>{m.docs_component_text_input_description()}</Lead>
     </div>
 
-    <div class='gap-4 flex flex-col md:flex-row'>
+    <div class='gap-4 flex flex-col'>
       <TextInput class='max-w-xs'>
         <TextInputLabel>Email</TextInputLabel>
         <TextInputControl>
@@ -33,6 +33,7 @@ const TextInputDocPage: Component = () => (
         <TextInputControl>
           <TextInputArea placeholder='Type your message...' />
         </TextInputControl>
+        <TextInputHelperText>Your message will be sent securely.</TextInputHelperText>
       </TextInput>
     </div>
   </div>

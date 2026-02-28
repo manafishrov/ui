@@ -17,7 +17,7 @@ export { useFieldset } from '@ark-ui/solid/fieldset';
 export const FieldContext = PrimitiveField.Context;
 
 export const FieldSet: Component<PrimitiveFieldset.RootProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitiveFieldset.Root
       data-slot='field-set'
@@ -26,7 +26,9 @@ export const FieldSet: Component<PrimitiveFieldset.RootProps> = (props) => {
         local.class,
       )}
       {...others}
-    />
+    >
+      {local.children}
+    </PrimitiveFieldset.Root>
   );
 };
 
@@ -35,7 +37,7 @@ export type FieldLegendProps = PrimitiveFieldset.LegendProps & {
 };
 
 export const FieldLegend: Component<FieldLegendProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'variant']);
+  const [local, others] = splitProps(props, ['class', 'variant', 'children']);
   return (
     <PrimitiveFieldset.Legend
       data-slot='field-legend'
@@ -45,7 +47,9 @@ export const FieldLegend: Component<FieldLegendProps> = (props) => {
         local.class,
       )}
       {...others}
-    />
+    >
+      {local.children}
+    </PrimitiveFieldset.Legend>
   );
 };
 
@@ -82,7 +86,7 @@ export const fieldVariants = tv({
 export type FieldProps = PrimitiveField.RootProps & VariantProps<typeof fieldVariants>;
 
 export const Field: Component<FieldProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'orientation']);
+  const [local, others] = splitProps(props, ['class', 'orientation', 'children']);
   return (
     <PrimitiveField.Root
       role='group'
@@ -90,7 +94,9 @@ export const Field: Component<FieldProps> = (props) => {
       data-orientation={local.orientation ?? 'vertical'}
       class={fieldVariants({ orientation: local.orientation, class: local.class })}
       {...others}
-    />
+    >
+      {local.children}
+    </PrimitiveField.Root>
   );
 };
 
@@ -147,18 +153,20 @@ export const FieldSelect: Component<PrimitiveField.SelectProps> = (props) => {
 };
 
 export const FieldRequiredIndicator: Component<PrimitiveField.RequiredIndicatorProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'fallback']);
+  const [local, others] = splitProps(props, ['class', 'fallback', 'children']);
   return (
     <PrimitiveField.RequiredIndicator
       fallback={local.fallback ?? '*'}
       class={cn('text-sm font-medium leading-none text-destructive', local.class)}
       {...others}
-    />
+    >
+      {local.children}
+    </PrimitiveField.RequiredIndicator>
   );
 };
 
 export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitiveField.Label
       data-slot='field-label'
@@ -169,12 +177,14 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
         local.class,
       )}
       {...others}
-    />
+    >
+      {local.children}
+    </PrimitiveField.Label>
   );
 };
 
 export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <div
       data-slot='field-label'
@@ -183,12 +193,14 @@ export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
         local.class,
       )}
       {...others}
-    />
+    >
+      {local.children}
+    </div>
   );
 };
 
 export const FieldDescription: Component<PrimitiveField.HelperTextProps> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitiveField.HelperText
       data-slot='field-description'
@@ -199,7 +211,9 @@ export const FieldDescription: Component<PrimitiveField.HelperTextProps> = (prop
         local.class,
       )}
       {...others}
-    />
+    >
+      {local.children}
+    </PrimitiveField.HelperText>
   );
 };
 

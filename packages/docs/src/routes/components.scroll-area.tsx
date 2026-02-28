@@ -20,7 +20,7 @@ const ScrollAreaDocPage: Component = () => (
       <Lead>{m.docs_component_scroll_area_description()}</Lead>
     </div>
 
-    <ScrollArea class='p-4 h-48 max-w-sm rounded-md border'>
+    <ScrollArea class='p-4 h-48 max-w-sm rounded-md border overflow-hidden'>
       <ScrollAreaViewport class='h-full w-full'>
         <ScrollAreaContent>
           <div class='pr-4'>

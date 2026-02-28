@@ -87,7 +87,7 @@ const TreeViewDocPage: Component = () => (
       <TreeView collection={collection}>
         <TreeViewLabel>Tree</TreeViewLabel>
         <TreeViewTree>
-          <For each={collection.rootNode.children || []}>
+          <For each={collection.rootNode.children ?? []}>
             {(node, index) => <TreeNode node={node} indexPath={[index()]} />}
           </For>
         </TreeViewTree>

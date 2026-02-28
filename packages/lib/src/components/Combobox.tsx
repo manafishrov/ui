@@ -1,17 +1,22 @@
-import type { CollectionItem } from '@ark-ui/solid/combobox';
-import type { Component, ComponentProps } from 'solid-js';
-
-import { useComboboxContext, Combobox as ComboboxPrimitive } from '@ark-ui/solid/combobox';
+import {
+  Combobox as ComboboxPrimitive,
+  type CollectionItem,
+  useComboboxContext,
+} from '@ark-ui/solid/combobox';
+import { Show, type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineCheckIcon from '~icons/ic/outline-check';
 import OutlineCloseIcon from '~icons/ic/outline-close';
 import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 
+const REMOVE_LAST_VALUE_INDEX = -1;
+const REMOVE_THROTTLE_MS = 50;
+
 export const ComboboxContext = ComboboxPrimitive.Context;
 
-export const Combobox = <T extends CollectionItem>(
-  props: ComboboxPrimitive.RootProps<T> & { class?: string },
-) => {
+export const Combobox = <TItem extends CollectionItem>(
+  props: ComboboxPrimitive.RootProps<TItem> & { class?: string },
+): JSXElement => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <ComboboxPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />
@@ -67,32 +72,33 @@ export const ComboboxInput: Component<ComboboxPrimitive.InputProps> = (props) =>
 
   let isRemoving = false;
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown: NonNullable<ComboboxPrimitive.InputProps['onKeyDown']> = (event): void => {
     if (
-      e.key === 'Backspace' &&
-      (e.target as HTMLInputElement).value === '' &&
+      event.key === 'Backspace' &&
+      event.currentTarget.value === '' &&
       context().value.length > 0 &&
       !isRemoving
     ) {
       isRemoving = true;
-      e.preventDefault();
+      event.preventDefault();
 
       // Request an animation frame so that Reactivity can finish any ongoing updates
-      // and we don't accidentally pop multiple values while state is unstable.
+      // And we don't accidentally pop multiple values while state is unstable.
       requestAnimationFrame(() => {
         const val = context().value;
-        context().setValue(val.slice(0, -1));
+        context().setValue(val.slice(0, REMOVE_LAST_VALUE_INDEX));
 
         setTimeout(() => {
           isRemoving = false;
-        }, 50);
+        }, REMOVE_THROTTLE_MS);
       });
     }
 
     if (typeof local.onKeyDown === 'function') {
-      local.onKeyDown(e as any);
+      local.onKeyDown(event);
     } else if (Array.isArray(local.onKeyDown)) {
-      local.onKeyDown[0](local.onKeyDown[1], e as any);
+      const [handler, data] = local.onKeyDown;
+      handler(data, event);
     }
   };
 
@@ -240,9 +246,11 @@ export const ComboboxTag: Component<
           <button
             type='button'
             class='p-0.5 inline-flex items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground'
-            onClick={(e) => {
-              e.stopPropagation();
-              local.onRemove?.();
+            onClick={(event) => {
+              event.stopPropagation();
+              if (typeof local.onRemove === 'function') {
+                local.onRemove();
+              }
             }}
           >
             <OutlineCloseIcon class='size-3 pointer-events-none' />

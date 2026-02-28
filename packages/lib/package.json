@@ -24,6 +24,10 @@
       "types": "./dist/components/AlertDialog.d.ts",
       "import": "./dist/components/AlertDialog.js"
     },
+    "./angle-slider": {
+      "types": "./dist/components/AngleSlider.d.ts",
+      "import": "./dist/components/AngleSlider.js"
+    },
     "./aspect-ratio": {
       "types": "./dist/components/AspectRatio.d.ts",
       "import": "./dist/components/AspectRatio.js"
@@ -232,9 +236,10 @@
   },
   "peerDependencies": {
     "@iconify-json/ic": "1.2.4",
-    "unplugin-icons": "23.0.1",
     "@tanstack/solid-form": "1.28.0",
+    "@tanstack/solid-router": "1.162.1",
     "solid-js": "1.9.0",
-    "tailwindcss": "4.0.0"
+    "tailwindcss": "4.0.0",
+    "unplugin-icons": "23.0.1"
   }
 }

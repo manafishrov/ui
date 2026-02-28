@@ -19,6 +19,7 @@ export default defineConfig({
         'src/index.ts',
         'src/components/Accordion.tsx',
         'src/components/AlertDialog.tsx',
+        'src/components/AngleSlider.tsx',
         'src/components/AspectRatio.tsx',
         'src/components/Avatar.tsx',
         'src/components/Badge.tsx',
@@ -78,6 +79,8 @@ export default defineConfig({
         '@tanstack/solid-router',
         '@tanstack/solid-form',
         'tailwindcss',
+        /^@ark-ui\//,
+        /^@zag-js\//,
       ],
       output: {
         preserveModules: true,

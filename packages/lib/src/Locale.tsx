@@ -12,7 +12,10 @@ export const LocaleProvider: Component<LocaleProviderProps> = (props) => {
   const [local] = splitProps(props, ['locale', 'children']);
 
   createEffect(() => {
-    setLocale(local.locale, { reload: false });
+    const result = setLocale(local.locale, { reload: false });
+    if (result instanceof Promise) {
+      result.catch(() => 0);
+    }
   });
 
   return <PrimitiveLocaleProvider locale={local.locale}>{local.children}</PrimitiveLocaleProvider>;

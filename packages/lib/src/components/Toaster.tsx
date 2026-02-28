@@ -11,19 +11,20 @@ import OutlineCheckCircleIcon from '~icons/ic/outline-check-circle';
 import OutlineCloseIcon from '~icons/ic/outline-close';
 import OutlineErrorIcon from '~icons/ic/outline-error';
 import OutlineInfoIcon from '~icons/ic/outline-info';
-import OutlineRefreshIcon from '~icons/ic/outline-refresh';
 import OutlineWarningIcon from '~icons/ic/outline-warning';
+
+import { Spinner } from '@/components/Spinner';
 
 export const toast = createToaster({
   placement: 'bottom-end',
-  overlap: true,
-  gap: 16,
+  overlap: false,
+  gap: 12,
 });
 
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex w-full items-center overflow-hidden rounded-lg border bg-popover transition-all',
+      'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex min-w-72 w-full items-center overflow-hidden rounded-lg border bg-popover transition-all',
       'data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=open]:animate-in',
       'data-[state=open]:sm:slide-in-from-bottom-full data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full',
       'border-border text-popover-foreground',
@@ -42,10 +43,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
       <OutlineErrorIcon class={cn('size-5 text-red-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'loading'}>
-      <OutlineRefreshIcon
-        class={cn('size-5 animate-spin shrink-0 text-muted-foreground')}
-        aria-hidden='true'
-      />
+      <Spinner class={cn('size-5 text-muted-foreground')} />
     </Show>
     <div class='gap-1 grid'>
       <Show when={props.toast().title}>

@@ -2,6 +2,9 @@ import { Progress as ProgressPrimitive } from '@ark-ui/solid/progress';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
+export const ProgressView = ProgressPrimitive.View;
+export const ProgressContext = ProgressPrimitive.Context;
+
 export const ProgressCircle: Component<ProgressPrimitive.CircleProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -19,7 +22,7 @@ export const ProgressCircleRange: Component<ProgressPrimitive.CircleRangeProps> 
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.CircleRange
-      class={cn('stroke-current transition-all duration-300 ease-in-out', local.class)}
+      class={cn('ease-in-out stroke-current transition-all duration-300', local.class)}
       data-slot='progress-circle-range'
       {...others}
     />
@@ -36,8 +39,6 @@ export const ProgressCircleTrack: Component<ProgressPrimitive.CircleTrackProps> 
     />
   );
 };
-export const ProgressView = ProgressPrimitive.View;
-export const ProgressContext = ProgressPrimitive.Context;
 
 export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);

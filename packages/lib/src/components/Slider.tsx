@@ -87,7 +87,7 @@ export const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => {
     <SliderPrimitive.Thumb
       data-slot='slider-thumb'
       class={cn(
-        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 data-focus-visible:ring-[3px] data-hover:ring-[3px]',
+        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 data-focus-visible:ring-[3px] hover:ring-[3px]',
         local.class,
       )}
       {...others}

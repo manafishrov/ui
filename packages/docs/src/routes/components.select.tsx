@@ -39,25 +39,19 @@ const SelectDocPage: Component = () => (
 
     <Select collection={frameworks} class='max-w-xs'>
       <SelectLabel>Framework</SelectLabel>
-      <div class='gap-2 flex items-center'>
-        <SelectControl>
-          <SelectTrigger
-            asChild={(props) => (
-              <Button variant='outline' class='w-48 justify-between' {...props()}>
-                <SelectValue placeholder='Select a framework' />
-                <SelectIndicator />
-              </Button>
-            )}
-          />
-        </SelectControl>
-        <SelectClearTrigger
+      <SelectControl>
+        <SelectTrigger
           asChild={(props) => (
-            <Button variant='ghost' size='icon' {...props()}>
-              ✕
+            <Button variant='outline' class='w-48 justify-between' {...props()}>
+              <SelectValue placeholder='Select a framework' />
+              <div class='gap-1 flex items-center'>
+                <SelectClearTrigger />
+                <SelectIndicator />
+              </div>
             </Button>
           )}
         />
-      </div>
+      </SelectControl>
       <SelectPositioner>
         <SelectContent>
           <SelectList>

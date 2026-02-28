@@ -17,7 +17,7 @@ export const SheetOverlay: Component<SheetPrimitive.BackdropProps> = (props) => 
     <SheetPrimitive.Backdrop
       data-slot='sheet-overlay'
       class={cn(
-        'bg-black/10 inset-0 backdrop-blur-xs fixed z-50 duration-100',
+        'bg-black/40 inset-0 backdrop-blur-sm fixed z-50',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         local.class,
@@ -36,11 +36,11 @@ export const SheetPositioner: Component<
     <SheetPrimitive.Positioner
       data-side={side}
       class={cn(
-        'ease-in-out fixed z-50 flex flex-col transition duration-200',
-        'data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:border-b',
-        'data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:border-t',
-        'data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:sm:max-w-sm data-[side=left]:w-3/4 data-[side=left]:border-r',
-        'data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:sm:max-w-sm data-[side=right]:w-3/4 data-[side=right]:border-l',
+        'fixed z-50 flex flex-col',
+        'data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:max-h-[90vh]',
+        'data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:max-h-[90vh]',
+        'data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:w-auto data-[side=left]:max-w-[90vw]',
+        'data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:w-auto data-[side=right]:max-w-[90vw]',
         local.class,
       )}
       {...others}
@@ -55,12 +55,18 @@ export const SheetContent: Component<SheetPrimitive.ContentProps> = (props) => {
     <SheetPrimitive.Content
       data-slot='sheet-content'
       class={cn(
-        'gap-4 p-6 text-sm shadow-lg relative flex h-full w-full flex-col bg-background bg-clip-padding outline-none',
-        'data-[state=closed]:animate-out data-[state=open]:animate-in',
-        'data-[side=right]:data-[state=closed]:slide-out-to-right-full data-[side=right]:data-[state=open]:slide-in-from-right-full',
-        'data-[side=left]:data-[state=closed]:slide-out-to-left-full data-[side=left]:data-[state=open]:slide-in-from-left-full',
-        'data-[side=top]:data-[state=closed]:slide-out-to-top-full data-[side=top]:data-[state=open]:slide-in-from-top-full',
-        'data-[side=bottom]:data-[state=closed]:slide-out-to-bottom-full data-[side=bottom]:data-[state=open]:slide-in-from-bottom-full',
+        'gap-4 p-6 shadow-lg relative flex h-full w-full flex-col bg-background outline-none',
+        'border-l border-border',
+        'data-[side=left]:border-l-0 data-[side=left]:border-r',
+        'data-[side=top]:border-l-0 data-[side=top]:border-b',
+        'data-[side=bottom]:border-l-0 data-[side=bottom]:border-t',
+        'data-[state=open]:animate-in data-[state=closed]:animate-out',
+        'data-[state=closed]:duration-300 data-[state=open]:duration-300',
+        'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+        'data-[side=right]:data-[state=closed]:slide-out-to-right-1/2 data-[side=right]:data-[state=open]:slide-in-from-right-1/2',
+        'data-[side=left]:data-[state=closed]:slide-out-to-left-1/2 data-[side=left]:data-[state=open]:slide-in-from-left-1/2',
+        'data-[side=top]:data-[state=closed]:slide-out-to-top-1/2 data-[side=top]:data-[state=open]:slide-in-from-top-1/2',
+        'data-[side=bottom]:data-[state=closed]:slide-out-to-bottom-1/2 data-[side=bottom]:data-[state=open]:slide-in-from-bottom-1/2',
         local.class,
       )}
       {...others}

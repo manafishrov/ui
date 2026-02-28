@@ -4,5 +4,8 @@ node_modules
 # build output
 dist
 
+# test artifacts
+test-results/
+
 # macOS folder config
 .DS_Store

@@ -6,8 +6,6 @@ import {
   NumberInputControl,
   NumberInputInput,
   NumberInputTriggers,
-  NumberInputIncrementTrigger,
-  NumberInputDecrementTrigger,
   NumberInputScrubber,
 } from '@manafishrov/ui/number-input';
 import { H1, Lead } from '@manafishrov/ui/typography';
@@ -26,10 +24,7 @@ const NumberInputDocPage: Component = () => (
       <NumberInputLabel>Quantity</NumberInputLabel>
       <NumberInputControl>
         <NumberInputInput />
-        <NumberInputTriggers>
-          <NumberInputIncrementTrigger>▲</NumberInputIncrementTrigger>
-          <NumberInputDecrementTrigger>▼</NumberInputDecrementTrigger>
-        </NumberInputTriggers>
+        <NumberInputTriggers />
       </NumberInputControl>
       <NumberInputScrubber />
     </NumberInput>

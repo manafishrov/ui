@@ -1,6 +1,7 @@
 import { RouterProvider, createRouter } from '@tanstack/solid-router';
 
-import { deLocalizeUrl, localizeUrl } from './paraglide/runtime.js';
+import { deLocalizeUrl, localizeUrl } from '@/paraglide/runtime';
+
 import './styles.css';
 import { routeTree } from './routeTree.gen';
 
@@ -23,6 +24,6 @@ declare module '@tanstack/solid-router' {
 }
 
 const rootElement = document.querySelector('#root');
-if (rootElement && !rootElement?.innerHTML) {
+if (rootElement && !rootElement.innerHTML) {
   render(() => <RouterProvider router={router} />, rootElement);
 }

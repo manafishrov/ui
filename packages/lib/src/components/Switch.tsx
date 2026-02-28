@@ -32,7 +32,7 @@ export const SwitchControl: Component<SwitchPrimitive.ControlProps> = (props) =>
     <SwitchPrimitive.Control
       data-slot='switch'
       class={cn(
-        'shadow-sm inline-flex shrink-0 items-center rounded-full border border-transparent transition-all outline-none',
+        'shadow-sm inline-flex shrink-0 items-center rounded-lg border border-transparent transition-all outline-none',
         'data-focus-visible:border-ring data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
         'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:border-destructive/50',
         'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',

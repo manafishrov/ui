@@ -1,9 +1,9 @@
 import { Select as SelectPrimitive } from '@ark-ui/solid/select';
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineCheckIcon from '~icons/ic/outline-check';
 import OutlineCloseIcon from '~icons/ic/outline-close';
-import OutlineUnfoldMoreIcon from '~icons/ic/outline-unfold-more';
+import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
@@ -11,9 +11,9 @@ export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
 export const SelectList = SelectPrimitive.List;
 export const SelectContext = SelectPrimitive.Context;
 
-export const Select = <T extends { value: string; label: string }>(
-  props: SelectPrimitive.RootProps<T> & { class?: string },
-) => {
+export const Select = <TItem extends { value: string; label: string }>(
+  props: SelectPrimitive.RootProps<TItem> & { class?: string },
+): JSXElement => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <SelectPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />
@@ -82,7 +82,7 @@ export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <SelectPrimitive.Indicator class={cn(local.class)} {...others}>
-      {local.children ?? <OutlineUnfoldMoreIcon class='size-4 text-muted-foreground' />}
+      {local.children ?? <OutlineExpandMoreIcon class='size-4 text-muted-foreground' />}
     </SelectPrimitive.Indicator>
   );
 };
@@ -91,7 +91,10 @@ export const SelectClearTrigger: Component<SelectPrimitive.ClearTriggerProps> = 
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <SelectPrimitive.ClearTrigger
-      class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
+      class={cn(
+        'p-0.5 rounded-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground',
+        local.class,
+      )}
       {...others}
     >
       {local.children ?? <OutlineCloseIcon class='size-3.5' />}

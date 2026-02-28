@@ -42,12 +42,8 @@ export const TooltipContent: Component<TooltipPrimitive.ContentProps> = (props) 
 export const TooltipArrow: Component<TooltipPrimitive.ArrowProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <TooltipPrimitive.Arrow
-      data-slot='tooltip-arrow'
-      class={cn('z-50 [--arrow-size:10px]', local.class)}
-      {...others}
-    >
-      <TooltipPrimitive.ArrowTip class='border-none bg-foreground' />
+    <TooltipPrimitive.Arrow data-slot='tooltip-arrow' class={cn('z-50', local.class)} {...others}>
+      <TooltipPrimitive.ArrowTip class='fill-foreground' />
     </TooltipPrimitive.Arrow>
   );
 };
