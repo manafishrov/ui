@@ -2,8 +2,6 @@ import { Switch as SwitchPrimitive } from '@ark-ui/solid/switch';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Label } from '@/components/Label';
-
 export const SwitchContext = SwitchPrimitive.Context;
 
 export const Switch: Component<SwitchPrimitive.RootProps & { size?: 'sm' | 'default' }> = (
@@ -73,13 +71,12 @@ export const SwitchLabel: Component<SwitchPrimitive.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <SwitchPrimitive.Label
-      asChild={(labelProps) => (
-        <Label
-          {...labelProps()}
-          class={cn('data-disabled:cursor-not-allowed data-disabled:opacity-70', local.class)}
-          {...others}
-        />
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'data-disabled:cursor-not-allowed data-disabled:opacity-70',
+        local.class,
       )}
+      {...others}
     />
   );
 };

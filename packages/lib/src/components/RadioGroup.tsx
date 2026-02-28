@@ -3,8 +3,6 @@ import { MdFillCircle } from 'solid-icons/md';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Label } from '@/components/Label';
-
 export const RadioGroup: Component<RadioGroupPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -20,13 +18,12 @@ export const RadioGroupLabel: Component<RadioGroupPrimitive.LabelProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <RadioGroupPrimitive.Label
-      asChild={(labelProps) => (
-        <Label
-          {...labelProps()}
-          class={cn('data-disabled:cursor-not-allowed data-disabled:opacity-70', local.class)}
-          {...others}
-        />
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'data-disabled:cursor-not-allowed data-disabled:opacity-70',
+        local.class,
       )}
+      {...others}
     />
   );
 };

@@ -15,7 +15,6 @@ import { Route as ComponentsTreeViewRouteImport } from './routes/components.tree
 import { Route as ComponentsTooltipRouteImport } from './routes/components.tooltip'
 import { Route as ComponentsToggleRouteImport } from './routes/components.toggle'
 import { Route as ComponentsToasterRouteImport } from './routes/components.toaster'
-import { Route as ComponentsTextareaRouteImport } from './routes/components.textarea'
 import { Route as ComponentsTextInputRouteImport } from './routes/components.text-input'
 import { Route as ComponentsTagsInputRouteImport } from './routes/components.tags-input'
 import { Route as ComponentsTabsRouteImport } from './routes/components.tabs'
@@ -39,10 +38,8 @@ import { Route as ComponentsNavigationMenuRouteImport } from './routes/component
 import { Route as ComponentsMenuRouteImport } from './routes/components.menu'
 import { Route as ComponentsMarqueeRouteImport } from './routes/components.marquee'
 import { Route as ComponentsLinkRouteImport } from './routes/components.link'
-import { Route as ComponentsLabelRouteImport } from './routes/components.label'
 import { Route as ComponentsKbdRouteImport } from './routes/components.kbd'
 import { Route as ComponentsItemRouteImport } from './routes/components.item'
-import { Route as ComponentsInputRouteImport } from './routes/components.input'
 import { Route as ComponentsHoverCardRouteImport } from './routes/components.hover-card'
 import { Route as ComponentsFieldRouteImport } from './routes/components.field'
 import { Route as ComponentsEmptyRouteImport } from './routes/components.empty'
@@ -89,11 +86,6 @@ const ComponentsToggleRoute = ComponentsToggleRouteImport.update({
 const ComponentsToasterRoute = ComponentsToasterRouteImport.update({
   id: '/components/toaster',
   path: '/components/toaster',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTextareaRoute = ComponentsTextareaRouteImport.update({
-  id: '/components/textarea',
-  path: '/components/textarea',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsTextInputRoute = ComponentsTextInputRouteImport.update({
@@ -212,11 +204,6 @@ const ComponentsLinkRoute = ComponentsLinkRouteImport.update({
   path: '/components/link',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ComponentsLabelRoute = ComponentsLabelRouteImport.update({
-  id: '/components/label',
-  path: '/components/label',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ComponentsKbdRoute = ComponentsKbdRouteImport.update({
   id: '/components/kbd',
   path: '/components/kbd',
@@ -225,11 +212,6 @@ const ComponentsKbdRoute = ComponentsKbdRouteImport.update({
 const ComponentsItemRoute = ComponentsItemRouteImport.update({
   id: '/components/item',
   path: '/components/item',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsInputRoute = ComponentsInputRouteImport.update({
-  id: '/components/input',
-  path: '/components/input',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsHoverCardRoute = ComponentsHoverCardRouteImport.update({
@@ -337,10 +319,8 @@ export interface FileRoutesByFullPath {
   '/components/empty': typeof ComponentsEmptyRoute
   '/components/field': typeof ComponentsFieldRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
-  '/components/input': typeof ComponentsInputRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
-  '/components/label': typeof ComponentsLabelRoute
   '/components/link': typeof ComponentsLinkRoute
   '/components/marquee': typeof ComponentsMarqueeRoute
   '/components/menu': typeof ComponentsMenuRoute
@@ -364,7 +344,6 @@ export interface FileRoutesByFullPath {
   '/components/tabs': typeof ComponentsTabsRoute
   '/components/tags-input': typeof ComponentsTagsInputRoute
   '/components/text-input': typeof ComponentsTextInputRoute
-  '/components/textarea': typeof ComponentsTextareaRoute
   '/components/toaster': typeof ComponentsToasterRoute
   '/components/toggle': typeof ComponentsToggleRoute
   '/components/tooltip': typeof ComponentsTooltipRoute
@@ -390,10 +369,8 @@ export interface FileRoutesByTo {
   '/components/empty': typeof ComponentsEmptyRoute
   '/components/field': typeof ComponentsFieldRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
-  '/components/input': typeof ComponentsInputRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
-  '/components/label': typeof ComponentsLabelRoute
   '/components/link': typeof ComponentsLinkRoute
   '/components/marquee': typeof ComponentsMarqueeRoute
   '/components/menu': typeof ComponentsMenuRoute
@@ -417,7 +394,6 @@ export interface FileRoutesByTo {
   '/components/tabs': typeof ComponentsTabsRoute
   '/components/tags-input': typeof ComponentsTagsInputRoute
   '/components/text-input': typeof ComponentsTextInputRoute
-  '/components/textarea': typeof ComponentsTextareaRoute
   '/components/toaster': typeof ComponentsToasterRoute
   '/components/toggle': typeof ComponentsToggleRoute
   '/components/tooltip': typeof ComponentsTooltipRoute
@@ -444,10 +420,8 @@ export interface FileRoutesById {
   '/components/empty': typeof ComponentsEmptyRoute
   '/components/field': typeof ComponentsFieldRoute
   '/components/hover-card': typeof ComponentsHoverCardRoute
-  '/components/input': typeof ComponentsInputRoute
   '/components/item': typeof ComponentsItemRoute
   '/components/kbd': typeof ComponentsKbdRoute
-  '/components/label': typeof ComponentsLabelRoute
   '/components/link': typeof ComponentsLinkRoute
   '/components/marquee': typeof ComponentsMarqueeRoute
   '/components/menu': typeof ComponentsMenuRoute
@@ -471,7 +445,6 @@ export interface FileRoutesById {
   '/components/tabs': typeof ComponentsTabsRoute
   '/components/tags-input': typeof ComponentsTagsInputRoute
   '/components/text-input': typeof ComponentsTextInputRoute
-  '/components/textarea': typeof ComponentsTextareaRoute
   '/components/toaster': typeof ComponentsToasterRoute
   '/components/toggle': typeof ComponentsToggleRoute
   '/components/tooltip': typeof ComponentsTooltipRoute
@@ -499,10 +472,8 @@ export interface FileRouteTypes {
     | '/components/empty'
     | '/components/field'
     | '/components/hover-card'
-    | '/components/input'
     | '/components/item'
     | '/components/kbd'
-    | '/components/label'
     | '/components/link'
     | '/components/marquee'
     | '/components/menu'
@@ -526,7 +497,6 @@ export interface FileRouteTypes {
     | '/components/tabs'
     | '/components/tags-input'
     | '/components/text-input'
-    | '/components/textarea'
     | '/components/toaster'
     | '/components/toggle'
     | '/components/tooltip'
@@ -552,10 +522,8 @@ export interface FileRouteTypes {
     | '/components/empty'
     | '/components/field'
     | '/components/hover-card'
-    | '/components/input'
     | '/components/item'
     | '/components/kbd'
-    | '/components/label'
     | '/components/link'
     | '/components/marquee'
     | '/components/menu'
@@ -579,7 +547,6 @@ export interface FileRouteTypes {
     | '/components/tabs'
     | '/components/tags-input'
     | '/components/text-input'
-    | '/components/textarea'
     | '/components/toaster'
     | '/components/toggle'
     | '/components/tooltip'
@@ -605,10 +572,8 @@ export interface FileRouteTypes {
     | '/components/empty'
     | '/components/field'
     | '/components/hover-card'
-    | '/components/input'
     | '/components/item'
     | '/components/kbd'
-    | '/components/label'
     | '/components/link'
     | '/components/marquee'
     | '/components/menu'
@@ -632,7 +597,6 @@ export interface FileRouteTypes {
     | '/components/tabs'
     | '/components/tags-input'
     | '/components/text-input'
-    | '/components/textarea'
     | '/components/toaster'
     | '/components/toggle'
     | '/components/tooltip'
@@ -659,10 +623,8 @@ export interface RootRouteChildren {
   ComponentsEmptyRoute: typeof ComponentsEmptyRoute
   ComponentsFieldRoute: typeof ComponentsFieldRoute
   ComponentsHoverCardRoute: typeof ComponentsHoverCardRoute
-  ComponentsInputRoute: typeof ComponentsInputRoute
   ComponentsItemRoute: typeof ComponentsItemRoute
   ComponentsKbdRoute: typeof ComponentsKbdRoute
-  ComponentsLabelRoute: typeof ComponentsLabelRoute
   ComponentsLinkRoute: typeof ComponentsLinkRoute
   ComponentsMarqueeRoute: typeof ComponentsMarqueeRoute
   ComponentsMenuRoute: typeof ComponentsMenuRoute
@@ -686,7 +648,6 @@ export interface RootRouteChildren {
   ComponentsTabsRoute: typeof ComponentsTabsRoute
   ComponentsTagsInputRoute: typeof ComponentsTagsInputRoute
   ComponentsTextInputRoute: typeof ComponentsTextInputRoute
-  ComponentsTextareaRoute: typeof ComponentsTextareaRoute
   ComponentsToasterRoute: typeof ComponentsToasterRoute
   ComponentsToggleRoute: typeof ComponentsToggleRoute
   ComponentsTooltipRoute: typeof ComponentsTooltipRoute
@@ -736,13 +697,6 @@ declare module '@tanstack/solid-router' {
       path: '/components/toaster'
       fullPath: '/components/toaster'
       preLoaderRoute: typeof ComponentsToasterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/textarea': {
-      id: '/components/textarea'
-      path: '/components/textarea'
-      fullPath: '/components/textarea'
-      preLoaderRoute: typeof ComponentsTextareaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/text-input': {
@@ -906,13 +860,6 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof ComponentsLinkRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/components/label': {
-      id: '/components/label'
-      path: '/components/label'
-      fullPath: '/components/label'
-      preLoaderRoute: typeof ComponentsLabelRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/components/kbd': {
       id: '/components/kbd'
       path: '/components/kbd'
@@ -925,13 +872,6 @@ declare module '@tanstack/solid-router' {
       path: '/components/item'
       fullPath: '/components/item'
       preLoaderRoute: typeof ComponentsItemRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/input': {
-      id: '/components/input'
-      path: '/components/input'
-      fullPath: '/components/input'
-      preLoaderRoute: typeof ComponentsInputRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/hover-card': {
@@ -1075,10 +1015,8 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsEmptyRoute: ComponentsEmptyRoute,
   ComponentsFieldRoute: ComponentsFieldRoute,
   ComponentsHoverCardRoute: ComponentsHoverCardRoute,
-  ComponentsInputRoute: ComponentsInputRoute,
   ComponentsItemRoute: ComponentsItemRoute,
   ComponentsKbdRoute: ComponentsKbdRoute,
-  ComponentsLabelRoute: ComponentsLabelRoute,
   ComponentsLinkRoute: ComponentsLinkRoute,
   ComponentsMarqueeRoute: ComponentsMarqueeRoute,
   ComponentsMenuRoute: ComponentsMenuRoute,
@@ -1102,7 +1040,6 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsTabsRoute: ComponentsTabsRoute,
   ComponentsTagsInputRoute: ComponentsTagsInputRoute,
   ComponentsTextInputRoute: ComponentsTextInputRoute,
-  ComponentsTextareaRoute: ComponentsTextareaRoute,
   ComponentsToasterRoute: ComponentsToasterRoute,
   ComponentsToggleRoute: ComponentsToggleRoute,
   ComponentsTooltipRoute: ComponentsTooltipRoute,

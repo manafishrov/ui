@@ -2,23 +2,19 @@ import { Field as PrimitiveField } from '@ark-ui/solid/field';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Input } from '@/components/Input';
-import { Label } from '@/components/Label';
-import { Textarea } from '@/components/Textarea';
-
 import { FieldDescription, FieldError } from './Field';
 
 export const TextInput = PrimitiveField.Root;
 
 export const TextInputLabel: Component<PrimitiveField.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveField.Label
-      asChild={(labelProps) => (
-        <Label class={cn(local.class)} {...labelProps()} {...others}>
-          {local.children}
-        </Label>
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
       )}
+      {...others}
     />
   );
 };
@@ -54,9 +50,13 @@ export const TextInputInput: Component<PrimitiveField.InputProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveField.Input
-      asChild={(inputProps) => (
-        <Input variant='ghost' class={cn('px-2.5', local.class)} {...inputProps()} {...others} />
+      class={cn(
+        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'px-0 py-0 h-full border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
+        'px-2.5',
+        local.class,
       )}
+      {...others}
     />
   );
 };
@@ -65,14 +65,13 @@ export const TextInputArea: Component<PrimitiveField.TextareaProps> = (props) =>
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveField.Textarea
-      asChild={(textareaProps) => (
-        <Textarea
-          variant='ghost'
-          class={cn('px-2.5 py-1.5', local.class)}
-          {...textareaProps()}
-          {...others}
-        />
+      class={cn(
+        'min-h-16 text-base md:text-sm flex field-sizing-content w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'px-0 py-0 border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
+        'px-2.5 py-1.5',
+        local.class,
       )}
+      {...others}
     />
   );
 };

@@ -3,8 +3,6 @@ import { MdOutlineCheck, MdOutlineClose, MdOutlineUnfold_more } from 'solid-icon
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Label } from '@/components/Label';
-
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
 export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
@@ -21,14 +19,14 @@ export const Select = <T extends { value: string; label: string }>(
 };
 
 export const SelectLabel: Component<SelectPrimitive.LabelProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class']);
   return (
     <SelectPrimitive.Label
-      asChild={(labelProps) => (
-        <Label class={cn(local.class)} {...labelProps()} {...others}>
-          {local.children}
-        </Label>
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
       )}
+      {...others}
     />
   );
 };

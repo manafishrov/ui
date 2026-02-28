@@ -2,8 +2,6 @@ import { Progress as ProgressPrimitive } from '@ark-ui/solid/progress';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Label } from '@/components/Label';
-
 export const ProgressCircle = ProgressPrimitive.Circle;
 export const ProgressCircleRange = ProgressPrimitive.CircleRange;
 export const ProgressCircleTrack = ProgressPrimitive.CircleTrack;
@@ -51,16 +49,13 @@ export const ProgressLabel: Component<ProgressPrimitive.LabelProps> = (props) =>
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Label
-      asChild={(labelProps) => (
-        <Label
-          class={cn('text-sm font-medium', local.class)}
-          data-slot='progress-label'
-          {...labelProps()}
-          {...others}
-        >
-          {local.children}
-        </Label>
+      data-slot='progress-label'
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'text-sm font-medium',
+        local.class,
       )}
+      {...others}
     />
   );
 };

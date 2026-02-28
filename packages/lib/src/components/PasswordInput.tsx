@@ -3,9 +3,6 @@ import { MdOutlineVisibility, MdOutlineVisibility_off } from 'solid-icons/md';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Input } from '@/components/Input';
-import { Label } from '@/components/Label';
-
 export const PasswordInput = PrimitivePasswordInput.Root;
 export const PasswordInputContext = PrimitivePasswordInput.Context;
 
@@ -13,11 +10,11 @@ export const PasswordInputLabel: Component<PrimitivePasswordInput.LabelProps> = 
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitivePasswordInput.Label
-      asChild={(labelProps) => (
-        <Label class={cn(local.class)} {...labelProps()} {...others}>
-          {local.children}
-        </Label>
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
       )}
+      {...others}
     />
   );
 };
@@ -45,14 +42,13 @@ export const PasswordInputInput: Component<PrimitivePasswordInput.InputProps> = 
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.Input
-      asChild={(inputProps) => (
-        <Input
-          variant='ghost'
-          class={cn('pl-2.5 pr-10', local.class)}
-          {...inputProps()}
-          {...others}
-        />
+      class={cn(
+        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'px-0 py-0 h-full border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
+        'pl-2.5 pr-10',
+        local.class,
       )}
+      {...others}
     />
   );
 };

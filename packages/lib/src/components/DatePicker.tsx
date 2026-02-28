@@ -8,7 +8,6 @@ import { type Component, For, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { buttonVariants } from '@/components/Button';
-import { Label } from '@/components/Label';
 
 export const DatePicker = DatePickerPrimitive.Root;
 export const DatePickerContext = DatePickerPrimitive.Context;
@@ -26,7 +25,11 @@ export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <DatePickerPrimitive.Label
-      asChild={(labelProps) => <Label class={cn(local.class)} {...labelProps()} {...others} />}
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
+      )}
+      {...others}
     />
   );
 };

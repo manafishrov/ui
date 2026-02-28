@@ -3,8 +3,7 @@ import { MdOutlineClose } from 'solid-icons/md';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { InputGroupButton } from '@/components/Input';
-
+import { InputGroupButton } from '@/components/InputGroup';
 export const TagsInput = TagsInputPrimitive.Root;
 export const TagsInputContext = TagsInputPrimitive.Context;
 export const TagsInputHiddenInput = TagsInputPrimitive.HiddenInput;

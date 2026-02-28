@@ -4,8 +4,7 @@ import { type Component, type ComponentProps, Show, splitProps } from 'solid-js'
 import { cn } from 'tailwind-variants';
 
 import { Button } from '@/components/Button';
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/Input';
-
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/InputGroup';
 export const Combobox = ComboboxPrimitive.Root;
 export const ComboboxLabel = ComboboxPrimitive.Label;
 export const ComboboxContext = ComboboxPrimitive.Context;

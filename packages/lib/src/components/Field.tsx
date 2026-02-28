@@ -11,7 +11,6 @@ import {
 } from 'solid-js';
 import { type VariantProps, tv, cn } from 'tailwind-variants';
 
-import { Label } from '@/components/Label';
 import { Separator } from '@/components/Separator';
 
 export { useFieldset } from '@ark-ui/solid/fieldset';
@@ -111,21 +110,17 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
   return (
     <PrimitiveField.Label
       data-slot='field-label'
-      asChild={(labelProps) => (
-        <Label
-          class={cn(
-            'gap-2 *:data-[slot=field]:p-2.5 group/field-label peer/field-label leading-snug flex w-fit group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border has-[[data-state=checked]]:border-primary/30 has-[[data-state=checked]]:bg-primary/5 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10',
-            'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
-            local.class,
-          )}
-          {...labelProps()}
-          {...others}
-        >
-          {local.children}
-          <FieldRequiredIndicator />
-        </Label>
+      class={cn(
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        '*:data-[slot=field]:p-2.5 group/field-label peer/field-label leading-snug flex w-fit group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border has-[[data-state=checked]]:border-primary/30 has-[[data-state=checked]]:bg-primary/5 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10',
+        'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
+        local.class,
       )}
-    />
+      {...others}
+    >
+      {local.children}
+      <FieldRequiredIndicator />
+    </PrimitiveField.Label>
   );
 };
 

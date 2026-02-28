@@ -2,8 +2,6 @@ import { Slider as SliderPrimitive } from '@ark-ui/solid/slider';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { Label } from '@/components/Label';
-
 export const Slider: Component<SliderPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -22,13 +20,12 @@ export const SliderLabel: Component<SliderPrimitive.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <SliderPrimitive.Label
-      asChild={(labelProps) => (
-        <Label
-          {...labelProps()}
-          class={cn('text-sm font-medium mb-2 leading-none', local.class)}
-          {...others}
-        />
+      class={cn(
+        'text-sm font-medium mb-2 leading-none',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
       )}
+      {...others}
     />
   );
 };
