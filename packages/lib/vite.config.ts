@@ -63,7 +63,7 @@ export default defineConfig({
         'src/components/Tabs.tsx',
         'src/components/TextInput.tsx',
         'src/components/TagsInput.tsx',
-        'src/components/Toaster.tsx',
+        'src/components/toaster/index.ts',
         'src/components/Toggle.tsx',
         'src/components/Tooltip.tsx',
         'src/components/TreeView.tsx',

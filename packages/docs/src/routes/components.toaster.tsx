@@ -7,28 +7,35 @@ import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
 
-const ToasterDocPage: Component = () => (
-  <div class='space-y-8'>
-    <div class='space-y-2'>
-      <H1>Toaster</H1>
-      <Lead>{m.docs_component_toaster_description()}</Lead>
-    </div>
+const toastTypes = ['success', 'info', 'warning', 'error', 'loading'] as const;
 
-    <div class='gap-4 flex flex-wrap'>
-      <Button
-        onClick={() =>
-          toast.create({
-            title: 'Event created',
-            description: 'Your event has been scheduled.',
-          })
-        }
-      >
-        Show Toast
-      </Button>
-      <Toaster />
+const ToasterDocPage: Component = () => {
+  const getRandomType = () => toastTypes[Math.floor(Math.random() * toastTypes.length)];
+
+  return (
+    <div class='space-y-8'>
+      <div class='space-y-2'>
+        <H1>Toaster</H1>
+        <Lead>{m.docs_component_toaster_description()}</Lead>
+      </div>
+
+      <div class='gap-4 flex flex-wrap'>
+        <Button
+          onClick={() =>
+            toast.create({
+              type: getRandomType(),
+              title: 'Event created',
+              description: 'Your event has been scheduled.',
+            })
+          }
+        >
+          Show Toast
+        </Button>
+        <Toaster />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const Route = createFileRoute('/components/toaster')({
   component: ToasterDocPage,

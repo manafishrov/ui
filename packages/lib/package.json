@@ -205,8 +205,8 @@
       "import": "./dist/components/TreeView.js"
     },
     "./toaster": {
-      "types": "./dist/components/Toaster.d.ts",
-      "import": "./dist/components/Toaster.js"
+      "types": "./dist/components/toaster/index.d.ts",
+      "import": "./dist/components/toaster/index.js"
     },
     "./typography": {
       "types": "./dist/components/Typography.d.ts",

@@ -17,14 +17,14 @@ import { Spinner } from '@/components/Spinner';
 
 export const toast = createToaster({
   placement: 'bottom-end',
-  overlap: false,
-  gap: 12,
+  overlap: true,
+  gap: 16,
 });
 
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex min-w-72 w-full items-center overflow-hidden rounded-lg border bg-popover transition-all',
+      'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex min-w-72 w-full items-center rounded-lg border bg-popover transition-all',
       'data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=open]:animate-in',
       'data-[state=open]:sm:slide-in-from-bottom-full data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full',
       'border-border text-popover-foreground',

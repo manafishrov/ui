@@ -3,6 +3,7 @@
 @import '@fontsource/roboto';
 @import '@fontsource/chakra-petch/500';
 @import './components/marquee/marquee.css';
+@import './components/toaster/toaster.css';
 
 @source '../src/**/*.{ts,tsx}';
 

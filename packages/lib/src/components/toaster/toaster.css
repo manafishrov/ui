@@ -1,0 +1,32 @@
+/* Toast positioning and animations - required for Ark UI stacking behavior */
+
+[data-scope='toast'][data-part='root'] {
+  translate: var(--x, 0px) var(--y, 0px);
+  scale: var(--scale, 1);
+  z-index: var(--z-index, 1);
+  height: var(--height, auto);
+  opacity: var(--opacity, 1);
+  will-change: translate, opacity, scale, height;
+  transition:
+    translate 400ms,
+    scale 400ms,
+    opacity 400ms,
+    height 400ms,
+    box-shadow 200ms;
+  transition-timing-function: cubic-bezier(0.21, 1.02, 0.73, 1);
+}
+@starting-style {
+  [data-scope='toast'][data-part='root'] {
+    opacity: 0;
+    scale: 0.8;
+    translate: var(--x, 0px) calc(var(--y, 0px) + 1rem);
+  }
+}
+
+[data-scope='toast'][data-part='root'][data-state='closed'] {
+  transition:
+    translate 400ms,
+    scale 400ms,
+    opacity 200ms;
+  transition-timing-function: cubic-bezier(0.06, 0.71, 0.55, 1);
+}
