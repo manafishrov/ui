@@ -68,7 +68,7 @@ export const FieldGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const fieldVariants = tv({
-  base: 'gap-2 group/field flex w-full transition-colors data-invalid:text-destructive',
+  base: 'gap-2 group/field flex w-full transition-colors data-[invalid=true]:text-destructive',
   variants: {
     orientation: {
       vertical: 'flex-col [&>*]:w-full [&>.sr-only]:w-auto',
@@ -116,7 +116,7 @@ export const FieldInput: Component<PrimitiveField.InputProps> = (props) => {
     <PrimitiveField.Input
       data-slot='field-input'
       class={cn(
-        'min-w-0 text-base md:text-sm h-8 px-2.5 py-1 flex w-full rounded-lg border border-input bg-transparent transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:cursor-default data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+        'min-w-0 text-base md:text-sm h-8 px-2.5 py-1 flex w-full rounded-lg border border-input bg-transparent transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 data-[readonly=true]:cursor-default data-[readonly=true]:focus-visible:border-input data-[readonly=true]:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-[invalid=true]:border-destructive/50 dark:data-[invalid=true]:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -130,7 +130,7 @@ export const FieldTextarea: Component<PrimitiveField.TextareaProps> = (props) =>
     <PrimitiveField.Textarea
       data-slot='field-textarea'
       class={cn(
-        'min-w-0 text-base md:text-sm min-h-[80px] px-2.5 py-2 flex w-full rounded-lg border border-input bg-transparent transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:cursor-default data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+        'min-w-0 text-base md:text-sm px-2.5 py-2 flex min-h-[80px] w-full rounded-lg border border-input bg-transparent transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 data-[readonly=true]:cursor-default data-[readonly=true]:focus-visible:border-input data-[readonly=true]:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-[invalid=true]:border-destructive/50 dark:data-[invalid=true]:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -144,7 +144,7 @@ export const FieldSelect: Component<PrimitiveField.SelectProps> = (props) => {
     <PrimitiveField.Select
       data-slot='field-select'
       class={cn(
-        'min-w-0 text-base md:text-sm h-8 px-2.5 py-1 flex w-full rounded-lg border border-input bg-transparent transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 data-readonly:cursor-default data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+        'min-w-0 text-base md:text-sm h-8 px-2.5 py-1 flex w-full rounded-lg border border-input bg-transparent transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 data-[readonly=true]:cursor-default data-[readonly=true]:focus-visible:border-input data-[readonly=true]:focus-visible:ring-0 dark:bg-input/30 dark:disabled:bg-input/80 dark:data-[invalid=true]:border-destructive/50 dark:data-[invalid=true]:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -171,7 +171,7 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
     <PrimitiveField.Label
       data-slot='field-label'
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         '*:data-[slot=field]:p-2.5 group/field-label peer/field-label leading-snug flex w-fit group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border has-[[data-state=checked]]:border-primary/30 has-[[data-state=checked]]:bg-primary/5 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10',
         'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
         local.class,
@@ -202,18 +202,19 @@ export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
 export const FieldDescription: Component<PrimitiveField.HelperTextProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <PrimitiveField.HelperText
-      data-slot='field-description'
-      class={cn(
-        'text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal text-left text-muted-foreground group-has-data-[orientation=horizontal]/field:text-balance',
-        'last:mt-0 nth-last-2:-mt-1',
-        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
-        local.class,
-      )}
-      {...others}
-    >
-      {local.children}
-    </PrimitiveField.HelperText>
+    <div data-slot='field-description-container' class='min-h-5 pt-2 relative'>
+      <PrimitiveField.HelperText
+        data-slot='field-description'
+        class={cn(
+          'text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal text-left text-muted-foreground group-has-data-[orientation=horizontal]/field:text-balance',
+          '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
+          local.class,
+        )}
+        {...others}
+      >
+        {local.children}
+      </PrimitiveField.HelperText>
+    </div>
   );
 };
 
@@ -272,10 +273,10 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
   });
 
   return (
-    <div data-slot='field-error-container' class='min-h-5'>
+    <div data-slot='field-error-container' class='h-0 relative min-h-[0px]'>
       <PrimitiveField.ErrorText
         data-slot='field-error'
-        class={cn('text-sm font-normal text-destructive', local.class)}
+        class={cn('text-sm font-normal -top-1 absolute text-destructive', local.class)}
         {...others}
       >
         <Show

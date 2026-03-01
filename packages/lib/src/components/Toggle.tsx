@@ -4,7 +4,7 @@ import { createContext, useContext, type Component, type JSX, splitProps } from 
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 export const toggleVariants = tv({
-  base: 'gap-1 text-sm font-medium [&_svg:not([class*="size-"])]:size-4 group/toggle inline-flex items-center justify-center rounded-lg whitespace-nowrap transition-all outline-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-destructive/20 data-pressed:bg-muted data-[state=on]:bg-muted dark:data-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+  base: 'gap-1 text-sm font-medium [&_svg:not([class*="size-"])]:size-4 group/toggle inline-flex items-center justify-center rounded-lg whitespace-nowrap transition-all outline-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-destructive/20 data-pressed:bg-muted data-[state=on]:bg-muted dark:data-[invalid=true]:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0',
   variants: {
     variant: {
       default: 'bg-transparent',

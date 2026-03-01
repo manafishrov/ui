@@ -46,7 +46,7 @@ export const SelectLabel: Component<SelectPrimitive.LabelProps> = (props) => {
   return (
     <SelectPrimitive.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -89,10 +89,10 @@ export const SelectTrigger: Component<
       class={cn(
         'border-input data-placeholder-shown:text-muted-foreground px-2.5 text-sm *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*="size-"])]:text-muted-foreground [&_svg:not([class*="size-"])]:size-4 gap-1.5 flex w-full min-w-0 items-center justify-between rounded-lg border bg-transparent whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
         'data-[size=default]:h-10 data-[size=sm]:h-8 data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
-        'data-focus:border-ring data-focus:ring-[3px] data-focus:ring-ring/50',
-        'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
-        'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
-        'data-readonly:cursor-default data-readonly:data-focus:border-input data-readonly:data-focus:ring-0',
+        'data-[focus=true]:border-ring data-[focus=true]:ring-[3px] data-[focus=true]:ring-ring/50',
+        'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
+        'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
+        'data-[readonly=true]:cursor-default data-[readonly=true]:data-[focus=true]:border-input data-[readonly=true]:data-[focus=true]:ring-0',
         local.class,
       )}
       {...others}
@@ -160,7 +160,7 @@ export const SelectItem: Component<SelectPrimitive.ItemProps> = (props) => {
     <SelectPrimitive.Item
       data-slot='select-item'
       class={cn(
-        "gap-2 py-1.5 pr-8 pl-2 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:gap-2 relative flex w-full cursor-default items-center rounded-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center",
+        "gap-2 py-1.5 pr-8 pl-2 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:gap-2 relative flex w-full cursor-default items-center rounded-sm outline-hidden select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center",
         local.class,
       )}
       {...others}

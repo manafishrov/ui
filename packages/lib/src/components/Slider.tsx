@@ -23,7 +23,7 @@ export const SliderLabel: Component<SliderPrimitive.LabelProps> = (props) => {
     <SliderPrimitive.Label
       class={cn(
         'text-sm font-medium mb-2 leading-none',
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -46,7 +46,7 @@ export const SliderControl: Component<SliderPrimitive.ControlProps> = (props) =>
   return (
     <SliderPrimitive.Control
       class={cn(
-        'data-[orientation=vertical]:min-h-40 relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
+        'data-[orientation=vertical]:min-h-40 relative flex w-full touch-none items-center select-none data-[disabled=true]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
         local.class,
       )}
       {...others}
@@ -88,7 +88,7 @@ export const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => {
     <SliderPrimitive.Thumb
       data-slot='slider-thumb'
       class={cn(
-        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute hover:ring-[3px] focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 data-focus-visible:ring-[3px]',
+        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute hover:ring-[3px] focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-[focus-visible=true]:ring-[3px]',
         local.class,
       )}
       {...others}
@@ -159,7 +159,7 @@ export const SliderCircleTrack: Component<AngleSliderPrimitive.ControlProps> = (
       class={cn(
         'size-24 relative flex items-center justify-center rounded-full bg-muted select-none',
         'after:inset-2 after:absolute after:rounded-full after:bg-background',
-        'data-disabled:opacity-50 data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
+        'data-[disabled=true]:opacity-50 data-[focus-visible=true]:ring-[3px] data-[focus-visible=true]:ring-ring/50',
         local.class,
       )}
       data-slot='slider-circle-track'
@@ -204,7 +204,7 @@ export const SliderCircleThumb: Component<AngleSliderPrimitive.ThumbProps> = (pr
       class={cn(
         'inset-0 z-20 absolute rounded-full outline-none',
         'before:top-1 before:size-4 before:bg-white before:shadow-sm before:absolute before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:border before:border-ring before:transition-[color,box-shadow] before:data-active:ring-[3px] before:data-active:ring-ring/50',
-        'data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50',
+        'data-[focus-visible=true]:ring-[3px] data-[focus-visible=true]:ring-ring/50',
         local.class,
       )}
       data-slot='slider-circle-thumb'

@@ -14,9 +14,9 @@ export const TagsInputControl: Component<TagsInputPrimitive.ControlProps> = (pro
       class={cn(
         'group min-h-10 py-1.5 pr-2 pl-2.5 text-sm [&_svg:not([class*="size-"])]:size-4 gap-1 shadow-sm flex w-full flex-wrap items-center rounded-lg border border-input bg-transparent transition-colors outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
         'focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50',
-        'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
-        'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
-        'data-readonly:focus-within:border-input data-readonly:focus-within:ring-0',
+        'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
+        'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
+        'data-[readonly=true]:focus-within:border-input data-[readonly=true]:focus-within:ring-0',
         local.class,
       )}
       {...others}
@@ -59,7 +59,7 @@ export const TagsInputItem: Component<TagsInputPrimitive.ItemProps> = (props) =>
   return (
     <TagsInputPrimitive.Item
       class={cn(
-        'h-6 gap-1 px-1.5 text-xs font-medium has-data-[slot=tags-input-item-delete-trigger]:pr-0 flex w-fit items-center justify-center rounded-md bg-muted whitespace-nowrap text-foreground data-disabled:pointer-events-none data-disabled:cursor-not-allowed data-disabled:opacity-50',
+        'h-6 gap-1 px-1.5 text-xs font-medium has-data-[slot=tags-input-item-delete-trigger]:pr-0 flex w-fit items-center justify-center rounded-md bg-muted whitespace-nowrap text-foreground data-disabled:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
         local.class,
       )}
       {...others}

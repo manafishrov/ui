@@ -21,7 +21,7 @@ export const PinInputLabel: Component<PrimitivePinInput.LabelProps> = (props) =>
   return (
     <PrimitivePinInput.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -62,9 +62,9 @@ export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) =>
       class={cn(
         'relative flex h-10 w-10 items-center justify-center border-y border-r border-input bg-transparent text-sm text-center transition-colors outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground first:rounded-l-md first:border-l last:rounded-r-md dark:bg-input/30',
         'focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
-        'data-invalid:border-destructive data-invalid:ring-2 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
-        'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
-        'data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0',
+        'data-[invalid=true]:border-destructive data-[invalid=true]:ring-2 data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
+        'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[readonly=true]:cursor-default',
+        'data-[readonly=true]:focus-visible:border-input data-[readonly=true]:focus-visible:ring-0',
         local.class,
       )}
       {...others}

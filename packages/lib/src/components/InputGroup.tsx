@@ -13,7 +13,7 @@ export const InputGroup: Component<ComponentProps<'div'>> = (props) => {
       class={cn(
         'group/input-group min-w-0 h-8 relative flex w-full items-center rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
         'has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
-        'has-data-invalid:border-destructive has-data-invalid:ring-[3px] has-data-invalid:ring-destructive/20 dark:has-data-invalid:ring-destructive/40',
+        'has-data-[invalid=true]:border-destructive has-data-[invalid=true]:ring-[3px] has-data-[invalid=true]:ring-destructive/20 dark:has-data-[invalid=true]:ring-destructive/40',
         'has-disabled:bg-input/50 has-disabled:opacity-50 dark:has-disabled:bg-input/80',
         'has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col',
         'has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col',
@@ -127,7 +127,7 @@ export const InputGroupInput: Component<ComponentProps<'input'>> = (props) => {
     <input
       data-slot='input-group-control'
       class={cn(
-        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[readonly=true]:cursor-default',
         'flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent',
         local.class,
       )}
@@ -142,7 +142,7 @@ export const InputGroupTextarea: Component<ComponentProps<'textarea'>> = (props)
     <textarea
       data-slot='input-group-control'
       class={cn(
-        'min-h-16 text-base md:text-sm flex field-sizing-content w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'min-h-16 text-base md:text-sm flex field-sizing-content w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 data-[readonly=true]:cursor-default',
         'py-2 flex-1 resize-none rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0 dark:bg-transparent dark:disabled:bg-transparent',
         local.class,
       )}

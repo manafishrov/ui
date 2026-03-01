@@ -71,7 +71,7 @@ export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props
   return (
     <DatePickerPrimitive.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -174,7 +174,7 @@ export const DatePickerTableCellTrigger: Component<DatePickerPrimitive.TableCell
         'size-9 p-0 font-normal data-selected:opacity-100',
         'data-today:bg-accent data-today:text-accent-foreground',
         'data-selected:bg-primary data-selected:text-primary-foreground data-selected:hover:bg-primary data-selected:hover:text-primary-foreground data-selected:focus:bg-primary data-selected:focus:text-primary-foreground',
-        'data-disabled:text-muted-foreground data-disabled:opacity-50',
+        'data-disabled:text-muted-foreground data-[disabled=true]:opacity-50',
         'data-outside-range:text-muted-foreground data-outside-range:opacity-50',
         'data-in-range:rounded-none data-in-range:bg-accent data-in-range:text-accent-foreground',
         'data-range-end:rounded-r-md data-range-start:rounded-l-md',

@@ -20,7 +20,7 @@ export const PasswordInputLabel: Component<PrimitivePasswordInput.LabelProps> = 
   return (
     <PrimitivePasswordInput.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -37,9 +37,12 @@ export const PasswordInputControl: Component<PrimitivePasswordInput.ControlProps
       class={cn(
         'min-w-0 h-8 relative flex w-full items-center overflow-hidden rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
         'focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50',
-        'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
-        'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
-        'data-readonly:focus-within:border-input data-readonly:focus-within:ring-0',
+        'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
+        'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
+        'data-[readonly=true]:focus-within:border-input data-[readonly=true]:focus-within:ring-0',
+        'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
+        'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
+        'data-[readonly=true]:focus-within:border-input data-[readonly=true]:focus-within:ring-0',
         local.class,
       )}
       {...others}
@@ -52,7 +55,7 @@ export const PasswordInputInput: Component<PrimitivePasswordInput.InputProps> = 
   return (
     <PrimitivePasswordInput.Input
       class={cn(
-        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[readonly=true]:cursor-default',
         'px-0 py-0 h-full border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
         'pl-2.5 pr-10',
         local.class,

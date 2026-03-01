@@ -18,8 +18,8 @@ export const RadioGroupLabel: Component<RadioGroupPrimitive.LabelProps> = (props
   return (
     <RadioGroupPrimitive.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-disabled:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
-        'data-disabled:cursor-not-allowed data-disabled:opacity-70',
+        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-70',
         local.class,
       )}
       {...others}
@@ -48,7 +48,7 @@ export const RadioGroupItemControl: Component<RadioGroupPrimitive.ItemControlPro
       class={cn(
         'peer size-4 shadow-xs group/radio-group-item relative flex aspect-square shrink-0 items-center justify-center rounded-full border border-input bg-background outline-none transition-[border-color,border-width,box-shadow] after:-inset-x-3 after:-inset-y-2 after:absolute',
         'data-[state=checked]:border-primary data-[state=checked]:border-[5px] group-data-invalid/radio-group-item:data-[state=checked]:border-destructive',
-        'data-disabled:cursor-not-allowed data-disabled:opacity-50 data-focus-visible:border-ring data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+        'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[focus-visible=true]:border-ring data-[focus-visible=true]:ring-[3px] data-[focus-visible=true]:ring-ring/50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:bg-input/30 dark:data-[invalid=true]:border-destructive/50 dark:data-[invalid=true]:ring-destructive/40',
         local.class,
       )}
       {...others}
@@ -63,7 +63,7 @@ export const RadioGroupItemText: Component<RadioGroupPrimitive.ItemTextProps> = 
   return (
     <RadioGroupPrimitive.ItemText
       class={cn(
-        'text-sm font-medium leading-none select-none data-disabled:cursor-not-allowed data-disabled:opacity-70',
+        'text-sm font-medium leading-none select-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-70',
         local.class,
       )}
       {...others}

@@ -41,7 +41,7 @@ export const MenuItem: Component<MenuPrimitive.ItemProps> = (props) => {
     <MenuPrimitive.Item
       data-slot='menu-item'
       class={cn(
-        'px-2 py-1.5 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'px-2 py-1.5 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         local.class,
       )}
       {...others}
@@ -107,7 +107,7 @@ export const MenuCheckboxItem: Component<MenuPrimitive.CheckboxItemProps> = (pro
     <MenuPrimitive.CheckboxItem
       data-slot='menu-checkbox-item'
       class={cn(
-        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         local.class,
       )}
       {...others}
@@ -126,7 +126,7 @@ export const MenuRadioItem: Component<MenuPrimitive.RadioItemProps> = (props) =>
     <MenuPrimitive.RadioItem
       data-slot='menu-radio-item'
       class={cn(
-        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         local.class,
       )}
       {...others}
