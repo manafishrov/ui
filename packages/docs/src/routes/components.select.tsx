@@ -1,7 +1,6 @@
 import type { Component } from 'solid-js';
 
 import { createListCollection } from '@manafishrov/ui';
-import { Button } from '@manafishrov/ui/button';
 import {
   SelectControl,
   SelectList,
@@ -22,11 +21,13 @@ import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
-const frameworks = createListCollection({
+const fruits = createListCollection({
   items: [
-    { label: 'Solid', value: 'solid' },
-    { label: 'React', value: 'react' },
-    { label: 'Vue', value: 'vue' },
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Blueberry', value: 'blueberry' },
+    { label: 'Grapes', value: 'grapes' },
+    { label: 'Pineapple', value: 'pineapple' },
   ],
 });
 
@@ -37,28 +38,24 @@ const SelectDocPage: Component = () => (
       <Lead>{m.docs_component_select_description()}</Lead>
     </div>
 
-    <Select collection={frameworks} class='max-w-xs'>
-      <SelectLabel>Framework</SelectLabel>
+    <Select collection={fruits} class='w-56'>
+      <SelectLabel class='sr-only'>Fruit</SelectLabel>
       <SelectControl>
-        <SelectTrigger
-          asChild={(props) => (
-            <Button variant='outline' class='w-48 justify-between' {...props()}>
-              <SelectValue placeholder='Select a framework' />
-              <div class='gap-1 flex items-center'>
-                <SelectClearTrigger />
-                <SelectIndicator />
-              </div>
-            </Button>
-          )}
-        />
+        <SelectTrigger>
+          <SelectValue placeholder='Select a fruit' />
+          <div class='gap-1 ml-auto flex items-center'>
+            <SelectClearTrigger />
+            <SelectIndicator />
+          </div>
+        </SelectTrigger>
       </SelectControl>
       <SelectPositioner>
         <SelectContent>
           <SelectList>
             <SelectGroup>
-              <SelectItemGroupLabel>Frameworks</SelectItemGroupLabel>
+              <SelectItemGroupLabel>Fruits</SelectItemGroupLabel>
               <SelectSeparator />
-              {frameworks.items.map((item) => (
+              {fruits.items.map((item) => (
                 <SelectItem item={item}>{item.label}</SelectItem>
               ))}
             </SelectGroup>

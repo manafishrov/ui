@@ -8,15 +8,36 @@ import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
 export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
-export const SelectList = SelectPrimitive.List;
+export const SelectList: Component<SelectPrimitive.ListProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <SelectPrimitive.List
+      data-slot='select-list'
+      class={cn('p-1 max-h-[min(var(--available-height),300px)] overflow-y-auto', local.class)}
+      {...others}
+    />
+  );
+};
 export const SelectContext = SelectPrimitive.Context;
 
 export const Select = <TItem extends { value: string; label: string }>(
   props: SelectPrimitive.RootProps<TItem> & { class?: string },
 ): JSXElement => {
-  const [local, others] = splitProps(props, ['class']);
+  const [local, others] = splitProps(props, ['class', 'positioning']);
+
+  const positioning: NonNullable<SelectPrimitive.RootProps<TItem>['positioning']> = {
+    placement: 'bottom-start',
+    gutter: 4,
+    sameWidth: true,
+    ...local.positioning,
+  };
+
   return (
-    <SelectPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />
+    <SelectPrimitive.Root
+      class={cn('gap-1.5 flex w-full flex-col', local.class)}
+      positioning={positioning}
+      {...others}
+    />
   );
 };
 
@@ -38,7 +59,7 @@ export const SelectGroup: Component<SelectPrimitive.ItemGroupProps> = (props) =>
   return (
     <SelectPrimitive.ItemGroup
       data-slot='select-group'
-      class={cn('scroll-my-1 p-1', local.class)}
+      class={cn('scroll-my-1', local.class)}
       {...others}
     />
   );
@@ -66,7 +87,8 @@ export const SelectTrigger: Component<
       data-slot='select-trigger'
       data-size={size}
       class={cn(
-        'py-2 pr-2 pl-2.5 text-sm *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*="size-"])]:size-4 flex w-fit items-center justify-between rounded-lg border border-input bg-transparent whitespace-nowrap transition-colors outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 data-placeholder-shown:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+        'border-input data-placeholder-shown:text-muted-foreground px-2.5 text-sm *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*="size-"])]:text-muted-foreground [&_svg:not([class*="size-"])]:size-4 gap-1.5 flex w-full min-w-0 items-center justify-between rounded-lg border bg-transparent whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+        'data-[size=default]:h-10 data-[size=sm]:h-8 data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
         'data-focus:border-ring data-focus:ring-[3px] data-focus:ring-ring/50',
         'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
         'data-disabled:bg-input/50 data-disabled:opacity-50 dark:data-disabled:bg-input/80',
@@ -81,8 +103,11 @@ export const SelectTrigger: Component<
 export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <SelectPrimitive.Indicator class={cn(local.class)} {...others}>
-      {local.children ?? <OutlineExpandMoreIcon class='size-4 text-muted-foreground' />}
+    <SelectPrimitive.Indicator
+      class={cn('opacity-50 transition-transform data-[state=open]:rotate-180', local.class)}
+      {...others}
+    >
+      {local.children ?? <OutlineExpandMoreIcon class='size-4' />}
     </SelectPrimitive.Indicator>
   );
 };
@@ -91,10 +116,7 @@ export const SelectClearTrigger: Component<SelectPrimitive.ClearTriggerProps> = 
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <SelectPrimitive.ClearTrigger
-      class={cn(
-        'p-0.5 rounded-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground',
-        local.class,
-      )}
+      class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
       {local.children ?? <OutlineCloseIcon class='size-3.5' />}
@@ -113,7 +135,7 @@ export const SelectContent: Component<SelectPrimitive.ContentProps> = (props) =>
     <SelectPrimitive.Content
       data-slot='select-content'
       class={cn(
-        'min-w-36 shadow-md relative isolate z-50 max-h-(--available-height) w-(--anchor-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+        'relative isolate z-50 max-h-(--available-height) w-(--reference-width) min-w-[8rem] origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border border-input bg-popover text-popover-foreground shadow-md duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:zoom-in-95',
         local.class,
       )}
       {...others}
@@ -138,7 +160,7 @@ export const SelectItem: Component<SelectPrimitive.ItemProps> = (props) => {
     <SelectPrimitive.Item
       data-slot='select-item'
       class={cn(
-        "gap-1.5 py-1 pr-8 pl-1.5 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:gap-2 relative flex w-full cursor-default items-center rounded-md outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center",
+        "gap-2 py-1.5 pr-8 pl-2 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:gap-2 relative flex w-full cursor-default items-center rounded-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center",
         local.class,
       )}
       {...others}
