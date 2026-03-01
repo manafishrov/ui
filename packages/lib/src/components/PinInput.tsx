@@ -60,11 +60,11 @@ export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) =>
   return (
     <PrimitivePinInput.Input
       class={cn(
-        'min-w-0 text-base md:text-sm flex w-full bg-transparent transition-colors outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
-        'px-0 py-0 h-full border-none bg-transparent shadow-none ring-0 focus-visible:ring-0',
-        'size-9 text-sm relative flex items-center justify-center border-y border-r border-input bg-transparent text-center transition-all outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground first:rounded-l-lg first:border-l last:rounded-r-lg focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:opacity-50 dark:bg-input/30',
-        'data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
-        'data-readonly:cursor-default data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0',
+        'relative flex h-10 w-10 items-center justify-center border-y border-r border-input bg-transparent text-sm text-center transition-colors outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground first:rounded-l-md first:border-l last:rounded-r-md dark:bg-input/30',
+        'focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        'data-invalid:border-destructive data-invalid:ring-2 data-invalid:ring-destructive/20 dark:data-invalid:ring-destructive/40',
+        'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-readonly:cursor-default',
+        'data-readonly:focus-visible:border-input data-readonly:focus-visible:ring-0',
         local.class,
       )}
       {...others}
