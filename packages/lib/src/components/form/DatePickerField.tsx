@@ -1,5 +1,9 @@
-import type { DatePickerInputProps, DatePickerRootProps, DateValue } from '@ark-ui/solid';
-import type { Component } from 'solid-js';
+import type {
+  DatePickerInputProps,
+  DatePickerRootProps,
+  DateValue,
+} from "@ark-ui/solid";
+import type { Component } from "solid-js";
 
 import {
   DatePicker,
@@ -9,10 +13,16 @@ import {
   DatePickerPositioner,
   DatePickerTrigger,
   DatePickerViews,
-} from '@/components/DatePicker';
-import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
+} from "@/components/DatePicker";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/Field";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 export type DatePickerFieldProps = DatePickerRootProps & {
   label?: string;
@@ -34,12 +44,12 @@ const DatePickerInputGroup: Component<DatePickerInputProps> = (props) => (
 );
 
 const DATE_PICKER_FIELD_PROPS = [
-  'label',
-  'description',
-  'required',
-  'disabled',
-  'readOnly',
-  'placeholder',
+  "label",
+  "description",
+  "required",
+  "disabled",
+  "readOnly",
+  "placeholder",
 ] as const;
 
 export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
@@ -70,8 +80,8 @@ export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
         >
           <DatePickerInputGroup placeholder={local.placeholder} />
         </DatePicker>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

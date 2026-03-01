@@ -8,7 +8,7 @@ export const TextInput: Component<PrimitiveField.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveField.Root
-      class={cn('group/text-input gap-1.5 flex w-full flex-col', local.class)}
+      class={cn('group/text-input relative flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -19,7 +19,7 @@ export const TextInputLabel: Component<PrimitiveField.LabelProps> = (props) => {
   return (
     <PrimitiveField.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -29,7 +29,6 @@ export const TextInputLabel: Component<PrimitiveField.LabelProps> = (props) => {
 
 export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-
   return (
     <PrimitiveField.Context>
       {(field) => (
@@ -86,3 +85,4 @@ export const TextInputArea: Component<PrimitiveField.TextareaProps> = (props) =>
 
 export const TextInputDescription = FieldDescription;
 export const TextInputError = FieldError;
+

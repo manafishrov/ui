@@ -18,7 +18,7 @@ export const RadioGroupLabel: Component<RadioGroupPrimitive.LabelProps> = (props
   return (
     <RadioGroupPrimitive.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-70',
         local.class,
       )}

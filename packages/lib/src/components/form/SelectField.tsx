@@ -1,6 +1,12 @@
-import type { Component, ComponentProps, JSX } from 'solid-js';
+import type { Component, ComponentProps, JSX } from "solid-js";
 
-import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/Field";
 import {
   Select,
   SelectContent,
@@ -8,11 +14,13 @@ import {
   SelectPositioner,
   SelectTrigger,
   SelectValue,
-} from '@/components/Select';
+} from "@/components/Select";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
-const SelectInput: Component<{ placeholder: string; children: JSX.Element }> = (props) => (
+const SelectInput: Component<{ placeholder: string; children: JSX.Element }> = (
+  props,
+) => (
   <>
     <SelectControl>
       <SelectTrigger>
@@ -34,13 +42,13 @@ export type SelectFieldProps = ComponentProps<typeof Select> & {
 export const SelectField: Component<SelectFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'placeholder',
-    'children',
+    "label",
+    "description",
+    "required",
+    "disabled",
+    "readOnly",
+    "placeholder",
+    "children",
   ]);
 
   return (
@@ -65,10 +73,12 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
           readOnly={local.readOnly ?? false}
           {...others}
         >
-          <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
+          <SelectInput placeholder={local.placeholder ?? ""}>
+            {local.children}
+          </SelectInput>
         </Select>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

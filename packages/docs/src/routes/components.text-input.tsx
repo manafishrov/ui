@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js';
+import type { Component } from "solid-js";
 
 import {
   TextInput,
@@ -8,15 +8,15 @@ import {
   TextInputArea,
   TextInputDescription,
   TextInputError,
-} from '@manafishrov/ui/text-input';
-import { H1, Lead } from '@manafishrov/ui/typography';
-import { createFileRoute } from '@tanstack/solid-router';
-import { createSignal } from 'solid-js';
+} from "@manafishrov/ui/text-input";
+import { H1, Lead } from "@manafishrov/ui/typography";
+import { createFileRoute } from "@tanstack/solid-router";
+import { createSignal } from "solid-js";
 
-import * as m from '@/paraglide/messages';
+import * as m from "@/paraglide/messages";
 
 const TextInputDocPage: Component = () => {
-  const [email, setEmail] = createSignal('');
+  const [email, setEmail] = createSignal("");
 
   const isEmailInvalid = () => {
     const val = email();
@@ -25,37 +25,42 @@ const TextInputDocPage: Component = () => {
   };
 
   return (
-    <div class='space-y-8'>
-      <div class='space-y-2'>
+    <div class="space-y-8">
+      <div class="space-y-2">
         <H1>Text Input</H1>
         <Lead>{m.docs_component_text_input_description()}</Lead>
       </div>
 
-      <div class='gap-8 flex flex-col'>
-        <TextInput class='max-w-xs' invalid={isEmailInvalid()}>
+      <div class="gap-8 flex flex-col">
+        <TextInput class="max-w-xs" invalid={isEmailInvalid()}>
           <TextInputLabel>Email</TextInputLabel>
           <TextInputControl>
             <TextInputInput
-              type='email'
-              placeholder='Enter your email'
+              type="email"
+              placeholder="Enter your email"
               value={email()}
               onInput={(e) => setEmail(e.currentTarget.value)}
             />
           </TextInputControl>
           <TextInputError>Please enter a valid email address.</TextInputError>
-          <TextInputDescription>We'll never share your email.</TextInputDescription>
+          <TextInputDescription>
+            We'll never share your email with anyone.
+          </TextInputDescription>
         </TextInput>
-        <TextInput class='max-w-xs'>
+        <TextInput class="max-w-xs">
           <TextInputLabel>Message</TextInputLabel>
           <TextInputControl>
-            <TextInputArea placeholder='Type your message...' />
+            <TextInputArea placeholder="Type your message..." />
           </TextInputControl>
-          <TextInputDescription>Your message will be sent securely.</TextInputDescription>
+          <TextInputError />
+          <TextInputDescription>
+            Your message will be sent securely.
+          </TextInputDescription>
         </TextInput>
       </div>
     </div>
   );
 };
-export const Route = createFileRoute('/components/text-input')({
+export const Route = createFileRoute("/components/text-input")({
   component: TextInputDocPage,
 });

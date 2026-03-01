@@ -1,5 +1,5 @@
-import type { ComboboxRootProps } from '@ark-ui/solid';
-import type { Component, ComponentProps } from 'solid-js';
+import type { ComboboxRootProps } from "@ark-ui/solid";
+import type { Component, ComponentProps } from "solid-js";
 
 import {
   Combobox,
@@ -10,10 +10,16 @@ import {
   ComboboxControl,
   ComboboxTrigger,
   ComboboxClearTrigger,
-} from '@/components/Combobox';
-import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
+} from "@/components/Combobox";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/Field";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 export type ComboboxFieldProps = ComboboxRootProps<string> & {
   label?: string;
@@ -31,7 +37,7 @@ const ComboboxInputGroup: Component<
   <>
     <ComboboxControl>
       <ComboboxInput placeholder={props.placeholder} />
-      <div class='gap-1 flex items-center'>
+      <div class="gap-1 flex items-center">
         {props.showClear && <ComboboxClearTrigger />}
         {props.showTrigger && <ComboboxTrigger />}
       </div>
@@ -45,15 +51,15 @@ const ComboboxInputGroup: Component<
 );
 
 const COMBOBOX_FIELD_PROPS = [
-  'label',
-  'description',
-  'required',
-  'disabled',
-  'readOnly',
-  'placeholder',
-  'showTrigger',
-  'showClear',
-  'children',
+  "label",
+  "description",
+  "required",
+  "disabled",
+  "readOnly",
+  "placeholder",
+  "showTrigger",
+  "showClear",
+  "children",
 ] as const;
 
 export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
@@ -90,8 +96,8 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
             {local.children}
           </ComboboxInputGroup>
         </Combobox>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

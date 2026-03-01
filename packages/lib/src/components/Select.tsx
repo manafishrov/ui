@@ -34,7 +34,7 @@ export const Select = <TItem extends { value: string; label: string }>(
 
   return (
     <SelectPrimitive.Root
-      class={cn('gap-1.5 flex w-full flex-col', local.class)}
+      class={cn('flex w-full flex-col', local.class)}
       positioning={positioning}
       {...others}
     />
@@ -46,7 +46,7 @@ export const SelectLabel: Component<SelectPrimitive.LabelProps> = (props) => {
   return (
     <SelectPrimitive.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}

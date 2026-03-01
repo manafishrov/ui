@@ -1,15 +1,26 @@
-import { splitProps, type Component, type ComponentProps, Index } from 'solid-js';
+import {
+  splitProps,
+  type Component,
+  type ComponentProps,
+  Index,
+} from "solid-js";
 
-import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
+import {
+  Field,
+  FieldLabel,
+  FieldContent,
+  FieldError,
+  FieldDescription,
+} from "@/components/Field";
 import {
   PinInput,
   PinInputControl,
   PinInputInput,
   PinInputGroup,
   PinInputHiddenInput,
-} from '@/components/PinInput';
+} from "@/components/PinInput";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 export type PinInputFieldProps = ComponentProps<typeof PinInput> & {
   label?: string;
@@ -22,12 +33,12 @@ const DEFAULT_PIN_COUNT = 6;
 export const PinInputField: Component<PinInputFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'count',
+    "label",
+    "description",
+    "required",
+    "disabled",
+    "readOnly",
+    "count",
   ]);
 
   return (
@@ -56,15 +67,17 @@ export const PinInputField: Component<PinInputFieldProps> = (props) => {
         >
           <PinInputControl>
             <PinInputGroup>
-              <Index each={Array.from({ length: local.count ?? DEFAULT_PIN_COUNT })}>
+              <Index
+                each={Array.from({ length: local.count ?? DEFAULT_PIN_COUNT })}
+              >
                 {(_, index) => <PinInputInput index={index} />}
               </Index>
             </PinInputGroup>
           </PinInputControl>
           <PinInputHiddenInput />
         </PinInput>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

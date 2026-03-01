@@ -7,7 +7,7 @@ export const PasswordInput: Component<PrimitivePasswordInput.RootProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.Root
-      class={cn('group/password-input flex w-full flex-col gap-1.5', local.class)}
+      class={cn('group/password-input flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -20,7 +20,7 @@ export const PasswordInputLabel: Component<PrimitivePasswordInput.LabelProps> = 
   return (
     <PrimitivePasswordInput.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}

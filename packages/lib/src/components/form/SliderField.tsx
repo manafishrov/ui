@@ -1,6 +1,6 @@
-import type { Component, ComponentProps } from 'solid-js';
+import type { Component, ComponentProps } from "solid-js";
 
-import { Field, FieldDescription, FieldError } from '@/components/Field';
+import { Field, FieldDescription, FieldError } from "@/components/Field";
 import {
   Slider,
   SliderControl,
@@ -11,29 +11,34 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValueText,
-} from '@/components/Slider';
+} from "@/components/Slider";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 const SliderInput: Component<{
   value: number[];
+  label?: string;
   marks?: { value: number; label?: string }[] | undefined;
 }> = (props) => (
   <>
-    <div class='flex items-center justify-between'>
-      <SliderLabel />
+    <div class="flex items-center justify-between">
+      <SliderLabel>{props.label}</SliderLabel>
       <SliderValueText />
     </div>
     <SliderControl>
       <SliderTrack>
         <SliderRange />
       </SliderTrack>
-      <For each={props.value}>{(_, index) => <SliderThumb index={index()} />}</For>
+      <For each={props.value}>
+        {(_, index) => <SliderThumb index={index()} />}
+      </For>
     </SliderControl>
     {props.marks && (
       <SliderMarkerGroup>
         <For each={props.marks}>
-          {(mark) => <SliderMarker value={mark.value}>{mark.label}</SliderMarker>}
+          {(mark) => (
+            <SliderMarker value={mark.value}>{mark.label}</SliderMarker>
+          )}
         </For>
       </SliderMarkerGroup>
     )}
@@ -50,12 +55,12 @@ export type SliderFieldProps = ComponentProps<typeof Slider> & {
 export const SliderField: Component<SliderFieldProps> = (props) => {
   const field = useFieldContext<number[]>();
   const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'marks',
+    "label",
+    "description",
+    "required",
+    "disabled",
+    "readOnly",
+    "marks",
   ]);
 
   return (
@@ -65,7 +70,6 @@ export const SliderField: Component<SliderFieldProps> = (props) => {
       readOnly={local.readOnly ?? false}
       required={local.required ?? false}
     >
-      <SliderLabel>{local.label}</SliderLabel>
       <Slider
         value={field().state.value}
         onValueChange={(details) => {
@@ -79,10 +83,14 @@ export const SliderField: Component<SliderFieldProps> = (props) => {
         readOnly={local.readOnly ?? false}
         {...others}
       >
-        <SliderInput value={field().state.value} marks={local.marks} />
+        <SliderInput
+          value={field().state.value}
+          label={local.label}
+          marks={local.marks}
+        />
       </Slider>
-      <FieldDescription>{local.description}</FieldDescription>
       <FieldError errors={field().state.meta.errors} />
+      <FieldDescription>{local.description}</FieldDescription>
     </Field>
   );
 };

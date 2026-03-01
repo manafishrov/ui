@@ -6,7 +6,18 @@ import OutlineCloseIcon from '~icons/ic/outline-close';
 export const TagsInput = TagsInputPrimitive.Root;
 export const TagsInputContext = TagsInputPrimitive.Context;
 export const TagsInputHiddenInput = TagsInputPrimitive.HiddenInput;
-export const TagsInputLabel = TagsInputPrimitive.Label;
+export const TagsInputLabel: Component<TagsInputPrimitive.LabelProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <TagsInputPrimitive.Label
+      class={cn(
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
 export const TagsInputControl: Component<TagsInputPrimitive.ControlProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (

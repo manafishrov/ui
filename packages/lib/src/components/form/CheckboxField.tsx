@@ -1,9 +1,19 @@
-import type { Component, ComponentProps, JSX } from 'solid-js';
+import type { Component, ComponentProps, JSX } from "solid-js";
 
-import { Checkbox, CheckboxControl, CheckboxIndicator, CheckboxLabel } from '@/components/Checkbox';
-import { Field, FieldContent, FieldDescription, FieldError } from '@/components/Field';
+import {
+  Checkbox,
+  CheckboxControl,
+  CheckboxIndicator,
+  CheckboxLabel,
+} from "@/components/Checkbox";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+} from "@/components/Field";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 export type CheckboxFieldProps = ComponentProps<typeof Checkbox> & {
   description?: string;
@@ -13,11 +23,11 @@ export type CheckboxFieldProps = ComponentProps<typeof Checkbox> & {
 export const CheckboxField: Component<CheckboxFieldProps> = (props) => {
   const field = useFieldContext<boolean>();
   const [local, others] = splitProps(props, [
-    'description',
-    'label',
-    'required',
-    'disabled',
-    'readOnly',
+    "description",
+    "label",
+    "required",
+    "disabled",
+    "readOnly",
   ]);
 
   return (
@@ -47,8 +57,8 @@ export const CheckboxField: Component<CheckboxFieldProps> = (props) => {
           </CheckboxControl>
           <CheckboxLabel>{local.label}</CheckboxLabel>
         </Checkbox>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

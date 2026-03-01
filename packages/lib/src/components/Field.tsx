@@ -43,7 +43,7 @@ export const FieldLegend: Component<FieldLegendProps> = (props) => {
       data-slot='field-legend'
       data-variant={local.variant ?? 'legend'}
       class={cn(
-        'mb-1.5 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base',
+        'mb-1 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base',
         local.class,
       )}
       {...others}
@@ -68,14 +68,14 @@ export const FieldGroup: Component<ComponentProps<'div'>> = (props) => {
 };
 
 export const fieldVariants = tv({
-  base: 'gap-2 group/field flex w-full transition-colors data-[invalid=true]:text-destructive',
+  base: 'group/field flex w-full transition-colors data-[invalid=true]:text-destructive',
   variants: {
     orientation: {
       vertical: 'flex-col [&>*]:w-full [&>.sr-only]:w-auto',
       horizontal:
-        'flex-row items-center has-data-[slot=field-content]:items-start [&>[data-slot=field-label]]:flex-auto has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px',
+        'gap-4 flex-row items-center has-data-[slot=field-content]:items-start [&>[data-slot=field-label]]:flex-auto has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px',
       responsive:
-        '@md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:w-auto @md/field-group:[&>[data-slot=field-label]]:flex-auto @md/field-group:has-data-[slot=field-content]:items-start @md/field-group:has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px flex-col [&>*]:w-full [&>.sr-only]:w-auto',
+        '@md/field-group:gap-4 @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:w-auto @md/field-group:[&>[data-slot=field-label]]:flex-auto @md/field-group:has-data-[slot=field-content]:items-start @md/field-group:has-data-[slot=field-content]:[&>[role=checkbox],[role=radio]]:mt-px flex-col [&>*]:w-full [&>.sr-only]:w-auto',
     },
   },
   defaultVariants: {
@@ -105,7 +105,7 @@ export const FieldContent: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='field-content'
-      class={cn('gap-0.5 group/field-content leading-snug flex flex-1 flex-col', local.class)}
+      class={cn('relative group/field-content leading-snug flex flex-1 flex-col', local.class)}
       {...others}
     />
   );
@@ -171,6 +171,7 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
     <PrimitiveField.Label
       data-slot='field-label'
       class={cn(
+        'group-data-[orientation=vertical]/field:mb-1',
         'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         '*:data-[slot=field]:p-2.5 group/field-label peer/field-label leading-snug flex w-fit group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border has-[[data-state=checked]]:border-primary/30 has-[[data-state=checked]]:bg-primary/5 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10',
         'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
@@ -189,6 +190,7 @@ export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='field-label'
       class={cn(
+        'group-data-[orientation=vertical]/field:mb-1',
         'gap-2 text-sm font-medium leading-snug flex w-fit items-center group-data-disabled/field:opacity-50',
         local.class,
       )}
@@ -202,19 +204,17 @@ export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
 export const FieldDescription: Component<PrimitiveField.HelperTextProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
-    <div data-slot='field-description-container' class='min-h-5 pt-2 relative'>
-      <PrimitiveField.HelperText
-        data-slot='field-description'
-        class={cn(
-          'text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal text-left text-muted-foreground group-has-data-[orientation=horizontal]/field:text-balance',
-          '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
-          local.class,
-        )}
-        {...others}
-      >
-        {local.children}
-      </PrimitiveField.HelperText>
-    </div>
+    <PrimitiveField.HelperText
+      data-slot='field-description'
+      class={cn(
+        'text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal text-left text-muted-foreground group-has-data-[orientation=horizontal]/field:text-balance',
+        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
+        local.class,
+      )}
+      {...others}
+    >
+      {local.children}
+    </PrimitiveField.HelperText>
   );
 };
 
@@ -273,10 +273,10 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
   });
 
   return (
-    <div data-slot='field-error-container' class='h-0 relative min-h-[0px]'>
+    <div class='mt-[3px] min-h-[0.875rem] flex flex-col justify-start'>
       <PrimitiveField.ErrorText
         data-slot='field-error'
-        class={cn('text-sm font-normal -top-1 absolute text-destructive', local.class)}
+        class={cn('text-[0.8rem] leading-[0.875rem] font-medium text-destructive', local.class)}
         {...others}
       >
         <Show

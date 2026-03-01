@@ -1,9 +1,19 @@
-import type { Component, ComponentProps, JSX } from 'solid-js';
+import type { Component, ComponentProps, JSX } from "solid-js";
 
-import { Field, FieldContent, FieldDescription, FieldError } from '@/components/Field';
-import { Switch, SwitchControl, SwitchLabel, SwitchThumb } from '@/components/Switch';
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+} from "@/components/Field";
+import {
+  Switch,
+  SwitchControl,
+  SwitchLabel,
+  SwitchThumb,
+} from "@/components/Switch";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 export type SwitchFieldProps = ComponentProps<typeof Switch> & {
   description?: string;
@@ -13,11 +23,11 @@ export type SwitchFieldProps = ComponentProps<typeof Switch> & {
 export const SwitchField: Component<SwitchFieldProps> = (props) => {
   const field = useFieldContext<boolean>();
   const [local, others] = splitProps(props, [
-    'description',
-    'label',
-    'required',
-    'disabled',
-    'readOnly',
+    "description",
+    "label",
+    "required",
+    "disabled",
+    "readOnly",
   ]);
 
   return (
@@ -47,8 +57,8 @@ export const SwitchField: Component<SwitchFieldProps> = (props) => {
           </SwitchControl>
           <SwitchLabel>{local.label}</SwitchLabel>
         </Switch>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

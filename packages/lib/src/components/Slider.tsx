@@ -22,8 +22,7 @@ export const SliderLabel: Component<SliderPrimitive.LabelProps> = (props) => {
   return (
     <SliderPrimitive.Label
       class={cn(
-        'text-sm font-medium mb-2 leading-none',
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}

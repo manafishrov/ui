@@ -1,8 +1,14 @@
-import type { TagsInputRootProps } from '@ark-ui/solid';
+import type { TagsInputRootProps } from "@ark-ui/solid";
 
-import { type Component, splitProps, For } from 'solid-js';
+import { type Component, splitProps, For } from "solid-js";
 
-import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/Field";
 import {
   TagsInput,
   TagsInputContext,
@@ -11,9 +17,9 @@ import {
   TagsInputInput,
   TagsInputItem,
   TagsInputItemDeleteTrigger,
-} from '@/components/TagsInput';
+} from "@/components/TagsInput";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
 export type TagsInputFieldProps = TagsInputRootProps & {
   label?: string;
@@ -21,7 +27,9 @@ export type TagsInputFieldProps = TagsInputRootProps & {
   placeholder?: string;
 };
 
-const TagsInputGroup: Component<{ placeholder?: string | undefined }> = (props) => (
+const TagsInputGroup: Component<{ placeholder?: string | undefined }> = (
+  props,
+) => (
   <>
     <TagsInputContext>
       {(context) => (
@@ -43,12 +51,12 @@ const TagsInputGroup: Component<{ placeholder?: string | undefined }> = (props) 
 );
 
 const TAGS_INPUT_FIELD_PROPS = [
-  'label',
-  'description',
-  'required',
-  'disabled',
-  'readOnly',
-  'placeholder',
+  "label",
+  "description",
+  "required",
+  "disabled",
+  "readOnly",
+  "placeholder",
 ] as const;
 
 export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
@@ -79,8 +87,8 @@ export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
         >
           <TagsInputGroup placeholder={local.placeholder} />
         </TagsInput>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );

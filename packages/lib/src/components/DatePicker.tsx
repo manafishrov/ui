@@ -11,7 +11,7 @@ import { buttonVariants } from '@/components/Button';
 export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <DatePickerPrimitive.Root class={cn('gap-1.5 flex w-full flex-col', local.class)} {...others} />
+    <DatePickerPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />
   );
 };
 export const DatePickerContext = DatePickerPrimitive.Context;
@@ -71,7 +71,7 @@ export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props
   return (
     <DatePickerPrimitive.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}

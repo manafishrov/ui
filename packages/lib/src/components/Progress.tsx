@@ -46,7 +46,7 @@ export const Progress: Component<ProgressPrimitive.RootProps> = (props) => {
   return (
     <ProgressPrimitive.Root
       data-slot='progress'
-      class={cn('gap-2 flex w-full flex-col', local.class)}
+      class={cn('flex w-full flex-col', local.class)}
       {...others}
     >
       {local.children}
@@ -89,7 +89,7 @@ export const ProgressLabel: Component<ProgressPrimitive.LabelProps> = (props) =>
     <ProgressPrimitive.Label
       data-slot='progress-label'
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         'text-sm font-medium',
         local.class,
       )}

@@ -10,7 +10,7 @@ export const NumberInput: Component<PrimitiveNumberInput.RootProps> = (props) =>
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveNumberInput.Root
-      class={cn('group/number-input flex w-full flex-col gap-1.5', local.class)}
+      class={cn('group/number-input flex w-full flex-col', local.class)}
       {...others}
     />
   );
@@ -21,7 +21,7 @@ export const NumberInputLabel: Component<PrimitiveNumberInput.LabelProps> = (pro
   return (
     <PrimitiveNumberInput.Label
       class={cn(
-        'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}

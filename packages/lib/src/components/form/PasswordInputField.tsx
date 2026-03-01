@@ -1,29 +1,39 @@
-import { splitProps, type Component, type ComponentProps } from 'solid-js';
+import { splitProps, type Component, type ComponentProps } from "solid-js";
 
-import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
+import {
+  Field,
+  FieldLabel,
+  FieldContent,
+  FieldError,
+  FieldDescription,
+} from "@/components/Field";
 import {
   PasswordInput,
   PasswordInputControl,
   PasswordInputInput,
   PasswordInputVisibilityTrigger,
   PasswordInputIndicator,
-} from '@/components/PasswordInput';
+} from "@/components/PasswordInput";
 
-import { useFieldContext } from './context';
+import { useFieldContext } from "./context";
 
-export type PasswordInputFieldProps = ComponentProps<typeof PasswordInputInput> & {
+export type PasswordInputFieldProps = ComponentProps<
+  typeof PasswordInputInput
+> & {
   label?: string;
   description?: string;
 };
 
-export const PasswordInputField: Component<PasswordInputFieldProps> = (props) => {
+export const PasswordInputField: Component<PasswordInputFieldProps> = (
+  props,
+) => {
   const field = useFieldContext<string>();
   const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
+    "label",
+    "description",
+    "required",
+    "disabled",
+    "readOnly",
   ]);
 
   return (
@@ -57,8 +67,8 @@ export const PasswordInputField: Component<PasswordInputFieldProps> = (props) =>
             </PasswordInputVisibilityTrigger>
           </PasswordInputControl>
         </PasswordInput>
-        <FieldDescription>{local.description}</FieldDescription>
         <FieldError errors={field().state.meta.errors} />
+        <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
     </Field>
   );
