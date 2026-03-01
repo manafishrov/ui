@@ -43,7 +43,7 @@ const PopoverDocPage: Component = () => (
             <div class='gap-4 grid grid-cols-3 items-center'>
               <span class='text-sm'>Width</span>
               <input
-                class='h-9 px-3 py-1 text-sm shadow-sm col-span-2 flex w-full rounded-md border border-input bg-transparent'
+                class='h-9 px-3 py-1 text-sm shadow-sm col-span-2 flex w-full rounded-md border border-input bg-transparent outline-none transition-colors focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50'
                 value='100%'
               />
             </div>

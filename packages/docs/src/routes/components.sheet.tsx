@@ -31,7 +31,7 @@ const SheetExampleContent: Component = () => (
       <div class='gap-4 grid grid-cols-4 items-center'>
         <span class='text-sm text-right'>Name</span>
         <input
-          class='h-9 px-3 py-1 text-sm shadow-sm col-span-3 flex w-full rounded-md border border-input bg-transparent transition-colors'
+          class='h-9 px-3 py-1 text-sm shadow-sm col-span-3 flex w-full rounded-md border border-input bg-transparent outline-none transition-colors focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50'
           value='Pedro Duarte'
         />
       </div>
