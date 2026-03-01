@@ -3,10 +3,11 @@ import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 import { Separator } from '@/components/Separator';
 
-export const ItemGroup: Component<ComponentProps<'ul'>> = (props) => {
+export const ItemGroup: Component<ComponentProps<'div'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
-    <ul
+    <div
+      role='list'
       data-slot='item-group'
       class={cn(
         'gap-4 group/item-group flex w-full flex-col',
@@ -31,7 +32,7 @@ export const ItemSeparator: Component<ComponentProps<typeof Separator>> = (props
 };
 
 export const itemVariants = tv({
-  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-[a]:transition-colors has-[a]:hover:bg-muted',
+  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border outline-none transition-colors duration-100 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:transition-colors [a]:hover:bg-muted',
   variants: {
     variant: {
       default: 'border-transparent',
@@ -41,7 +42,7 @@ export const itemVariants = tv({
     size: {
       default: 'gap-2.5 px-3 py-2.5',
       sm: 'gap-2.5 px-3 py-2.5',
-      xs: 'gap-2 px-2.5 py-2 data-[slot=dropdown-menu-content]:p-0',
+      xs: 'gap-2 px-2.5 py-2 in-data-[slot=dropdown-menu-content]:p-0',
     },
   },
   defaultVariants: {
@@ -66,7 +67,7 @@ export const Item: Component<ItemProps> = (props) => {
 };
 
 export const itemMediaVariants = tv({
-  base: 'gap-2 group-has-[[data-slot=item-description]]/item:translate-y-0.5 flex shrink-0 items-center justify-center group-has-[[data-slot=item-description]]/item:self-start [&_svg]:pointer-events-none',
+  base: 'gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start flex shrink-0 items-center justify-center [&_svg]:pointer-events-none',
   variants: {
     variant: {
       default: 'bg-transparent',
