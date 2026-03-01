@@ -7,7 +7,7 @@ export const PasswordInput: Component<PrimitivePasswordInput.RootProps> = (props
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePasswordInput.Root
-      class={cn('group/password-input gap-1.5 flex w-full flex-col', local.class)}
+      class={cn('group/password-input flex w-full flex-col gap-1.5', local.class)}
       {...others}
     />
   );

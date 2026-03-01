@@ -10,7 +10,7 @@ export const NumberInput: Component<PrimitiveNumberInput.RootProps> = (props) =>
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitiveNumberInput.Root
-      class={cn('group/number-input gap-1.5 flex w-full flex-col', local.class)}
+      class={cn('group/number-input flex w-full flex-col gap-1.5', local.class)}
       {...others}
     />
   );
@@ -110,7 +110,6 @@ export const NumberInputTriggers: Component<ComponentProps<'div'>> = (props) => 
           data-invalid={api().invalid ? '' : false}
           class={cn(
             'top-0 right-0 absolute flex h-full flex-col border-l border-input transition-colors',
-            'data-focus:border-ring data-invalid:border-destructive',
             local.class,
           )}
           {...others}

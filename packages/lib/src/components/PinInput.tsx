@@ -10,7 +10,7 @@ export const PinInput: Component<PrimitivePinInput.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
     <PrimitivePinInput.Root
-      class={cn('group/pin-input gap-1.5 flex w-full flex-col', local.class)}
+      class={cn('group/pin-input flex w-full flex-col gap-1.5', local.class)}
       {...others}
     />
   );
