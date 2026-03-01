@@ -17,3 +17,4 @@ export {
 export { tv, cx, cn, cnMerge, type VariantProps } from 'tailwind-variants';
 export { LocaleProvider, type LocaleProviderProps } from '@/Locale';
 
+export { createMediaQuery } from '@/primitives/createMediaQuery';

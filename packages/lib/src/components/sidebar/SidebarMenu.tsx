@@ -1,9 +1,14 @@
-import type { Component, ComponentProps } from 'solid-js';
-
+import { createMemo, type Component, type ComponentProps } from 'solid-js';
 import { type VariantProps, tv, cn } from 'tailwind-variants';
 
 import { Skeleton } from '@/components/Skeleton';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/Tooltip';
+import {
+  Tooltip,
+  TooltipArrow,
+  TooltipContent,
+  TooltipPositioner,
+  TooltipTrigger,
+} from '@/components/Tooltip';
 
 import { RANDOM_WIDTH_BASE, RANDOM_WIDTH_RANGE } from './constants';
 import { useSidebar } from './context';
@@ -60,32 +65,38 @@ export type SidebarMenuButtonProps = ComponentProps<'button'> &
 
 export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
   const [local, others] = splitProps(props, ['isActive', 'variant', 'size', 'tooltip', 'class']);
-  const { isMobile, state } = useSidebar();
+  const { isMobile, state, side } = useSidebar();
 
-  const InnerButton: Component<ComponentProps<'button'>> = (innerProps) => (
-    <button
-      data-slot='sidebar-menu-button'
-      data-sidebar='menu-button'
-      data-size={local.size ?? 'default'}
-      data-active={local.isActive}
-      class={sidebarMenuButtonVariants({
-        variant: local.variant,
-        size: local.size,
-        class: cn(local.class, innerProps.class),
-      })}
-      {...others}
-      {...innerProps}
-    />
-  );
+  const tooltipPlacement = createMemo(() => (side() === 'left' ? 'right' : 'left'));
+
+  const buttonProps = () => ({
+    'data-slot': 'sidebar-menu-button',
+    'data-sidebar': 'menu-button',
+    'data-size': local.size ?? 'default',
+    'data-active': local.isActive,
+    class: sidebarMenuButtonVariants({
+      variant: local.variant,
+      size: local.size,
+      class: local.class,
+    }),
+  });
 
   return (
-    <Show when={local.tooltip} fallback={<InnerButton />}>
-      <Tooltip positioning={{ placement: 'right' }}>
-        <TooltipTrigger asChild={(triggerProps) => <InnerButton {...triggerProps} />} />
-        <TooltipContent
-          hidden={state() !== 'collapsed' || isMobile()}
-          {...(typeof local.tooltip === 'string' ? { children: local.tooltip } : local.tooltip)}
-        />
+    <Show when={local.tooltip} fallback={<button {...buttonProps()} {...others} />}>
+      <Tooltip
+        positioning={{ placement: tooltipPlacement() }}
+        openDelay={100}
+        disabled={state() !== 'collapsed' || isMobile()}
+      >
+        <TooltipTrigger {...buttonProps()} {...others} />
+        <Portal>
+          <TooltipPositioner>
+            <TooltipContent {...(typeof local.tooltip === 'string' ? {} : local.tooltip)}>
+              <TooltipArrow />
+              {typeof local.tooltip === 'string' ? local.tooltip : local.tooltip?.children}
+            </TooltipContent>
+          </TooltipPositioner>
+        </Portal>
       </Tooltip>
     </Show>
   );

@@ -1,6 +1,4 @@
-import { createSignal, onCleanup, onMount } from 'solid-js';
-
-export const useMediaQuery = (query: string): (() => boolean) => {
+export const createMediaQuery = (query: string): (() => boolean) => {
   const [matches, setMatches] = createSignal(false);
 
   onMount(() => {

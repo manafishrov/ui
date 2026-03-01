@@ -131,9 +131,9 @@ const AppSidebar: Component = () => (
             <div class='size-8 flex aspect-square items-center justify-center rounded-lg bg-primary text-primary-foreground'>
               <OutlineFolderIcon class='size-4' />
             </div>
-            <div class='grid flex-1 text-left text-sm leading-tight'>
-              <span class='truncate font-semibold'>Acme Inc</span>
-              <span class='truncate text-xs'>Enterprise</span>
+            <div class='text-sm leading-tight grid flex-1 text-left'>
+              <span class='font-semibold truncate'>Acme Inc</span>
+              <span class='text-xs truncate'>Enterprise</span>
             </div>
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -167,14 +167,7 @@ const SidebarDocPage: Component = () => (
 
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
-        <header class='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
-          <SidebarTrigger />
-        </header>
-        <div class='flex-1 p-4'>
-          <p class='text-muted-foreground'>Main content area</p>
-        </div>
-      </SidebarInset>
+      <SidebarTrigger class='-ml-20' />
     </SidebarProvider>
   </div>
 );

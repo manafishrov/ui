@@ -10,7 +10,7 @@ import {
 } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { useIsMobile } from '@/hooks/useMobile';
+import { createMediaQuery } from '@/primitives/createMediaQuery';
 
 import { SIDEBAR_KEYBOARD_SHORTCUT, SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './constants';
 import { SidebarContext, type SidebarContextProps } from './context';
@@ -30,10 +30,13 @@ const useSidebarState = (
   setOpenMobile: (value: boolean | ((prev: boolean) => boolean)) => void;
   open: () => boolean;
   setOpen: (value: boolean) => void;
+  side: () => 'left' | 'right';
+  setSide: (value: 'left' | 'right') => void;
 } => {
-  const isMobile = useIsMobile();
+  const isMobile = createMediaQuery('(max-width: 768px)');
   const [openMobile, setOpenMobile] = createSignal(false);
   const [internalOpen, setInternalOpen] = createSignal(props.defaultOpen ?? true);
+  const [side, setSide] = createSignal<'left' | 'right'>('left');
 
   const open = (): boolean => (typeof props.open === 'boolean' ? props.open : internalOpen());
 
@@ -46,9 +49,8 @@ const useSidebarState = (
     setSidebarCookie(value);
   };
 
-  return { isMobile, openMobile, setOpenMobile, open, setOpen };
+  return { isMobile, openMobile, setOpenMobile, open, setOpen, side, setSide };
 };
-
 const useSidebarEvents = (stateSet: ReturnType<typeof useSidebarState>): { toggle: () => void } => {
   const toggle = (): void => {
     if (stateSet.isMobile()) {
@@ -85,6 +87,8 @@ const createSidebarContextValue = (
   openMobile: stateSet.openMobile,
   setOpenMobile: stateSet.setOpenMobile,
   toggleSidebar: toggle,
+  side: stateSet.side,
+  setSide: stateSet.setSide,
 });
 
 export const SidebarProvider: Component<SidebarProviderProps> = (props) => {

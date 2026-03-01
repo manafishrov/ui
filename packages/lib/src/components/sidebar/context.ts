@@ -1,5 +1,3 @@
-
-
 export type SidebarContextProps = {
   state: () => 'expanded' | 'collapsed';
   open: () => boolean;
@@ -8,6 +6,8 @@ export type SidebarContextProps = {
   setOpenMobile: (open: boolean) => void;
   isMobile: () => boolean;
   toggleSidebar: () => void;
+  side: () => 'left' | 'right';
+  setSide: (side: 'left' | 'right') => void;
 };
 
 export const SidebarContext = createContext<SidebarContextProps>();

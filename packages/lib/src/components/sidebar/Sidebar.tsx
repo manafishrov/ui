@@ -1,4 +1,4 @@
-import type { Component, ComponentProps } from 'solid-js';
+import { type Component, type ComponentProps, createEffect } from 'solid-js';
 
 import { useSidebar } from './context';
 import { SidebarDesktop } from './SidebarDesktop';
@@ -11,8 +11,13 @@ export type SidebarProps = ComponentProps<'div'> & {
 };
 
 export const Sidebar: Component<SidebarProps> = (props) => {
-  const { isMobile } = useSidebar();
+  const { isMobile, setSide } = useSidebar();
 
+  // Set side on initial render and track changes
+  createEffect(() => {
+    const currentSide = props.side ?? 'left';
+    setSide(currentSide);
+  });
   return (
     <Show
       when={!isMobile()}
