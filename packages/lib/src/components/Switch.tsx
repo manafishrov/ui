@@ -54,7 +54,7 @@ export const SwitchThumb: Component<SwitchPrimitive.ThumbProps> = (props) => {
     <SwitchPrimitive.Thumb
       data-slot='switch-thumb'
       class={cn(
-        'shadow-xs pointer-events-none block rounded-lg bg-background ring-0 transition-transform dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground',
+        'shadow-xs pointer-events-none block rounded-md bg-background ring-0 transition-transform dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground',
         'group-data-[size=default]/switch:size-4',
         'group-data-[size=sm]/switch:size-3',
         'group-data-[size=default]/switch:data-[state=checked]:translate-x-[calc(100%)]',
