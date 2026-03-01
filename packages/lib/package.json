@@ -105,8 +105,8 @@
       "import": "./dist/components/Link.js"
     },
     "./marquee": {
-      "types": "./dist/components/Marquee.d.ts",
-      "import": "./dist/components/Marquee.js"
+      "types": "./dist/components/marquee/index.d.ts",
+      "import": "./dist/components/marquee/index.js"
     },
     "./menu": {
       "types": "./dist/components/Menu.d.ts",

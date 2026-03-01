@@ -1,0 +1,51 @@
+@keyframes ui-marquee-x {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(var(--marquee-translate));
+  }
+}
+
+@keyframes ui-marquee-y {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(var(--marquee-translate));
+  }
+}
+
+[data-scope='marquee'][data-part='content'],
+[data-scope='marquee'][data-index] {
+  will-change: transform;
+  animation-timing-function: linear;
+  animation-duration: var(--marquee-duration);
+  animation-delay: var(--marquee-delay);
+  animation-iteration-count: var(--marquee-loop-count);
+}
+
+[data-scope='marquee'][data-part='content'][data-side='start'],
+[data-scope='marquee'][data-part='content'][data-side='end'],
+[data-scope='marquee'][data-index][data-side='start'],
+[data-scope='marquee'][data-index][data-side='end'] {
+  animation-name: ui-marquee-x;
+}
+
+[data-scope='marquee'][data-part='content'][data-side='top'],
+[data-scope='marquee'][data-part='content'][data-side='bottom'],
+[data-scope='marquee'][data-index][data-side='top'],
+[data-scope='marquee'][data-index][data-side='bottom'] {
+  animation-name: ui-marquee-y;
+}
+
+[data-scope='marquee'][data-part='content'][data-reverse],
+[data-scope='marquee'][data-index][data-reverse] {
+  animation-direction: reverse;
+}
+
+[data-scope='marquee'][data-state='paused'] [data-part='content'] {
+  animation-play-state: paused;
+}

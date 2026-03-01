@@ -2,6 +2,7 @@
 @import '@fontsource/rajdhani';
 @import '@fontsource/roboto';
 @import '@fontsource/chakra-petch/500';
+@import './components/marquee/marquee.css';
 
 @source '../src/**/*.{ts,tsx}';
 
