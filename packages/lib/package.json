@@ -2,7 +2,11 @@
   "$schema": "https://json.schemastore.org/package",
   "name": "@manafishrov/ui",
   "version": "0.1.0",
-  "description": "User interface components for Manafish",
+  "description": "Styled component library for Manafish interfaces ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manafishrov/ui.git"
+  },
   "license": "AGPL-3.0-or-later",
   "files": [
     "dist",
