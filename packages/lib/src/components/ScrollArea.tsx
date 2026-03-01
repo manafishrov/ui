@@ -10,7 +10,7 @@ export const ScrollAreaViewport: Component<ScrollAreaPrimitive.ViewportProps> = 
     <ScrollAreaPrimitive.Viewport
       data-slot='scroll-area-viewport'
       class={cn(
-        'size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1',
+        'size-full rounded-[inherit] transition-[color,box-shadow] outline-none [scrollbar-width:none] focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 [&::-webkit-scrollbar]:hidden',
         local.class,
       )}
       {...others}
@@ -35,9 +35,9 @@ export const ScrollAreaScrollbar: Component<ScrollAreaPrimitive.ScrollbarProps> 
     <ScrollAreaPrimitive.Scrollbar
       data-slot='scroll-area-scrollbar'
       class={cn(
-        'flex touch-none p-px transition-colors select-none',
-        'data-[orientation=horizontal]:h-2.5 data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:border-t data-[orientation=horizontal]:border-t-transparent',
-        'data-[orientation=vertical]:w-2.5 data-[orientation=vertical]:h-full data-[orientation=vertical]:border-l data-[orientation=vertical]:border-l-transparent',
+        'hidden touch-none p-px transition-colors select-none',
+        'data-[orientation=horizontal]:h-2.5 data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:border-t data-[orientation=horizontal]:border-t-transparent data-[orientation=horizontal]:data-[overflow-x]:flex',
+        'data-[orientation=vertical]:w-2.5 data-[orientation=vertical]:h-full data-[orientation=vertical]:border-l data-[orientation=vertical]:border-l-transparent data-[orientation=vertical]:data-[overflow-y]:flex',
         local.class,
       )}
       {...others}

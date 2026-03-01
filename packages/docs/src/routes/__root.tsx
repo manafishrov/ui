@@ -5,6 +5,7 @@ import {
   ScrollArea,
   ScrollAreaContent,
   ScrollAreaScrollbar,
+  ScrollAreaThumb,
   ScrollAreaViewport,
 } from '@manafishrov/ui/scroll-area';
 import { HeadContent, Outlet, createRootRoute, redirect } from '@tanstack/solid-router';
@@ -19,17 +20,19 @@ const RootComponent: Component = () => (
     <HeadContent />
     <TanStackRouterDevtools position='bottom-right' />
     <LocaleProvider locale={getLocale()}>
-      <div class='flex h-full flex-col'>
+      <div class='flex h-full min-h-0 flex-col'>
         <Header />
-        <ScrollArea class='flex-1'>
-          <ScrollAreaViewport>
+        <ScrollArea class='min-h-0 flex-1'>
+          <ScrollAreaViewport class='h-full'>
             <ScrollAreaContent>
               <main class='px-4 py-8 container mx-auto'>
                 <Outlet />
               </main>
             </ScrollAreaContent>
           </ScrollAreaViewport>
-          <ScrollAreaScrollbar orientation='vertical' />
+          <ScrollAreaScrollbar orientation='vertical'>
+            <ScrollAreaThumb />
+          </ScrollAreaScrollbar>
         </ScrollArea>
       </div>
     </LocaleProvider>
