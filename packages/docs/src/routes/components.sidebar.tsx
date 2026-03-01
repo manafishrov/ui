@@ -1,3 +1,5 @@
+import type { Component } from 'solid-js';
+
 import {
   Sidebar,
   SidebarContent,
@@ -11,14 +13,14 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-  SidebarInset,
   SidebarMenuSub,
   SidebarMenuSubItem,
   SidebarMenuSubButton,
+  SidebarInset,
+  SidebarRail,
 } from '@manafishrov/ui/sidebar';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
-import { type Component } from 'solid-js';
 import OutlineCalendarTodayIcon from '~icons/ic/outline-calendar-today';
 import OutlineFolderIcon from '~icons/ic/outline-folder';
 import OutlineHomeIcon from '~icons/ic/outline-home';
@@ -28,6 +30,134 @@ import OutlineSettingsIcon from '~icons/ic/outline-settings';
 
 import * as m from '@/paraglide/messages';
 
+const ApplicationGroup: Component = () => (
+  <SidebarGroup>
+    <SidebarGroupLabel>Application</SidebarGroupLabel>
+    <SidebarGroupContent>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Home' isActive>
+            <OutlineHomeIcon />
+            <span>Home</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Inbox'>
+            <OutlineMailIcon />
+            <span>Inbox</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Calendar'>
+            <OutlineCalendarTodayIcon />
+            <span>Calendar</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarGroupContent>
+  </SidebarGroup>
+);
+
+const DocumentationGroup: Component = () => (
+  <SidebarGroup>
+    <SidebarGroupLabel>Documentation</SidebarGroupLabel>
+    <SidebarGroupContent>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Getting Started'>
+            <OutlineFolderIcon />
+            <span>Getting Started</span>
+          </SidebarMenuButton>
+          <SidebarMenuSub>
+            <SidebarMenuSubItem>
+              <SidebarMenuSubButton isActive>Installation</SidebarMenuSubButton>
+            </SidebarMenuSubItem>
+            <SidebarMenuSubItem>
+              <SidebarMenuSubButton>Project Structure</SidebarMenuSubButton>
+            </SidebarMenuSubItem>
+          </SidebarMenuSub>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Components'>
+            <OutlineFolderIcon />
+            <span>Components</span>
+          </SidebarMenuButton>
+          <SidebarMenuSub>
+            <SidebarMenuSubItem>
+              <SidebarMenuSubButton>Button</SidebarMenuSubButton>
+            </SidebarMenuSubItem>
+            <SidebarMenuSubItem>
+              <SidebarMenuSubButton>Sidebar</SidebarMenuSubButton>
+            </SidebarMenuSubItem>
+          </SidebarMenuSub>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarGroupContent>
+  </SidebarGroup>
+);
+
+const SettingsGroup: Component = () => (
+  <SidebarGroup>
+    <SidebarGroupLabel>Settings</SidebarGroupLabel>
+    <SidebarGroupContent>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Profile'>
+            <OutlinePersonIcon />
+            <span>Profile</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='Preferences'>
+            <OutlineSettingsIcon />
+            <span>Preferences</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarGroupContent>
+  </SidebarGroup>
+);
+
+const AppSidebar: Component = () => (
+  <Sidebar collapsible='icon'>
+    <SidebarHeader class='mt-20'>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton
+            size='lg'
+            tooltip='Acme Inc'
+            class='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+          >
+            <div class='size-8 flex aspect-square items-center justify-center rounded-lg bg-primary text-primary-foreground'>
+              <OutlineFolderIcon class='size-4' />
+            </div>
+            <div class='grid flex-1 text-left text-sm leading-tight'>
+              <span class='truncate font-semibold'>Acme Inc</span>
+              <span class='truncate text-xs'>Enterprise</span>
+            </div>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarHeader>
+    <SidebarContent>
+      <ApplicationGroup />
+      <DocumentationGroup />
+      <SettingsGroup />
+    </SidebarContent>
+    <SidebarFooter>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip='User Account'>
+            <OutlinePersonIcon />
+            <span>User Account</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarFooter>
+    <SidebarRail />
+  </Sidebar>
+);
+
 const SidebarDocPage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
@@ -35,122 +165,17 @@ const SidebarDocPage: Component = () => (
       <Lead>{m.docs_component_sidebar_description()}</Lead>
     </div>
 
-    <div class='space-y-4'>
-      <div class='relative h-[500px] overflow-hidden rounded-lg border'>
-        <SidebarProvider>
-          <Sidebar collapsible='icon'>
-            <SidebarHeader>
-              <div class='gap-2 px-2 py-1.5 flex items-center'>
-                <div class='size-6 flex items-center justify-center rounded-md bg-primary text-primary-foreground'>
-                  <OutlineFolderIcon class='size-4' />
-                </div>
-                <span class='font-semibold group-data-[collapsible=icon]:hidden'>Acme Inc</span>
-              </div>
-            </SidebarHeader>
-            <SidebarContent>
-              <SidebarGroup>
-                <SidebarGroupLabel>Application</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Home' isActive>
-                        <OutlineHomeIcon />
-                        <span>Home</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Inbox'>
-                        <OutlineMailIcon />
-                        <span>Inbox</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Calendar'>
-                        <OutlineCalendarTodayIcon />
-                        <span>Calendar</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-              <SidebarGroup>
-                <SidebarGroupLabel>Documentation</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Getting Started'>
-                        <OutlineFolderIcon />
-                        <span>Getting Started</span>
-                      </SidebarMenuButton>
-                      <SidebarMenuSub>
-                        <SidebarMenuSubItem>
-                          <SidebarMenuSubButton isActive>Installation</SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                        <SidebarMenuSubItem>
-                          <SidebarMenuSubButton>Project Structure</SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      </SidebarMenuSub>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Components'>
-                        <OutlineFolderIcon />
-                        <span>Components</span>
-                      </SidebarMenuButton>
-                      <SidebarMenuSub>
-                        <SidebarMenuSubItem>
-                          <SidebarMenuSubButton>Button</SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                        <SidebarMenuSubItem>
-                          <SidebarMenuSubButton>Sidebar</SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      </SidebarMenuSub>
-                    </SidebarMenuItem>
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-              <SidebarGroup>
-                <SidebarGroupLabel>Settings</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Profile'>
-                        <OutlinePersonIcon />
-                        <span>Profile</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton tooltip='Preferences'>
-                        <OutlineSettingsIcon />
-                        <span>Preferences</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-            </SidebarContent>
-            <SidebarFooter>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton tooltip='User Account'>
-                    <OutlinePersonIcon />
-                    <span>User Account</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarFooter>
-          </Sidebar>
-          <SidebarInset>
-            <header class='h-12 gap-2 px-4 flex items-center border-b'>
-              <SidebarTrigger />
-              <span class='text-sm font-medium'>Dashboard</span>
-            </header>
-            <div class='p-4'>
-              <div class='h-96 rounded-xl border bg-muted/50' />
-            </div>
-          </SidebarInset>
-        </SidebarProvider>
-      </div>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <header class='flex h-16 shrink-0 items-center gap-2 border-b px-4'>
+          <SidebarTrigger />
+        </header>
+        <div class='flex-1 p-4'>
+          <p class='text-muted-foreground'>Main content area</p>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   </div>
 );
 
