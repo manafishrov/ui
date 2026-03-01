@@ -1,5 +1,3 @@
-import type { Component } from 'solid-js';
-
 import {
   RadioGroup,
   RadioGroupLabel,
@@ -9,8 +7,15 @@ import {
 } from '@manafishrov/ui/radio-group';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+import { For, type Component } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
+
+const spacingOptions = [
+  { value: 'default', label: 'Default' },
+  { value: 'comfortable', label: 'Comfortable' },
+  { value: 'compact', label: 'Compact' },
+] as const;
 
 const RadioGroupDocPage: Component = () => (
   <div class='space-y-8'>
@@ -19,22 +24,16 @@ const RadioGroupDocPage: Component = () => (
       <Lead>{m.docs_component_radio_group_description()}</Lead>
     </div>
 
-    <RadioGroup defaultValue='comfortable'>
+    <RadioGroup name='spacing' defaultValue='comfortable'>
       <RadioGroupLabel>Spacing</RadioGroupLabel>
-      <div class='space-y-2 mt-2'>
-        <RadioGroupItem value='default'>
-          <RadioGroupItemControl />
-          <RadioGroupItemText>Default</RadioGroupItemText>
-        </RadioGroupItem>
-        <RadioGroupItem value='comfortable'>
-          <RadioGroupItemControl />
-          <RadioGroupItemText>Comfortable</RadioGroupItemText>
-        </RadioGroupItem>
-        <RadioGroupItem value='compact'>
-          <RadioGroupItemControl />
-          <RadioGroupItemText>Compact</RadioGroupItemText>
-        </RadioGroupItem>
-      </div>
+      <For each={spacingOptions}>
+        {(option) => (
+          <RadioGroupItem value={option.value}>
+            <RadioGroupItemControl />
+            <RadioGroupItemText>{option.label}</RadioGroupItemText>
+          </RadioGroupItem>
+        )}
+      </For>
     </RadioGroup>
   </div>
 );

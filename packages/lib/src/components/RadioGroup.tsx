@@ -1,7 +1,6 @@
 import { RadioGroup as RadioGroupPrimitive } from '@ark-ui/solid/radio-group';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import BaselineCircleIcon from '~icons/ic/baseline-circle';
 
 export const RadioGroup: Component<RadioGroupPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -47,19 +46,14 @@ export const RadioGroupItemControl: Component<RadioGroupPrimitive.ItemControlPro
   return (
     <RadioGroupPrimitive.ItemControl
       class={cn(
-        'size-4 group/radio-group-item peer after:-inset-x-3 after:-inset-y-2 relative flex aspect-square shrink-0 rounded-full border border-input text-primary outline-none after:absolute data-disabled:cursor-not-allowed data-disabled:opacity-50 data-focus-visible:border-ring data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
+        'peer size-4 shadow-xs group/radio-group-item relative flex aspect-square shrink-0 items-center justify-center rounded-full border border-input bg-background outline-none transition-[border-color,border-width,box-shadow] after:-inset-x-3 after:-inset-y-2 after:absolute',
+        'data-[state=checked]:border-primary data-[state=checked]:border-[5px] group-data-invalid/radio-group-item:data-[state=checked]:border-destructive',
+        'data-disabled:cursor-not-allowed data-disabled:opacity-50 data-focus-visible:border-ring data-focus-visible:ring-[3px] data-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-[3px] data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40',
         local.class,
       )}
       {...others}
     >
-      {local.children ?? (
-        <RadioGroupPrimitive.Indicator
-          data-slot='radio-group-indicator'
-          class='size-4 flex items-center justify-center text-primary group-data-invalid/radio-group-item:text-destructive'
-        >
-          <BaselineCircleIcon class='size-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fill-current' />
-        </RadioGroupPrimitive.Indicator>
-      )}
+      {local.children}
     </RadioGroupPrimitive.ItemControl>
   );
 };
