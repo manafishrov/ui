@@ -7,7 +7,7 @@ export const Tabs: Component<TabsPrimitive.RootProps> = (props) => {
   return (
     <TabsPrimitive.Root
       data-slot='tabs'
-      class={cn('gap-2 flex w-full flex-col', local.class)}
+      class={cn('gap-2 flex flex-col', local.class)}
       {...others}
     />
   );
@@ -19,7 +19,7 @@ export const TabsList: Component<TabsPrimitive.ListProps> = (props) => {
     <TabsPrimitive.List
       data-slot='tabs-list'
       class={cn(
-        'h-9 p-1 inline-flex w-full items-center justify-center rounded-lg bg-muted text-muted-foreground',
+        'h-9 p-1 inline-flex items-center justify-center rounded-lg bg-muted text-muted-foreground',
         local.class,
       )}
       {...others}

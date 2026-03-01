@@ -13,16 +13,16 @@ const TabsDocPage: Component = () => (
       <Lead>{m.docs_component_tabs_description()}</Lead>
     </div>
 
-    <Tabs defaultValue='account' class='max-w-sm'>
-      <TabsList>
+    <Tabs defaultValue='account' class='w-[24rem]'>
+      <TabsList class='grid w-full grid-cols-2'>
         <TabsTrigger value='account'>Account</TabsTrigger>
         <TabsTrigger value='password'>Password</TabsTrigger>
       </TabsList>
       <TabsContent value='account'>
-        <div class='p-4 mt-2 rounded-md border'>Account settings here.</div>
+        <div class='p-4 rounded-md border'>Account settings here.</div>
       </TabsContent>
       <TabsContent value='password'>
-        <div class='p-4 mt-2 rounded-md border'>Password settings here.</div>
+        <div class='p-4 rounded-md border'>Password settings here.</div>
       </TabsContent>
     </Tabs>
   </div>
