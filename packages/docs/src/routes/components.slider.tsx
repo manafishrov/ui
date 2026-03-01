@@ -1,15 +1,17 @@
 import {
-Slider,
-SliderLabel,
-SliderControl,
-SliderTrack,
-SliderRange,
-SliderThumb,
-SliderMarkerGroup,
+  Slider,
+  SliderLabel,
+  SliderControl,
+  SliderTrack,
+  SliderRange,
+  SliderThumb,
+  SliderMarkerGroup,
   SliderMarker,
-  SliderValueText,
   SliderCircle,
+  SliderCircleLabel,
+  SliderCircleValueText,
   SliderCircleTrack,
+  SliderCircleRange,
   SliderCircleThumb,
   SliderCircleMarkerGroup,
   SliderCircleMarker,
@@ -72,18 +74,34 @@ const SliderDocPage: Component = () => (
 
     <div class='space-y-4'>
       <H2 class='pb-0 border-none'>{m.docs_example_circular()}</H2>
-      <SliderCircle defaultValue={45}>
-        <SliderLabel>Rotation</SliderLabel>
-        <SliderCircleTrack>
-          <SliderCircleMarkerGroup>
-            <For each={[0, 45, 90, 135, 180, 225, 270, 315]}>
-              {(value) => <SliderCircleMarker value={value} />}
-            </For>
-          </SliderCircleMarkerGroup>
-          <SliderCircleThumb />
-        </SliderCircleTrack>
-        <SliderValueText />
-      </SliderCircle>
+      <div class='gap-8 grid sm:grid-cols-2'>
+        <div class='space-y-3'>
+          <p class='text-sm font-medium'>Without markers and labels</p>
+          <SliderCircle defaultValue={45}>
+            <SliderCircleTrack>
+              <SliderCircleRange />
+              <SliderCircleThumb />
+            </SliderCircleTrack>
+          </SliderCircle>
+        </div>
+
+        <div class='space-y-3'>
+          <p class='text-sm font-medium'>With markers and labels</p>
+          <SliderCircle defaultValue={45}>
+            <SliderCircleLabel>Rotation</SliderCircleLabel>
+            <SliderCircleTrack>
+              <SliderCircleRange />
+              <SliderCircleMarkerGroup>
+                <For each={[0, 45, 90, 135, 180, 225, 270, 315]}>
+                  {(value) => <SliderCircleMarker value={value} />}
+                </For>
+              </SliderCircleMarkerGroup>
+              <SliderCircleThumb />
+            </SliderCircleTrack>
+            <SliderCircleValueText />
+          </SliderCircle>
+        </div>
+      </div>
     </div>
   </div>
 );

@@ -57,7 +57,7 @@ const ProgressDocPage: Component = () => {
         <div class='flex items-center gap-8'>
           <Progress value={progress()}>
             <ProgressLabel>Loading...</ProgressLabel>
-            <ProgressCircle class='size-10'>
+            <ProgressCircle class='[--size:2.5rem]'>
               <ProgressCircleTrack />
               <ProgressCircleRange />
             </ProgressCircle>
@@ -65,21 +65,21 @@ const ProgressDocPage: Component = () => {
           </Progress>
 
           <Progress value={progress()}>
-            <ProgressCircle class='size-12'>
+            <ProgressCircle class='[--size:3rem]'>
               <ProgressCircleTrack />
               <ProgressCircleRange />
             </ProgressCircle>
           </Progress>
 
           <Progress value={progress()}>
-            <ProgressCircle class='size-16'>
+            <ProgressCircle class='[--size:4rem]'>
               <ProgressCircleTrack />
               <ProgressCircleRange />
             </ProgressCircle>
           </Progress>
 
           <Progress value={progress()}>
-            <ProgressCircle class='size-20'>
+            <ProgressCircle class='[--size:5rem]'>
               <ProgressCircleTrack />
               <ProgressCircleRange />
             </ProgressCircle>

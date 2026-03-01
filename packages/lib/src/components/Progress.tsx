@@ -9,11 +9,7 @@ export const ProgressCircle: Component<ProgressPrimitive.CircleProps> = (props) 
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Circle
-      class={cn(
-        'size-10 text-primary shrink-0',
-        '[--size:100%] [--thickness:4px]',
-        local.class,
-      )}
+      class={cn('text-primary shrink-0', '[--size:2.5rem] [--thickness:4px]', local.class)}
       data-slot='progress-circle'
       {...others}
     >
@@ -26,7 +22,7 @@ export const ProgressCircleRange: Component<ProgressPrimitive.CircleRangeProps> 
   const [local, others] = splitProps(props, ['class']);
   return (
     <ProgressPrimitive.CircleRange
-      class={cn('ease-in-out stroke-current transition-all duration-300', local.class)}
+      class={cn('ease-out stroke-current transition-all duration-300', local.class)}
       data-slot='progress-circle-range'
       {...others}
     />
