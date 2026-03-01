@@ -38,8 +38,8 @@ export const SwitchControl: Component<SwitchPrimitive.ControlProps> = (props) =>
         'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
         'data-disabled:opacity-50',
         'data-readonly:data-focus-visible:ring-0',
-        'group-data-[size=default]/switch:h-5 group-data-[size=default]/switch:w-9 px-0.5',
-        'group-data-[size=sm]/switch:h-4 group-data-[size=sm]/switch:w-7 px-0.5',
+        'group-data-[size=default]/switch:h-5 group-data-[size=default]/switch:w-9 px-px',
+        'group-data-[size=sm]/switch:h-4 group-data-[size=sm]/switch:w-7 px-px',
         local.class,
       )}
       {...others}
@@ -54,11 +54,11 @@ export const SwitchThumb: Component<SwitchPrimitive.ThumbProps> = (props) => {
     <SwitchPrimitive.Thumb
       data-slot='switch-thumb'
       class={cn(
-        'shadow-xs pointer-events-none block rounded-full bg-background ring-0 transition-transform dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground',
+        'shadow-xs pointer-events-none block rounded-lg bg-background ring-0 transition-transform dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground',
         'group-data-[size=default]/switch:size-4',
         'group-data-[size=sm]/switch:size-3',
-        'group-data-[size=default]/switch:data-[state=checked]:translate-x-[calc(100%-2px)]',
-        'group-data-[size=sm]/switch:data-[state=checked]:translate-x-[calc(100%-2px)]',
+        'group-data-[size=default]/switch:data-[state=checked]:translate-x-[calc(100%)]',
+        'group-data-[size=sm]/switch:data-[state=checked]:translate-x-[calc(100%)]',
         'data-[state=unchecked]:translate-x-0',
         local.class,
       )}
