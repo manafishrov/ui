@@ -5,15 +5,19 @@ import {
   TagsInputControl,
   TagsInputHiddenInput,
   TagsInputInput,
+  TagsInputItemInput,
+  TagsInputItemPreview,
+  TagsInputItemText,
   TagsInputItem,
   TagsInputItemDeleteTrigger,
   TagsInputLabel,
 } from '@manafishrov/ui/tags-input';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
-import { type Component, Index } from 'solid-js';
+import { type Component, For } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
+
 const TagsInputDocPage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
@@ -21,25 +25,28 @@ const TagsInputDocPage: Component = () => (
       <Lead>{m.docs_component_tags_input_description()}</Lead>
     </div>
     <div class='gap-4 flex flex-wrap'>
-      <TagsInput defaultValue={['SolidJS', 'TypeScript']}>
+      <TagsInput class='w-full max-w-md' defaultValue={['SolidJS', 'TypeScript']}>
         <TagsInputLabel>Technologies</TagsInputLabel>
         <TagsInputControl>
           <TagsInputContext>
             {(context) => (
-              <Index each={context().value}>
+              <For each={context().value}>
                 {(value, index) => (
-                  <TagsInputItem index={index} value={value()}>
-                    {value()}
-                    <TagsInputItemDeleteTrigger />
+                  <TagsInputItem index={index()} value={value}>
+                    <TagsInputItemPreview>
+                      <TagsInputItemText>{value}</TagsInputItemText>
+                      <TagsInputItemDeleteTrigger />
+                    </TagsInputItemPreview>
+                    <TagsInputItemInput />
                   </TagsInputItem>
                 )}
-              </Index>
+              </For>
             )}
           </TagsInputContext>
           <TagsInputInput placeholder='Add tag...' />
+          <TagsInputClearTrigger />
         </TagsInputControl>
         <TagsInputHiddenInput />
-        <TagsInputClearTrigger>Clear all</TagsInputClearTrigger>
       </TagsInput>
     </div>
   </div>

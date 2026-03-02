@@ -23,7 +23,7 @@ export const TagsInputControl: Component<TagsInputPrimitive.ControlProps> = (pro
   return (
     <TagsInputPrimitive.Control
       class={cn(
-        'group min-h-10 py-1.5 pr-2 pl-2.5 text-sm [&_svg:not([class*="size-"])]:size-4 gap-1 shadow-sm flex w-full flex-wrap items-center rounded-lg border border-input bg-transparent transition-colors outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+        'group relative min-h-10 py-1.5 pr-8 pl-2.5 text-sm [&_svg:not([class*="size-"])]:size-4 gap-1 shadow-sm flex w-full flex-wrap items-center rounded-lg border border-input bg-transparent transition-colors outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
         'focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50',
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
         'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
@@ -42,7 +42,9 @@ export const TagsInputInput: Component<TagsInputPrimitive.InputProps> = (props) 
   return (
     <TagsInputPrimitive.Input
       class={cn(
-        'min-w-16 flex-1 bg-transparent outline-none placeholder:text-muted-foreground',
+        'w-24 min-w-24 flex-none bg-transparent outline-none placeholder:text-muted-foreground',
+        'group-has-[div[data-slot=tags-input-item-preview]]:placeholder:text-transparent',
+        'max-w-full',
         local.class,
       )}
       {...others}
@@ -55,12 +57,12 @@ export const TagsInputClearTrigger: Component<TagsInputPrimitive.ClearTriggerPro
   return (
     <TagsInputPrimitive.ClearTrigger
       class={cn(
-        'p-0.5 rounded-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground',
+        'right-2 top-1/2 p-0.5 absolute -translate-y-1/2 rounded-sm text-muted-foreground transition-colors hover:text-foreground',
         local.class,
       )}
       {...others}
     >
-      {local.children ?? <OutlineCloseIcon class='size-3.5' />}
+      {local.children ?? <OutlineCloseIcon class='size-3.5 pointer-events-none' />}
     </TagsInputPrimitive.ClearTrigger>
   );
 };
@@ -69,15 +71,46 @@ export const TagsInputItem: Component<TagsInputPrimitive.ItemProps> = (props) =>
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <TagsInputPrimitive.Item
+      class={cn('inline-flex items-center outline-none cursor-default', local.class)}
+      {...others}
+    >
+      {local.children}
+    </TagsInputPrimitive.Item>
+  );
+};
+
+export const TagsInputItemPreview: Component<TagsInputPrimitive.ItemPreviewProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <TagsInputPrimitive.ItemPreview
+      data-slot='tags-input-item-preview'
       class={cn(
-        'h-6 gap-1 px-1.5 text-xs font-medium has-data-[slot=tags-input-item-delete-trigger]:pr-0 flex w-fit items-center justify-center rounded-md bg-muted whitespace-nowrap text-foreground data-disabled:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
+        'h-6 gap-1 px-1.5 text-xs font-medium border border-transparent has-data-[slot=tags-input-item-delete-trigger]:pr-0 inline-flex items-center justify-center rounded-md bg-muted whitespace-nowrap text-foreground transition-colors',
+        'data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:border-ring',
+        'data-disabled:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
         local.class,
       )}
       {...others}
-    >
-      <TagsInputPrimitive.ItemText>{local.children}</TagsInputPrimitive.ItemText>
-      <TagsInputPrimitive.ItemInput class='pointer-events-none hidden' />
-    </TagsInputPrimitive.Item>
+    />
+  );
+};
+
+export const TagsInputItemText: Component<TagsInputPrimitive.ItemTextProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return <TagsInputPrimitive.ItemText class={cn(local.class)} {...others} />;
+};
+
+export const TagsInputItemInput: Component<TagsInputPrimitive.ItemInputProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <TagsInputPrimitive.ItemInput
+      class={cn(
+        'py-0 px-1.5 h-6 text-xs rounded-md border border-input bg-background text-foreground outline-none',
+        'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
+        local.class,
+      )}
+      {...others}
+    />
   );
 };
 
@@ -88,15 +121,13 @@ export const TagsInputItemDeleteTrigger: Component<TagsInputPrimitive.ItemDelete
   return (
     <TagsInputPrimitive.ItemDeleteTrigger
       data-slot='tags-input-item-delete-trigger'
-      class={cn('-ml-1', local.class)}
+      class={cn(
+        '-ml-1 p-0.5 inline-flex items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground',
+        local.class,
+      )}
       {...others}
     >
-      <button
-        type='button'
-        class='p-0.5 inline-flex items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground'
-      >
-        {local.children ?? <OutlineCloseIcon class='size-3 pointer-events-none' />}
-      </button>
+      {local.children ?? <OutlineCloseIcon class='size-3 pointer-events-none' />}
     </TagsInputPrimitive.ItemDeleteTrigger>
   );
 };
