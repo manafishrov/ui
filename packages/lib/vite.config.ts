@@ -59,6 +59,7 @@ export default defineConfig({
         'src/components/Slider.tsx',
         'src/components/Spinner.tsx',
         'src/components/Switch.tsx',
+        'src/components/Swap.tsx',
         'src/components/Table.tsx',
         'src/components/Tabs.tsx',
         'src/components/TextInput.tsx',

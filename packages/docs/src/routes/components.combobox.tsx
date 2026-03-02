@@ -68,24 +68,18 @@ const ComboboxDocPage: Component = () => (
       <H2 class='pb-0 border-none'>{m.docs_example_multiple()}</H2>
       <Combobox collection={frameworks} multiple class='max-w-xs'>
         <ComboboxLabel>Frameworks (Multiple)</ComboboxLabel>
-        <ComboboxControl>
-          <ComboboxContext<FrameworkItem>>
-            {(context) => (
+        <ComboboxContext<FrameworkItem>>
+          {(context) => (
+            <div class='gap-1.5 mb-1.5 min-h-6 flex flex-wrap items-center'>
               <For each={context().selectedItems}>
-                {(item) => (
-                  <ComboboxTag
-                    onRemove={() => {
-                      context().setValue(context().value.filter((v) => v !== item.value));
-                    }}
-                  >
-                    {item.label}
-                  </ComboboxTag>
-                )}
+                {(item) => <ComboboxTag showRemove={false}>{item.label}</ComboboxTag>}
               </For>
-            )}
-          </ComboboxContext>
+            </div>
+          )}
+        </ComboboxContext>
+        <ComboboxControl>
           <ComboboxInput placeholder='Select frameworks...' />
-          <div class='gap-1 ml-auto flex items-center'>
+          <div class='gap-1 flex items-center'>
             <ComboboxClearTrigger />
             <ComboboxTrigger />
           </div>

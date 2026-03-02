@@ -3,11 +3,11 @@
   "name": "@manafishrov/ui",
   "version": "0.1.0",
   "description": "Styled component library for Manafish interfaces ",
+  "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
     "url": "https://github.com/manafishrov/ui.git"
   },
-  "license": "AGPL-3.0-or-later",
   "files": [
     "dist",
     "src"
@@ -184,6 +184,10 @@
       "types": "./dist/components/Switch.d.ts",
       "import": "./dist/components/Switch.js"
     },
+    "./swap": {
+      "types": "./dist/components/Swap.d.ts",
+      "import": "./dist/components/Swap.js"
+    },
     "./table": {
       "types": "./dist/components/Table.d.ts",
       "import": "./dist/components/Table.js"
@@ -223,7 +227,7 @@
     "./theme": "./dist/theme.css"
   },
   "dependencies": {
-    "@ark-ui/solid": "5.30.0",
+    "@ark-ui/solid": "5.34.0",
     "@fontsource/chakra-petch": "5.2.7",
     "@fontsource/rajdhani": "5.2.7",
     "@fontsource/roboto": "5.2.10",
