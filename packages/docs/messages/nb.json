@@ -43,6 +43,7 @@
   "docs_component_sheet_description": "Et panel som glir inn fra kanten av skjermen.",
   "docs_component_skeleton_description": "En plassholderkomponent for lastetilstander.",
   "docs_component_slider_description": "En kontroll for å velge en verdi fra et område.",
+  "docs_component_splitter_description": "Et paneloppsett med størrelsesjusterbare ruter og draggable håndtak.",
   "docs_component_spinner_description": "En lasteindikatorkomponent.",
   "docs_component_switch_description": "En vekslekontroll for binære innstillinger.",
   "docs_component_table_description": "En komponent for å vise tabelldata.",

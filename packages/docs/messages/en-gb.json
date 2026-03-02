@@ -44,6 +44,7 @@
   "docs_component_sheet_description": "A panel that slides in from the edge of the screen.",
   "docs_component_skeleton_description": "A placeholder component for loading states.",
   "docs_component_slider_description": "A control for selecting a value from a range.",
+  "docs_component_splitter_description": "A resizable panel layout with draggable handles.",
   "docs_component_spinner_description": "A loading indicator component.",
   "docs_component_switch_description": "A toggle control for binary settings.",
   "docs_component_table_description": "A component for displaying tabular data.",

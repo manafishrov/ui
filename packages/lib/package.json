@@ -180,6 +180,10 @@
       "types": "./dist/components/Spinner.d.ts",
       "import": "./dist/components/Spinner.js"
     },
+    "./splitter": {
+      "types": "./dist/components/Splitter.d.ts",
+      "import": "./dist/components/Splitter.js"
+    },
     "./switch": {
       "types": "./dist/components/Switch.d.ts",
       "import": "./dist/components/Switch.js"

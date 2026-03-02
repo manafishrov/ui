@@ -58,6 +58,7 @@ export default defineConfig({
         'src/components/Skeleton.tsx',
         'src/components/Slider.tsx',
         'src/components/Spinner.tsx',
+        'src/components/Splitter.tsx',
         'src/components/Switch.tsx',
         'src/components/Swap.tsx',
         'src/components/Table.tsx',
