@@ -25,8 +25,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
       'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex min-w-72 w-full items-center rounded-lg border bg-popover transition-all',
-      'data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=open]:animate-in',
-      'data-[state=open]:sm:slide-in-from-bottom-full data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full',
+      'data-[state=open]:animate-in data-[state=open]:sm:slide-in-from-bottom-full data-[state=open]:slide-in-from-top-full',
       'border-border text-popover-foreground',
     )}
   >
@@ -57,7 +56,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
         </Toast.Description>
       </Show>
     </div>
-    <Toast.CloseTrigger class='top-2 right-2 p-1 absolute cursor-pointer rounded-md text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground focus:opacity-100 focus:ring-2 focus:outline-none'>
+    <Toast.CloseTrigger class='top-2 right-2 p-1 absolute cursor-pointer rounded-md text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground focus:opacity-100 focus:outline-none'>
       <OutlineCloseIcon class='size-4' />
     </Toast.CloseTrigger>
   </Toast.Root>
