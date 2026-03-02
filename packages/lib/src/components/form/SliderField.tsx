@@ -85,8 +85,8 @@ export const SliderField: Component<SliderFieldProps> = (props) => {
       >
         <SliderInput
           value={field().state.value}
-          label={local.label}
-          marks={local.marks}
+          {...(local.label !== undefined && { label: local.label })}
+          {...(local.marks !== undefined && { marks: local.marks })}
         />
       </Slider>
       <FieldError errors={field().state.meta.errors} />

@@ -16,7 +16,6 @@ import {
   SidebarMenuSub,
   SidebarMenuSubItem,
   SidebarMenuSubButton,
-  SidebarInset,
   SidebarRail,
 } from '@manafishrov/ui/sidebar';
 import { H1, Lead } from '@manafishrov/ui/typography';
@@ -167,7 +166,7 @@ const SidebarDocPage: Component = () => (
 
     <SidebarProvider>
       <AppSidebar />
-      <SidebarTrigger class='-ml-20' />
+      <SidebarTrigger />
     </SidebarProvider>
   </div>
 );
