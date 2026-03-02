@@ -48,12 +48,16 @@ export const SheetPositioner: Component<
   );
 };
 
-export const SheetContent: Component<SheetPrimitive.ContentProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+export const SheetContent: Component<
+  SheetPrimitive.ContentProps & { side?: 'top' | 'right' | 'bottom' | 'left' }
+> = (props) => {
+  const [local, others] = splitProps(props, ['class', 'children', 'side']);
+  const side = local.side ?? 'right';
 
   return (
     <SheetPrimitive.Content
       data-slot='sheet-content'
+      data-side={side}
       class={cn(
         'gap-4 p-6 shadow-lg relative flex h-full w-full flex-col bg-background outline-none',
         'border-l border-border',
