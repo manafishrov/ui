@@ -33,11 +33,12 @@ export const SwitchControl: Component<SwitchPrimitive.ControlProps> = (props) =>
       data-slot='switch'
       class={cn(
         'shadow-sm inline-flex shrink-0 items-center rounded-lg border border-transparent transition-all outline-none',
-        'data-[focus-visible=true]:border-ring data-[focus-visible=true]:ring-[3px] data-[focus-visible=true]:ring-ring/50',
+        'data-[focus-visible]:border-ring data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50',
+        'group-has-focus-visible/switch:border-ring group-has-focus-visible/switch:ring-[3px] group-has-focus-visible/switch:ring-ring/50',
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:border-destructive/50',
         'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
         'data-[disabled=true]:opacity-50',
-        'data-[readonly=true]:data-[focus-visible=true]:ring-0',
+        'data-[readonly=true]:data-[focus-visible]:ring-0 group-data-[readonly=true]/switch:group-has-focus-visible/switch:ring-0',
         'group-data-[size=default]/switch:h-5 group-data-[size=default]/switch:w-9 px-px',
         'group-data-[size=sm]/switch:h-4 group-data-[size=sm]/switch:w-7 px-px',
         local.class,

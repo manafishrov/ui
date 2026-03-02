@@ -1,10 +1,9 @@
-import type { Component, ComponentProps } from 'solid-js';
-
-import { Link, type LinkProps } from '@tanstack/solid-router';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
 
+import { Link, type LinkProps } from '@/components/Link';
 import * as messages from '@/paraglide/messages';
 
 export const Breadcrumb: Component<ComponentProps<'nav'>> = (props) => {
@@ -37,7 +36,7 @@ export const BreadcrumbItem: Component<ComponentProps<'li'>> = (props) => {
   );
 };
 
-export type BreadcrumbLinkProps = LinkProps & { class?: string };
+export type BreadcrumbLinkProps = LinkProps & { class?: string | undefined };
 
 export const BreadcrumbLink: Component<BreadcrumbLinkProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);

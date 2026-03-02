@@ -37,14 +37,10 @@ export const NumberInputControl: Component<PrimitiveNumberInput.ControlProps> = 
       data-slot='number-input-control'
       class={cn(
         'min-w-0 h-8 relative flex w-full items-center overflow-hidden rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
-        'data-[focus=true]:border-ring data-[focus=true]:ring-[3px] data-[focus=true]:ring-ring/50',
+        'has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
         'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
-        'data-[readonly=true]:data-[focus=true]:border-input data-[readonly=true]:data-[focus=true]:ring-0',
-        'data-[focus=true]:border-ring data-[focus=true]:ring-[3px] data-[focus=true]:ring-ring/50',
-        'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
-        'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
-        'data-[readonly=true]:data-[focus=true]:border-input data-[readonly=true]:data-[focus=true]:ring-0',
+        'data-[readonly=true]:has-focus-visible:border-input data-[readonly=true]:has-focus-visible:ring-0',
         local.class,
       )}
       {...others}

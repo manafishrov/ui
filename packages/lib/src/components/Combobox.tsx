@@ -1,16 +1,9 @@
-import {
-  Combobox as ComboboxPrimitive,
-  type CollectionItem,
-  useComboboxContext,
-} from '@ark-ui/solid/combobox';
-import { Show, type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
+import { Combobox as ComboboxPrimitive, type CollectionItem } from '@ark-ui/solid/combobox';
+import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineCheckIcon from '~icons/ic/outline-check';
 import OutlineCloseIcon from '~icons/ic/outline-close';
 import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
-
-const REMOVE_LAST_VALUE_INDEX = -1;
-const REMOVE_THROTTLE_MS = 50;
 
 export const ComboboxContext = ComboboxPrimitive.Context;
 
@@ -18,9 +11,7 @@ export const Combobox = <TItem extends CollectionItem>(
   props: ComboboxPrimitive.RootProps<TItem> & { class?: string },
 ): JSXElement => {
   const [local, others] = splitProps(props, ['class']);
-  return (
-    <ComboboxPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />
-  );
+  return <ComboboxPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />;
 };
 
 export const ComboboxList: Component<ComboboxPrimitive.ListProps> = (props) => {
@@ -55,10 +46,10 @@ export const ComboboxControl: Component<ComboboxPrimitive.ControlProps> = (props
       data-slot='combobox-control'
       class={cn(
         'group min-h-10 py-1.5 pr-2 pl-2.5 text-sm [&_svg:not([class*="size-"])]:size-4 gap-1 shadow-sm flex w-full flex-wrap items-center rounded-lg border border-input bg-transparent transition-colors outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
-        'focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50',
+        'has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
         'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
-        'data-[readonly=true]:cursor-default data-[readonly=true]:focus-within:border-input data-[readonly=true]:focus-within:ring-0',
+        'data-[readonly=true]:cursor-default data-[readonly=true]:has-focus-visible:border-input data-[readonly=true]:has-focus-visible:ring-0',
         local.class,
       )}
       {...others}
@@ -67,49 +58,15 @@ export const ComboboxControl: Component<ComboboxPrimitive.ControlProps> = (props
 };
 
 export const ComboboxInput: Component<ComboboxPrimitive.InputProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'onKeyDown']);
-  const context = useComboboxContext();
-
-  let isRemoving = false;
-
-  const handleKeyDown: NonNullable<ComboboxPrimitive.InputProps['onKeyDown']> = (event): void => {
-    if (
-      event.key === 'Backspace' &&
-      event.currentTarget.value === '' &&
-      context().value.length > 0 &&
-      !isRemoving
-    ) {
-      isRemoving = true;
-      event.preventDefault();
-
-      // Request an animation frame so that Reactivity can finish any ongoing updates
-      // And we don't accidentally pop multiple values while state is unstable.
-      requestAnimationFrame(() => {
-        const val = context().value;
-        context().setValue(val.slice(0, REMOVE_LAST_VALUE_INDEX));
-
-        setTimeout(() => {
-          isRemoving = false;
-        }, REMOVE_THROTTLE_MS);
-      });
-    }
-
-    if (typeof local.onKeyDown === 'function') {
-      local.onKeyDown(event);
-    } else if (Array.isArray(local.onKeyDown)) {
-      const [handler, data] = local.onKeyDown;
-      handler(data, event);
-    }
-  };
+  const [local, others] = splitProps(props, ['class']);
 
   return (
     <ComboboxPrimitive.Input
       data-slot='combobox-input'
       class={cn(
-        'min-w-16 flex-1 bg-transparent outline-none placeholder:text-muted-foreground group-has-data-[slot=combobox-tag]:placeholder:text-transparent',
+        'min-w-16 flex-1 bg-transparent outline-none placeholder:text-muted-foreground focus-visible:ring-0',
         local.class,
       )}
-      onKeyDown={handleKeyDown}
       {...others}
     />
   );
@@ -128,12 +85,16 @@ export const ComboboxTrigger: Component<ComboboxPrimitive.TriggerProps> = (props
   );
 };
 export const ComboboxClearTrigger: Component<ComboboxPrimitive.ClearTriggerProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class', 'children', 'tabIndex']);
   return (
     <ComboboxPrimitive.ClearTrigger
       data-slot='combobox-clear'
-      class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
+      class={cn(
+        'p-0.5 rounded-[4px] text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        local.class,
+      )}
       {...others}
+      tabIndex={local.tabIndex ?? 0}
     >
       {local.children ?? <OutlineCloseIcon class='size-3.5' />}
     </ComboboxPrimitive.ClearTrigger>
@@ -213,50 +174,5 @@ export const ComboboxEmpty: Component<ComponentProps<'div'>> = (props) => {
       )}
       {...others}
     />
-  );
-};
-
-export const ComboboxSeparator: Component<ComponentProps<'div'>> = (props) => {
-  const [local, others] = splitProps(props, ['class']);
-  return (
-    <div
-      data-slot='combobox-separator'
-      class={cn('-mx-1 my-1 pointer-events-none h-px bg-border', local.class)}
-      {...others}
-    />
-  );
-};
-
-export const ComboboxTag: Component<
-  ComponentProps<'div'> & { showRemove?: boolean; onRemove?: () => void }
-> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children', 'showRemove', 'onRemove']);
-  return (
-    <div
-      data-slot='combobox-tag'
-      class={cn(
-        'h-6 gap-1 px-1.5 text-xs font-medium has-data-[slot=combobox-tag-remove]:pr-0 flex w-fit items-center justify-center rounded-md bg-muted whitespace-nowrap text-foreground data-disabled:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
-        local.class,
-      )}
-      {...others}
-    >
-      {local.children}
-      <Show when={local.showRemove !== false}>
-        <div class='-ml-1' data-slot='combobox-tag-remove'>
-          <button
-            type='button'
-            class='p-0.5 inline-flex items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground'
-            onClick={(event) => {
-              event.stopPropagation();
-              if (typeof local.onRemove === 'function') {
-                local.onRemove();
-              }
-            }}
-          >
-            <OutlineCloseIcon class='size-3 pointer-events-none' />
-          </button>
-        </div>
-      </Show>
-    </div>
   );
 };

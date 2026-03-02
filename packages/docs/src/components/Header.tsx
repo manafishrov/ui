@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 
 import { createListCollection } from '@manafishrov/ui';
+import { Link } from '@manafishrov/ui/link';
 import {
   Select,
   SelectContent,
@@ -11,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@manafishrov/ui/select';
-import { Link } from '@tanstack/solid-router';
 
 import { getLocale, isLocale, locales, setLocale } from '@/paraglide/runtime';
 

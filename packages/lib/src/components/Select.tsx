@@ -5,6 +5,8 @@ import OutlineCheckIcon from '~icons/ic/outline-check';
 import OutlineCloseIcon from '~icons/ic/outline-close';
 import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
 
+import { SelectTabs, type SelectTabsProps } from './SelectTabs';
+
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
 export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
@@ -20,7 +22,15 @@ export const SelectList: Component<SelectPrimitive.ListProps> = (props) => {
 };
 export const SelectContext = SelectPrimitive.Context;
 
-export const Select = <TItem extends { value: string; label: string }>(
+type SelectComponent = (<TItem extends { value: string; label: string }>(
+  props: SelectPrimitive.RootProps<TItem> & { class?: string },
+) => JSXElement) & {
+  Tabs: <TItem extends { value: string; label: string }>(
+    props: SelectTabsProps<TItem>,
+  ) => JSXElement;
+};
+
+const SelectRoot = <TItem extends { value: string; label: string }>(
   props: SelectPrimitive.RootProps<TItem> & { class?: string },
 ): JSXElement => {
   const [local, others] = splitProps(props, ['class', 'positioning']);
@@ -40,6 +50,10 @@ export const Select = <TItem extends { value: string; label: string }>(
     />
   );
 };
+
+export const Select: SelectComponent = Object.assign(SelectRoot, {
+  Tabs: SelectTabs,
+});
 
 export const SelectLabel: Component<SelectPrimitive.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -89,10 +103,10 @@ export const SelectTrigger: Component<
       class={cn(
         'border-input data-placeholder-shown:text-muted-foreground px-2.5 text-sm *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*="size-"])]:text-muted-foreground [&_svg:not([class*="size-"])]:size-4 gap-1.5 flex w-full min-w-0 items-center justify-between rounded-lg border bg-transparent whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none select-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
         'data-[size=default]:h-10 data-[size=sm]:h-8 data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
-        'data-[focus=true]:border-ring data-[focus=true]:ring-[3px] data-[focus=true]:ring-ring/50',
+        'focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[focus-visible]:border-ring data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50',
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
         'data-[disabled=true]:bg-input/50 data-[disabled=true]:opacity-50 dark:data-[disabled=true]:bg-input/80',
-        'data-[readonly=true]:cursor-default data-[readonly=true]:data-[focus=true]:border-input data-[readonly=true]:data-[focus=true]:ring-0',
+        'data-[readonly=true]:cursor-default data-[readonly=true]:focus-visible:border-input data-[readonly=true]:focus-visible:ring-0 data-[readonly=true]:data-[focus-visible]:border-input data-[readonly=true]:data-[focus-visible]:ring-0',
         local.class,
       )}
       {...others}
@@ -113,11 +127,15 @@ export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props
 };
 
 export const SelectClearTrigger: Component<SelectPrimitive.ClearTriggerProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children']);
+  const [local, others] = splitProps(props, ['class', 'children', 'tabIndex']);
   return (
     <SelectPrimitive.ClearTrigger
-      class={cn('p-0.5 text-muted-foreground transition-colors hover:text-foreground', local.class)}
+      class={cn(
+        'p-0.5 rounded-[4px] text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        local.class,
+      )}
       {...others}
+      tabIndex={local.tabIndex ?? 0}
     >
       {local.children ?? <OutlineCloseIcon class='size-3.5' />}
     </SelectPrimitive.ClearTrigger>
@@ -185,3 +203,5 @@ export const SelectSeparator: Component<ComponentProps<'div'>> = (props) => {
     />
   );
 };
+
+export type { SelectTabsProps, SelectTabsTab } from './SelectTabs';
