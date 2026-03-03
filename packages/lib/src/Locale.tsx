@@ -2,7 +2,7 @@ import type { Component, JSXElement } from 'solid-js';
 
 import { LocaleProvider as PrimitiveLocaleProvider } from '@ark-ui/solid/locale';
 
-import { type Locale, setLocale } from './paraglide/runtime';
+import { type Locale, setLocale } from '@/paraglide/runtime';
 
 export type LocaleProviderProps = {
   locale: Locale;
