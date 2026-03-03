@@ -1,3 +1,16 @@
+## [1.0.3](https://github.com/manafishrov/ui/compare/v1.0.2...v1.0.3) (2026-03-03)
+
+
+### Bug Fixes
+
+* missing tailwindcss for docs ([93d8cd9](https://github.com/manafishrov/ui/commit/93d8cd9ba8f1cb87ae8569f697f3bd082fbac591))
+
+
+### Reverts
+
+* Revert "fix: build" ([6e13d86](https://github.com/manafishrov/ui/commit/6e13d8629c30b9afbdf67328425b6d0965577ed3))
+* Revert "fix: package separation" ([39e5094](https://github.com/manafishrov/ui/commit/39e5094255f11acb2aef6fa4a247bd4fd6c11aa1))
+
 ## [1.0.2](https://github.com/manafishrov/ui/compare/v1.0.1...v1.0.2) (2026-03-03)
 
 
