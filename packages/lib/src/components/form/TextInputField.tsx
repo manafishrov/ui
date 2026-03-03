@@ -1,15 +1,9 @@
-import { type Component, type ComponentProps, splitProps } from "solid-js";
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
-import {
-  Field,
-  FieldLabel,
-  FieldContent,
-  FieldError,
-  FieldDescription,
-} from "@/components/Field";
-import { TextInputControl, TextInputInput } from "@/components/TextInput";
+import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
+import { TextInputControl, TextInputInput } from '@/components/TextInput';
 
-import { useFieldContext } from "./context";
+import { useFieldContext } from './context';
 
 export type TextInputFieldProps = ComponentProps<typeof TextInputInput> & {
   label?: string;
@@ -19,11 +13,11 @@ export type TextInputFieldProps = ComponentProps<typeof TextInputInput> & {
 export const TextInputField: Component<TextInputFieldProps> = (props) => {
   const field = useFieldContext<string>();
   const [local, others] = splitProps(props, [
-    "label",
-    "description",
-    "required",
-    "disabled",
-    "readOnly",
+    'label',
+    'description',
+    'required',
+    'disabled',
+    'readOnly',
   ]);
 
   return (

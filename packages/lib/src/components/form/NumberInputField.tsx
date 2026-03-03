@@ -1,20 +1,14 @@
-import type { Component, ComponentProps } from "solid-js";
+import type { Component, ComponentProps } from 'solid-js';
 
-import {
-  Field,
-  FieldLabel,
-  FieldContent,
-  FieldError,
-  FieldDescription,
-} from "@/components/Field";
+import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
   NumberInput,
   NumberInputControl,
   NumberInputInput,
   NumberInputTriggers,
-} from "@/components/NumberInput";
+} from '@/components/NumberInput';
 
-import { useFieldContext } from "./context";
+import { useFieldContext } from './context';
 
 export type NumberInputFieldProps = ComponentProps<typeof NumberInput> & {
   label?: string;
@@ -25,12 +19,12 @@ export type NumberInputFieldProps = ComponentProps<typeof NumberInput> & {
 export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
   const field = useFieldContext<number>();
   const [local, others] = splitProps(props, [
-    "label",
-    "description",
-    "required",
-    "disabled",
-    "readOnly",
-    "triggers",
+    'label',
+    'description',
+    'required',
+    'disabled',
+    'readOnly',
+    'triggers',
   ]);
 
   return (

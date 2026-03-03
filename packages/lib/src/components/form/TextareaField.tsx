@@ -1,15 +1,9 @@
-import type { Component, ComponentProps } from "solid-js";
+import type { Component, ComponentProps } from 'solid-js';
 
-import {
-  Field,
-  FieldLabel,
-  FieldContent,
-  FieldError,
-  FieldDescription,
-} from "@/components/Field";
-import { TextInputControl, TextInputArea } from "@/components/TextInput";
+import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
+import { TextInputControl, TextInputArea } from '@/components/TextInput';
 
-import { useFieldContext } from "./context";
+import { useFieldContext } from './context';
 
 export type TextareaFieldProps = ComponentProps<typeof TextInputArea> & {
   label?: string;
@@ -19,11 +13,11 @@ export type TextareaFieldProps = ComponentProps<typeof TextInputArea> & {
 export const TextareaField: Component<TextareaFieldProps> = (props) => {
   const field = useFieldContext<string>();
   const [local, others] = splitProps(props, [
-    "label",
-    "description",
-    "required",
-    "disabled",
-    "readOnly",
+    'label',
+    'description',
+    'required',
+    'disabled',
+    'readOnly',
   ]);
 
   return (
