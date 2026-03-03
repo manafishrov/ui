@@ -10,34 +10,43 @@ import {
 } from '@manafishrov/ui/scroll-area';
 import { HeadContent, Outlet, createRootRoute, redirect } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
+import { onMount } from 'solid-js';
 
 import { Header } from '@/components/Header';
 import * as m from '@/paraglide/messages';
 import { getLocale, shouldRedirect } from '@/paraglide/runtime';
 
-const RootComponent: Component = () => (
-  <>
-    <HeadContent />
-    <TanStackRouterDevtools position='bottom-right' />
-    <LocaleProvider locale={getLocale()}>
-      <div class='flex h-full min-h-0 flex-col'>
-        <Header />
-        <ScrollArea class='min-h-0 flex-1'>
-          <ScrollAreaViewport class='h-full'>
+const RootComponent: Component = () => {
+  let viewportRef: HTMLDivElement | undefined;
+
+  onMount(() => {
+    viewportRef?.focus();
+  });
+
+  return (
+    <>
+      <HeadContent />
+      <TanStackRouterDevtools position='bottom-right' />
+      <LocaleProvider locale={getLocale()}>
+        <ScrollArea class='h-full'>
+          <ScrollAreaViewport ref={viewportRef} class='h-full' tabIndex={-1}>
             <ScrollAreaContent>
-              <main class='px-4 py-8 container mx-auto'>
-                <Outlet />
-              </main>
+              <div class='flex flex-col min-h-full'>
+                <Header />
+                <main class='px-4 py-8 container mx-auto flex-1'>
+                  <Outlet />
+                </main>
+              </div>
             </ScrollAreaContent>
           </ScrollAreaViewport>
           <ScrollAreaScrollbar orientation='vertical'>
             <ScrollAreaThumb />
           </ScrollAreaScrollbar>
         </ScrollArea>
-      </div>
-    </LocaleProvider>
-  </>
-);
+      </LocaleProvider>
+    </>
+  );
+};
 
 export const Route = createRootRoute({
   head: () => ({

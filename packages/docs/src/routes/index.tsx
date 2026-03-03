@@ -1,8 +1,9 @@
 import type { Component } from 'solid-js';
 
 import { Card, CardDescription, CardHeader, CardTitle } from '@manafishrov/ui/card';
+import { Link } from '@manafishrov/ui/link';
 import { H1, H3, Lead } from '@manafishrov/ui/typography';
-import { createFileRoute, Link } from '@tanstack/solid-router';
+import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
 
@@ -114,7 +115,6 @@ const components = [
     to: '/components/kbd',
     descriptionKey: 'docs_component_kbd_description',
   },
-
   {
     name: 'Link',
     to: '/components/link',
@@ -129,6 +129,11 @@ const components = [
     name: 'Menu',
     to: '/components/menu',
     descriptionKey: 'docs_component_menu_description',
+  },
+  {
+    name: 'Menu Combobox',
+    to: '/components/menu-combobox',
+    descriptionKey: 'docs_component_menu_combobox_description',
   },
   {
     name: 'Navigation Menu',
@@ -181,6 +186,11 @@ const components = [
     descriptionKey: 'docs_component_select_description',
   },
   {
+    name: 'Select Tabs',
+    to: '/components/select-tabs',
+    descriptionKey: 'docs_component_select_tabs_description',
+  },
+  {
     name: 'Separator',
     to: '/components/separator',
     descriptionKey: 'docs_component_separator_description',
@@ -211,6 +221,11 @@ const components = [
     descriptionKey: 'docs_component_spinner_description',
   },
   {
+    name: 'Splitter',
+    to: '/components/splitter',
+    descriptionKey: 'docs_component_splitter_description',
+  },
+  {
     name: 'Switch',
     to: '/components/switch',
     descriptionKey: 'docs_component_switch_description',
@@ -231,11 +246,15 @@ const components = [
     descriptionKey: 'docs_component_tags_input_description',
   },
   {
+    name: 'Tags Input Combobox',
+    to: '/components/tags-input-combobox',
+    descriptionKey: 'docs_component_tags_input_combobox_description',
+  },
+  {
     name: 'Text Input',
     to: '/components/text-input',
     descriptionKey: 'docs_component_text_input_description',
   },
-
   {
     name: 'Toaster',
     to: '/components/toaster',
@@ -274,7 +293,7 @@ const HomePage: Component = () => (
       <H3 class='pb-0 border-none'>{m.docs_components_title()}</H3>
       <div class='gap-4 md:grid-cols-2 lg:grid-cols-3 grid'>
         {components.map((component) => (
-          <Link to={component.to} class='block'>
+          <Link to={component.to}>
             <Card class='h-full cursor-pointer transition-all hover:bg-muted/50 hover:ring-primary'>
               <CardHeader>
                 <CardTitle>{component.name}</CardTitle>
