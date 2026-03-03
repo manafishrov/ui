@@ -72,6 +72,12 @@
       }
     },
     {
+      "files": ["packages/docs/src/main.tsx"],
+      "rules": {
+        "unicorn/filename-case": "off"
+      }
+    },
+    {
       "files": ["packages/docs/src/routes/**/*.tsx"],
       "rules": {
         "unicorn/filename-case": [
