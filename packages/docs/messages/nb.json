@@ -29,6 +29,7 @@
   "docs_component_link_description": "En stilisert ankerkomponent for navigasjon.",
   "docs_component_marquee_description": "En komponent for rullende tekst eller innhold.",
   "docs_component_menu_description": "En nedtrekksmeny med handlinger og valg.",
+  "docs_component_menu_combobox_description": "En meny som kombinerer søk med menyvalg.",
   "docs_component_navigation_menu_description": "En horisontal navigasjonskomponent med nedtrekksmenyer.",
   "docs_component_number_input_description": "En inntastingskomponent for numeriske verdier med økning og reduksjon.",
   "docs_component_pagination_description": "En navigasjonskomponent for paginert innhold.",
