@@ -158,17 +158,16 @@ const AppSidebar: Component = () => (
 );
 
 const SidebarDocPage: Component = () => (
-  <div class='space-y-8'>
-    <div class='space-y-2'>
-      <H1>Sidebar</H1>
-      <Lead>{m.docs_component_sidebar_description()}</Lead>
-    </div>
-
-    <SidebarProvider>
-      <AppSidebar />
+  <SidebarProvider>
+    <AppSidebar />
+    <div class='space-y-8'>
+      <div class='space-y-2'>
+        <H1>Sidebar</H1>
+        <Lead>{m.docs_component_sidebar_description()}</Lead>
+      </div>
       <SidebarTrigger />
-    </SidebarProvider>
-  </div>
+    </div>
+  </SidebarProvider>
 );
 
 export const Route = createFileRoute('/components/sidebar')({
