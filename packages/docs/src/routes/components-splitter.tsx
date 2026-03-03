@@ -9,7 +9,7 @@ import * as m from '@/paraglide/messages';
 const BasicSplitterExample: Component = () => (
   <div class='space-y-4'>
     <h3 class='text-lg font-semibold'>{m.docs_example_basic()}</h3>
-    <Splitter panels={[{ id: 'left' }, { id: 'right' }]} class='h-64 w-full rounded-lg border'>
+    <Splitter panels={[{ id: 'left' }, { id: 'right' }]} class='min-h-64 w-full rounded-lg border'>
       <SplitterPanel id='left' class='p-4 bg-muted'>
         Left Panel
       </SplitterPanel>
@@ -27,12 +27,12 @@ const VerticalSplitterExample: Component = () => (
     <Splitter
       orientation='vertical'
       panels={[{ id: 'top' }, { id: 'bottom' }]}
-      class='h-64 w-full rounded-lg border'
+      class='min-h-[32rem] w-full rounded-lg border'
     >
       <SplitterPanel id='top' class='p-4 bg-muted'>
         Top Panel
       </SplitterPanel>
-      <SplitterResizeTrigger id='top:bottom' aria-label='Resize' />
+      <SplitterResizeTrigger id='top:bottom' aria-label='Resize' withHandle />
       <SplitterPanel id='bottom' class='p-4 bg-muted'>
         Bottom Panel
       </SplitterPanel>
@@ -45,7 +45,7 @@ const MultipleSplitterExample: Component = () => (
     <h3 class='text-lg font-semibold'>{m.docs_example_multiple()}</h3>
     <Splitter
       panels={[{ id: 'a' }, { id: 'b' }, { id: 'c' }]}
-      class='h-64 w-full rounded-lg border'
+      class='min-h-64 w-full rounded-lg border'
     >
       <SplitterPanel id='a' class='p-4 bg-muted'>
         Panel A

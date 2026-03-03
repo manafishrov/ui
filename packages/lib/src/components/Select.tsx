@@ -1,5 +1,12 @@
 import { Select as SelectPrimitive } from '@ark-ui/solid/select';
-import { type Component, type ComponentProps, type JSXElement, For, splitProps } from 'solid-js';
+import {
+  type Component,
+  type ComponentProps,
+  type JSX,
+  type JSXElement,
+  For,
+  splitProps,
+} from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineCheckIcon from '~icons/ic/outline-check';
 import OutlineCloseIcon from '~icons/ic/outline-close';
@@ -179,14 +186,48 @@ export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props
   );
 };
 
+const callEventHandler = <
+  TElement,
+  THandlerEvent extends Event,
+  TEvent extends THandlerEvent & { currentTarget: TElement; target: Element },
+>(
+  handler: JSX.EventHandlerUnion<TElement, THandlerEvent> | undefined,
+  event: TEvent,
+): void => {
+  if (typeof handler === 'function') {
+    handler(event);
+    return;
+  }
+  if (Array.isArray(handler)) {
+    const [boundHandler, boundData] = handler;
+    boundHandler(boundData, event);
+  }
+};
+
 export const SelectClearTrigger: Component<SelectPrimitive.ClearTriggerProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'children', 'tabIndex']);
+  const [local, others] = splitProps(props, [
+    'class',
+    'children',
+    'tabIndex',
+    'onClick',
+    'onKeyDown',
+  ]);
   return (
     <SelectPrimitive.ClearTrigger
       class={cn(
         'p-0.5 rounded-[4px] text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none',
         local.class,
       )}
+      onClick={(event: MouseEvent & { currentTarget: HTMLButtonElement; target: Element }) => {
+        event.stopPropagation();
+        callEventHandler(local.onClick, event);
+      }}
+      onKeyDown={(event: KeyboardEvent & { currentTarget: HTMLButtonElement; target: Element }) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.stopPropagation();
+        }
+        callEventHandler(local.onKeyDown, event);
+      }}
       {...others}
       tabIndex={local.tabIndex ?? 0}
     >

@@ -7,7 +7,7 @@ export const Splitter: Component<SplitterPrimitive.RootProps> = (props) => {
   return (
     <SplitterPrimitive.Root
       data-slot='splitter'
-      class={cn('flex h-full w-full aria-[orientation=vertical]:flex-col', local.class)}
+      class={cn('flex h-full w-full data-[orientation=vertical]:flex-col', local.class)}
       {...others}
     />
   );
@@ -15,13 +15,7 @@ export const Splitter: Component<SplitterPrimitive.RootProps> = (props) => {
 
 export const SplitterPanel: Component<SplitterPrimitive.PanelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return (
-    <SplitterPrimitive.Panel
-      data-slot='splitter-panel'
-      class={cn('flex items-center justify-center', local.class)}
-      {...others}
-    />
-  );
+  return <SplitterPrimitive.Panel data-slot='splitter-panel' class={cn(local.class)} {...others} />;
 };
 
 export type SplitterResizeTriggerProps = SplitterPrimitive.ResizeTriggerProps & {
@@ -35,13 +29,13 @@ export const SplitterResizeTrigger: Component<SplitterResizeTriggerProps> = (pro
       data-slot='splitter-resize-trigger'
       class={cn(
         'relative flex w-px items-center justify-center bg-border ring-offset-background',
-        'after:inset-y-0 after:w-1 after:absolute after:left-1/2 after:-translate-x-1/2',
+        "after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 after:content-['']",
         'focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-hidden',
-        'aria-[orientation=horizontal]:h-px aria-[orientation=horizontal]:w-full',
-        'aria-[orientation=horizontal]:after:left-0 aria-[orientation=horizontal]:after:h-1',
-        'aria-[orientation=horizontal]:after:translate-x-0 aria-[orientation=horizontal]:after:w-full',
-        'aria-[orientation=horizontal]:after:-translate-y-1/2',
-        '[&[aria-orientation=horizontal]>div]:rotate-90',
+        'data-[orientation=vertical]:h-px data-[orientation=vertical]:w-full',
+        'data-[orientation=vertical]:after:top-1/2 data-[orientation=vertical]:after:left-0',
+        'data-[orientation=vertical]:after:h-1 data-[orientation=vertical]:after:w-full',
+        'data-[orientation=vertical]:after:translate-x-0 data-[orientation=vertical]:after:-translate-y-1/2',
+        '[&[data-orientation=vertical]>div]:rotate-90',
         local.class,
       )}
       {...others}

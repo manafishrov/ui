@@ -64,9 +64,9 @@ const TextField: Component<{ form: DemoForm }> = (props) => (
       onChange: ({ value }) =>
         value.trim() === ''
           ? 'Text is required'
-          : value.length < MIN_TEXT_LENGTH
+          : (value.length < MIN_TEXT_LENGTH
             ? 'Text must be at least 3 characters'
-            : void 0,
+            : void 0),
     }}
   >
     {(field) => (
@@ -87,9 +87,9 @@ const EmailField: Component<{ form: DemoForm }> = (props) => (
       onChange: ({ value }) =>
         value.trim() === ''
           ? 'Email is required'
-          : EMAIL_REGEX.test(value)
+          : (EMAIL_REGEX.test(value)
             ? void 0
-            : 'Please enter a valid email address',
+            : 'Please enter a valid email address'),
     }}
   >
     {(field) => (
@@ -130,9 +130,9 @@ const NumberField: Component<{ form: DemoForm }> = (props) => (
       onChange: ({ value }) =>
         value < 0
           ? 'Value must be positive'
-          : value > MAX_NUMBER_VALUE
+          : (value > MAX_NUMBER_VALUE
             ? 'Value must be less than 100'
-            : void 0,
+            : void 0),
     }}
   >
     {(field) => (
