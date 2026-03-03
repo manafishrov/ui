@@ -18,7 +18,7 @@ export const TreeViewItem: Component<TreeViewPrimitive.ItemProps> = (props) => {
   return (
     <TreeViewPrimitive.Item
       class={cn(
-        'gap-2 px-2 py-1.5 text-sm relative flex cursor-pointer items-center rounded-md transition-colors outline-none select-none hover:bg-accent/50 hover:text-accent-foreground/50 disabled:pointer-events-none disabled:opacity-50 data-selected:bg-accent data-selected:text-accent-foreground',
+        'gap-2 px-2 py-1.5 text-sm relative flex cursor-pointer items-center rounded-md transition-colors outline-none select-none hover:bg-accent/50 hover:text-accent-foreground/50 focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-selected:bg-accent data-selected:text-accent-foreground',
         local.class,
       )}
       {...others}
@@ -40,7 +40,7 @@ export const TreeViewBranchControl: Component<TreeViewPrimitive.BranchControlPro
   return (
     <TreeViewPrimitive.BranchControl
       class={cn(
-        'gap-2 px-2 py-1.5 text-sm flex cursor-pointer items-center rounded-md transition-colors outline-none select-none hover:bg-accent/50 hover:text-accent-foreground/50 disabled:pointer-events-none disabled:opacity-50',
+        'gap-2 px-2 py-1.5 text-sm flex cursor-pointer items-center rounded-md transition-colors outline-none select-none hover:bg-accent/50 hover:text-accent-foreground/50 focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50',
         local.class,
       )}
       {...others}
