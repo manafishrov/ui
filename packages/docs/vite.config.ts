@@ -8,6 +8,7 @@ import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 
 const srcAlias = fileURLToPath(new URL('src', import.meta.url));
+const libThemePath = fileURLToPath(new URL('../lib/dist/theme.css', import.meta.url));
 
 export default defineConfig({
   plugins: [
@@ -37,6 +38,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': srcAlias,
+      '@manafishrov/ui/theme': libThemePath,
     },
     dedupe: ['solid-js', '@tanstack/solid-router', '@tanstack/solid-form', 'tailwindcss'],
   },
