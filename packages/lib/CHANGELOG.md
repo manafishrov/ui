@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/manafishrov/ui/compare/v1.0.3...v1.0.4) (2026-03-03)
+
+
+### Bug Fixes
+
+* make sure to build library before docs ([ee5aa45](https://github.com/manafishrov/ui/commit/ee5aa45cf8f36b715437cf8158b7ca45b364d433))
+
 ## [1.0.3](https://github.com/manafishrov/ui/compare/v1.0.2...v1.0.3) (2026-03-03)
 
 
