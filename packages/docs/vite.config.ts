@@ -10,7 +10,6 @@ import solid from 'vite-plugin-solid';
 const srcAlias = fileURLToPath(new URL('src', import.meta.url));
 
 export default defineConfig({
-  root: '.',
   plugins: [
     tailwindcss(),
     paraglideVitePlugin({
