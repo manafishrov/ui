@@ -16,8 +16,7 @@
     "fmt:check": "oxfmt --check packages/**/*.ts packages/**/*.tsx",
     "lint": "oxlint --type-aware --type-check",
     "lint:fix": "oxlint --type-aware --type-check --fix",
-    "prepare": "lefthook install",
-    "publish": "bun run build:lib && cd packages/lib && bunx npm publish --access public"
+    "prepare": "lefthook install"
   },
   "devDependencies": {
     "@iconify-json/ic": "1.2.4",

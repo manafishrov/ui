@@ -235,8 +235,7 @@
     "./theme": "./dist/theme.css"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "dependencies": {
     "@ark-ui/solid": "5.34.0",
