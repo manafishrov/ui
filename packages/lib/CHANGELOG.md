@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/manafishrov/ui/compare/v1.0.1...v1.0.2) (2026-03-03)
+
+
+### Bug Fixes
+
+* build ([17dfdcf](https://github.com/manafishrov/ui/commit/17dfdcf723f3649d66e1bd8332a0e273969d09ee))
+* package separation ([4931741](https://github.com/manafishrov/ui/commit/49317411dd35626e2ac11979fbfeb5a1e6cb0435))
+
 ## [1.0.1](https://github.com/manafishrov/ui/compare/v1.0.0...v1.0.1) (2026-03-03)
 
 
