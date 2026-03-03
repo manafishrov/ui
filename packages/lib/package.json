@@ -232,7 +232,7 @@
       "types": "./dist/components/Typography.d.ts",
       "import": "./dist/components/Typography.js"
     },
-    "./theme": "./dist/theme.css",
+    "./theme": "./dist/theme.css"
   },
   "dependencies": {
     "@ark-ui/solid": "5.34.0",

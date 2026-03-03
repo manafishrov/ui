@@ -10,43 +10,34 @@ import {
 } from '@manafishrov/ui/scroll-area';
 import { HeadContent, Outlet, createRootRoute, redirect } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
-import { onMount } from 'solid-js';
 
 import { Header } from '@/components/Header';
 import * as m from '@/paraglide/messages';
 import { getLocale, shouldRedirect } from '@/paraglide/runtime';
 
-const RootComponent: Component = () => {
-  let viewportRef: HTMLDivElement | undefined;
-
-  onMount(() => {
-    viewportRef?.focus();
-  });
-
-  return (
-    <>
-      <HeadContent />
-      <TanStackRouterDevtools position='bottom-right' />
-      <LocaleProvider locale={getLocale()}>
-        <ScrollArea class='h-full'>
-          <ScrollAreaViewport ref={viewportRef} class='h-full' tabIndex={-1}>
-            <ScrollAreaContent>
-              <div class='flex flex-col min-h-full'>
-                <Header />
-                <main class='px-4 py-8 container mx-auto flex-1'>
-                  <Outlet />
-                </main>
-              </div>
-            </ScrollAreaContent>
-          </ScrollAreaViewport>
-          <ScrollAreaScrollbar orientation='vertical'>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-        </ScrollArea>
-      </LocaleProvider>
-    </>
-  );
-};
+const RootComponent: Component = () => (
+  <>
+    <HeadContent />
+    <TanStackRouterDevtools position='bottom-right' />
+    <LocaleProvider locale={getLocale()}>
+      <ScrollArea class='h-full'>
+        <ScrollAreaViewport class='h-full' tabIndex={-1}>
+          <ScrollAreaContent>
+            <div class='flex min-h-full flex-col'>
+              <Header />
+              <main class='px-4 py-8 container mx-auto flex-1'>
+                <Outlet />
+              </main>
+            </div>
+          </ScrollAreaContent>
+        </ScrollAreaViewport>
+        <ScrollAreaScrollbar orientation='vertical'>
+          <ScrollAreaThumb />
+        </ScrollAreaScrollbar>
+      </ScrollArea>
+    </LocaleProvider>
+  </>
+);
 
 export const Route = createRootRoute({
   head: () => ({
@@ -62,10 +53,11 @@ export const Route = createRootRoute({
   }),
   beforeLoad: async () => {
     document.documentElement.setAttribute('lang', getLocale());
-    const decision = await shouldRedirect({ url: window.location.href });
+    const decision = await shouldRedirect({ url: globalThis.location.href });
     if (decision.redirectUrl) {
-      throw redirect({ href: decision.redirectUrl.href });
+      return redirect({ href: decision.redirectUrl.href });
     }
+    return null;
   },
   component: RootComponent,
 });

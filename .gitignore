@@ -9,3 +9,6 @@ test-results/
 
 # macOS folder config
 .DS_Store
+
+# TanStack Router temp files
+**/.tanstack/tmp/

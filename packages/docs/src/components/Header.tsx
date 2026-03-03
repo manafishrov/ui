@@ -1,5 +1,3 @@
-import type { Component } from 'solid-js';
-
 import { createListCollection } from '@manafishrov/ui';
 import { Link } from '@manafishrov/ui/link';
 import {
@@ -12,20 +10,37 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@manafishrov/ui/select';
+import { createEffect, createSignal, onMount, type Component } from 'solid-js';
 
 import { getLocale, isLocale, locales, setLocale } from '@/paraglide/runtime';
 
 const THEMES = ['light', 'dark', 'system'] as const;
 type Theme = (typeof THEMES)[number];
 
-function getLocaleLabel(locale: string): string {
+const getLocaleLabel = (locale: string): string => {
   const displayNames = new Intl.DisplayNames([locale], { type: 'language' });
   const label = displayNames.of(locale);
-  if (!label) {
+  if (label === undefined) {
     return locale;
   }
   return label.charAt(0).toUpperCase() + label.slice(1);
-}
+};
+
+const isTheme = (value: string): value is Theme => (THEMES as readonly string[]).includes(value);
+
+const applyTheme = (theme: Theme): void => {
+  const isDarkBySystem = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = theme === 'dark' || (theme === 'system' && isDarkBySystem);
+  document.documentElement.classList.toggle('dark', isDark);
+};
+
+const readStoredTheme = (): Theme => {
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme !== null && isTheme(storedTheme)) {
+    return storedTheme;
+  }
+  return 'system';
+};
 
 const localeCollection = createListCollection({
   items: locales.map((locale) => ({
@@ -41,25 +56,71 @@ const themeCollection = createListCollection({
   })),
 });
 
+const LocaleSelect: Component = () => (
+  <Select
+    collection={localeCollection}
+    value={[getLocale()]}
+    onValueChange={(details) => {
+      const [newLocale] = details.value;
+      if (newLocale !== undefined && isLocale(newLocale)) {
+        void setLocale(newLocale);
+      }
+    }}
+  >
+    <SelectTrigger>
+      <SelectValue />
+      <SelectIndicator />
+    </SelectTrigger>
+    <SelectPositioner>
+      <SelectContent>
+        <SelectGroup>
+          {localeCollection.items.map((item) => (
+            <SelectItem item={item}>{item.label}</SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </SelectPositioner>
+  </Select>
+);
+
+const ThemeSelect: Component<{ theme: Theme; onThemeChange: (theme: Theme) => void }> = (props) => (
+  <Select
+    collection={themeCollection}
+    value={[props.theme]}
+    onValueChange={(details) => {
+      const [newTheme] = details.value;
+      if (newTheme !== undefined && isTheme(newTheme)) {
+        props.onThemeChange(newTheme);
+      }
+    }}
+  >
+    <SelectTrigger>
+      <SelectValue />
+      <SelectIndicator />
+    </SelectTrigger>
+    <SelectPositioner>
+      <SelectContent>
+        <SelectGroup>
+          {themeCollection.items.map((item) => (
+            <SelectItem item={item}>{item.label}</SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </SelectPositioner>
+  </Select>
+);
+
 export const Header: Component = () => {
   const [theme, setTheme] = createSignal<Theme>('system');
 
   onMount(() => {
-    const stored = localStorage.getItem('theme') as Theme | null;
-    if (stored && THEMES.includes(stored)) {
-      setTheme(stored);
-    }
+    setTheme(readStoredTheme());
   });
 
   createEffect(() => {
     const current = theme();
     localStorage.setItem('theme', current);
-
-    const isDark =
-      current === 'dark' ||
-      (current === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-    document.documentElement.classList.toggle('dark', isDark);
+    applyTheme(current);
   });
 
   return (
@@ -70,54 +131,8 @@ export const Header: Component = () => {
             Manafish UI
           </Link>
           <div class='gap-2 flex'>
-            <Select
-              collection={localeCollection}
-              value={[getLocale()]}
-              onValueChange={(details) => {
-                const newLocale = details.value[0];
-                if (newLocale && isLocale(newLocale)) {
-                  setLocale(newLocale);
-                }
-              }}
-            >
-              <SelectTrigger>
-                <SelectValue />
-                <SelectIndicator />
-              </SelectTrigger>
-              <SelectPositioner>
-                <SelectContent>
-                  <SelectGroup>
-                    {localeCollection.items.map((item) => (
-                      <SelectItem item={item}>{item.label}</SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </SelectPositioner>
-            </Select>
-            <Select
-              collection={themeCollection}
-              value={[theme()]}
-              onValueChange={(details) => {
-                const newTheme = details.value[0] as Theme;
-                if (newTheme) {
-                  setTheme(newTheme);
-                }
-              }}
-            >
-              <SelectTrigger>
-                <SelectValue />
-                <SelectIndicator />
-              </SelectTrigger>
-              <SelectPositioner>
-                <SelectContent>
-                  <SelectGroup>
-                    {themeCollection.items.map((item) => (
-                      <SelectItem item={item}>{item.label}</SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </SelectPositioner>
-            </Select>
+            <LocaleSelect />
+            <ThemeSelect theme={theme()} onThemeChange={setTheme} />
           </div>
         </nav>
       </div>

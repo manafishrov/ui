@@ -1,18 +1,14 @@
-import type { Component } from 'solid-js';
-
 import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
+import { type Component, For, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
 import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
 import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
 
 import { buttonVariants } from '@/components/Button';
-
 export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return (
-    <DatePickerPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />
-  );
+  return <DatePickerPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />;
 };
 export const DatePickerContext = DatePickerPrimitive.Context;
 export const DatePickerView = DatePickerPrimitive.View;
@@ -27,12 +23,10 @@ export const DatePickerTable: Component<DatePickerPrimitive.TableProps> = (props
     />
   );
 };
-
 export const DatePickerTableBody: Component<DatePickerPrimitive.TableBodyProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.TableBody class={cn('', local.class)} {...others} />;
 };
-
 export const DatePickerTableCell: Component<DatePickerPrimitive.TableCellProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -45,12 +39,10 @@ export const DatePickerTableCell: Component<DatePickerPrimitive.TableCellProps> 
     />
   );
 };
-
 export const DatePickerTableHead: Component<DatePickerPrimitive.TableHeadProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.TableHead class={cn('', local.class)} {...others} />;
 };
-
 export const DatePickerTableHeader: Component<DatePickerPrimitive.TableHeaderProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -60,12 +52,10 @@ export const DatePickerTableHeader: Component<DatePickerPrimitive.TableHeaderPro
     />
   );
 };
-
 export const DatePickerTableRow: Component<DatePickerPrimitive.TableRowProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.TableRow class={cn('mt-2 flex w-full', local.class)} {...others} />;
 };
-
 export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -78,12 +68,10 @@ export const DatePickerLabel: Component<DatePickerPrimitive.LabelProps> = (props
     />
   );
 };
-
 export const DatePickerControl: Component<DatePickerPrimitive.ControlProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.Control class={cn('gap-2 flex flex-row', local.class)} {...others} />;
 };
-
 export const DatePickerInput: Component<DatePickerPrimitive.InputProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -96,7 +84,6 @@ export const DatePickerInput: Component<DatePickerPrimitive.InputProps> = (props
     />
   );
 };
-
 export const DatePickerTrigger: Component<DatePickerPrimitive.TriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
@@ -112,12 +99,10 @@ export const DatePickerTrigger: Component<DatePickerPrimitive.TriggerProps> = (p
     </DatePickerPrimitive.Trigger>
   );
 };
-
 export const DatePickerPositioner: Component<DatePickerPrimitive.PositionerProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.Positioner class={cn('isolate z-50', local.class)} {...others} />;
 };
-
 export const DatePickerContent: Component<DatePickerPrimitive.ContentProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -130,7 +115,6 @@ export const DatePickerContent: Component<DatePickerPrimitive.ContentProps> = (p
     />
   );
 };
-
 export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
@@ -146,7 +130,6 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
     </DatePickerPrimitive.PrevTrigger>
   );
 };
-
 export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
@@ -162,7 +145,6 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
     </DatePickerPrimitive.NextTrigger>
   );
 };
-
 export const DatePickerTableCellTrigger: Component<DatePickerPrimitive.TableCellTriggerProps> = (
   props,
 ) => {
@@ -184,7 +166,6 @@ export const DatePickerTableCellTrigger: Component<DatePickerPrimitive.TableCell
     />
   );
 };
-
 export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
@@ -207,7 +188,6 @@ export const DatePickerViewControl: Component<DatePickerPrimitive.ViewControlPro
     </DatePickerPrimitive.ViewControl>
   );
 };
-
 export const DatePickerDayView: Component = () => (
   <DatePickerView view='day'>
     <DatePickerViewControl />
@@ -249,7 +229,6 @@ export const DatePickerDayView: Component = () => (
     </DatePickerTable>
   </DatePickerView>
 );
-
 export const DatePickerMonthView: Component = () => (
   <DatePickerView view='month'>
     <DatePickerViewControl />
@@ -278,7 +257,6 @@ export const DatePickerMonthView: Component = () => (
     </DatePickerTable>
   </DatePickerView>
 );
-
 export const DatePickerYearView: Component = () => (
   <DatePickerView view='year'>
     <DatePickerViewControl />
@@ -307,7 +285,6 @@ export const DatePickerYearView: Component = () => (
     </DatePickerTable>
   </DatePickerView>
 );
-
 export const DatePickerViews: Component = () => (
   <>
     <DatePickerDayView />
@@ -315,7 +292,6 @@ export const DatePickerViews: Component = () => (
     <DatePickerYearView />
   </>
 );
-
 export const Calendar: Component<DatePickerPrimitive.RootProps> = (props) => (
   <DatePicker {...props} inline unmountOnExit={false}>
     <DatePickerContent class='border-none shadow-none ring-0'>

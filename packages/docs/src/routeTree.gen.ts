@@ -9,659 +9,659 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ComponentsTypographyRouteImport } from './routes/components-typography'
+import { Route as ComponentsTreeViewRouteImport } from './routes/components-tree-view'
+import { Route as ComponentsTooltipRouteImport } from './routes/components-tooltip'
+import { Route as ComponentsToggleRouteImport } from './routes/components-toggle'
+import { Route as ComponentsToasterRouteImport } from './routes/components-toaster'
+import { Route as ComponentsTextInputRouteImport } from './routes/components-text-input'
+import { Route as ComponentsTagsInputRouteImport } from './routes/components-tags-input'
+import { Route as ComponentsTabsRouteImport } from './routes/components-tabs'
+import { Route as ComponentsTableRouteImport } from './routes/components-table'
+import { Route as ComponentsSwitchRouteImport } from './routes/components-switch'
+import { Route as ComponentsSplitterRouteImport } from './routes/components-splitter'
+import { Route as ComponentsSpinnerRouteImport } from './routes/components-spinner'
+import { Route as ComponentsSliderRouteImport } from './routes/components-slider'
+import { Route as ComponentsSkeletonRouteImport } from './routes/components-skeleton'
+import { Route as ComponentsSidebarRouteImport } from './routes/components-sidebar'
+import { Route as ComponentsSheetRouteImport } from './routes/components-sheet'
+import { Route as ComponentsSeparatorRouteImport } from './routes/components-separator'
+import { Route as ComponentsSelectRouteImport } from './routes/components-select'
+import { Route as ComponentsScrollAreaRouteImport } from './routes/components-scroll-area'
+import { Route as ComponentsRadioGroupRouteImport } from './routes/components-radio-group'
+import { Route as ComponentsProgressRouteImport } from './routes/components-progress'
+import { Route as ComponentsPopoverRouteImport } from './routes/components-popover'
+import { Route as ComponentsPinInputRouteImport } from './routes/components-pin-input'
+import { Route as ComponentsPasswordInputRouteImport } from './routes/components-password-input'
+import { Route as ComponentsPaginationRouteImport } from './routes/components-pagination'
+import { Route as ComponentsNumberInputRouteImport } from './routes/components-number-input'
+import { Route as ComponentsNavigationMenuRouteImport } from './routes/components-navigation-menu'
+import { Route as ComponentsMenuComboboxRouteImport } from './routes/components-menu-combobox'
+import { Route as ComponentsMenuRouteImport } from './routes/components-menu'
+import { Route as ComponentsMarqueeRouteImport } from './routes/components-marquee'
+import { Route as ComponentsLinkRouteImport } from './routes/components-link'
+import { Route as ComponentsKbdRouteImport } from './routes/components-kbd'
+import { Route as ComponentsItemRouteImport } from './routes/components-item'
+import { Route as ComponentsInputGroupRouteImport } from './routes/components-input-group'
+import { Route as ComponentsHoverCardRouteImport } from './routes/components-hover-card'
+import { Route as ComponentsFormRouteImport } from './routes/components-form'
+import { Route as ComponentsFieldRouteImport } from './routes/components-field'
+import { Route as ComponentsEmptyRouteImport } from './routes/components-empty'
+import { Route as ComponentsDialogRouteImport } from './routes/components-dialog'
+import { Route as ComponentsDatePickerRouteImport } from './routes/components-date-picker'
+import { Route as ComponentsComboboxRouteImport } from './routes/components-combobox'
+import { Route as ComponentsCollapsibleRouteImport } from './routes/components-collapsible'
+import { Route as ComponentsCheckboxRouteImport } from './routes/components-checkbox'
+import { Route as ComponentsCarouselRouteImport } from './routes/components-carousel'
+import { Route as ComponentsCardRouteImport } from './routes/components-card'
+import { Route as ComponentsButtonRouteImport } from './routes/components-button'
+import { Route as ComponentsBreadcrumbRouteImport } from './routes/components-breadcrumb'
+import { Route as ComponentsBadgeRouteImport } from './routes/components-badge'
+import { Route as ComponentsAvatarRouteImport } from './routes/components-avatar'
+import { Route as ComponentsAspectRatioRouteImport } from './routes/components-aspect-ratio'
+import { Route as ComponentsAlertDialogRouteImport } from './routes/components-alert-dialog'
+import { Route as ComponentsAccordionRouteImport } from './routes/components-accordion'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ComponentsTypographyRouteImport } from './routes/components.typography'
-import { Route as ComponentsTreeViewRouteImport } from './routes/components.tree-view'
-import { Route as ComponentsTooltipRouteImport } from './routes/components.tooltip'
-import { Route as ComponentsToggleRouteImport } from './routes/components.toggle'
-import { Route as ComponentsToasterRouteImport } from './routes/components.toaster'
-import { Route as ComponentsTextInputRouteImport } from './routes/components.text-input'
-import { Route as ComponentsTagsInputRouteImport } from './routes/components.tags-input'
-import { Route as ComponentsTabsRouteImport } from './routes/components.tabs'
-import { Route as ComponentsTableRouteImport } from './routes/components.table'
-import { Route as ComponentsSwitchRouteImport } from './routes/components.switch'
-import { Route as ComponentsSplitterRouteImport } from './routes/components.splitter'
-import { Route as ComponentsSpinnerRouteImport } from './routes/components.spinner'
-import { Route as ComponentsSliderRouteImport } from './routes/components.slider'
-import { Route as ComponentsSkeletonRouteImport } from './routes/components.skeleton'
-import { Route as ComponentsSidebarRouteImport } from './routes/components.sidebar'
-import { Route as ComponentsSheetRouteImport } from './routes/components.sheet'
-import { Route as ComponentsSeparatorRouteImport } from './routes/components.separator'
-import { Route as ComponentsSelectRouteImport } from './routes/components.select'
-import { Route as ComponentsScrollAreaRouteImport } from './routes/components.scroll-area'
-import { Route as ComponentsRadioGroupRouteImport } from './routes/components.radio-group'
-import { Route as ComponentsProgressRouteImport } from './routes/components.progress'
-import { Route as ComponentsPopoverRouteImport } from './routes/components.popover'
-import { Route as ComponentsPinInputRouteImport } from './routes/components.pin-input'
-import { Route as ComponentsPasswordInputRouteImport } from './routes/components.password-input'
-import { Route as ComponentsPaginationRouteImport } from './routes/components.pagination'
-import { Route as ComponentsNumberInputRouteImport } from './routes/components.number-input'
-import { Route as ComponentsNavigationMenuRouteImport } from './routes/components.navigation-menu'
-import { Route as ComponentsMenuComboboxRouteImport } from './routes/components.menu-combobox'
-import { Route as ComponentsMenuRouteImport } from './routes/components.menu'
-import { Route as ComponentsMarqueeRouteImport } from './routes/components.marquee'
-import { Route as ComponentsLinkRouteImport } from './routes/components.link'
-import { Route as ComponentsKbdRouteImport } from './routes/components.kbd'
-import { Route as ComponentsItemRouteImport } from './routes/components.item'
-import { Route as ComponentsInputGroupRouteImport } from './routes/components.input-group'
-import { Route as ComponentsHoverCardRouteImport } from './routes/components.hover-card'
-import { Route as ComponentsFormRouteImport } from './routes/components.form'
-import { Route as ComponentsFieldRouteImport } from './routes/components.field'
-import { Route as ComponentsEmptyRouteImport } from './routes/components.empty'
-import { Route as ComponentsDialogRouteImport } from './routes/components.dialog'
-import { Route as ComponentsDatePickerRouteImport } from './routes/components.date-picker'
-import { Route as ComponentsComboboxRouteImport } from './routes/components.combobox'
-import { Route as ComponentsCollapsibleRouteImport } from './routes/components.collapsible'
-import { Route as ComponentsCheckboxRouteImport } from './routes/components.checkbox'
-import { Route as ComponentsCarouselRouteImport } from './routes/components.carousel'
-import { Route as ComponentsCardRouteImport } from './routes/components.card'
-import { Route as ComponentsButtonRouteImport } from './routes/components.button'
-import { Route as ComponentsBreadcrumbRouteImport } from './routes/components.breadcrumb'
-import { Route as ComponentsBadgeRouteImport } from './routes/components.badge'
-import { Route as ComponentsAvatarRouteImport } from './routes/components.avatar'
-import { Route as ComponentsAspectRatioRouteImport } from './routes/components.aspect-ratio'
-import { Route as ComponentsAlertDialogRouteImport } from './routes/components.alert-dialog'
-import { Route as ComponentsAccordionRouteImport } from './routes/components.accordion'
 
+const ComponentsTypographyRoute = ComponentsTypographyRouteImport.update({
+  id: '/components-typography',
+  path: '/components-typography',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTreeViewRoute = ComponentsTreeViewRouteImport.update({
+  id: '/components-tree-view',
+  path: '/components-tree-view',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTooltipRoute = ComponentsTooltipRouteImport.update({
+  id: '/components-tooltip',
+  path: '/components-tooltip',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsToggleRoute = ComponentsToggleRouteImport.update({
+  id: '/components-toggle',
+  path: '/components-toggle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsToasterRoute = ComponentsToasterRouteImport.update({
+  id: '/components-toaster',
+  path: '/components-toaster',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTextInputRoute = ComponentsTextInputRouteImport.update({
+  id: '/components-text-input',
+  path: '/components-text-input',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTagsInputRoute = ComponentsTagsInputRouteImport.update({
+  id: '/components-tags-input',
+  path: '/components-tags-input',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
+  id: '/components-tabs',
+  path: '/components-tabs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsTableRoute = ComponentsTableRouteImport.update({
+  id: '/components-table',
+  path: '/components-table',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSwitchRoute = ComponentsSwitchRouteImport.update({
+  id: '/components-switch',
+  path: '/components-switch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSplitterRoute = ComponentsSplitterRouteImport.update({
+  id: '/components-splitter',
+  path: '/components-splitter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSpinnerRoute = ComponentsSpinnerRouteImport.update({
+  id: '/components-spinner',
+  path: '/components-spinner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSliderRoute = ComponentsSliderRouteImport.update({
+  id: '/components-slider',
+  path: '/components-slider',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSkeletonRoute = ComponentsSkeletonRouteImport.update({
+  id: '/components-skeleton',
+  path: '/components-skeleton',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSidebarRoute = ComponentsSidebarRouteImport.update({
+  id: '/components-sidebar',
+  path: '/components-sidebar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSheetRoute = ComponentsSheetRouteImport.update({
+  id: '/components-sheet',
+  path: '/components-sheet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSeparatorRoute = ComponentsSeparatorRouteImport.update({
+  id: '/components-separator',
+  path: '/components-separator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSelectRoute = ComponentsSelectRouteImport.update({
+  id: '/components-select',
+  path: '/components-select',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsScrollAreaRoute = ComponentsScrollAreaRouteImport.update({
+  id: '/components-scroll-area',
+  path: '/components-scroll-area',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsRadioGroupRoute = ComponentsRadioGroupRouteImport.update({
+  id: '/components-radio-group',
+  path: '/components-radio-group',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsProgressRoute = ComponentsProgressRouteImport.update({
+  id: '/components-progress',
+  path: '/components-progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsPopoverRoute = ComponentsPopoverRouteImport.update({
+  id: '/components-popover',
+  path: '/components-popover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsPinInputRoute = ComponentsPinInputRouteImport.update({
+  id: '/components-pin-input',
+  path: '/components-pin-input',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsPasswordInputRoute = ComponentsPasswordInputRouteImport.update({
+  id: '/components-password-input',
+  path: '/components-password-input',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
+  id: '/components-pagination',
+  path: '/components-pagination',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsNumberInputRoute = ComponentsNumberInputRouteImport.update({
+  id: '/components-number-input',
+  path: '/components-number-input',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsNavigationMenuRoute =
+  ComponentsNavigationMenuRouteImport.update({
+    id: '/components-navigation-menu',
+    path: '/components-navigation-menu',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ComponentsMenuComboboxRoute = ComponentsMenuComboboxRouteImport.update({
+  id: '/components-menu-combobox',
+  path: '/components-menu-combobox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsMenuRoute = ComponentsMenuRouteImport.update({
+  id: '/components-menu',
+  path: '/components-menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsMarqueeRoute = ComponentsMarqueeRouteImport.update({
+  id: '/components-marquee',
+  path: '/components-marquee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsLinkRoute = ComponentsLinkRouteImport.update({
+  id: '/components-link',
+  path: '/components-link',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsKbdRoute = ComponentsKbdRouteImport.update({
+  id: '/components-kbd',
+  path: '/components-kbd',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsItemRoute = ComponentsItemRouteImport.update({
+  id: '/components-item',
+  path: '/components-item',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsInputGroupRoute = ComponentsInputGroupRouteImport.update({
+  id: '/components-input-group',
+  path: '/components-input-group',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsHoverCardRoute = ComponentsHoverCardRouteImport.update({
+  id: '/components-hover-card',
+  path: '/components-hover-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsFormRoute = ComponentsFormRouteImport.update({
+  id: '/components-form',
+  path: '/components-form',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsFieldRoute = ComponentsFieldRouteImport.update({
+  id: '/components-field',
+  path: '/components-field',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsEmptyRoute = ComponentsEmptyRouteImport.update({
+  id: '/components-empty',
+  path: '/components-empty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsDialogRoute = ComponentsDialogRouteImport.update({
+  id: '/components-dialog',
+  path: '/components-dialog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsDatePickerRoute = ComponentsDatePickerRouteImport.update({
+  id: '/components-date-picker',
+  path: '/components-date-picker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsComboboxRoute = ComponentsComboboxRouteImport.update({
+  id: '/components-combobox',
+  path: '/components-combobox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCollapsibleRoute = ComponentsCollapsibleRouteImport.update({
+  id: '/components-collapsible',
+  path: '/components-collapsible',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCheckboxRoute = ComponentsCheckboxRouteImport.update({
+  id: '/components-checkbox',
+  path: '/components-checkbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCarouselRoute = ComponentsCarouselRouteImport.update({
+  id: '/components-carousel',
+  path: '/components-carousel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCardRoute = ComponentsCardRouteImport.update({
+  id: '/components-card',
+  path: '/components-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsButtonRoute = ComponentsButtonRouteImport.update({
+  id: '/components-button',
+  path: '/components-button',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsBreadcrumbRoute = ComponentsBreadcrumbRouteImport.update({
+  id: '/components-breadcrumb',
+  path: '/components-breadcrumb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsBadgeRoute = ComponentsBadgeRouteImport.update({
+  id: '/components-badge',
+  path: '/components-badge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsAvatarRoute = ComponentsAvatarRouteImport.update({
+  id: '/components-avatar',
+  path: '/components-avatar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsAspectRatioRoute = ComponentsAspectRatioRouteImport.update({
+  id: '/components-aspect-ratio',
+  path: '/components-aspect-ratio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsAlertDialogRoute = ComponentsAlertDialogRouteImport.update({
+  id: '/components-alert-dialog',
+  path: '/components-alert-dialog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsAccordionRoute = ComponentsAccordionRouteImport.update({
+  id: '/components-accordion',
+  path: '/components-accordion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ComponentsTypographyRoute = ComponentsTypographyRouteImport.update({
-  id: '/components/typography',
-  path: '/components/typography',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTreeViewRoute = ComponentsTreeViewRouteImport.update({
-  id: '/components/tree-view',
-  path: '/components/tree-view',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTooltipRoute = ComponentsTooltipRouteImport.update({
-  id: '/components/tooltip',
-  path: '/components/tooltip',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsToggleRoute = ComponentsToggleRouteImport.update({
-  id: '/components/toggle',
-  path: '/components/toggle',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsToasterRoute = ComponentsToasterRouteImport.update({
-  id: '/components/toaster',
-  path: '/components/toaster',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTextInputRoute = ComponentsTextInputRouteImport.update({
-  id: '/components/text-input',
-  path: '/components/text-input',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTagsInputRoute = ComponentsTagsInputRouteImport.update({
-  id: '/components/tags-input',
-  path: '/components/tags-input',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTabsRoute = ComponentsTabsRouteImport.update({
-  id: '/components/tabs',
-  path: '/components/tabs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsTableRoute = ComponentsTableRouteImport.update({
-  id: '/components/table',
-  path: '/components/table',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSwitchRoute = ComponentsSwitchRouteImport.update({
-  id: '/components/switch',
-  path: '/components/switch',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSplitterRoute = ComponentsSplitterRouteImport.update({
-  id: '/components/splitter',
-  path: '/components/splitter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSpinnerRoute = ComponentsSpinnerRouteImport.update({
-  id: '/components/spinner',
-  path: '/components/spinner',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSliderRoute = ComponentsSliderRouteImport.update({
-  id: '/components/slider',
-  path: '/components/slider',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSkeletonRoute = ComponentsSkeletonRouteImport.update({
-  id: '/components/skeleton',
-  path: '/components/skeleton',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSidebarRoute = ComponentsSidebarRouteImport.update({
-  id: '/components/sidebar',
-  path: '/components/sidebar',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSheetRoute = ComponentsSheetRouteImport.update({
-  id: '/components/sheet',
-  path: '/components/sheet',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSeparatorRoute = ComponentsSeparatorRouteImport.update({
-  id: '/components/separator',
-  path: '/components/separator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsSelectRoute = ComponentsSelectRouteImport.update({
-  id: '/components/select',
-  path: '/components/select',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsScrollAreaRoute = ComponentsScrollAreaRouteImport.update({
-  id: '/components/scroll-area',
-  path: '/components/scroll-area',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsRadioGroupRoute = ComponentsRadioGroupRouteImport.update({
-  id: '/components/radio-group',
-  path: '/components/radio-group',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsProgressRoute = ComponentsProgressRouteImport.update({
-  id: '/components/progress',
-  path: '/components/progress',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsPopoverRoute = ComponentsPopoverRouteImport.update({
-  id: '/components/popover',
-  path: '/components/popover',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsPinInputRoute = ComponentsPinInputRouteImport.update({
-  id: '/components/pin-input',
-  path: '/components/pin-input',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsPasswordInputRoute = ComponentsPasswordInputRouteImport.update({
-  id: '/components/password-input',
-  path: '/components/password-input',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsPaginationRoute = ComponentsPaginationRouteImport.update({
-  id: '/components/pagination',
-  path: '/components/pagination',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsNumberInputRoute = ComponentsNumberInputRouteImport.update({
-  id: '/components/number-input',
-  path: '/components/number-input',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsNavigationMenuRoute =
-  ComponentsNavigationMenuRouteImport.update({
-    id: '/components/navigation-menu',
-    path: '/components/navigation-menu',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ComponentsMenuComboboxRoute = ComponentsMenuComboboxRouteImport.update({
-  id: '/components/menu-combobox',
-  path: '/components/menu-combobox',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsMenuRoute = ComponentsMenuRouteImport.update({
-  id: '/components/menu',
-  path: '/components/menu',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsMarqueeRoute = ComponentsMarqueeRouteImport.update({
-  id: '/components/marquee',
-  path: '/components/marquee',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsLinkRoute = ComponentsLinkRouteImport.update({
-  id: '/components/link',
-  path: '/components/link',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsKbdRoute = ComponentsKbdRouteImport.update({
-  id: '/components/kbd',
-  path: '/components/kbd',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsItemRoute = ComponentsItemRouteImport.update({
-  id: '/components/item',
-  path: '/components/item',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsInputGroupRoute = ComponentsInputGroupRouteImport.update({
-  id: '/components/input-group',
-  path: '/components/input-group',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsHoverCardRoute = ComponentsHoverCardRouteImport.update({
-  id: '/components/hover-card',
-  path: '/components/hover-card',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsFormRoute = ComponentsFormRouteImport.update({
-  id: '/components/form',
-  path: '/components/form',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsFieldRoute = ComponentsFieldRouteImport.update({
-  id: '/components/field',
-  path: '/components/field',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsEmptyRoute = ComponentsEmptyRouteImport.update({
-  id: '/components/empty',
-  path: '/components/empty',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsDialogRoute = ComponentsDialogRouteImport.update({
-  id: '/components/dialog',
-  path: '/components/dialog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsDatePickerRoute = ComponentsDatePickerRouteImport.update({
-  id: '/components/date-picker',
-  path: '/components/date-picker',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsComboboxRoute = ComponentsComboboxRouteImport.update({
-  id: '/components/combobox',
-  path: '/components/combobox',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsCollapsibleRoute = ComponentsCollapsibleRouteImport.update({
-  id: '/components/collapsible',
-  path: '/components/collapsible',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsCheckboxRoute = ComponentsCheckboxRouteImport.update({
-  id: '/components/checkbox',
-  path: '/components/checkbox',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsCarouselRoute = ComponentsCarouselRouteImport.update({
-  id: '/components/carousel',
-  path: '/components/carousel',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsCardRoute = ComponentsCardRouteImport.update({
-  id: '/components/card',
-  path: '/components/card',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsButtonRoute = ComponentsButtonRouteImport.update({
-  id: '/components/button',
-  path: '/components/button',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsBreadcrumbRoute = ComponentsBreadcrumbRouteImport.update({
-  id: '/components/breadcrumb',
-  path: '/components/breadcrumb',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsBadgeRoute = ComponentsBadgeRouteImport.update({
-  id: '/components/badge',
-  path: '/components/badge',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsAvatarRoute = ComponentsAvatarRouteImport.update({
-  id: '/components/avatar',
-  path: '/components/avatar',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsAspectRatioRoute = ComponentsAspectRatioRouteImport.update({
-  id: '/components/aspect-ratio',
-  path: '/components/aspect-ratio',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsAlertDialogRoute = ComponentsAlertDialogRouteImport.update({
-  id: '/components/alert-dialog',
-  path: '/components/alert-dialog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComponentsAccordionRoute = ComponentsAccordionRouteImport.update({
-  id: '/components/accordion',
-  path: '/components/accordion',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/components/accordion': typeof ComponentsAccordionRoute
-  '/components/alert-dialog': typeof ComponentsAlertDialogRoute
-  '/components/aspect-ratio': typeof ComponentsAspectRatioRoute
-  '/components/avatar': typeof ComponentsAvatarRoute
-  '/components/badge': typeof ComponentsBadgeRoute
-  '/components/breadcrumb': typeof ComponentsBreadcrumbRoute
-  '/components/button': typeof ComponentsButtonRoute
-  '/components/card': typeof ComponentsCardRoute
-  '/components/carousel': typeof ComponentsCarouselRoute
-  '/components/checkbox': typeof ComponentsCheckboxRoute
-  '/components/collapsible': typeof ComponentsCollapsibleRoute
-  '/components/combobox': typeof ComponentsComboboxRoute
-  '/components/date-picker': typeof ComponentsDatePickerRoute
-  '/components/dialog': typeof ComponentsDialogRoute
-  '/components/empty': typeof ComponentsEmptyRoute
-  '/components/field': typeof ComponentsFieldRoute
-  '/components/form': typeof ComponentsFormRoute
-  '/components/hover-card': typeof ComponentsHoverCardRoute
-  '/components/input-group': typeof ComponentsInputGroupRoute
-  '/components/item': typeof ComponentsItemRoute
-  '/components/kbd': typeof ComponentsKbdRoute
-  '/components/link': typeof ComponentsLinkRoute
-  '/components/marquee': typeof ComponentsMarqueeRoute
-  '/components/menu': typeof ComponentsMenuRoute
-  '/components/menu-combobox': typeof ComponentsMenuComboboxRoute
-  '/components/navigation-menu': typeof ComponentsNavigationMenuRoute
-  '/components/number-input': typeof ComponentsNumberInputRoute
-  '/components/pagination': typeof ComponentsPaginationRoute
-  '/components/password-input': typeof ComponentsPasswordInputRoute
-  '/components/pin-input': typeof ComponentsPinInputRoute
-  '/components/popover': typeof ComponentsPopoverRoute
-  '/components/progress': typeof ComponentsProgressRoute
-  '/components/radio-group': typeof ComponentsRadioGroupRoute
-  '/components/scroll-area': typeof ComponentsScrollAreaRoute
-  '/components/select': typeof ComponentsSelectRoute
-  '/components/separator': typeof ComponentsSeparatorRoute
-  '/components/sheet': typeof ComponentsSheetRoute
-  '/components/sidebar': typeof ComponentsSidebarRoute
-  '/components/skeleton': typeof ComponentsSkeletonRoute
-  '/components/slider': typeof ComponentsSliderRoute
-  '/components/spinner': typeof ComponentsSpinnerRoute
-  '/components/splitter': typeof ComponentsSplitterRoute
-  '/components/switch': typeof ComponentsSwitchRoute
-  '/components/table': typeof ComponentsTableRoute
-  '/components/tabs': typeof ComponentsTabsRoute
-  '/components/tags-input': typeof ComponentsTagsInputRoute
-  '/components/text-input': typeof ComponentsTextInputRoute
-  '/components/toaster': typeof ComponentsToasterRoute
-  '/components/toggle': typeof ComponentsToggleRoute
-  '/components/tooltip': typeof ComponentsTooltipRoute
-  '/components/tree-view': typeof ComponentsTreeViewRoute
-  '/components/typography': typeof ComponentsTypographyRoute
+  '/components-accordion': typeof ComponentsAccordionRoute
+  '/components-alert-dialog': typeof ComponentsAlertDialogRoute
+  '/components-aspect-ratio': typeof ComponentsAspectRatioRoute
+  '/components-avatar': typeof ComponentsAvatarRoute
+  '/components-badge': typeof ComponentsBadgeRoute
+  '/components-breadcrumb': typeof ComponentsBreadcrumbRoute
+  '/components-button': typeof ComponentsButtonRoute
+  '/components-card': typeof ComponentsCardRoute
+  '/components-carousel': typeof ComponentsCarouselRoute
+  '/components-checkbox': typeof ComponentsCheckboxRoute
+  '/components-collapsible': typeof ComponentsCollapsibleRoute
+  '/components-combobox': typeof ComponentsComboboxRoute
+  '/components-date-picker': typeof ComponentsDatePickerRoute
+  '/components-dialog': typeof ComponentsDialogRoute
+  '/components-empty': typeof ComponentsEmptyRoute
+  '/components-field': typeof ComponentsFieldRoute
+  '/components-form': typeof ComponentsFormRoute
+  '/components-hover-card': typeof ComponentsHoverCardRoute
+  '/components-input-group': typeof ComponentsInputGroupRoute
+  '/components-item': typeof ComponentsItemRoute
+  '/components-kbd': typeof ComponentsKbdRoute
+  '/components-link': typeof ComponentsLinkRoute
+  '/components-marquee': typeof ComponentsMarqueeRoute
+  '/components-menu': typeof ComponentsMenuRoute
+  '/components-menu-combobox': typeof ComponentsMenuComboboxRoute
+  '/components-navigation-menu': typeof ComponentsNavigationMenuRoute
+  '/components-number-input': typeof ComponentsNumberInputRoute
+  '/components-pagination': typeof ComponentsPaginationRoute
+  '/components-password-input': typeof ComponentsPasswordInputRoute
+  '/components-pin-input': typeof ComponentsPinInputRoute
+  '/components-popover': typeof ComponentsPopoverRoute
+  '/components-progress': typeof ComponentsProgressRoute
+  '/components-radio-group': typeof ComponentsRadioGroupRoute
+  '/components-scroll-area': typeof ComponentsScrollAreaRoute
+  '/components-select': typeof ComponentsSelectRoute
+  '/components-separator': typeof ComponentsSeparatorRoute
+  '/components-sheet': typeof ComponentsSheetRoute
+  '/components-sidebar': typeof ComponentsSidebarRoute
+  '/components-skeleton': typeof ComponentsSkeletonRoute
+  '/components-slider': typeof ComponentsSliderRoute
+  '/components-spinner': typeof ComponentsSpinnerRoute
+  '/components-splitter': typeof ComponentsSplitterRoute
+  '/components-switch': typeof ComponentsSwitchRoute
+  '/components-table': typeof ComponentsTableRoute
+  '/components-tabs': typeof ComponentsTabsRoute
+  '/components-tags-input': typeof ComponentsTagsInputRoute
+  '/components-text-input': typeof ComponentsTextInputRoute
+  '/components-toaster': typeof ComponentsToasterRoute
+  '/components-toggle': typeof ComponentsToggleRoute
+  '/components-tooltip': typeof ComponentsTooltipRoute
+  '/components-tree-view': typeof ComponentsTreeViewRoute
+  '/components-typography': typeof ComponentsTypographyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/components/accordion': typeof ComponentsAccordionRoute
-  '/components/alert-dialog': typeof ComponentsAlertDialogRoute
-  '/components/aspect-ratio': typeof ComponentsAspectRatioRoute
-  '/components/avatar': typeof ComponentsAvatarRoute
-  '/components/badge': typeof ComponentsBadgeRoute
-  '/components/breadcrumb': typeof ComponentsBreadcrumbRoute
-  '/components/button': typeof ComponentsButtonRoute
-  '/components/card': typeof ComponentsCardRoute
-  '/components/carousel': typeof ComponentsCarouselRoute
-  '/components/checkbox': typeof ComponentsCheckboxRoute
-  '/components/collapsible': typeof ComponentsCollapsibleRoute
-  '/components/combobox': typeof ComponentsComboboxRoute
-  '/components/date-picker': typeof ComponentsDatePickerRoute
-  '/components/dialog': typeof ComponentsDialogRoute
-  '/components/empty': typeof ComponentsEmptyRoute
-  '/components/field': typeof ComponentsFieldRoute
-  '/components/form': typeof ComponentsFormRoute
-  '/components/hover-card': typeof ComponentsHoverCardRoute
-  '/components/input-group': typeof ComponentsInputGroupRoute
-  '/components/item': typeof ComponentsItemRoute
-  '/components/kbd': typeof ComponentsKbdRoute
-  '/components/link': typeof ComponentsLinkRoute
-  '/components/marquee': typeof ComponentsMarqueeRoute
-  '/components/menu': typeof ComponentsMenuRoute
-  '/components/menu-combobox': typeof ComponentsMenuComboboxRoute
-  '/components/navigation-menu': typeof ComponentsNavigationMenuRoute
-  '/components/number-input': typeof ComponentsNumberInputRoute
-  '/components/pagination': typeof ComponentsPaginationRoute
-  '/components/password-input': typeof ComponentsPasswordInputRoute
-  '/components/pin-input': typeof ComponentsPinInputRoute
-  '/components/popover': typeof ComponentsPopoverRoute
-  '/components/progress': typeof ComponentsProgressRoute
-  '/components/radio-group': typeof ComponentsRadioGroupRoute
-  '/components/scroll-area': typeof ComponentsScrollAreaRoute
-  '/components/select': typeof ComponentsSelectRoute
-  '/components/separator': typeof ComponentsSeparatorRoute
-  '/components/sheet': typeof ComponentsSheetRoute
-  '/components/sidebar': typeof ComponentsSidebarRoute
-  '/components/skeleton': typeof ComponentsSkeletonRoute
-  '/components/slider': typeof ComponentsSliderRoute
-  '/components/spinner': typeof ComponentsSpinnerRoute
-  '/components/splitter': typeof ComponentsSplitterRoute
-  '/components/switch': typeof ComponentsSwitchRoute
-  '/components/table': typeof ComponentsTableRoute
-  '/components/tabs': typeof ComponentsTabsRoute
-  '/components/tags-input': typeof ComponentsTagsInputRoute
-  '/components/text-input': typeof ComponentsTextInputRoute
-  '/components/toaster': typeof ComponentsToasterRoute
-  '/components/toggle': typeof ComponentsToggleRoute
-  '/components/tooltip': typeof ComponentsTooltipRoute
-  '/components/tree-view': typeof ComponentsTreeViewRoute
-  '/components/typography': typeof ComponentsTypographyRoute
+  '/components-accordion': typeof ComponentsAccordionRoute
+  '/components-alert-dialog': typeof ComponentsAlertDialogRoute
+  '/components-aspect-ratio': typeof ComponentsAspectRatioRoute
+  '/components-avatar': typeof ComponentsAvatarRoute
+  '/components-badge': typeof ComponentsBadgeRoute
+  '/components-breadcrumb': typeof ComponentsBreadcrumbRoute
+  '/components-button': typeof ComponentsButtonRoute
+  '/components-card': typeof ComponentsCardRoute
+  '/components-carousel': typeof ComponentsCarouselRoute
+  '/components-checkbox': typeof ComponentsCheckboxRoute
+  '/components-collapsible': typeof ComponentsCollapsibleRoute
+  '/components-combobox': typeof ComponentsComboboxRoute
+  '/components-date-picker': typeof ComponentsDatePickerRoute
+  '/components-dialog': typeof ComponentsDialogRoute
+  '/components-empty': typeof ComponentsEmptyRoute
+  '/components-field': typeof ComponentsFieldRoute
+  '/components-form': typeof ComponentsFormRoute
+  '/components-hover-card': typeof ComponentsHoverCardRoute
+  '/components-input-group': typeof ComponentsInputGroupRoute
+  '/components-item': typeof ComponentsItemRoute
+  '/components-kbd': typeof ComponentsKbdRoute
+  '/components-link': typeof ComponentsLinkRoute
+  '/components-marquee': typeof ComponentsMarqueeRoute
+  '/components-menu': typeof ComponentsMenuRoute
+  '/components-menu-combobox': typeof ComponentsMenuComboboxRoute
+  '/components-navigation-menu': typeof ComponentsNavigationMenuRoute
+  '/components-number-input': typeof ComponentsNumberInputRoute
+  '/components-pagination': typeof ComponentsPaginationRoute
+  '/components-password-input': typeof ComponentsPasswordInputRoute
+  '/components-pin-input': typeof ComponentsPinInputRoute
+  '/components-popover': typeof ComponentsPopoverRoute
+  '/components-progress': typeof ComponentsProgressRoute
+  '/components-radio-group': typeof ComponentsRadioGroupRoute
+  '/components-scroll-area': typeof ComponentsScrollAreaRoute
+  '/components-select': typeof ComponentsSelectRoute
+  '/components-separator': typeof ComponentsSeparatorRoute
+  '/components-sheet': typeof ComponentsSheetRoute
+  '/components-sidebar': typeof ComponentsSidebarRoute
+  '/components-skeleton': typeof ComponentsSkeletonRoute
+  '/components-slider': typeof ComponentsSliderRoute
+  '/components-spinner': typeof ComponentsSpinnerRoute
+  '/components-splitter': typeof ComponentsSplitterRoute
+  '/components-switch': typeof ComponentsSwitchRoute
+  '/components-table': typeof ComponentsTableRoute
+  '/components-tabs': typeof ComponentsTabsRoute
+  '/components-tags-input': typeof ComponentsTagsInputRoute
+  '/components-text-input': typeof ComponentsTextInputRoute
+  '/components-toaster': typeof ComponentsToasterRoute
+  '/components-toggle': typeof ComponentsToggleRoute
+  '/components-tooltip': typeof ComponentsTooltipRoute
+  '/components-tree-view': typeof ComponentsTreeViewRoute
+  '/components-typography': typeof ComponentsTypographyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/components/accordion': typeof ComponentsAccordionRoute
-  '/components/alert-dialog': typeof ComponentsAlertDialogRoute
-  '/components/aspect-ratio': typeof ComponentsAspectRatioRoute
-  '/components/avatar': typeof ComponentsAvatarRoute
-  '/components/badge': typeof ComponentsBadgeRoute
-  '/components/breadcrumb': typeof ComponentsBreadcrumbRoute
-  '/components/button': typeof ComponentsButtonRoute
-  '/components/card': typeof ComponentsCardRoute
-  '/components/carousel': typeof ComponentsCarouselRoute
-  '/components/checkbox': typeof ComponentsCheckboxRoute
-  '/components/collapsible': typeof ComponentsCollapsibleRoute
-  '/components/combobox': typeof ComponentsComboboxRoute
-  '/components/date-picker': typeof ComponentsDatePickerRoute
-  '/components/dialog': typeof ComponentsDialogRoute
-  '/components/empty': typeof ComponentsEmptyRoute
-  '/components/field': typeof ComponentsFieldRoute
-  '/components/form': typeof ComponentsFormRoute
-  '/components/hover-card': typeof ComponentsHoverCardRoute
-  '/components/input-group': typeof ComponentsInputGroupRoute
-  '/components/item': typeof ComponentsItemRoute
-  '/components/kbd': typeof ComponentsKbdRoute
-  '/components/link': typeof ComponentsLinkRoute
-  '/components/marquee': typeof ComponentsMarqueeRoute
-  '/components/menu': typeof ComponentsMenuRoute
-  '/components/menu-combobox': typeof ComponentsMenuComboboxRoute
-  '/components/navigation-menu': typeof ComponentsNavigationMenuRoute
-  '/components/number-input': typeof ComponentsNumberInputRoute
-  '/components/pagination': typeof ComponentsPaginationRoute
-  '/components/password-input': typeof ComponentsPasswordInputRoute
-  '/components/pin-input': typeof ComponentsPinInputRoute
-  '/components/popover': typeof ComponentsPopoverRoute
-  '/components/progress': typeof ComponentsProgressRoute
-  '/components/radio-group': typeof ComponentsRadioGroupRoute
-  '/components/scroll-area': typeof ComponentsScrollAreaRoute
-  '/components/select': typeof ComponentsSelectRoute
-  '/components/separator': typeof ComponentsSeparatorRoute
-  '/components/sheet': typeof ComponentsSheetRoute
-  '/components/sidebar': typeof ComponentsSidebarRoute
-  '/components/skeleton': typeof ComponentsSkeletonRoute
-  '/components/slider': typeof ComponentsSliderRoute
-  '/components/spinner': typeof ComponentsSpinnerRoute
-  '/components/splitter': typeof ComponentsSplitterRoute
-  '/components/switch': typeof ComponentsSwitchRoute
-  '/components/table': typeof ComponentsTableRoute
-  '/components/tabs': typeof ComponentsTabsRoute
-  '/components/tags-input': typeof ComponentsTagsInputRoute
-  '/components/text-input': typeof ComponentsTextInputRoute
-  '/components/toaster': typeof ComponentsToasterRoute
-  '/components/toggle': typeof ComponentsToggleRoute
-  '/components/tooltip': typeof ComponentsTooltipRoute
-  '/components/tree-view': typeof ComponentsTreeViewRoute
-  '/components/typography': typeof ComponentsTypographyRoute
+  '/components-accordion': typeof ComponentsAccordionRoute
+  '/components-alert-dialog': typeof ComponentsAlertDialogRoute
+  '/components-aspect-ratio': typeof ComponentsAspectRatioRoute
+  '/components-avatar': typeof ComponentsAvatarRoute
+  '/components-badge': typeof ComponentsBadgeRoute
+  '/components-breadcrumb': typeof ComponentsBreadcrumbRoute
+  '/components-button': typeof ComponentsButtonRoute
+  '/components-card': typeof ComponentsCardRoute
+  '/components-carousel': typeof ComponentsCarouselRoute
+  '/components-checkbox': typeof ComponentsCheckboxRoute
+  '/components-collapsible': typeof ComponentsCollapsibleRoute
+  '/components-combobox': typeof ComponentsComboboxRoute
+  '/components-date-picker': typeof ComponentsDatePickerRoute
+  '/components-dialog': typeof ComponentsDialogRoute
+  '/components-empty': typeof ComponentsEmptyRoute
+  '/components-field': typeof ComponentsFieldRoute
+  '/components-form': typeof ComponentsFormRoute
+  '/components-hover-card': typeof ComponentsHoverCardRoute
+  '/components-input-group': typeof ComponentsInputGroupRoute
+  '/components-item': typeof ComponentsItemRoute
+  '/components-kbd': typeof ComponentsKbdRoute
+  '/components-link': typeof ComponentsLinkRoute
+  '/components-marquee': typeof ComponentsMarqueeRoute
+  '/components-menu': typeof ComponentsMenuRoute
+  '/components-menu-combobox': typeof ComponentsMenuComboboxRoute
+  '/components-navigation-menu': typeof ComponentsNavigationMenuRoute
+  '/components-number-input': typeof ComponentsNumberInputRoute
+  '/components-pagination': typeof ComponentsPaginationRoute
+  '/components-password-input': typeof ComponentsPasswordInputRoute
+  '/components-pin-input': typeof ComponentsPinInputRoute
+  '/components-popover': typeof ComponentsPopoverRoute
+  '/components-progress': typeof ComponentsProgressRoute
+  '/components-radio-group': typeof ComponentsRadioGroupRoute
+  '/components-scroll-area': typeof ComponentsScrollAreaRoute
+  '/components-select': typeof ComponentsSelectRoute
+  '/components-separator': typeof ComponentsSeparatorRoute
+  '/components-sheet': typeof ComponentsSheetRoute
+  '/components-sidebar': typeof ComponentsSidebarRoute
+  '/components-skeleton': typeof ComponentsSkeletonRoute
+  '/components-slider': typeof ComponentsSliderRoute
+  '/components-spinner': typeof ComponentsSpinnerRoute
+  '/components-splitter': typeof ComponentsSplitterRoute
+  '/components-switch': typeof ComponentsSwitchRoute
+  '/components-table': typeof ComponentsTableRoute
+  '/components-tabs': typeof ComponentsTabsRoute
+  '/components-tags-input': typeof ComponentsTagsInputRoute
+  '/components-text-input': typeof ComponentsTextInputRoute
+  '/components-toaster': typeof ComponentsToasterRoute
+  '/components-toggle': typeof ComponentsToggleRoute
+  '/components-tooltip': typeof ComponentsTooltipRoute
+  '/components-tree-view': typeof ComponentsTreeViewRoute
+  '/components-typography': typeof ComponentsTypographyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/components/accordion'
-    | '/components/alert-dialog'
-    | '/components/aspect-ratio'
-    | '/components/avatar'
-    | '/components/badge'
-    | '/components/breadcrumb'
-    | '/components/button'
-    | '/components/card'
-    | '/components/carousel'
-    | '/components/checkbox'
-    | '/components/collapsible'
-    | '/components/combobox'
-    | '/components/date-picker'
-    | '/components/dialog'
-    | '/components/empty'
-    | '/components/field'
-    | '/components/form'
-    | '/components/hover-card'
-    | '/components/input-group'
-    | '/components/item'
-    | '/components/kbd'
-    | '/components/link'
-    | '/components/marquee'
-    | '/components/menu'
-    | '/components/menu-combobox'
-    | '/components/navigation-menu'
-    | '/components/number-input'
-    | '/components/pagination'
-    | '/components/password-input'
-    | '/components/pin-input'
-    | '/components/popover'
-    | '/components/progress'
-    | '/components/radio-group'
-    | '/components/scroll-area'
-    | '/components/select'
-    | '/components/separator'
-    | '/components/sheet'
-    | '/components/sidebar'
-    | '/components/skeleton'
-    | '/components/slider'
-    | '/components/spinner'
-    | '/components/splitter'
-    | '/components/switch'
-    | '/components/table'
-    | '/components/tabs'
-    | '/components/tags-input'
-    | '/components/text-input'
-    | '/components/toaster'
-    | '/components/toggle'
-    | '/components/tooltip'
-    | '/components/tree-view'
-    | '/components/typography'
+    | '/components-accordion'
+    | '/components-alert-dialog'
+    | '/components-aspect-ratio'
+    | '/components-avatar'
+    | '/components-badge'
+    | '/components-breadcrumb'
+    | '/components-button'
+    | '/components-card'
+    | '/components-carousel'
+    | '/components-checkbox'
+    | '/components-collapsible'
+    | '/components-combobox'
+    | '/components-date-picker'
+    | '/components-dialog'
+    | '/components-empty'
+    | '/components-field'
+    | '/components-form'
+    | '/components-hover-card'
+    | '/components-input-group'
+    | '/components-item'
+    | '/components-kbd'
+    | '/components-link'
+    | '/components-marquee'
+    | '/components-menu'
+    | '/components-menu-combobox'
+    | '/components-navigation-menu'
+    | '/components-number-input'
+    | '/components-pagination'
+    | '/components-password-input'
+    | '/components-pin-input'
+    | '/components-popover'
+    | '/components-progress'
+    | '/components-radio-group'
+    | '/components-scroll-area'
+    | '/components-select'
+    | '/components-separator'
+    | '/components-sheet'
+    | '/components-sidebar'
+    | '/components-skeleton'
+    | '/components-slider'
+    | '/components-spinner'
+    | '/components-splitter'
+    | '/components-switch'
+    | '/components-table'
+    | '/components-tabs'
+    | '/components-tags-input'
+    | '/components-text-input'
+    | '/components-toaster'
+    | '/components-toggle'
+    | '/components-tooltip'
+    | '/components-tree-view'
+    | '/components-typography'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/components/accordion'
-    | '/components/alert-dialog'
-    | '/components/aspect-ratio'
-    | '/components/avatar'
-    | '/components/badge'
-    | '/components/breadcrumb'
-    | '/components/button'
-    | '/components/card'
-    | '/components/carousel'
-    | '/components/checkbox'
-    | '/components/collapsible'
-    | '/components/combobox'
-    | '/components/date-picker'
-    | '/components/dialog'
-    | '/components/empty'
-    | '/components/field'
-    | '/components/form'
-    | '/components/hover-card'
-    | '/components/input-group'
-    | '/components/item'
-    | '/components/kbd'
-    | '/components/link'
-    | '/components/marquee'
-    | '/components/menu'
-    | '/components/menu-combobox'
-    | '/components/navigation-menu'
-    | '/components/number-input'
-    | '/components/pagination'
-    | '/components/password-input'
-    | '/components/pin-input'
-    | '/components/popover'
-    | '/components/progress'
-    | '/components/radio-group'
-    | '/components/scroll-area'
-    | '/components/select'
-    | '/components/separator'
-    | '/components/sheet'
-    | '/components/sidebar'
-    | '/components/skeleton'
-    | '/components/slider'
-    | '/components/spinner'
-    | '/components/splitter'
-    | '/components/switch'
-    | '/components/table'
-    | '/components/tabs'
-    | '/components/tags-input'
-    | '/components/text-input'
-    | '/components/toaster'
-    | '/components/toggle'
-    | '/components/tooltip'
-    | '/components/tree-view'
-    | '/components/typography'
+    | '/components-accordion'
+    | '/components-alert-dialog'
+    | '/components-aspect-ratio'
+    | '/components-avatar'
+    | '/components-badge'
+    | '/components-breadcrumb'
+    | '/components-button'
+    | '/components-card'
+    | '/components-carousel'
+    | '/components-checkbox'
+    | '/components-collapsible'
+    | '/components-combobox'
+    | '/components-date-picker'
+    | '/components-dialog'
+    | '/components-empty'
+    | '/components-field'
+    | '/components-form'
+    | '/components-hover-card'
+    | '/components-input-group'
+    | '/components-item'
+    | '/components-kbd'
+    | '/components-link'
+    | '/components-marquee'
+    | '/components-menu'
+    | '/components-menu-combobox'
+    | '/components-navigation-menu'
+    | '/components-number-input'
+    | '/components-pagination'
+    | '/components-password-input'
+    | '/components-pin-input'
+    | '/components-popover'
+    | '/components-progress'
+    | '/components-radio-group'
+    | '/components-scroll-area'
+    | '/components-select'
+    | '/components-separator'
+    | '/components-sheet'
+    | '/components-sidebar'
+    | '/components-skeleton'
+    | '/components-slider'
+    | '/components-spinner'
+    | '/components-splitter'
+    | '/components-switch'
+    | '/components-table'
+    | '/components-tabs'
+    | '/components-tags-input'
+    | '/components-text-input'
+    | '/components-toaster'
+    | '/components-toggle'
+    | '/components-tooltip'
+    | '/components-tree-view'
+    | '/components-typography'
   id:
     | '__root__'
     | '/'
-    | '/components/accordion'
-    | '/components/alert-dialog'
-    | '/components/aspect-ratio'
-    | '/components/avatar'
-    | '/components/badge'
-    | '/components/breadcrumb'
-    | '/components/button'
-    | '/components/card'
-    | '/components/carousel'
-    | '/components/checkbox'
-    | '/components/collapsible'
-    | '/components/combobox'
-    | '/components/date-picker'
-    | '/components/dialog'
-    | '/components/empty'
-    | '/components/field'
-    | '/components/form'
-    | '/components/hover-card'
-    | '/components/input-group'
-    | '/components/item'
-    | '/components/kbd'
-    | '/components/link'
-    | '/components/marquee'
-    | '/components/menu'
-    | '/components/menu-combobox'
-    | '/components/navigation-menu'
-    | '/components/number-input'
-    | '/components/pagination'
-    | '/components/password-input'
-    | '/components/pin-input'
-    | '/components/popover'
-    | '/components/progress'
-    | '/components/radio-group'
-    | '/components/scroll-area'
-    | '/components/select'
-    | '/components/separator'
-    | '/components/sheet'
-    | '/components/sidebar'
-    | '/components/skeleton'
-    | '/components/slider'
-    | '/components/spinner'
-    | '/components/splitter'
-    | '/components/switch'
-    | '/components/table'
-    | '/components/tabs'
-    | '/components/tags-input'
-    | '/components/text-input'
-    | '/components/toaster'
-    | '/components/toggle'
-    | '/components/tooltip'
-    | '/components/tree-view'
-    | '/components/typography'
+    | '/components-accordion'
+    | '/components-alert-dialog'
+    | '/components-aspect-ratio'
+    | '/components-avatar'
+    | '/components-badge'
+    | '/components-breadcrumb'
+    | '/components-button'
+    | '/components-card'
+    | '/components-carousel'
+    | '/components-checkbox'
+    | '/components-collapsible'
+    | '/components-combobox'
+    | '/components-date-picker'
+    | '/components-dialog'
+    | '/components-empty'
+    | '/components-field'
+    | '/components-form'
+    | '/components-hover-card'
+    | '/components-input-group'
+    | '/components-item'
+    | '/components-kbd'
+    | '/components-link'
+    | '/components-marquee'
+    | '/components-menu'
+    | '/components-menu-combobox'
+    | '/components-navigation-menu'
+    | '/components-number-input'
+    | '/components-pagination'
+    | '/components-password-input'
+    | '/components-pin-input'
+    | '/components-popover'
+    | '/components-progress'
+    | '/components-radio-group'
+    | '/components-scroll-area'
+    | '/components-select'
+    | '/components-separator'
+    | '/components-sheet'
+    | '/components-sidebar'
+    | '/components-skeleton'
+    | '/components-slider'
+    | '/components-spinner'
+    | '/components-splitter'
+    | '/components-switch'
+    | '/components-table'
+    | '/components-tabs'
+    | '/components-tags-input'
+    | '/components-text-input'
+    | '/components-toaster'
+    | '/components-toggle'
+    | '/components-tooltip'
+    | '/components-tree-view'
+    | '/components-typography'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -722,375 +722,375 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/solid-router' {
   interface FileRoutesByPath {
+    '/components-typography': {
+      id: '/components-typography'
+      path: '/components-typography'
+      fullPath: '/components-typography'
+      preLoaderRoute: typeof ComponentsTypographyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-tree-view': {
+      id: '/components-tree-view'
+      path: '/components-tree-view'
+      fullPath: '/components-tree-view'
+      preLoaderRoute: typeof ComponentsTreeViewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-tooltip': {
+      id: '/components-tooltip'
+      path: '/components-tooltip'
+      fullPath: '/components-tooltip'
+      preLoaderRoute: typeof ComponentsTooltipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-toggle': {
+      id: '/components-toggle'
+      path: '/components-toggle'
+      fullPath: '/components-toggle'
+      preLoaderRoute: typeof ComponentsToggleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-toaster': {
+      id: '/components-toaster'
+      path: '/components-toaster'
+      fullPath: '/components-toaster'
+      preLoaderRoute: typeof ComponentsToasterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-text-input': {
+      id: '/components-text-input'
+      path: '/components-text-input'
+      fullPath: '/components-text-input'
+      preLoaderRoute: typeof ComponentsTextInputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-tags-input': {
+      id: '/components-tags-input'
+      path: '/components-tags-input'
+      fullPath: '/components-tags-input'
+      preLoaderRoute: typeof ComponentsTagsInputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-tabs': {
+      id: '/components-tabs'
+      path: '/components-tabs'
+      fullPath: '/components-tabs'
+      preLoaderRoute: typeof ComponentsTabsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-table': {
+      id: '/components-table'
+      path: '/components-table'
+      fullPath: '/components-table'
+      preLoaderRoute: typeof ComponentsTableRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-switch': {
+      id: '/components-switch'
+      path: '/components-switch'
+      fullPath: '/components-switch'
+      preLoaderRoute: typeof ComponentsSwitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-splitter': {
+      id: '/components-splitter'
+      path: '/components-splitter'
+      fullPath: '/components-splitter'
+      preLoaderRoute: typeof ComponentsSplitterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-spinner': {
+      id: '/components-spinner'
+      path: '/components-spinner'
+      fullPath: '/components-spinner'
+      preLoaderRoute: typeof ComponentsSpinnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-slider': {
+      id: '/components-slider'
+      path: '/components-slider'
+      fullPath: '/components-slider'
+      preLoaderRoute: typeof ComponentsSliderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-skeleton': {
+      id: '/components-skeleton'
+      path: '/components-skeleton'
+      fullPath: '/components-skeleton'
+      preLoaderRoute: typeof ComponentsSkeletonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-sidebar': {
+      id: '/components-sidebar'
+      path: '/components-sidebar'
+      fullPath: '/components-sidebar'
+      preLoaderRoute: typeof ComponentsSidebarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-sheet': {
+      id: '/components-sheet'
+      path: '/components-sheet'
+      fullPath: '/components-sheet'
+      preLoaderRoute: typeof ComponentsSheetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-separator': {
+      id: '/components-separator'
+      path: '/components-separator'
+      fullPath: '/components-separator'
+      preLoaderRoute: typeof ComponentsSeparatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-select': {
+      id: '/components-select'
+      path: '/components-select'
+      fullPath: '/components-select'
+      preLoaderRoute: typeof ComponentsSelectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-scroll-area': {
+      id: '/components-scroll-area'
+      path: '/components-scroll-area'
+      fullPath: '/components-scroll-area'
+      preLoaderRoute: typeof ComponentsScrollAreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-radio-group': {
+      id: '/components-radio-group'
+      path: '/components-radio-group'
+      fullPath: '/components-radio-group'
+      preLoaderRoute: typeof ComponentsRadioGroupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-progress': {
+      id: '/components-progress'
+      path: '/components-progress'
+      fullPath: '/components-progress'
+      preLoaderRoute: typeof ComponentsProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-popover': {
+      id: '/components-popover'
+      path: '/components-popover'
+      fullPath: '/components-popover'
+      preLoaderRoute: typeof ComponentsPopoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-pin-input': {
+      id: '/components-pin-input'
+      path: '/components-pin-input'
+      fullPath: '/components-pin-input'
+      preLoaderRoute: typeof ComponentsPinInputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-password-input': {
+      id: '/components-password-input'
+      path: '/components-password-input'
+      fullPath: '/components-password-input'
+      preLoaderRoute: typeof ComponentsPasswordInputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-pagination': {
+      id: '/components-pagination'
+      path: '/components-pagination'
+      fullPath: '/components-pagination'
+      preLoaderRoute: typeof ComponentsPaginationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-number-input': {
+      id: '/components-number-input'
+      path: '/components-number-input'
+      fullPath: '/components-number-input'
+      preLoaderRoute: typeof ComponentsNumberInputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-navigation-menu': {
+      id: '/components-navigation-menu'
+      path: '/components-navigation-menu'
+      fullPath: '/components-navigation-menu'
+      preLoaderRoute: typeof ComponentsNavigationMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-menu-combobox': {
+      id: '/components-menu-combobox'
+      path: '/components-menu-combobox'
+      fullPath: '/components-menu-combobox'
+      preLoaderRoute: typeof ComponentsMenuComboboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-menu': {
+      id: '/components-menu'
+      path: '/components-menu'
+      fullPath: '/components-menu'
+      preLoaderRoute: typeof ComponentsMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-marquee': {
+      id: '/components-marquee'
+      path: '/components-marquee'
+      fullPath: '/components-marquee'
+      preLoaderRoute: typeof ComponentsMarqueeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-link': {
+      id: '/components-link'
+      path: '/components-link'
+      fullPath: '/components-link'
+      preLoaderRoute: typeof ComponentsLinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-kbd': {
+      id: '/components-kbd'
+      path: '/components-kbd'
+      fullPath: '/components-kbd'
+      preLoaderRoute: typeof ComponentsKbdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-item': {
+      id: '/components-item'
+      path: '/components-item'
+      fullPath: '/components-item'
+      preLoaderRoute: typeof ComponentsItemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-input-group': {
+      id: '/components-input-group'
+      path: '/components-input-group'
+      fullPath: '/components-input-group'
+      preLoaderRoute: typeof ComponentsInputGroupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-hover-card': {
+      id: '/components-hover-card'
+      path: '/components-hover-card'
+      fullPath: '/components-hover-card'
+      preLoaderRoute: typeof ComponentsHoverCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-form': {
+      id: '/components-form'
+      path: '/components-form'
+      fullPath: '/components-form'
+      preLoaderRoute: typeof ComponentsFormRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-field': {
+      id: '/components-field'
+      path: '/components-field'
+      fullPath: '/components-field'
+      preLoaderRoute: typeof ComponentsFieldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-empty': {
+      id: '/components-empty'
+      path: '/components-empty'
+      fullPath: '/components-empty'
+      preLoaderRoute: typeof ComponentsEmptyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-dialog': {
+      id: '/components-dialog'
+      path: '/components-dialog'
+      fullPath: '/components-dialog'
+      preLoaderRoute: typeof ComponentsDialogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-date-picker': {
+      id: '/components-date-picker'
+      path: '/components-date-picker'
+      fullPath: '/components-date-picker'
+      preLoaderRoute: typeof ComponentsDatePickerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-combobox': {
+      id: '/components-combobox'
+      path: '/components-combobox'
+      fullPath: '/components-combobox'
+      preLoaderRoute: typeof ComponentsComboboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-collapsible': {
+      id: '/components-collapsible'
+      path: '/components-collapsible'
+      fullPath: '/components-collapsible'
+      preLoaderRoute: typeof ComponentsCollapsibleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-checkbox': {
+      id: '/components-checkbox'
+      path: '/components-checkbox'
+      fullPath: '/components-checkbox'
+      preLoaderRoute: typeof ComponentsCheckboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-carousel': {
+      id: '/components-carousel'
+      path: '/components-carousel'
+      fullPath: '/components-carousel'
+      preLoaderRoute: typeof ComponentsCarouselRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-card': {
+      id: '/components-card'
+      path: '/components-card'
+      fullPath: '/components-card'
+      preLoaderRoute: typeof ComponentsCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-button': {
+      id: '/components-button'
+      path: '/components-button'
+      fullPath: '/components-button'
+      preLoaderRoute: typeof ComponentsButtonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-breadcrumb': {
+      id: '/components-breadcrumb'
+      path: '/components-breadcrumb'
+      fullPath: '/components-breadcrumb'
+      preLoaderRoute: typeof ComponentsBreadcrumbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-badge': {
+      id: '/components-badge'
+      path: '/components-badge'
+      fullPath: '/components-badge'
+      preLoaderRoute: typeof ComponentsBadgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-avatar': {
+      id: '/components-avatar'
+      path: '/components-avatar'
+      fullPath: '/components-avatar'
+      preLoaderRoute: typeof ComponentsAvatarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-aspect-ratio': {
+      id: '/components-aspect-ratio'
+      path: '/components-aspect-ratio'
+      fullPath: '/components-aspect-ratio'
+      preLoaderRoute: typeof ComponentsAspectRatioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-alert-dialog': {
+      id: '/components-alert-dialog'
+      path: '/components-alert-dialog'
+      fullPath: '/components-alert-dialog'
+      preLoaderRoute: typeof ComponentsAlertDialogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components-accordion': {
+      id: '/components-accordion'
+      path: '/components-accordion'
+      fullPath: '/components-accordion'
+      preLoaderRoute: typeof ComponentsAccordionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/typography': {
-      id: '/components/typography'
-      path: '/components/typography'
-      fullPath: '/components/typography'
-      preLoaderRoute: typeof ComponentsTypographyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/tree-view': {
-      id: '/components/tree-view'
-      path: '/components/tree-view'
-      fullPath: '/components/tree-view'
-      preLoaderRoute: typeof ComponentsTreeViewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/tooltip': {
-      id: '/components/tooltip'
-      path: '/components/tooltip'
-      fullPath: '/components/tooltip'
-      preLoaderRoute: typeof ComponentsTooltipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/toggle': {
-      id: '/components/toggle'
-      path: '/components/toggle'
-      fullPath: '/components/toggle'
-      preLoaderRoute: typeof ComponentsToggleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/toaster': {
-      id: '/components/toaster'
-      path: '/components/toaster'
-      fullPath: '/components/toaster'
-      preLoaderRoute: typeof ComponentsToasterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/text-input': {
-      id: '/components/text-input'
-      path: '/components/text-input'
-      fullPath: '/components/text-input'
-      preLoaderRoute: typeof ComponentsTextInputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/tags-input': {
-      id: '/components/tags-input'
-      path: '/components/tags-input'
-      fullPath: '/components/tags-input'
-      preLoaderRoute: typeof ComponentsTagsInputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/tabs': {
-      id: '/components/tabs'
-      path: '/components/tabs'
-      fullPath: '/components/tabs'
-      preLoaderRoute: typeof ComponentsTabsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/table': {
-      id: '/components/table'
-      path: '/components/table'
-      fullPath: '/components/table'
-      preLoaderRoute: typeof ComponentsTableRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/switch': {
-      id: '/components/switch'
-      path: '/components/switch'
-      fullPath: '/components/switch'
-      preLoaderRoute: typeof ComponentsSwitchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/splitter': {
-      id: '/components/splitter'
-      path: '/components/splitter'
-      fullPath: '/components/splitter'
-      preLoaderRoute: typeof ComponentsSplitterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/spinner': {
-      id: '/components/spinner'
-      path: '/components/spinner'
-      fullPath: '/components/spinner'
-      preLoaderRoute: typeof ComponentsSpinnerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/slider': {
-      id: '/components/slider'
-      path: '/components/slider'
-      fullPath: '/components/slider'
-      preLoaderRoute: typeof ComponentsSliderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/skeleton': {
-      id: '/components/skeleton'
-      path: '/components/skeleton'
-      fullPath: '/components/skeleton'
-      preLoaderRoute: typeof ComponentsSkeletonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/sidebar': {
-      id: '/components/sidebar'
-      path: '/components/sidebar'
-      fullPath: '/components/sidebar'
-      preLoaderRoute: typeof ComponentsSidebarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/sheet': {
-      id: '/components/sheet'
-      path: '/components/sheet'
-      fullPath: '/components/sheet'
-      preLoaderRoute: typeof ComponentsSheetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/separator': {
-      id: '/components/separator'
-      path: '/components/separator'
-      fullPath: '/components/separator'
-      preLoaderRoute: typeof ComponentsSeparatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/select': {
-      id: '/components/select'
-      path: '/components/select'
-      fullPath: '/components/select'
-      preLoaderRoute: typeof ComponentsSelectRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/scroll-area': {
-      id: '/components/scroll-area'
-      path: '/components/scroll-area'
-      fullPath: '/components/scroll-area'
-      preLoaderRoute: typeof ComponentsScrollAreaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/radio-group': {
-      id: '/components/radio-group'
-      path: '/components/radio-group'
-      fullPath: '/components/radio-group'
-      preLoaderRoute: typeof ComponentsRadioGroupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/progress': {
-      id: '/components/progress'
-      path: '/components/progress'
-      fullPath: '/components/progress'
-      preLoaderRoute: typeof ComponentsProgressRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/popover': {
-      id: '/components/popover'
-      path: '/components/popover'
-      fullPath: '/components/popover'
-      preLoaderRoute: typeof ComponentsPopoverRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/pin-input': {
-      id: '/components/pin-input'
-      path: '/components/pin-input'
-      fullPath: '/components/pin-input'
-      preLoaderRoute: typeof ComponentsPinInputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/password-input': {
-      id: '/components/password-input'
-      path: '/components/password-input'
-      fullPath: '/components/password-input'
-      preLoaderRoute: typeof ComponentsPasswordInputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/pagination': {
-      id: '/components/pagination'
-      path: '/components/pagination'
-      fullPath: '/components/pagination'
-      preLoaderRoute: typeof ComponentsPaginationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/number-input': {
-      id: '/components/number-input'
-      path: '/components/number-input'
-      fullPath: '/components/number-input'
-      preLoaderRoute: typeof ComponentsNumberInputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/navigation-menu': {
-      id: '/components/navigation-menu'
-      path: '/components/navigation-menu'
-      fullPath: '/components/navigation-menu'
-      preLoaderRoute: typeof ComponentsNavigationMenuRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/menu-combobox': {
-      id: '/components/menu-combobox'
-      path: '/components/menu-combobox'
-      fullPath: '/components/menu-combobox'
-      preLoaderRoute: typeof ComponentsMenuComboboxRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/menu': {
-      id: '/components/menu'
-      path: '/components/menu'
-      fullPath: '/components/menu'
-      preLoaderRoute: typeof ComponentsMenuRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/marquee': {
-      id: '/components/marquee'
-      path: '/components/marquee'
-      fullPath: '/components/marquee'
-      preLoaderRoute: typeof ComponentsMarqueeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/link': {
-      id: '/components/link'
-      path: '/components/link'
-      fullPath: '/components/link'
-      preLoaderRoute: typeof ComponentsLinkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/kbd': {
-      id: '/components/kbd'
-      path: '/components/kbd'
-      fullPath: '/components/kbd'
-      preLoaderRoute: typeof ComponentsKbdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/item': {
-      id: '/components/item'
-      path: '/components/item'
-      fullPath: '/components/item'
-      preLoaderRoute: typeof ComponentsItemRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/input-group': {
-      id: '/components/input-group'
-      path: '/components/input-group'
-      fullPath: '/components/input-group'
-      preLoaderRoute: typeof ComponentsInputGroupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/hover-card': {
-      id: '/components/hover-card'
-      path: '/components/hover-card'
-      fullPath: '/components/hover-card'
-      preLoaderRoute: typeof ComponentsHoverCardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/form': {
-      id: '/components/form'
-      path: '/components/form'
-      fullPath: '/components/form'
-      preLoaderRoute: typeof ComponentsFormRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/field': {
-      id: '/components/field'
-      path: '/components/field'
-      fullPath: '/components/field'
-      preLoaderRoute: typeof ComponentsFieldRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/empty': {
-      id: '/components/empty'
-      path: '/components/empty'
-      fullPath: '/components/empty'
-      preLoaderRoute: typeof ComponentsEmptyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/dialog': {
-      id: '/components/dialog'
-      path: '/components/dialog'
-      fullPath: '/components/dialog'
-      preLoaderRoute: typeof ComponentsDialogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/date-picker': {
-      id: '/components/date-picker'
-      path: '/components/date-picker'
-      fullPath: '/components/date-picker'
-      preLoaderRoute: typeof ComponentsDatePickerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/combobox': {
-      id: '/components/combobox'
-      path: '/components/combobox'
-      fullPath: '/components/combobox'
-      preLoaderRoute: typeof ComponentsComboboxRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/collapsible': {
-      id: '/components/collapsible'
-      path: '/components/collapsible'
-      fullPath: '/components/collapsible'
-      preLoaderRoute: typeof ComponentsCollapsibleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/checkbox': {
-      id: '/components/checkbox'
-      path: '/components/checkbox'
-      fullPath: '/components/checkbox'
-      preLoaderRoute: typeof ComponentsCheckboxRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/carousel': {
-      id: '/components/carousel'
-      path: '/components/carousel'
-      fullPath: '/components/carousel'
-      preLoaderRoute: typeof ComponentsCarouselRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/card': {
-      id: '/components/card'
-      path: '/components/card'
-      fullPath: '/components/card'
-      preLoaderRoute: typeof ComponentsCardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/button': {
-      id: '/components/button'
-      path: '/components/button'
-      fullPath: '/components/button'
-      preLoaderRoute: typeof ComponentsButtonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/breadcrumb': {
-      id: '/components/breadcrumb'
-      path: '/components/breadcrumb'
-      fullPath: '/components/breadcrumb'
-      preLoaderRoute: typeof ComponentsBreadcrumbRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/badge': {
-      id: '/components/badge'
-      path: '/components/badge'
-      fullPath: '/components/badge'
-      preLoaderRoute: typeof ComponentsBadgeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/avatar': {
-      id: '/components/avatar'
-      path: '/components/avatar'
-      fullPath: '/components/avatar'
-      preLoaderRoute: typeof ComponentsAvatarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/aspect-ratio': {
-      id: '/components/aspect-ratio'
-      path: '/components/aspect-ratio'
-      fullPath: '/components/aspect-ratio'
-      preLoaderRoute: typeof ComponentsAspectRatioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/alert-dialog': {
-      id: '/components/alert-dialog'
-      path: '/components/alert-dialog'
-      fullPath: '/components/alert-dialog'
-      preLoaderRoute: typeof ComponentsAlertDialogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/components/accordion': {
-      id: '/components/accordion'
-      path: '/components/accordion'
-      fullPath: '/components/accordion'
-      preLoaderRoute: typeof ComponentsAccordionRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

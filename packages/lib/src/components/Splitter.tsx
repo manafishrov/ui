@@ -35,18 +35,18 @@ export const SplitterResizeTrigger: Component<SplitterResizeTriggerProps> = (pro
       data-slot='splitter-resize-trigger'
       class={cn(
         'relative flex w-px items-center justify-center bg-border ring-offset-background',
-        'after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2',
+        'after:inset-y-0 after:w-1 after:absolute after:left-1/2 after:-translate-x-1/2',
         'focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-hidden',
         'aria-[orientation=horizontal]:h-px aria-[orientation=horizontal]:w-full',
         'aria-[orientation=horizontal]:after:left-0 aria-[orientation=horizontal]:after:h-1',
-        'aria-[orientation=horizontal]:after:w-full aria-[orientation=horizontal]:after:translate-x-0',
+        'aria-[orientation=horizontal]:after:translate-x-0 aria-[orientation=horizontal]:after:w-full',
         'aria-[orientation=horizontal]:after:-translate-y-1/2',
         '[&[aria-orientation=horizontal]>div]:rotate-90',
         local.class,
       )}
       {...others}
     >
-      {local.withHandle && <div class='bg-border h-6 w-1 rounded-lg z-10 flex shrink-0' />}
+      {local.withHandle === true && <div class='h-6 w-1 z-10 flex shrink-0 rounded-lg bg-border' />}
     </SplitterPrimitive.ResizeTrigger>
   );
 };

@@ -63,13 +63,38 @@ export type SidebarMenuButtonProps = ComponentProps<'button'> &
     tooltip?: string | ComponentProps<typeof TooltipContent>;
   };
 
+type SidebarMenuButtonDataProps = {
+  'data-slot': 'sidebar-menu-button';
+  'data-sidebar': 'menu-button';
+  'data-size': 'sm' | 'default' | 'lg';
+  'data-active': boolean | undefined;
+  class: string;
+};
+
+const getTooltipContentProps = (
+  tooltip: SidebarMenuButtonProps['tooltip'],
+): ComponentProps<typeof TooltipContent> =>
+  typeof tooltip === 'string' || tooltip === void 0 ? {} : tooltip;
+
+const getTooltipChildren = (
+  tooltip: SidebarMenuButtonProps['tooltip'],
+): ComponentProps<typeof TooltipContent>['children'] => {
+  if (typeof tooltip === 'string') {
+    return tooltip;
+  }
+  if (tooltip === void 0) {
+    return '';
+  }
+  return tooltip.children;
+};
+
 export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
   const [local, others] = splitProps(props, ['isActive', 'variant', 'size', 'tooltip', 'class']);
   const { isMobile, state, side } = useSidebar();
 
   const tooltipPlacement = createMemo(() => (side() === 'left' ? 'right' : 'left'));
 
-  const buttonProps = () => ({
+  const buttonProps = (): SidebarMenuButtonDataProps => ({
     'data-slot': 'sidebar-menu-button',
     'data-sidebar': 'menu-button',
     'data-size': local.size ?? 'default',
@@ -91,9 +116,9 @@ export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
         <TooltipTrigger {...buttonProps()} {...others} />
         <Portal>
           <TooltipPositioner>
-            <TooltipContent {...(typeof local.tooltip === 'string' ? {} : local.tooltip)}>
+            <TooltipContent {...getTooltipContentProps(local.tooltip)}>
               <TooltipArrow />
-              {typeof local.tooltip === 'string' ? local.tooltip : local.tooltip?.children}
+              {getTooltipChildren(local.tooltip)}
             </TooltipContent>
           </TooltipPositioner>
         </Portal>
