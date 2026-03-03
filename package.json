@@ -16,7 +16,8 @@
     "fmt:check": "oxfmt --check packages/**/*.ts packages/**/*.tsx",
     "lint": "oxlint --type-aware --type-check --deny-warnings",
     "lint:fix": "oxlint --type-aware --type-check --deny-warnings --fix",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "preview": "cd packages/docs && bunx vite preview"
   },
   "devDependencies": {
     "@iconify-json/ic": "1.2.4",
