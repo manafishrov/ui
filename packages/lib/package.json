@@ -80,13 +80,13 @@
       "types": "./dist/components/Empty.d.ts",
       "import": "./dist/components/Empty.js"
     },
-    "./form": {
-      "types": "./dist/components/form/index.d.ts",
-      "import": "./dist/components/form/index.js"
-    },
     "./field": {
       "types": "./dist/components/Field.d.ts",
       "import": "./dist/components/Field.js"
+    },
+    "./form": {
+      "types": "./dist/components/form/index.d.ts",
+      "import": "./dist/components/form/index.js"
     },
     "./hover-card": {
       "types": "./dist/components/HoverCard.d.ts",
@@ -116,6 +116,10 @@
       "types": "./dist/components/Menu.d.ts",
       "import": "./dist/components/Menu.js"
     },
+    "./menu-combobox": {
+      "types": "./dist/components/MenuCombobox.d.ts",
+      "import": "./dist/components/MenuCombobox.js"
+    },
     "./navigation-menu": {
       "types": "./dist/components/NavigationMenu.d.ts",
       "import": "./dist/components/NavigationMenu.js"
@@ -132,13 +136,13 @@
       "types": "./dist/components/PasswordInput.d.ts",
       "import": "./dist/components/PasswordInput.js"
     },
-    "./popover": {
-      "types": "./dist/components/Popover.d.ts",
-      "import": "./dist/components/Popover.js"
-    },
     "./pin-input": {
       "types": "./dist/components/PinInput.d.ts",
       "import": "./dist/components/PinInput.js"
+    },
+    "./popover": {
+      "types": "./dist/components/Popover.d.ts",
+      "import": "./dist/components/Popover.js"
     },
     "./progress": {
       "types": "./dist/components/Progress.d.ts",
@@ -184,13 +188,13 @@
       "types": "./dist/components/Splitter.d.ts",
       "import": "./dist/components/Splitter.js"
     },
-    "./switch": {
-      "types": "./dist/components/Switch.d.ts",
-      "import": "./dist/components/Switch.js"
-    },
     "./swap": {
       "types": "./dist/components/Swap.d.ts",
       "import": "./dist/components/Swap.js"
+    },
+    "./switch": {
+      "types": "./dist/components/Switch.d.ts",
+      "import": "./dist/components/Switch.js"
     },
     "./table": {
       "types": "./dist/components/Table.d.ts",
@@ -200,9 +204,17 @@
       "types": "./dist/components/Tabs.d.ts",
       "import": "./dist/components/Tabs.js"
     },
+    "./tags-input": {
+      "types": "./dist/components/TagsInput.d.ts",
+      "import": "./dist/components/TagsInput.js"
+    },
     "./text-input": {
       "types": "./dist/components/TextInput.d.ts",
       "import": "./dist/components/TextInput.js"
+    },
+    "./toaster": {
+      "types": "./dist/components/toaster/index.d.ts",
+      "import": "./dist/components/toaster/index.js"
     },
     "./toggle": {
       "types": "./dist/components/Toggle.d.ts",
@@ -216,19 +228,11 @@
       "types": "./dist/components/TreeView.d.ts",
       "import": "./dist/components/TreeView.js"
     },
-    "./toaster": {
-      "types": "./dist/components/toaster/index.d.ts",
-      "import": "./dist/components/toaster/index.js"
-    },
     "./typography": {
       "types": "./dist/components/Typography.d.ts",
       "import": "./dist/components/Typography.js"
     },
-    "./tags-input": {
-      "types": "./dist/components/TagsInput.d.ts",
-      "import": "./dist/components/TagsInput.js"
-    },
-    "./theme": "./dist/theme.css"
+    "./theme": "./dist/theme.css",
   },
   "dependencies": {
     "@ark-ui/solid": "5.34.0",
