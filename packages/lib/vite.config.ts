@@ -97,7 +97,7 @@ export default defineConfig({
   },
   plugins: [
     paraglideVitePlugin({
-      project: './i18n',
+      project: './i18n.inlang',
       outdir: './src/paraglide',
       strategy: ['globalVariable', 'baseLocale'],
       emitTsDeclarations: true,
