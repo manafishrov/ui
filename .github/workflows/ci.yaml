@@ -20,6 +20,8 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
+      - name: Debug oxfmt version
+        run: bun x oxfmt --version
       - name: Build Library
         run: bun run build:lib
       - name: Build Docs
