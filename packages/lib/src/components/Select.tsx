@@ -154,6 +154,7 @@ export const SelectContent: Component<SelectPrimitive.ContentProps> = (props) =>
       data-slot='select-content'
       class={cn(
         'relative isolate z-50 max-h-(--available-height) w-(--reference-width) min-w-[8rem] origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border border-input bg-popover text-popover-foreground shadow-md duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:zoom-in-95',
+        'outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[focus-visible]:border-ring data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50',
         local.class,
       )}
       {...others}
