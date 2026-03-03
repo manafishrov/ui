@@ -17,7 +17,7 @@
     "lint": "oxlint --type-aware --type-check",
     "lint:fix": "oxlint --type-aware --type-check --fix",
     "prepare": "lefthook install",
-    "publish": "bun run build:lib && cd packages/lib && npm publish"
+    "publish": "bun run build:lib && cd packages/lib && bunx npm publish"
   },
   "devDependencies": {
     "@iconify-json/ic": "1.2.4",
