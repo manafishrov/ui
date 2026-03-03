@@ -249,20 +249,20 @@
   "devDependencies": {
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/exec": "7.1.0",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "12.0.6",
-    "@semantic-release/npm": "13.1.5",
     "@semantic-release/release-notes-generator": "14.1.0",
     "semantic-release": "25.0.3",
     "unplugin-dts": "1.0.0-beta.6"
   },
   "peerDependencies": {
-    "@iconify-json/ic": "1.2.4",
-    "@tanstack/solid-form": "1.28.0",
-    "@tanstack/solid-router": "1.162.1",
-    "solid-js": "1.9.0",
-    "tailwindcss": "4.0.0",
-    "unplugin-icons": "23.0.1"
+    "@iconify-json/ic": "^1.2.4",
+    "@tanstack/solid-form": "^1.28.0",
+    "@tanstack/solid-router": "^1.162.1",
+    "solid-js": "^1.9.0",
+    "tailwindcss": "^4.0.0",
+    "unplugin-icons": "^23.0.1"
   },
   "release": {
     "branches": [
@@ -272,7 +272,13 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/npm",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "bun -e \"const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json'));p.version='${nextRelease.version}';fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\\n')\"",
+          "publishCmd": "npm publish --access public --provenance"
+        }
+      ],
       "@semantic-release/git",
       "@semantic-release/github"
     ]
