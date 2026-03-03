@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/manafishrov/ui/compare/v1.0.4...v1.0.5) (2026-03-03)
+
+
+### Bug Fixes
+
+* lint warnings ([48e3eae](https://github.com/manafishrov/ui/commit/48e3eaed0428d0c727581ce0fc1466e56d2424d8))
+
 ## [1.0.4](https://github.com/manafishrov/ui/compare/v1.0.3...v1.0.4) (2026-03-03)
 
 
