@@ -20,6 +20,7 @@ import { Route as ComponentsTagsInputRouteImport } from './routes/components.tag
 import { Route as ComponentsTabsRouteImport } from './routes/components.tabs'
 import { Route as ComponentsTableRouteImport } from './routes/components.table'
 import { Route as ComponentsSwitchRouteImport } from './routes/components.switch'
+import { Route as ComponentsSplitterRouteImport } from './routes/components.splitter'
 import { Route as ComponentsSpinnerRouteImport } from './routes/components.spinner'
 import { Route as ComponentsSliderRouteImport } from './routes/components.slider'
 import { Route as ComponentsSkeletonRouteImport } from './routes/components.skeleton'
@@ -36,6 +37,7 @@ import { Route as ComponentsPasswordInputRouteImport } from './routes/components
 import { Route as ComponentsPaginationRouteImport } from './routes/components.pagination'
 import { Route as ComponentsNumberInputRouteImport } from './routes/components.number-input'
 import { Route as ComponentsNavigationMenuRouteImport } from './routes/components.navigation-menu'
+import { Route as ComponentsMenuComboboxRouteImport } from './routes/components.menu-combobox'
 import { Route as ComponentsMenuRouteImport } from './routes/components.menu'
 import { Route as ComponentsMarqueeRouteImport } from './routes/components.marquee'
 import { Route as ComponentsLinkRouteImport } from './routes/components.link'
@@ -114,6 +116,11 @@ const ComponentsTableRoute = ComponentsTableRouteImport.update({
 const ComponentsSwitchRoute = ComponentsSwitchRouteImport.update({
   id: '/components/switch',
   path: '/components/switch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsSplitterRoute = ComponentsSplitterRouteImport.update({
+  id: '/components/splitter',
+  path: '/components/splitter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComponentsSpinnerRoute = ComponentsSpinnerRouteImport.update({
@@ -197,6 +204,11 @@ const ComponentsNavigationMenuRoute =
     path: '/components/navigation-menu',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ComponentsMenuComboboxRoute = ComponentsMenuComboboxRouteImport.update({
+  id: '/components/menu-combobox',
+  path: '/components/menu-combobox',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComponentsMenuRoute = ComponentsMenuRouteImport.update({
   id: '/components/menu',
   path: '/components/menu',
@@ -344,6 +356,7 @@ export interface FileRoutesByFullPath {
   '/components/link': typeof ComponentsLinkRoute
   '/components/marquee': typeof ComponentsMarqueeRoute
   '/components/menu': typeof ComponentsMenuRoute
+  '/components/menu-combobox': typeof ComponentsMenuComboboxRoute
   '/components/navigation-menu': typeof ComponentsNavigationMenuRoute
   '/components/number-input': typeof ComponentsNumberInputRoute
   '/components/pagination': typeof ComponentsPaginationRoute
@@ -360,6 +373,7 @@ export interface FileRoutesByFullPath {
   '/components/skeleton': typeof ComponentsSkeletonRoute
   '/components/slider': typeof ComponentsSliderRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
+  '/components/splitter': typeof ComponentsSplitterRoute
   '/components/switch': typeof ComponentsSwitchRoute
   '/components/table': typeof ComponentsTableRoute
   '/components/tabs': typeof ComponentsTabsRoute
@@ -397,6 +411,7 @@ export interface FileRoutesByTo {
   '/components/link': typeof ComponentsLinkRoute
   '/components/marquee': typeof ComponentsMarqueeRoute
   '/components/menu': typeof ComponentsMenuRoute
+  '/components/menu-combobox': typeof ComponentsMenuComboboxRoute
   '/components/navigation-menu': typeof ComponentsNavigationMenuRoute
   '/components/number-input': typeof ComponentsNumberInputRoute
   '/components/pagination': typeof ComponentsPaginationRoute
@@ -413,6 +428,7 @@ export interface FileRoutesByTo {
   '/components/skeleton': typeof ComponentsSkeletonRoute
   '/components/slider': typeof ComponentsSliderRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
+  '/components/splitter': typeof ComponentsSplitterRoute
   '/components/switch': typeof ComponentsSwitchRoute
   '/components/table': typeof ComponentsTableRoute
   '/components/tabs': typeof ComponentsTabsRoute
@@ -451,6 +467,7 @@ export interface FileRoutesById {
   '/components/link': typeof ComponentsLinkRoute
   '/components/marquee': typeof ComponentsMarqueeRoute
   '/components/menu': typeof ComponentsMenuRoute
+  '/components/menu-combobox': typeof ComponentsMenuComboboxRoute
   '/components/navigation-menu': typeof ComponentsNavigationMenuRoute
   '/components/number-input': typeof ComponentsNumberInputRoute
   '/components/pagination': typeof ComponentsPaginationRoute
@@ -467,6 +484,7 @@ export interface FileRoutesById {
   '/components/skeleton': typeof ComponentsSkeletonRoute
   '/components/slider': typeof ComponentsSliderRoute
   '/components/spinner': typeof ComponentsSpinnerRoute
+  '/components/splitter': typeof ComponentsSplitterRoute
   '/components/switch': typeof ComponentsSwitchRoute
   '/components/table': typeof ComponentsTableRoute
   '/components/tabs': typeof ComponentsTabsRoute
@@ -506,6 +524,7 @@ export interface FileRouteTypes {
     | '/components/link'
     | '/components/marquee'
     | '/components/menu'
+    | '/components/menu-combobox'
     | '/components/navigation-menu'
     | '/components/number-input'
     | '/components/pagination'
@@ -522,6 +541,7 @@ export interface FileRouteTypes {
     | '/components/skeleton'
     | '/components/slider'
     | '/components/spinner'
+    | '/components/splitter'
     | '/components/switch'
     | '/components/table'
     | '/components/tabs'
@@ -559,6 +579,7 @@ export interface FileRouteTypes {
     | '/components/link'
     | '/components/marquee'
     | '/components/menu'
+    | '/components/menu-combobox'
     | '/components/navigation-menu'
     | '/components/number-input'
     | '/components/pagination'
@@ -575,6 +596,7 @@ export interface FileRouteTypes {
     | '/components/skeleton'
     | '/components/slider'
     | '/components/spinner'
+    | '/components/splitter'
     | '/components/switch'
     | '/components/table'
     | '/components/tabs'
@@ -612,6 +634,7 @@ export interface FileRouteTypes {
     | '/components/link'
     | '/components/marquee'
     | '/components/menu'
+    | '/components/menu-combobox'
     | '/components/navigation-menu'
     | '/components/number-input'
     | '/components/pagination'
@@ -628,6 +651,7 @@ export interface FileRouteTypes {
     | '/components/skeleton'
     | '/components/slider'
     | '/components/spinner'
+    | '/components/splitter'
     | '/components/switch'
     | '/components/table'
     | '/components/tabs'
@@ -666,6 +690,7 @@ export interface RootRouteChildren {
   ComponentsLinkRoute: typeof ComponentsLinkRoute
   ComponentsMarqueeRoute: typeof ComponentsMarqueeRoute
   ComponentsMenuRoute: typeof ComponentsMenuRoute
+  ComponentsMenuComboboxRoute: typeof ComponentsMenuComboboxRoute
   ComponentsNavigationMenuRoute: typeof ComponentsNavigationMenuRoute
   ComponentsNumberInputRoute: typeof ComponentsNumberInputRoute
   ComponentsPaginationRoute: typeof ComponentsPaginationRoute
@@ -682,6 +707,7 @@ export interface RootRouteChildren {
   ComponentsSkeletonRoute: typeof ComponentsSkeletonRoute
   ComponentsSliderRoute: typeof ComponentsSliderRoute
   ComponentsSpinnerRoute: typeof ComponentsSpinnerRoute
+  ComponentsSplitterRoute: typeof ComponentsSplitterRoute
   ComponentsSwitchRoute: typeof ComponentsSwitchRoute
   ComponentsTableRoute: typeof ComponentsTableRoute
   ComponentsTabsRoute: typeof ComponentsTabsRoute
@@ -771,6 +797,13 @@ declare module '@tanstack/solid-router' {
       path: '/components/switch'
       fullPath: '/components/switch'
       preLoaderRoute: typeof ComponentsSwitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/splitter': {
+      id: '/components/splitter'
+      path: '/components/splitter'
+      fullPath: '/components/splitter'
+      preLoaderRoute: typeof ComponentsSplitterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/spinner': {
@@ -883,6 +916,13 @@ declare module '@tanstack/solid-router' {
       path: '/components/navigation-menu'
       fullPath: '/components/navigation-menu'
       preLoaderRoute: typeof ComponentsNavigationMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/menu-combobox': {
+      id: '/components/menu-combobox'
+      path: '/components/menu-combobox'
+      fullPath: '/components/menu-combobox'
+      preLoaderRoute: typeof ComponentsMenuComboboxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/components/menu': {
@@ -1082,6 +1122,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsLinkRoute: ComponentsLinkRoute,
   ComponentsMarqueeRoute: ComponentsMarqueeRoute,
   ComponentsMenuRoute: ComponentsMenuRoute,
+  ComponentsMenuComboboxRoute: ComponentsMenuComboboxRoute,
   ComponentsNavigationMenuRoute: ComponentsNavigationMenuRoute,
   ComponentsNumberInputRoute: ComponentsNumberInputRoute,
   ComponentsPaginationRoute: ComponentsPaginationRoute,
@@ -1098,6 +1139,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsSkeletonRoute: ComponentsSkeletonRoute,
   ComponentsSliderRoute: ComponentsSliderRoute,
   ComponentsSpinnerRoute: ComponentsSpinnerRoute,
+  ComponentsSplitterRoute: ComponentsSplitterRoute,
   ComponentsSwitchRoute: ComponentsSwitchRoute,
   ComponentsTableRoute: ComponentsTableRoute,
   ComponentsTabsRoute: ComponentsTabsRoute,
