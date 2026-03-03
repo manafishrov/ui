@@ -27,7 +27,7 @@ const getSystemTheme = (): 'light' | 'dark' => {
 };
 
 const readStoredTheme = (storageKey: string, defaultTheme: Theme): Theme => {
-  if (globalThis.localStorage === undefined) {
+  if (!('localStorage' in globalThis)) {
     return defaultTheme;
   }
   const stored = globalThis.localStorage.getItem(storageKey);
@@ -74,7 +74,7 @@ export const ThemeProvider: Component<ThemeProviderProps> = (props) => {
 
   const setTheme = (newTheme: Theme): void => {
     setThemeState(newTheme);
-    if (globalThis.localStorage !== undefined) {
+    if ('localStorage' in globalThis) {
       globalThis.localStorage.setItem(storageKey(), newTheme);
     }
   };

@@ -51,7 +51,9 @@
         "allowArrowFunctions": true
       }
     ],
-    "unicorn/prefer-arrow-functions": "error"
+    "unicorn/prefer-arrow-functions": "error",
+    "typescript/promise-function-async": "off",
+    "no-useless-return": "off"
   },
   "overrides": [
     {

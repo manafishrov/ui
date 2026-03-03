@@ -12,3 +12,6 @@ test-results/
 
 # TanStack Router temp files
 **/.tanstack/tmp/
+
+# direnv
+.direnv

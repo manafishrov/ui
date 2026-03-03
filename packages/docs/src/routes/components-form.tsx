@@ -20,11 +20,11 @@ type FormValues = {
   slider: number[];
 };
 const DEFAULT_SLIDER_VALUE = 50,
+  JSON_INDENT = 2,
   MAX_MESSAGE_LENGTH = 500,
-  MIN_TEXT_LENGTH = 3;
-const JSON_INDENT = 2,
   MAX_NUMBER_VALUE = 100,
-  MIN_SLIDER_VALUE = 10;
+  MIN_SLIDER_VALUE = 10,
+  MIN_TEXT_LENGTH = 3;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const marks = [
@@ -34,10 +34,14 @@ const marks = [
   { value: 75, label: '75' },
   { value: 100, label: '100' },
 ];
-
 const toJsonReplacer = (_key: string, jsonValue: unknown): unknown => jsonValue;
 
-const createFormOptions = (onSubmitValue: (value: FormValues) => void) => ({
+const createFormOptions = (
+  onSubmitValue: (value: FormValues) => void,
+): {
+  defaultValues: FormValues;
+  onSubmit: ({ value }: { value: FormValues }) => void;
+} => ({
   defaultValues: {
     text: '',
     email: '',
@@ -51,23 +55,23 @@ const createFormOptions = (onSubmitValue: (value: FormValues) => void) => ({
     onSubmitValue(value);
   },
 });
+// oxlint-disable-next-line typescript-eslint/explicit-function-return-type
 const useDemoForm = (onSubmitValue: (value: FormValues) => void) =>
   useAppForm(() => createFormOptions(onSubmitValue));
 
 type DemoForm = ReturnType<typeof useDemoForm>;
-
 const TextField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='text'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         if (value.trim() === '') {
-          errorMessage = 'Text is required';
-        } else if (value.length < MIN_TEXT_LENGTH) {
-          errorMessage = 'Text must be at least 3 characters';
+          return 'Text is required';
         }
-        return errorMessage;
+        if (value.length < MIN_TEXT_LENGTH) {
+          return 'Text must be at least 3 characters';
+        }
+        return;
       },
     }}
   >
@@ -87,13 +91,13 @@ const EmailField: Component<{ form: DemoForm }> = (props) => (
     name='email'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         if (value.trim() === '') {
-          errorMessage = 'Email is required';
-        } else if (!EMAIL_REGEX.test(value)) {
-          errorMessage = 'Please enter a valid email address';
+          return 'Email is required';
         }
-        return errorMessage;
+        if (!EMAIL_REGEX.test(value)) {
+          return 'Please enter a valid email address';
+        }
+        return;
       },
     }}
   >
@@ -114,11 +118,10 @@ const TextareaField: Component<{ form: DemoForm }> = (props) => (
     name='textarea'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         if (value.length > MAX_MESSAGE_LENGTH) {
-          errorMessage = 'Message must be less than 500 characters';
+          return 'Message must be less than 500 characters';
         }
-        return errorMessage;
+        return;
       },
     }}
   >
@@ -138,13 +141,13 @@ const NumberField: Component<{ form: DemoForm }> = (props) => (
     name='number'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         if (value < 0) {
-          errorMessage = 'Value must be positive';
-        } else if (value > MAX_NUMBER_VALUE) {
-          errorMessage = 'Value must be less than 100';
+          return 'Value must be positive';
         }
-        return errorMessage;
+        if (value > MAX_NUMBER_VALUE) {
+          return 'Value must be less than 100';
+        }
+        return;
       },
     }}
   >
@@ -164,11 +167,10 @@ const CheckboxField: Component<{ form: DemoForm }> = (props) => (
     name='checkbox'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         if (!value) {
-          errorMessage = 'You must agree to the terms';
+          return 'You must agree to the terms';
         }
-        return errorMessage;
+        return;
       },
     }}
   >
@@ -187,11 +189,10 @@ const RadioField: Component<{ form: DemoForm }> = (props) => (
     name='radio'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         if (value === '') {
-          errorMessage = 'Please select an option';
+          return 'Please select an option';
         }
-        return errorMessage;
+        return;
       },
     }}
   >
@@ -223,12 +224,11 @@ const SliderField: Component<{ form: DemoForm }> = (props) => (
     name='slider'
     validators={{
       onChange: ({ value }) => {
-        let errorMessage: string | undefined;
         const [sliderValue = 0] = value;
         if (sliderValue < MIN_SLIDER_VALUE) {
-          errorMessage = 'Volume must be at least 10';
+          return 'Volume must be at least 10';
         }
-        return errorMessage;
+        return;
       },
     }}
   >

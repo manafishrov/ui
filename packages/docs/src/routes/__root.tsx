@@ -41,13 +41,15 @@ const RootComponent: Component = () => (
   </>
 );
 
-const handleBeforeLoad = async () => {
+// oxlint-disable-next-line typescript-eslint/explicit-function-return-type
+const handleBeforeLoad = () => {
   document.documentElement.setAttribute('lang', getLocale());
-  const decision = await shouldRedirect({ url: globalThis.location.href });
-  if (decision.redirectUrl) {
-    return redirect({ href: decision.redirectUrl.href });
-  }
-  return decision;
+  return shouldRedirect({ url: globalThis.location.href }).then((decision) => {
+    if (decision.redirectUrl) {
+      return redirect({ href: decision.redirectUrl.href });
+    }
+    return decision;
+  });
 };
 
 export const Route = createRootRoute({
