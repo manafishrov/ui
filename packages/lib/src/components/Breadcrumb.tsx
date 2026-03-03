@@ -8,7 +8,14 @@ import * as messages from '@/paraglide/messages';
 
 export const Breadcrumb: Component<ComponentProps<'nav'>> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return <nav aria-label='breadcrumb' data-slot='breadcrumb' class={cn(local.class)} {...others} />;
+  return (
+    <nav
+      aria-label={messages.ui_breadcrumb_label()}
+      data-slot='breadcrumb'
+      class={cn(local.class)}
+      {...others}
+    />
+  );
 };
 
 export const BreadcrumbList: Component<ComponentProps<'ol'>> = (props) => {

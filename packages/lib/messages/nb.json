@@ -11,5 +11,6 @@
   "ui_pagination_next": "Neste",
   "ui_pagination_more": "Flere sider",
   "ui_carousel_previous": "Forrige lysbilde",
-  "ui_carousel_next": "Neste lysbilde"
+  "ui_carousel_next": "Neste lysbilde",
+  "ui_breadcrumb_label": "Brødsmulesti"
 }

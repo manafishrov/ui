@@ -11,5 +11,6 @@
   "ui_pagination_next": "Next",
   "ui_pagination_more": "More pages",
   "ui_carousel_previous": "Previous slide",
-  "ui_carousel_next": "Next slide"
+  "ui_carousel_next": "Next slide",
+  "ui_breadcrumb_label": "Breadcrumb"
 }
