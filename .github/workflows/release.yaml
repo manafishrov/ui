@@ -28,14 +28,8 @@ jobs:
       - name: Build library
         run: bun run build:lib
 
-      - name: Setup Node.js for npm
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
-          registry-url: 'https://registry.npmjs.org'
-
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: bunx npm publish --access public
         working-directory: packages/lib
 
       - name: Create GitHub Release
