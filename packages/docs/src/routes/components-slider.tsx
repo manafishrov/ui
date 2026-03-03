@@ -34,79 +34,86 @@ const marks = [
   { value: 100, label: '100' },
 ];
 
-const sliderDocContent = (
-  <div class='space-y-8'>
-    <div class='space-y-2'>
-      <H1>Slider</H1>
-      <Lead>{m.docs_component_slider_description()}</Lead>
-    </div>
+const CIRCULAR_MARKS = [0, 45, 90, 135, 180, 225, 270, 315];
 
-    <div class='space-y-4'>
-      <H2 class='pb-0 border-none'>{m.docs_example_basic()}</H2>
-      <Slider defaultValue={[DEFAULT_VOLUME]} max={MAX_VOLUME} step={VOLUME_STEP} class='w-[60%]'>
-        <SliderLabel>Volume</SliderLabel>
-        <SliderControl>
-          <SliderTrack>
-            <SliderRange />
-          </SliderTrack>
-          <SliderThumb index={0} />
-        </SliderControl>
-      </Slider>
-    </div>
+const BasicSliderExample: Component = () => (
+  <div class='space-y-4'>
+    <H2 class='pb-0 border-none'>{m.docs_example_basic()}</H2>
+    <Slider defaultValue={[DEFAULT_VOLUME]} max={MAX_VOLUME} step={VOLUME_STEP} class='w-[60%]'>
+      <SliderLabel>Volume</SliderLabel>
+      <SliderControl>
+        <SliderTrack>
+          <SliderRange />
+        </SliderTrack>
+        <SliderThumb index={0} />
+      </SliderControl>
+    </Slider>
+  </div>
+);
 
-    <div class='space-y-4'>
-      <H2 class='pb-0 border-none'>{m.docs_example_with_label()}</H2>
-      <Slider defaultValue={[DEFAULT_VOLUME]} max={MAX_VOLUME} step={VOLUME_STEP} class='w-[60%]'>
-        <SliderLabel>Volume</SliderLabel>
-        <SliderControl>
-          <SliderTrack>
-            <SliderRange />
-          </SliderTrack>
-          <SliderThumb index={0} />
-        </SliderControl>
-        <SliderMarkerGroup>
-          <For each={marks}>
-            {(mark) => <SliderMarker value={mark.value}>{mark.label}</SliderMarker>}
-          </For>
-        </SliderMarkerGroup>
-      </Slider>
-    </div>
+const LabeledSliderExample: Component = () => (
+  <div class='space-y-4'>
+    <H2 class='pb-0 border-none'>{m.docs_example_with_label()}</H2>
+    <Slider defaultValue={[DEFAULT_VOLUME]} max={MAX_VOLUME} step={VOLUME_STEP} class='w-[60%]'>
+      <SliderLabel>Volume</SliderLabel>
+      <SliderControl>
+        <SliderTrack>
+          <SliderRange />
+        </SliderTrack>
+        <SliderThumb index={0} />
+      </SliderControl>
+      <SliderMarkerGroup>
+        <For each={marks}>
+          {(mark) => <SliderMarker value={mark.value}>{mark.label}</SliderMarker>}
+        </For>
+      </SliderMarkerGroup>
+    </Slider>
+  </div>
+);
 
-    <div class='space-y-4'>
-      <H2 class='pb-0 border-none'>{m.docs_example_circular()}</H2>
-      <div class='gap-8 sm:grid-cols-2 grid'>
-        <div class='space-y-3'>
-          <p class='text-sm font-medium'>Without markers and labels</p>
-          <SliderCircle defaultValue={45}>
-            <SliderCircleTrack>
-              <SliderCircleRange />
-              <SliderCircleThumb />
-            </SliderCircleTrack>
-          </SliderCircle>
-        </div>
+const CircularSliderExample: Component = () => (
+  <div class='space-y-4'>
+    <H2 class='pb-0 border-none'>{m.docs_example_circular()}</H2>
+    <div class='gap-8 sm:grid-cols-2 grid'>
+      <div class='space-y-3'>
+        <p class='text-sm font-medium'>Without markers and labels</p>
+        <SliderCircle defaultValue={45}>
+          <SliderCircleTrack>
+            <SliderCircleRange />
+            <SliderCircleThumb />
+          </SliderCircleTrack>
+        </SliderCircle>
+      </div>
 
-        <div class='space-y-3'>
-          <p class='text-sm font-medium'>With markers and labels</p>
-          <SliderCircle defaultValue={45}>
-            <SliderCircleLabel>Rotation</SliderCircleLabel>
-            <SliderCircleTrack>
-              <SliderCircleRange />
-              <SliderCircleMarkerGroup>
-                <For each={[0, 45, 90, 135, 180, 225, 270, 315]}>
-                  {(value) => <SliderCircleMarker value={value} />}
-                </For>
-              </SliderCircleMarkerGroup>
-              <SliderCircleThumb />
-            </SliderCircleTrack>
-            <SliderCircleValueText />
-          </SliderCircle>
-        </div>
+      <div class='space-y-3'>
+        <p class='text-sm font-medium'>With markers and labels</p>
+        <SliderCircle defaultValue={45}>
+          <SliderCircleLabel>Rotation</SliderCircleLabel>
+          <SliderCircleTrack>
+            <SliderCircleRange />
+            <SliderCircleMarkerGroup>
+              <For each={CIRCULAR_MARKS}>{(value) => <SliderCircleMarker value={value} />}</For>
+            </SliderCircleMarkerGroup>
+            <SliderCircleThumb />
+          </SliderCircleTrack>
+          <SliderCircleValueText />
+        </SliderCircle>
       </div>
     </div>
   </div>
 );
 
-const SliderDocPage: Component = () => sliderDocContent;
+const SliderDocPage: Component = () => (
+  <div class='space-y-8'>
+    <div class='space-y-2'>
+      <H1>Slider</H1>
+      <Lead>{m.docs_component_slider_description()}</Lead>
+    </div>
+    <BasicSliderExample />
+    <LabeledSliderExample />
+    <CircularSliderExample />
+  </div>
+);
 
 export const Route = createFileRoute('/components-slider')({
   component: SliderDocPage,
