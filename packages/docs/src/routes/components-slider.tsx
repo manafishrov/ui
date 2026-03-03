@@ -25,6 +25,8 @@ import * as m from '@/paraglide/messages';
 const DEFAULT_VOLUME = 33;
 const MAX_VOLUME = 100;
 const VOLUME_STEP = 1;
+const CIRCLE_INCREMENT = 45;
+const CIRCLE_MARK_COUNT = 8;
 
 const marks = [
   { value: 0, label: '0' },
@@ -34,7 +36,10 @@ const marks = [
   { value: 100, label: '100' },
 ];
 
-const CIRCULAR_MARKS = [0, 45, 90, 135, 180, 225, 270, 315];
+const CIRCULAR_MARKS = Array.from(
+  { length: CIRCLE_MARK_COUNT },
+  (_, index) => index * CIRCLE_INCREMENT,
+);
 
 const BasicSliderExample: Component = () => (
   <div class='space-y-4'>

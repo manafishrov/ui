@@ -42,7 +42,7 @@ export type MenuComboboxSearchInputProps = ComponentProps<'input'> & {
 export const MenuComboboxSearchInput: Component<MenuComboboxSearchInputProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'onValueChange', 'value']);
   const handleInput = (inputEvent: InputEvent & { currentTarget: HTMLInputElement }): void => {
-    if (local.onValueChange !== undefined) {
+    if (typeof local.onValueChange === 'function') {
       local.onValueChange(inputEvent.currentTarget.value);
     }
   };

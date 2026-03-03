@@ -6,6 +6,9 @@ import { createFileRoute } from '@tanstack/solid-router';
 
 import * as m from '@/paraglide/messages';
 
+const ASPECT_RATIO_WIDTH = 16;
+const ASPECT_RATIO_HEIGHT = 9;
+
 const AspectRatioDocPage: Component = () => (
   <div class='space-y-8'>
     <div class='space-y-2'>
@@ -14,7 +17,7 @@ const AspectRatioDocPage: Component = () => (
     </div>
 
     <AspectRatio
-      ratio={16 / 9}
+      ratio={ASPECT_RATIO_WIDTH / ASPECT_RATIO_HEIGHT}
       class='max-w-md flex items-center justify-center rounded-md bg-muted'
     >
       <span class='text-muted-foreground'>16:9</span>

@@ -34,9 +34,9 @@ export const TextInputControl: Component<ComponentProps<'div'>> = (props) => {
       {(field) => (
         <div
           data-slot='text-input-control'
-          data-disabled={field().disabled ? 'true' : undefined}
-          data-invalid={field().invalid ? 'true' : undefined}
-          data-readonly={field().readOnly ? 'true' : undefined}
+          {...(field().disabled && { 'data-disabled': 'true' })}
+          {...(field().invalid && { 'data-invalid': 'true' })}
+          {...(field().readOnly && { 'data-readonly': 'true' })}
           class={cn(
             'min-w-0 h-8 relative flex w-full items-center overflow-hidden rounded-lg border border-input transition-colors outline-none dark:bg-input/30',
             'has-focus-visible:border-ring has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
@@ -85,4 +85,3 @@ export const TextInputArea: Component<PrimitiveField.TextareaProps> = (props) =>
 
 export const TextInputDescription = FieldDescription;
 export const TextInputError = FieldError;
-

@@ -35,8 +35,7 @@ export type MenuComboboxGroupedListProps = {
   class?: string;
 };
 
-const hasShortcut = (shortcut: string | undefined): boolean =>
-  shortcut !== undefined && shortcut !== '';
+const hasShortcut = (shortcut?: string): boolean => typeof shortcut === 'string' && shortcut !== '';
 const matchesSearch = (
   item: MenuItemData | MenuCheckboxItemData | MenuRadioItemData,
   search: string,
@@ -55,7 +54,7 @@ const renderRadioItems = (items: MenuRadioItemData[]): JSXElement => (
 
 const renderGroupedItem = (
   item: MenuItemData | MenuCheckboxItemData | MenuRadioGroupData | MenuSeparatorData,
-): JSXElement | undefined => {
+): JSXElement => {
   if (!('type' in item)) {
     return (
       <MenuComboboxItem value={item.value} disabled={item.disabled}>
@@ -85,24 +84,30 @@ const renderGroupedItem = (
       </MenuComboboxRadioItemGroup>
     );
   }
-  return undefined;
+  return <></>;
 };
+
+type GroupFilterResult =
+  | MenuItemData
+  | MenuCheckboxItemData
+  | MenuRadioGroupData
+  | MenuSeparatorData;
 
 const filterGroupItem = (
   item: MenuItemData | MenuCheckboxItemData | MenuRadioGroupData | MenuSeparatorData,
   search: string,
-): MenuItemData | MenuCheckboxItemData | MenuRadioGroupData | MenuSeparatorData | undefined => {
+): GroupFilterResult[] => {
   if (!('type' in item)) {
-    return matchesSearch(item, search) ? item : undefined;
+    return matchesSearch(item, search) ? [item] : [];
   }
   if (item.type === 'separator') {
-    return item;
+    return [item];
   }
   if (item.type === 'checkbox') {
-    return matchesSearch(item, search) ? item : undefined;
+    return matchesSearch(item, search) ? [item] : [];
   }
   const filteredRadioItems = item.items.filter((radioItem) => matchesSearch(radioItem, search));
-  return filteredRadioItems.length > 0 ? { ...item, items: filteredRadioItems } : undefined;
+  return filteredRadioItems.length > 0 ? [{ ...item, items: filteredRadioItems }] : [];
 };
 
 const GroupItems: Component<{ items: MenuItemGroupData['items'] }> = (props) => (
@@ -130,7 +135,7 @@ export const MenuComboboxList: Component<MenuComboboxListProps> = (props) => {
             item.label.toLowerCase().includes(search) || item.value.toLowerCase().includes(search),
         );
   });
-  const emptyProps = () =>
+  const emptyProps = (): { searchValue: string } | Record<string, never> =>
     typeof local.searchValue === 'string' ? { searchValue: local.searchValue } : {};
   return (
     <div class={cn('p-1 max-h-64 overflow-y-auto', local.class)}>
@@ -158,23 +163,16 @@ export const MenuComboboxGroupedList: Component<MenuComboboxGroupedListProps> = 
     }
     return local.groups
       .map((group) => {
-        const filteredItems = group.items
-          .map((item) => filterGroupItem(item, search))
-          .filter(
-            (
-              item,
-            ): item is
-              | MenuItemData
-              | MenuCheckboxItemData
-              | MenuRadioGroupData
-              | MenuSeparatorData => item !== undefined,
-          );
-        return filteredItems.length > 0 ? { ...group, items: filteredItems } : undefined;
+        const filteredItems = group.items.flatMap((item) => filterGroupItem(item, search));
+        if (filteredItems.length > 0) {
+          return { ...group, items: filteredItems };
+        }
+        return false;
       })
-      .filter((group): group is MenuItemGroupData => group !== undefined);
+      .filter((group): group is MenuItemGroupData => group !== false);
   });
 
-  const emptyProps = () =>
+  const emptyProps = (): { searchValue: string } | Record<string, never> =>
     typeof local.searchValue === 'string' ? { searchValue: local.searchValue } : {};
   return (
     <div class={cn('p-1 max-h-64 overflow-y-auto', local.class)}>

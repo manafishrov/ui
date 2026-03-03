@@ -39,6 +39,15 @@ const RootComponent: Component = () => (
   </>
 );
 
+const handleBeforeLoad = async () => {
+  document.documentElement.setAttribute('lang', getLocale());
+  const decision = await shouldRedirect({ url: globalThis.location.href });
+  if (decision.redirectUrl) {
+    return redirect({ href: decision.redirectUrl.href });
+  }
+  return decision;
+};
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -51,13 +60,6 @@ export const Route = createRootRoute({
       },
     ],
   }),
-  beforeLoad: async () => {
-    document.documentElement.setAttribute('lang', getLocale());
-    const decision = await shouldRedirect({ url: globalThis.location.href });
-    if (decision.redirectUrl) {
-      return redirect({ href: decision.redirectUrl.href });
-    }
-    return null;
-  },
+  beforeLoad: handleBeforeLoad,
   component: RootComponent,
 });

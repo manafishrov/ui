@@ -8,9 +8,12 @@ import { createFileRoute } from '@tanstack/solid-router';
 import * as m from '@/paraglide/messages';
 
 const toastTypes = ['success', 'info', 'warning', 'error', 'loading'] as const;
+type ToastType = (typeof toastTypes)[number];
+const FIRST_TOAST_TYPE_INDEX = 0;
 
 const ToasterDocPage: Component = () => {
-  const getRandomType = () => toastTypes[Math.floor(Math.random() * toastTypes.length)];
+  const getRandomType = (): ToastType =>
+    toastTypes[Math.floor(Math.random() * toastTypes.length)] ?? toastTypes[FIRST_TOAST_TYPE_INDEX];
 
   return (
     <div class='space-y-8'>

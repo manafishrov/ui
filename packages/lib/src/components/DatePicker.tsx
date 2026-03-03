@@ -10,10 +10,10 @@ export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />;
 };
-export const DatePickerContext = DatePickerPrimitive.Context;
-export const DatePickerView = DatePickerPrimitive.View;
-export const DatePickerViewTrigger = DatePickerPrimitive.ViewTrigger;
-export const DatePickerRangeText = DatePickerPrimitive.RangeText;
+export const DatePickerContext = DatePickerPrimitive.Context,
+  DatePickerRangeText = DatePickerPrimitive.RangeText,
+  DatePickerView = DatePickerPrimitive.View,
+  DatePickerViewTrigger = DatePickerPrimitive.ViewTrigger;
 export const DatePickerTable: Component<DatePickerPrimitive.TableProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -285,13 +285,11 @@ export const DatePickerYearView: Component = () => (
     </DatePickerTable>
   </DatePickerView>
 );
-export const DatePickerViews: Component = () => (
-  <>
-    <DatePickerDayView />
-    <DatePickerMonthView />
-    <DatePickerYearView />
-  </>
-);
+export const DatePickerViews: Component = () => [
+  <DatePickerDayView />,
+  <DatePickerMonthView />,
+  <DatePickerYearView />,
+];
 export const Calendar: Component<DatePickerPrimitive.RootProps> = (props) => (
   <DatePicker {...props} inline unmountOnExit={false}>
     <DatePickerContent class='border-none shadow-none ring-0'>

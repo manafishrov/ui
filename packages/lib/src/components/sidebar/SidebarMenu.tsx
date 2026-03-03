@@ -74,7 +74,7 @@ type SidebarMenuButtonDataProps = {
 const getTooltipContentProps = (
   tooltip: SidebarMenuButtonProps['tooltip'],
 ): ComponentProps<typeof TooltipContent> =>
-  typeof tooltip === 'string' || tooltip === void 0 ? {} : tooltip;
+  typeof tooltip === 'string' || !tooltip ? {} : tooltip;
 
 const getTooltipChildren = (
   tooltip: SidebarMenuButtonProps['tooltip'],
@@ -82,7 +82,7 @@ const getTooltipChildren = (
   if (typeof tooltip === 'string') {
     return tooltip;
   }
-  if (tooltip === void 0) {
+  if (!tooltip) {
     return '';
   }
   return tooltip.children;

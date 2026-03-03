@@ -20,7 +20,7 @@ type Theme = (typeof THEMES)[number];
 const getLocaleLabel = (locale: string): string => {
   const displayNames = new Intl.DisplayNames([locale], { type: 'language' });
   const label = displayNames.of(locale);
-  if (label === undefined) {
+  if (typeof label !== 'string') {
     return locale;
   }
   return label.charAt(0).toUpperCase() + label.slice(1);
@@ -62,8 +62,10 @@ const LocaleSelect: Component = () => (
     value={[getLocale()]}
     onValueChange={(details) => {
       const [newLocale] = details.value;
-      if (newLocale !== undefined && isLocale(newLocale)) {
-        void setLocale(newLocale);
+      if (typeof newLocale === 'string' && isLocale(newLocale)) {
+        Promise.resolve(setLocale(newLocale)).catch((error: unknown) => {
+          globalThis.reportError(error);
+        });
       }
     }}
   >
@@ -89,7 +91,7 @@ const ThemeSelect: Component<{ theme: Theme; onThemeChange: (theme: Theme) => vo
     value={[props.theme]}
     onValueChange={(details) => {
       const [newTheme] = details.value;
-      if (newTheme !== undefined && isTheme(newTheme)) {
+      if (typeof newTheme === 'string' && isTheme(newTheme)) {
         props.onThemeChange(newTheme);
       }
     }}

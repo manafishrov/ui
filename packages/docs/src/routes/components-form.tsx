@@ -19,16 +19,14 @@ type FormValues = {
   radio: string;
   slider: number[];
 };
-
-const DEFAULT_SLIDER_VALUE = 50;
-const MIN_TEXT_LENGTH = 3;
-const MAX_MESSAGE_LENGTH = 500;
-const MAX_NUMBER_VALUE = 100;
-const MIN_SLIDER_VALUE = 10;
-const JSON_INDENT = 2;
+const DEFAULT_SLIDER_VALUE = 50,
+  MAX_MESSAGE_LENGTH = 500,
+  MIN_TEXT_LENGTH = 3;
+const JSON_INDENT = 2,
+  MAX_NUMBER_VALUE = 100,
+  MIN_SLIDER_VALUE = 10;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 const marks = [
   { value: 0, label: '0' },
   { value: 25, label: '25' },
@@ -36,6 +34,8 @@ const marks = [
   { value: 75, label: '75' },
   { value: 100, label: '100' },
 ];
+
+const toJsonReplacer = (_key: string, jsonValue: unknown): unknown => jsonValue;
 
 const createFormOptions = (onSubmitValue: (value: FormValues) => void) => ({
   defaultValues: {
@@ -46,12 +46,11 @@ const createFormOptions = (onSubmitValue: (value: FormValues) => void) => ({
     checkbox: false,
     radio: '',
     slider: [DEFAULT_SLIDER_VALUE],
-  } satisfies FormValues,
+  },
   onSubmit: ({ value }: { value: FormValues }): void => {
     onSubmitValue(value);
   },
 });
-
 const useDemoForm = (onSubmitValue: (value: FormValues) => void) =>
   useAppForm(() => createFormOptions(onSubmitValue));
 
@@ -61,12 +60,15 @@ const TextField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='text'
     validators={{
-      onChange: ({ value }) =>
-        value.trim() === ''
-          ? 'Text is required'
-          : (value.length < MIN_TEXT_LENGTH
-            ? 'Text must be at least 3 characters'
-            : void 0),
+      onChange: ({ value }) => {
+        let errorMessage: string | undefined;
+        if (value.trim() === '') {
+          errorMessage = 'Text is required';
+        } else if (value.length < MIN_TEXT_LENGTH) {
+          errorMessage = 'Text must be at least 3 characters';
+        }
+        return errorMessage;
+      },
     }}
   >
     {(field) => (
@@ -84,12 +86,15 @@ const EmailField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='email'
     validators={{
-      onChange: ({ value }) =>
-        value.trim() === ''
-          ? 'Email is required'
-          : (EMAIL_REGEX.test(value)
-            ? void 0
-            : 'Please enter a valid email address'),
+      onChange: ({ value }) => {
+        let errorMessage: string | undefined;
+        if (value.trim() === '') {
+          errorMessage = 'Email is required';
+        } else if (!EMAIL_REGEX.test(value)) {
+          errorMessage = 'Please enter a valid email address';
+        }
+        return errorMessage;
+      },
     }}
   >
     {(field) => (
@@ -108,8 +113,13 @@ const TextareaField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='textarea'
     validators={{
-      onChange: ({ value }) =>
-        value.length > MAX_MESSAGE_LENGTH ? 'Message must be less than 500 characters' : void 0,
+      onChange: ({ value }) => {
+        let errorMessage: string | undefined;
+        if (value.length > MAX_MESSAGE_LENGTH) {
+          errorMessage = 'Message must be less than 500 characters';
+        }
+        return errorMessage;
+      },
     }}
   >
     {(field) => (
@@ -127,12 +137,15 @@ const NumberField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='number'
     validators={{
-      onChange: ({ value }) =>
-        value < 0
-          ? 'Value must be positive'
-          : (value > MAX_NUMBER_VALUE
-            ? 'Value must be less than 100'
-            : void 0),
+      onChange: ({ value }) => {
+        let errorMessage: string | undefined;
+        if (value < 0) {
+          errorMessage = 'Value must be positive';
+        } else if (value > MAX_NUMBER_VALUE) {
+          errorMessage = 'Value must be less than 100';
+        }
+        return errorMessage;
+      },
     }}
   >
     {(field) => (
@@ -150,7 +163,13 @@ const CheckboxField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='checkbox'
     validators={{
-      onChange: ({ value }) => (value ? void 0 : 'You must agree to the terms'),
+      onChange: ({ value }) => {
+        let errorMessage: string | undefined;
+        if (!value) {
+          errorMessage = 'You must agree to the terms';
+        }
+        return errorMessage;
+      },
     }}
   >
     {(field) => (
@@ -167,7 +186,13 @@ const RadioField: Component<{ form: DemoForm }> = (props) => (
   <props.form.AppField
     name='radio'
     validators={{
-      onChange: ({ value }) => (value === '' ? 'Please select an option' : void 0),
+      onChange: ({ value }) => {
+        let errorMessage: string | undefined;
+        if (value === '') {
+          errorMessage = 'Please select an option';
+        }
+        return errorMessage;
+      },
     }}
   >
     {(field) => (
@@ -198,8 +223,12 @@ const SliderField: Component<{ form: DemoForm }> = (props) => (
     name='slider'
     validators={{
       onChange: ({ value }) => {
+        let errorMessage: string | undefined;
         const [sliderValue = 0] = value;
-        return sliderValue < MIN_SLIDER_VALUE ? 'Volume must be at least 10' : void 0;
+        if (sliderValue < MIN_SLIDER_VALUE) {
+          errorMessage = 'Volume must be at least 10';
+        }
+        return errorMessage;
       },
     }}
   >
@@ -229,7 +258,7 @@ const FormFields: Component<{ form: DemoForm }> = (props) => (
 const FormExample: Component = () => {
   const [submittedJson, setSubmittedJson] = createSignal('');
   const form = useDemoForm((value) => {
-    setSubmittedJson(JSON.stringify(value, undefined, JSON_INDENT));
+    setSubmittedJson(JSON.stringify(value, toJsonReplacer, JSON_INDENT));
   });
 
   return (
@@ -238,7 +267,9 @@ const FormExample: Component = () => {
         onSubmit={(submitEvent) => {
           submitEvent.preventDefault();
           submitEvent.stopPropagation();
-          void form.handleSubmit();
+          form.handleSubmit().catch((error: unknown) => {
+            globalThis.reportError(error);
+          });
         }}
         class='space-y-6 max-w-xl'
       >

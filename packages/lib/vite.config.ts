@@ -1,15 +1,17 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
-import path from 'node:path';
-import AutoImport from 'unplugin-auto-import/vite';
+import { fileURLToPath } from 'node:url';
+import autoImport from 'unplugin-auto-import/vite';
 import dts from 'unplugin-dts/vite';
-import Icons from 'unplugin-icons/vite';
+import icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
+
+const srcAlias = fileURLToPath(new URL('src', import.meta.url));
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': srcAlias,
     },
   },
   build: {
@@ -100,10 +102,10 @@ export default defineConfig({
       strategy: ['globalVariable', 'baseLocale'],
       emitTsDeclarations: true,
     }),
-    Icons({
+    icons({
       compiler: 'solid',
     }),
-    AutoImport({
+    autoImport({
       imports: ['solid-js'],
       dts: './src/autoImports.d.ts',
     }),
