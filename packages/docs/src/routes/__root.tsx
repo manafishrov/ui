@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import { LocaleProvider } from '@manafishrov/ui';
+import { LocaleProvider, ThemeProvider } from '@manafishrov/ui';
 import {
   ScrollArea,
   ScrollAreaContent,
@@ -19,23 +19,25 @@ const RootComponent: Component = () => (
   <>
     <HeadContent />
     <TanStackRouterDevtools position='bottom-right' />
-    <LocaleProvider locale={getLocale()}>
-      <ScrollArea class='h-full'>
-        <ScrollAreaViewport class='h-full' tabIndex={-1}>
-          <ScrollAreaContent>
-            <div class='flex min-h-full flex-col'>
-              <Header />
-              <main class='px-4 py-8 container mx-auto flex-1'>
-                <Outlet />
-              </main>
-            </div>
-          </ScrollAreaContent>
-        </ScrollAreaViewport>
-        <ScrollAreaScrollbar orientation='vertical'>
-          <ScrollAreaThumb />
-        </ScrollAreaScrollbar>
-      </ScrollArea>
-    </LocaleProvider>
+    <ThemeProvider defaultTheme='system'>
+      <LocaleProvider locale={getLocale()}>
+        <ScrollArea class='h-full'>
+          <ScrollAreaViewport class='h-full' tabIndex={-1}>
+            <ScrollAreaContent>
+              <div class='flex min-h-full flex-col'>
+                <Header />
+                <main class='px-4 py-8 container mx-auto flex-1'>
+                  <Outlet />
+                </main>
+              </div>
+            </ScrollAreaContent>
+          </ScrollAreaViewport>
+          <ScrollAreaScrollbar orientation='vertical'>
+            <ScrollAreaThumb />
+          </ScrollAreaScrollbar>
+        </ScrollArea>
+      </LocaleProvider>
+    </ThemeProvider>
   </>
 );
 
