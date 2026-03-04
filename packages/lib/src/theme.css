@@ -1,7 +1,10 @@
 @import 'tw-animate-css';
-@import '@fontsource/rajdhani';
-@import '@fontsource-variable/google-sans-flex/index.css';
 @import '@fontsource/chakra-petch/500';
+@import '@fontsource/rajdhani/400';
+@import '@fontsource/rajdhani/500';
+@import '@fontsource/rajdhani/600';
+@import '@fontsource/rajdhani/700';
+@import '@fontsource-variable/google-sans-flex';
 @import './components/marquee/marquee.css';
 @import './components/toaster/toaster.css';
 
@@ -82,8 +85,8 @@
     'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-heading:
-    'Rajdhani', 'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    'Rajdhani', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
   --font-branding:
     'Chakra Petch', 'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
