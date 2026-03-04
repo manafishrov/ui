@@ -1,6 +1,13 @@
 import type { Component } from 'solid-js';
 
 import {
+  ScrollArea,
+  ScrollAreaContent,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@manafishrov/ui/scroll-area';
+import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
@@ -8,6 +15,7 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
+  SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -17,6 +25,7 @@ import {
   SidebarMenuSubItem,
   SidebarMenuSubButton,
   SidebarRail,
+  SidebarLayout,
 } from '@manafishrov/ui/sidebar';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
@@ -119,7 +128,7 @@ const SettingsGroup: Component = () => (
 
 const AppSidebar: Component = () => (
   <Sidebar collapsible='icon'>
-    <SidebarHeader class='mt-20'>
+    <SidebarHeader>
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton
@@ -157,17 +166,57 @@ const AppSidebar: Component = () => (
   </Sidebar>
 );
 
+const SidebarPreviewContent: Component = () => (
+  <ScrollArea class='min-h-0 flex-1'>
+    <ScrollAreaViewport class='h-full'>
+      <ScrollAreaContent>
+        <div class='gap-6 p-4 pr-6 flex flex-col'>
+          <div class='space-y-1'>
+            <h2 class='text-lg font-semibold'>Contained Sidebar Layout</h2>
+            <p class='text-sm text-muted-foreground'>
+              The sidebar stays within this bordered parent while preserving collapse and rail
+              interactions.
+            </p>
+          </div>
+          {Array.from({ length: 12 }).map((_, index) => (
+            <section class='space-y-1'>
+              <h3 class='text-sm font-medium'>Section {index + 1}</h3>
+              <p class='text-sm text-muted-foreground'>
+                Main content can scroll independently while the sidebar remains anchored to this
+                container.
+              </p>
+            </section>
+          ))}
+        </div>
+      </ScrollAreaContent>
+    </ScrollAreaViewport>
+    <ScrollAreaScrollbar orientation='vertical'>
+      <ScrollAreaThumb />
+    </ScrollAreaScrollbar>
+  </ScrollArea>
+);
+
 const SidebarDocPage: Component = () => (
-  <SidebarProvider>
-    <AppSidebar />
-    <div class='space-y-8'>
-      <div class='space-y-2'>
-        <H1>Sidebar</H1>
-        <Lead>{m.docs_component_sidebar_description()}</Lead>
-      </div>
-      <SidebarTrigger />
+  <div class='space-y-8'>
+    <div class='space-y-2'>
+      <H1>Sidebar</H1>
+      <Lead>{m.docs_component_sidebar_description()}</Lead>
     </div>
-  </SidebarProvider>
+
+    <div class='h-144 overflow-hidden rounded-xl border'>
+      <SidebarProvider>
+        <SidebarLayout>
+          <AppSidebar />
+          <SidebarInset>
+            <div class='p-3 border-b'>
+              <SidebarTrigger />
+            </div>
+            <SidebarPreviewContent />
+          </SidebarInset>
+        </SidebarLayout>
+      </SidebarProvider>
+    </div>
+  </div>
 );
 
 export const Route = createFileRoute('/components-sidebar')({

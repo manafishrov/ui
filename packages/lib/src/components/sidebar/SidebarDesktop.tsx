@@ -1,24 +1,57 @@
-import type { Component, ComponentProps, JSXElement } from 'solid-js';
-
+import {
+  createMemo,
+  type Component,
+  type ComponentProps,
+  type JSX,
+  type JSXElement,
+} from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import type { SidebarProps } from './Sidebar';
 
+import { SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './constants';
 import { useSidebar } from './context';
 
-type SidebarDesktopContainerProps = ComponentProps<'div'> & {
+type SidebarDesktopContainerProps = ComponentProps<'aside'> & {
   variant: string;
   side: string;
   children: JSXElement;
 };
 
+const getSidebarDesktopRootClass = (
+  disableMobileSidebar: boolean | undefined,
+): ComponentProps<'div'>['class'] =>
+  cn(
+    disableMobileSidebar === true
+      ? 'group peer min-h-0 relative block self-stretch text-sidebar-foreground'
+      : 'group peer md:block min-h-0 relative hidden self-stretch text-sidebar-foreground',
+  );
+
+const getSidebarGapClass = (variant: SidebarProps['variant']): ComponentProps<'div'>['class'] =>
+  cn(
+    'relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
+    'group-data-[collapsible=offcanvas]:w-0',
+    'group-data-[side=right]:rotate-180',
+    variant === 'floating' || variant === 'inset'
+      ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+1rem)]'
+      : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
+  );
+
+const getSidebarStyle = (style: SidebarProps['style']): JSX.CSSProperties => {
+  const base: JSX.CSSProperties = {
+    '--sidebar-width': SIDEBAR_WIDTH,
+    '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
+  };
+  return typeof style === 'object' && style !== null ? { ...base, ...style } : base;
+};
+
 const SidebarDesktopContainer: Component<SidebarDesktopContainerProps> = (props) => {
   const [local, others] = splitProps(props, ['variant', 'side', 'class', 'children']);
   return (
-    <div
+    <aside
       data-slot='sidebar-container'
       class={cn(
-        'inset-y-0 md:flex fixed z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear',
+        'top-0 bottom-0 md:flex absolute z-10 hidden w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear',
         local.side === 'left'
           ? 'left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]'
           : 'right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
@@ -36,7 +69,7 @@ const SidebarDesktopContainer: Component<SidebarDesktopContainerProps> = (props)
       >
         {local.children}
       </div>
-    </div>
+    </aside>
   );
 };
 
@@ -47,34 +80,24 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
     'variant',
     'collapsible',
     'disableMobileSidebar',
+    'style',
     'class',
     'children',
   ]);
 
+  const style = createMemo(() => getSidebarStyle(local.style));
+
   return (
     <div
-      class={cn(
-        local.disableMobileSidebar === true
-          ? 'group peer block text-sidebar-foreground'
-          : 'group peer md:block hidden text-sidebar-foreground',
-      )}
+      style={style()}
+      class={getSidebarDesktopRootClass(local.disableMobileSidebar)}
       data-state={state()}
       data-collapsible={state() === 'collapsed' ? (local.collapsible ?? 'offcanvas') : ''}
       data-variant={local.variant ?? 'sidebar'}
       data-side={local.side ?? 'left'}
       data-slot='sidebar'
     >
-      <div
-        data-slot='sidebar-gap'
-        class={cn(
-          'relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
-          'group-data-[collapsible=offcanvas]:w-0',
-          'group-data-[side=right]:rotate-180',
-          local.variant === 'floating' || local.variant === 'inset'
-            ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+1rem)]'
-            : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
-        )}
-      />
+      <div data-slot='sidebar-gap' class={getSidebarGapClass(local.variant)} />
       <SidebarDesktopContainer
         variant={local.variant ?? 'sidebar'}
         side={local.side ?? 'left'}

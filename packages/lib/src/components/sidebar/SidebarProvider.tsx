@@ -1,7 +1,6 @@
 import {
   type Component,
   type ComponentProps,
-  createMemo,
   createSignal,
   onCleanup,
   onMount,
@@ -12,14 +11,31 @@ import { cn } from 'tailwind-variants';
 
 import { createMediaQuery } from '@/primitives/createMediaQuery';
 
-import { SIDEBAR_KEYBOARD_SHORTCUT, SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './constants';
+import { SIDEBAR_KEYBOARD_SHORTCUT } from './constants';
 import { SidebarContext, type SidebarContextProps } from './context';
 import { setSidebarCookie } from './utils';
 
-export type SidebarProviderProps = ComponentProps<'div'> & {
+export type SidebarProviderProps = {
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (openValue: boolean) => void;
+  children?: JSX.Element;
+};
+
+export type SidebarLayoutProps = ComponentProps<'div'>;
+
+export const SidebarLayout: Component<SidebarLayoutProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <div
+      data-slot='sidebar-wrapper'
+      class={cn(
+        'relative flex h-full min-h-full w-full has-data-[variant=inset]:bg-sidebar',
+        local.class,
+      )}
+      {...others}
+    />
+  );
 };
 
 const useSidebarState = (
@@ -105,40 +121,12 @@ const createSidebarContextValue = (
 });
 
 export const SidebarProvider: Component<SidebarProviderProps> = (props) => {
-  const [local, others] = splitProps(props, [
-    'defaultOpen',
-    'open',
-    'onOpenChange',
-    'class',
-    'style',
-    'children',
-  ]);
-  const stateSet = useSidebarState(local);
+  const stateSet = useSidebarState(props);
   const { toggle } = useSidebarEvents(stateSet);
-
-  const style = createMemo((): JSX.CSSProperties => {
-    const base: JSX.CSSProperties = {
-      '--sidebar-width': SIDEBAR_WIDTH,
-      '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
-    };
-    return typeof local.style === 'object' && local.style !== null
-      ? { ...base, ...local.style }
-      : base;
-  });
 
   return (
     <SidebarContext.Provider value={createSidebarContextValue(stateSet, toggle)}>
-      <div
-        data-slot='sidebar-wrapper'
-        style={style()}
-        class={cn(
-          'group/sidebar-wrapper flex min-h-svh w-full has-data-[variant=inset]:bg-sidebar',
-          local.class,
-        )}
-        {...others}
-      >
-        {local.children}
-      </div>
+      {props.children}
     </SidebarContext.Provider>
   );
 };

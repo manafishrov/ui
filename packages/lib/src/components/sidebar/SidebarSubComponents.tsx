@@ -4,7 +4,13 @@ import { cn } from 'tailwind-variants';
 import ViewSidebarIcon from '~icons/material-symbols/side-navigation';
 
 import { Button } from '@/components/Button';
-import { ScrollArea } from '@/components/ScrollArea';
+import {
+  ScrollArea,
+  ScrollAreaContent,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@/components/ScrollArea';
 import { Separator } from '@/components/Separator';
 import * as messages from '@/paraglide/messages';
 
@@ -140,13 +146,17 @@ export const SidebarContent: Component<ComponentProps<'div'>> = (props) => {
       data-slot='sidebar-content'
       data-sidebar='content'
       id={typeof local.id === 'string' ? local.id : 'sidebar-content'}
-      class={cn(
-        'gap-0 min-h-0 flex flex-1 flex-col group-data-[collapsible=icon]:overflow-hidden',
-        local.class,
-      )}
+      class={cn('min-h-0 flex flex-1 flex-col', local.class)}
       {...others}
     >
-      {local.children}
+      <ScrollAreaViewport class='h-full'>
+        <ScrollAreaContent class='gap-0 flex min-h-full flex-col group-data-[collapsible=icon]:overflow-hidden'>
+          {local.children}
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar orientation='vertical'>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
     </ScrollArea>
   );
 };
@@ -170,7 +180,7 @@ export const SidebarGroupLabel: Component<ComponentProps<'div'>> = (props) => {
       data-slot='sidebar-group-label'
       data-sidebar='group-label'
       class={cn(
-        'h-8 px-2 text-xs font-medium group-data-[collapsible=icon]:-mt-8 [&>svg]:size-4 flex shrink-0 items-center rounded-md font-heading text-sidebar-foreground/70 ring-sidebar-ring outline-hidden transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:shrink-0',
+        'h-8 px-2 text-xs group-data-[collapsible=icon]:-mt-8 [&>svg]:size-4 flex shrink-0 items-center rounded-md text-sidebar-foreground/70 ring-sidebar-ring outline-hidden transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:shrink-0',
         local.class,
       )}
       {...others}

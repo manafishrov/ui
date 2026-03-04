@@ -6,7 +6,7 @@ import { useSidebar } from './context';
 import { SidebarDesktop } from './SidebarDesktop';
 import { SidebarMobile } from './SidebarMobile';
 
-export type SidebarProps = ComponentProps<'div'> & {
+export type SidebarProps = ComponentProps<'aside'> & {
   side?: 'left' | 'right';
   variant?: 'sidebar' | 'floating' | 'inset';
   collapsible?: 'offcanvas' | 'icon' | 'none';
