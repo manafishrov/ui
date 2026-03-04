@@ -86,7 +86,6 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
     'disableMobileSidebar',
     'style',
     'class',
-    'innerClass',
     'children',
   ]);
 
