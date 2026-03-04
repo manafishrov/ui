@@ -76,7 +76,7 @@ type SidebarMenuButtonDataProps = {
   'data-slot': 'sidebar-menu-button';
   'data-sidebar': 'menu-button';
   'data-size': 'sm' | 'default' | 'lg';
-  'data-active': boolean | undefined;
+  'data-active'?: true;
   class: string;
 };
 
@@ -103,7 +103,7 @@ const getSidebarMenuButtonDataProps = (
   'data-slot': 'sidebar-menu-button',
   'data-sidebar': 'menu-button',
   'data-size': local.size ?? 'default',
-  'data-active': local.isActive,
+  ...(local.isActive === true ? { 'data-active': true as const } : {}),
   class: sidebarMenuButtonVariants({
     variant: local.variant,
     size: local.size,
@@ -281,7 +281,7 @@ export const SidebarMenuSubButton: Component<SidebarMenuSubButtonProps> = (props
       data-slot='sidebar-menu-sub-button'
       data-sidebar='menu-sub-button'
       data-size={local.size ?? 'md'}
-      data-active={local.isActive}
+      {...(local.isActive === true ? { 'data-active': true as const } : {})}
       class={cn(
         'h-7 gap-2 px-2 data-[size=md]:text-sm data-[size=sm]:text-xs [&>svg]:size-4 min-w-0 flex -translate-x-px items-center overflow-hidden rounded-md text-sidebar-foreground ring-sidebar-ring outline-hidden group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
         local.class,
