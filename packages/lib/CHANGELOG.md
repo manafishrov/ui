@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/manafishrov/ui/compare/v1.1.0...v1.2.0) (2026-03-04)
+
+
+### Bug Fixes
+
+* add missing font weights ([2b3283f](https://github.com/manafishrov/ui/commit/2b3283f81804a8ca896f440a14d191a056fa5fe9))
+
+
+### Features
+
+* sidebar layout improvements ([9c84ef0](https://github.com/manafishrov/ui/commit/9c84ef0688ac90bfe6c383c1c0d04b46e84686a6))
+
 # [1.1.0](https://github.com/manafishrov/ui/compare/v1.0.5...v1.1.0) (2026-03-04)
 
 
