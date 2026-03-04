@@ -1,4 +1,5 @@
-import { createMemo, type Component, type ComponentProps } from 'solid-js';
+import { ark } from '@ark-ui/solid/factory';
+import { createMemo, type Component, type ComponentProps, type JSX } from 'solid-js';
 import { type VariantProps, tv, cn } from 'tailwind-variants';
 
 import { Skeleton } from '@/components/Skeleton';
@@ -57,11 +58,19 @@ export const sidebarMenuButtonVariants = tv({
   },
 });
 
-export type SidebarMenuButtonProps = ComponentProps<'button'> &
+type SidebarMenuButtonAsChild = ComponentProps<typeof ark.button>['asChild'];
+
+export type SidebarMenuButtonProps = Omit<ComponentProps<'button'>, 'asChild'> &
   VariantProps<typeof sidebarMenuButtonVariants> & {
+    asChild?: SidebarMenuButtonAsChild;
     isActive?: boolean;
     tooltip?: string | ComponentProps<typeof TooltipContent>;
   };
+
+type SidebarMenuButtonStyleProps = Pick<
+  SidebarMenuButtonProps,
+  'size' | 'isActive' | 'variant' | 'class'
+>;
 
 type SidebarMenuButtonDataProps = {
   'data-slot': 'sidebar-menu-button';
@@ -88,32 +97,70 @@ const getTooltipChildren = (
   return tooltip.children;
 };
 
+const getSidebarMenuButtonDataProps = (
+  local: SidebarMenuButtonStyleProps,
+): SidebarMenuButtonDataProps => ({
+  'data-slot': 'sidebar-menu-button',
+  'data-sidebar': 'menu-button',
+  'data-size': local.size ?? 'default',
+  'data-active': local.isActive,
+  class: sidebarMenuButtonVariants({
+    variant: local.variant,
+    size: local.size,
+    class: local.class,
+  }),
+});
+
+const getSidebarMenuButtonAsChildProps = (
+  asChild: SidebarMenuButtonProps['asChild'],
+): Pick<ComponentProps<typeof ark.button>, 'asChild'> => (asChild ? { asChild } : {});
+
+const renderSidebarMenuButton = (
+  asChild: SidebarMenuButtonProps['asChild'],
+  props: ComponentProps<'button'>,
+  children: SidebarMenuButtonProps['children'],
+): JSX.Element => (
+  <ark.button {...props} {...getSidebarMenuButtonAsChildProps(asChild)}>
+    {children}
+  </ark.button>
+);
+
 export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
-  const [local, others] = splitProps(props, ['isActive', 'variant', 'size', 'tooltip', 'class']);
+  const [local, others] = splitProps(props, [
+    'asChild',
+    'children',
+    'isActive',
+    'variant',
+    'size',
+    'tooltip',
+    'class',
+  ]);
   const { isMobile, state, side } = useSidebar();
 
   const tooltipPlacement = createMemo(() => (side() === 'left' ? 'right' : 'left'));
-
-  const buttonProps = (): SidebarMenuButtonDataProps => ({
-    'data-slot': 'sidebar-menu-button',
-    'data-sidebar': 'menu-button',
-    'data-size': local.size ?? 'default',
-    'data-active': local.isActive,
-    class: sidebarMenuButtonVariants({
-      variant: local.variant,
-      size: local.size,
-      class: local.class,
-    }),
-  });
+  const buttonDataProps = createMemo(() => getSidebarMenuButtonDataProps(local));
 
   return (
-    <Show when={local.tooltip} fallback={<button {...buttonProps()} {...others} />}>
+    <Show
+      when={local.tooltip}
+      fallback={renderSidebarMenuButton(
+        local.asChild,
+        { ...buttonDataProps(), ...others },
+        local.children,
+      )}
+    >
       <Tooltip
         positioning={{ placement: tooltipPlacement() }}
         openDelay={100}
         disabled={state() !== 'collapsed' || isMobile()}
       >
-        <TooltipTrigger {...buttonProps()} {...others} />
+        <TooltipTrigger
+          {...buttonDataProps()}
+          {...others}
+          asChild={(triggerProps) =>
+            renderSidebarMenuButton(local.asChild, triggerProps(), local.children)
+          }
+        />
         <Portal>
           <TooltipPositioner>
             <TooltipContent {...getTooltipContentProps(local.tooltip)}>
