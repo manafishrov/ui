@@ -23,7 +23,7 @@
     "@iconify-json/material-symbols": "1.2.59",
     "@inlang/paraglide-js": "2.12.0",
     "@types/bun": "1.3.9",
-    "lefthook": "2.1.1",
+    "lefthook": "2.1.2",
     "oxfmt": "0.36.0",
     "oxlint": "1.50.0",
     "oxlint-tsgolint": "0.15.0",
