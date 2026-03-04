@@ -39,7 +39,7 @@ export const SidebarMenuItem: Component<ComponentProps<'li'>> = (props) => {
 };
 
 export const sidebarMenuButtonVariants = tv({
-  base: 'gap-2 p-2 text-sm group-has-data-sidebar-menu-action/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! data-active:font-medium peer/menu-button group/menu-button [&_svg]:size-4 flex w-full items-center overflow-hidden rounded-md text-left ring-sidebar-ring outline-hidden transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground [&_svg]:shrink-0 [&>span:last-child]:truncate',
+  base: 'gap-2 p-2 text-sm group-has-data-sidebar-menu-action/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! data-active:font-medium data-[status=active]:font-medium aria-[current=page]:font-medium peer/menu-button group/menu-button [&_svg]:size-4 flex w-full items-center overflow-hidden rounded-md text-left ring-sidebar-ring outline-hidden transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-[current=page]:bg-sidebar-accent aria-[current=page]:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground data-[status=active]:bg-sidebar-accent data-[status=active]:text-sidebar-accent-foreground [&_svg]:shrink-0 [&>span:last-child]:truncate',
   variants: {
     variant: {
       default: 'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
@@ -138,22 +138,21 @@ export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
   const { isMobile, state, side } = useSidebar();
 
   const tooltipPlacement = createMemo(() => (side() === 'left' ? 'right' : 'left'));
+  const shouldUseTooltip = createMemo(
+    () => Boolean(local.tooltip) && state() === 'collapsed' && !isMobile(),
+  );
   const buttonDataProps = createMemo(() => getSidebarMenuButtonDataProps(local));
 
   return (
     <Show
-      when={local.tooltip}
+      when={shouldUseTooltip()}
       fallback={renderSidebarMenuButton(
         local.asChild,
         { ...buttonDataProps(), ...others },
         local.children,
       )}
     >
-      <Tooltip
-        positioning={{ placement: tooltipPlacement() }}
-        openDelay={100}
-        disabled={state() !== 'collapsed' || isMobile()}
-      >
+      <Tooltip positioning={{ placement: tooltipPlacement() }} openDelay={100}>
         <TooltipTrigger
           {...buttonDataProps()}
           {...others}
@@ -283,7 +282,7 @@ export const SidebarMenuSubButton: Component<SidebarMenuSubButtonProps> = (props
       data-size={local.size ?? 'md'}
       {...(local.isActive === true ? { 'data-active': true as const } : {})}
       class={cn(
-        'h-7 gap-2 px-2 data-[size=md]:text-sm data-[size=sm]:text-xs [&>svg]:size-4 min-w-0 flex -translate-x-px items-center overflow-hidden rounded-md text-sidebar-foreground ring-sidebar-ring outline-hidden group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
+        'h-7 gap-2 px-2 data-[size=md]:text-sm data-[size=sm]:text-xs [&>svg]:size-4 min-w-0 flex -translate-x-px items-center overflow-hidden rounded-md text-sidebar-foreground ring-sidebar-ring outline-hidden group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-[current=page]:bg-sidebar-accent aria-[current=page]:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-[status=active]:bg-sidebar-accent data-[status=active]:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
         local.class,
       )}
       {...others}
