@@ -5,6 +5,7 @@ export type SidebarContextProps = {
   openMobile: () => boolean;
   setOpenMobile: (open: boolean) => void;
   isMobile: () => boolean;
+  setMobileDisabled: (mobileDisabled: boolean) => void;
   toggleSidebar: () => void;
   side: () => 'left' | 'right';
   setSide: (side: 'left' | 'right') => void;

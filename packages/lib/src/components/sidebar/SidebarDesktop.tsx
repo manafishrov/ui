@@ -46,13 +46,18 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
     'side',
     'variant',
     'collapsible',
+    'disableMobileSidebar',
     'class',
     'children',
   ]);
 
   return (
     <div
-      class='group peer md:block hidden text-sidebar-foreground'
+      class={cn(
+        local.disableMobileSidebar === true
+          ? 'group peer block text-sidebar-foreground'
+          : 'group peer md:block hidden text-sidebar-foreground',
+      )}
       data-state={state()}
       data-collapsible={state() === 'collapsed' ? (local.collapsible ?? 'offcanvas') : ''}
       data-variant={local.variant ?? 'sidebar'}
@@ -73,7 +78,7 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
       <SidebarDesktopContainer
         variant={local.variant ?? 'sidebar'}
         side={local.side ?? 'left'}
-        class={local.class}
+        class={cn(local.disableMobileSidebar === true ? 'flex' : 'md:flex hidden', local.class)}
         {...others}
       >
         {local.children}

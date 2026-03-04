@@ -26,6 +26,7 @@ const useSidebarState = (
   props: SidebarProviderProps,
 ): {
   isMobile: () => boolean;
+  setMobileDisabled: (value: boolean) => void;
   openMobile: () => boolean;
   setOpenMobile: (value: boolean | ((prev: boolean) => boolean)) => void;
   open: () => boolean;
@@ -33,7 +34,9 @@ const useSidebarState = (
   side: () => 'left' | 'right';
   setSide: (value: 'left' | 'right') => void;
 } => {
-  const isMobile = createMediaQuery('(max-width: 768px)');
+  const isViewportMobile = createMediaQuery('(max-width: 768px)');
+  const [mobileDisabled, setMobileDisabled] = createSignal(false);
+  const isMobile = (): boolean => isViewportMobile() && !mobileDisabled();
   const [openMobile, setOpenMobile] = createSignal(false);
   const [internalOpen, setInternalOpen] = createSignal(props.defaultOpen ?? true);
   const [side, setSide] = createSignal<'left' | 'right'>('left');
@@ -49,7 +52,7 @@ const useSidebarState = (
     setSidebarCookie(value);
   };
 
-  return { isMobile, openMobile, setOpenMobile, open, setOpen, side, setSide };
+  return { isMobile, setMobileDisabled, openMobile, setOpenMobile, open, setOpen, side, setSide };
 };
 const useSidebarEvents = (stateSet: ReturnType<typeof useSidebarState>): { toggle: () => void } => {
   const toggle = (): void => {
@@ -84,6 +87,7 @@ const createSidebarContextValue = (
   open: stateSet.open,
   setOpen: stateSet.setOpen,
   isMobile: stateSet.isMobile,
+  setMobileDisabled: stateSet.setMobileDisabled,
   openMobile: stateSet.openMobile,
   setOpenMobile: stateSet.setOpenMobile,
   toggleSidebar: toggle,
