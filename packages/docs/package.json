@@ -6,7 +6,7 @@
   "type": "module",
   "dependencies": {
     "@manafishrov/ui": "workspace:*",
-    "@tailwindcss/vite": "4.2.0",
+    "@tailwindcss/vite": "4.2.1",
     "@tanstack/router-plugin": "1.162.1",
     "@tanstack/solid-form": "1.28.3",
     "@tanstack/solid-router": "1.162.1",
@@ -14,6 +14,6 @@
   },
   "devDependencies": {
     "@tanstack/solid-router-devtools": "1.162.1",
-    "tailwindcss": "4.2.0"
+    "tailwindcss": "4.2.1"
   }
 }
