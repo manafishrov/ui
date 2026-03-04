@@ -30,7 +30,7 @@ import { LocaleProvider, ThemeProvider } from '@manafishrov/ui';
 function App() {
   return (
     <ThemeProvider>
-      <LocaleProvider locale='en'>{/* your app */}</LocaleProvider>
+      <LocaleProvider locale='en-gb'>{/* your app */}</LocaleProvider>
     </ThemeProvider>
   );
 }
