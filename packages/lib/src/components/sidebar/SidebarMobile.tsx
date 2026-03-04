@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 
 import {
   Sheet,
+  SheetCloseButton,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -18,6 +19,7 @@ import { useSidebar } from './context';
 export const SidebarMobile: Component<SidebarProps> = (props) => {
   const [local] = splitProps(props, ['side', 'children']);
   const { openMobile, setOpenMobile } = useSidebar();
+  const side = local.side ?? 'left';
 
   return (
     <Sheet
@@ -26,16 +28,18 @@ export const SidebarMobile: Component<SidebarProps> = (props) => {
         setOpenMobile(event.open);
       }}
     >
-      <SheetPositioner side={local.side ?? 'left'}>
+      <SheetPositioner side={side}>
         <SheetContent
+          side={side}
           data-sidebar='sidebar'
           data-slot='sidebar'
           data-mobile='true'
-          class='p-0 w-(--sidebar-width) bg-sidebar text-sidebar-foreground [&>button]:hidden'
+          class='p-0 w-(--sidebar-width) bg-sidebar text-sidebar-foreground'
           style={{
             '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
           }}
         >
+          <SheetCloseButton />
           <div class='sr-only'>
             <SheetHeader>
               <SheetTitle>{messages.ui_sidebar_title()}</SheetTitle>
