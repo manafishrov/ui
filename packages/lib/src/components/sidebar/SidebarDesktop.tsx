@@ -13,6 +13,7 @@ import { SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './constants';
 import { useSidebar } from './context';
 
 type SidebarDesktopContainerProps = ComponentProps<'aside'> & {
+  innerClass?: string;
   variant: string;
   side: string;
   children: JSXElement;
@@ -46,7 +47,7 @@ const getSidebarStyle = (style: SidebarProps['style']): JSX.CSSProperties => {
 };
 
 const SidebarDesktopContainer: Component<SidebarDesktopContainerProps> = (props) => {
-  const [local, others] = splitProps(props, ['variant', 'side', 'class', 'children']);
+  const [local, others] = splitProps(props, ['variant', 'side', 'class', 'children', 'innerClass']);
   return (
     <aside
       data-slot='sidebar-container'
@@ -65,7 +66,10 @@ const SidebarDesktopContainer: Component<SidebarDesktopContainerProps> = (props)
       <div
         data-sidebar='sidebar'
         data-slot='sidebar-inner'
-        class='group-data-[variant=floating]:shadow-sm flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border'
+        class={cn(
+          'group-data-[variant=floating]:shadow-sm flex size-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:ring-1 group-data-[variant=floating]:ring-sidebar-border',
+          local.innerClass,
+        )}
       >
         {local.children}
       </div>
@@ -82,6 +86,7 @@ export const SidebarDesktop: Component<SidebarProps> = (props) => {
     'disableMobileSidebar',
     'style',
     'class',
+    'innerClass',
     'children',
   ]);
 

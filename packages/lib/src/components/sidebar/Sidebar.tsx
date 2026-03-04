@@ -7,6 +7,7 @@ import { SidebarDesktop } from './SidebarDesktop';
 import { SidebarMobile } from './SidebarMobile';
 
 export type SidebarProps = ComponentProps<'aside'> & {
+  innerClass?: string;
   side?: 'left' | 'right';
   variant?: 'sidebar' | 'floating' | 'inset';
   collapsible?: 'offcanvas' | 'icon' | 'none';
