@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/manafishrov/ui/compare/v1.0.5...v1.1.0) (2026-03-04)
+
+
+### Bug Fixes
+
+* mobile sidebar ([4a18afb](https://github.com/manafishrov/ui/commit/4a18afb5f97a36552e6eb4764cb76277826b30f6))
+
+
+### Features
+
+* add aschild to sidebarmenubutton ([cc0ea7d](https://github.com/manafishrov/ui/commit/cc0ea7d69793d573b3a603af42d9006cfbe84a31))
+* automatically update sidebar size when collapsible is true and mobile sidebar is disabled ([8f4e5a8](https://github.com/manafishrov/ui/commit/8f4e5a8d5d2d3d4a5b9f72a3601a62e79f9813dd))
+* switch to modern version of font and icon library ([aee6fc9](https://github.com/manafishrov/ui/commit/aee6fc996748bdbc597bc4210b5616aa3e07c7d7))
+
 ## [1.0.5](https://github.com/manafishrov/ui/compare/v1.0.4...v1.0.5) (2026-03-03)
 
 
