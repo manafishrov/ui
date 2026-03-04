@@ -1,5 +1,7 @@
 import { type Component, type ComponentProps, createEffect, onCleanup } from 'solid-js';
 
+import { createMediaQuery } from '@/primitives/createMediaQuery';
+
 import { useSidebar } from './context';
 import { SidebarDesktop } from './SidebarDesktop';
 import { SidebarMobile } from './SidebarMobile';
@@ -12,7 +14,8 @@ export type SidebarProps = ComponentProps<'div'> & {
 };
 
 export const Sidebar: Component<SidebarProps> = (props) => {
-  const { isMobile, setMobileDisabled, setSide } = useSidebar();
+  const { isMobile, setMobileDisabled, setOpen, setSide } = useSidebar();
+  const isViewportMobile = createMediaQuery('(max-width: 768px)');
 
   onCleanup(() => {
     setMobileDisabled(false);
@@ -23,6 +26,12 @@ export const Sidebar: Component<SidebarProps> = (props) => {
     const mobileDisabled = props.disableMobileSidebar ?? false;
     setSide(currentSide);
     setMobileDisabled(mobileDisabled);
+  });
+
+  createEffect(() => {
+    if (props.disableMobileSidebar === true && props.collapsible === 'icon') {
+      setOpen(!isViewportMobile());
+    }
   });
 
   return (

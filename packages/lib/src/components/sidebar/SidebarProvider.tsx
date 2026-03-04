@@ -52,7 +52,16 @@ const useSidebarState = (
     setSidebarCookie(value);
   };
 
-  return { isMobile, setMobileDisabled, openMobile, setOpenMobile, open, setOpen, side, setSide };
+  return {
+    isMobile,
+    setMobileDisabled,
+    openMobile,
+    setOpenMobile,
+    open,
+    setOpen,
+    side,
+    setSide,
+  };
 };
 const useSidebarEvents = (stateSet: ReturnType<typeof useSidebarState>): { toggle: () => void } => {
   const toggle = (): void => {
