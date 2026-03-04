@@ -1,7 +1,7 @@
 import { Dialog as SheetPrimitive } from '@ark-ui/solid/dialog';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineCloseIcon from '~icons/ic/outline-close';
+import CloseIcon from '~icons/material-symbols/close';
 
 import { Button } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
@@ -61,10 +61,10 @@ export const SheetContent: Component<
       class={cn(
         'gap-4 p-6 shadow-lg relative flex h-full w-full flex-col bg-background outline-none',
         'border-l border-border',
-        'data-[side=left]:border-l-0 data-[side=left]:border-r',
-        'data-[side=top]:border-l-0 data-[side=top]:border-b',
-        'data-[side=bottom]:border-l-0 data-[side=bottom]:border-t',
-        'data-[state=open]:animate-in data-[state=closed]:animate-out',
+        'data-[side=left]:border-r data-[side=left]:border-l-0',
+        'data-[side=top]:border-b data-[side=top]:border-l-0',
+        'data-[side=bottom]:border-t data-[side=bottom]:border-l-0',
+        'data-[state=closed]:animate-out data-[state=open]:animate-in',
         'data-[state=closed]:duration-300 data-[state=open]:duration-300',
         'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         'data-[side=right]:data-[state=closed]:slide-out-to-right-1/2 data-[side=right]:data-[state=open]:slide-in-from-right-1/2',
@@ -94,7 +94,7 @@ export const SheetCloseButton: Component<SheetPrimitive.CloseTriggerProps> = (pr
           {...triggerProps()}
           {...others}
         >
-          <OutlineCloseIcon aria-hidden='true' />
+          <CloseIcon aria-hidden='true' />
           <span class='sr-only'>{messages.ui_common_close()}</span>
         </Button>
       )}

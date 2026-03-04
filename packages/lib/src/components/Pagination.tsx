@@ -1,9 +1,9 @@
 import { Pagination as PaginationPrimitive } from '@ark-ui/solid/pagination';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
-import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
+import ChevronLeftIcon from '~icons/material-symbols/chevron-left';
+import ChevronRightIcon from '~icons/material-symbols/chevron-right';
+import MoreHorizIcon from '~icons/material-symbols/more-horiz';
 
 import { buttonVariants } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
@@ -77,7 +77,7 @@ export const PaginationPrevious: Component<PaginationPrimitive.PrevTriggerProps>
     >
       {local.children ?? (
         <>
-          <OutlineChevronLeftIcon />
+          <ChevronLeftIcon />
           <span>{messages.ui_pagination_previous()}</span>
         </>
       )}
@@ -104,7 +104,7 @@ export const PaginationNext: Component<PaginationPrimitive.NextTriggerProps> = (
       {local.children ?? (
         <>
           <span>{messages.ui_pagination_next()}</span>
-          <OutlineChevronRightIcon />
+          <ChevronRightIcon />
         </>
       )}
     </PaginationPrimitive.NextTrigger>
@@ -120,7 +120,7 @@ export const PaginationEllipsis: Component<PaginationPrimitive.EllipsisProps> = 
       data-slot='pagination-ellipsis'
       class={cn('h-9 w-9 flex items-center justify-center', local.class)}
     >
-      <OutlineMoreHorizIcon class='size-4' />
+      <MoreHorizIcon class='size-4' />
       <span class='sr-only'>{messages.ui_pagination_more()}</span>
     </PaginationPrimitive.Ellipsis>
   );

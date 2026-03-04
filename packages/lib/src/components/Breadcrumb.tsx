@@ -1,7 +1,7 @@
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
-import OutlineMoreHorizIcon from '~icons/ic/outline-more-horiz';
+import ChevronRightIcon from '~icons/material-symbols/chevron-right';
+import MoreHorizIcon from '~icons/material-symbols/more-horiz';
 
 import { Link, type LinkProps } from '@/components/Link';
 import * as messages from '@/paraglide/messages';
@@ -80,7 +80,7 @@ export const BreadcrumbSeparator: Component<ComponentProps<'li'>> = (props) => {
       class={cn('[&>svg]:size-4.5', local.class)}
       {...others}
     >
-      {local.children ?? <OutlineChevronRightIcon />}
+      {local.children ?? <ChevronRightIcon />}
     </li>
   );
 };
@@ -96,7 +96,7 @@ export const BreadcrumbEllipsis: Component<ComponentProps<'span'>> = (props) => 
       class={cn('size-6 relative flex items-center justify-center', local.class)}
       {...others}
     >
-      <OutlineMoreHorizIcon class='size-5' />
+      <MoreHorizIcon class='size-5' />
       <span class='sr-only'>{messages.ui_common_more()}</span>
     </span>
   );

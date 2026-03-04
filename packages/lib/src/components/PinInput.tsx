@@ -1,7 +1,7 @@
 import { PinInput as PrimitivePinInput } from '@ark-ui/solid/pin-input';
 import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineRemoveIcon from '~icons/ic/outline-remove';
+import RemoveIcon from '~icons/material-symbols/close';
 
 export const PinInputHiddenInput = PrimitivePinInput.HiddenInput;
 export const PinInputContext = PrimitivePinInput.Context;
@@ -60,7 +60,7 @@ export const PinInputInput: Component<PrimitivePinInput.InputProps> = (props) =>
   return (
     <PrimitivePinInput.Input
       class={cn(
-        'relative flex h-10 w-10 items-center justify-center border-y border-r border-input bg-transparent text-sm text-center transition-colors outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground first:rounded-l-md first:border-l last:rounded-r-md dark:bg-input/30',
+        'h-10 w-10 text-sm relative flex items-center justify-center border-y border-r border-input bg-transparent text-center transition-colors outline-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground first:rounded-l-md first:border-l last:rounded-r-md dark:bg-input/30',
         'focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-2 data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:ring-destructive/40',
         'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[readonly=true]:cursor-default',
@@ -81,7 +81,7 @@ export const PinInputSeparator: Component<ComponentProps<'div'>> = (props) => {
       class={cn('flex items-center justify-center text-muted-foreground', local.class)}
       {...others}
     >
-      <OutlineRemoveIcon class='size-4' />
+      <RemoveIcon class='size-4' />
     </div>
   );
 };

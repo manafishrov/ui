@@ -1,9 +1,9 @@
 import { Menu as MenuPrimitive } from '@ark-ui/solid/menu';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineCheckIcon from '~icons/ic/outline-check';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
-import OutlineSearchIcon from '~icons/ic/outline-search';
+import CheckIcon from '~icons/material-symbols/check';
+import ChevronRightIcon from '~icons/material-symbols/chevron-right';
+import SearchIcon from '~icons/material-symbols/search';
 
 export const MenuCombobox = MenuPrimitive.Root;
 export const MenuComboboxTrigger = MenuPrimitive.Trigger;
@@ -48,7 +48,7 @@ export const MenuComboboxSearchInput: Component<MenuComboboxSearchInputProps> = 
   };
   return (
     <div data-slot='menu-combobox-search' class='gap-2 px-3 py-2 flex items-center border-b'>
-      <OutlineSearchIcon class='size-4 shrink-0 text-muted-foreground' />
+      <SearchIcon class='size-4 shrink-0 text-muted-foreground' />
       <input
         type='text'
         class={cn(
@@ -87,7 +87,7 @@ export const MenuComboboxTriggerItem: Component<MenuPrimitive.TriggerItemProps> 
       {...others}
     >
       {local.children}
-      <OutlineChevronRightIcon class='size-4 ml-auto' />
+      <ChevronRightIcon class='size-4 ml-auto' />
     </MenuPrimitive.TriggerItem>
   );
 };
@@ -119,7 +119,7 @@ export const MenuComboboxItemIndicator: Component<MenuPrimitive.ItemIndicatorPro
       class={cn('right-3 size-3.5 absolute flex items-center justify-center', local.class)}
       {...others}
     >
-      {local.children ?? <OutlineCheckIcon class='size-4' />}
+      {local.children ?? <CheckIcon class='size-4' />}
     </MenuPrimitive.ItemIndicator>
   );
 };
@@ -135,7 +135,7 @@ export const MenuComboboxCheckboxItem: Component<MenuPrimitive.CheckboxItemProps
       {...others}
     >
       <MenuPrimitive.ItemIndicator class='left-3 size-3.5 absolute flex items-center justify-center'>
-        <OutlineCheckIcon class='size-4' />
+        <CheckIcon class='size-4' />
       </MenuPrimitive.ItemIndicator>
       <MenuPrimitive.ItemText>{local.children}</MenuPrimitive.ItemText>
     </MenuPrimitive.CheckboxItem>

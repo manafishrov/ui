@@ -1,8 +1,8 @@
 import { Menu as MenuPrimitive } from '@ark-ui/solid/menu';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineCheckIcon from '~icons/ic/outline-check';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+import CheckIcon from '~icons/material-symbols/check';
+import ChevronRightIcon from '~icons/material-symbols/chevron-right';
 
 export const Menu = MenuPrimitive.Root;
 export const MenuTrigger = MenuPrimitive.Trigger;
@@ -41,7 +41,7 @@ export const MenuItem: Component<MenuPrimitive.ItemProps> = (props) => {
     <MenuPrimitive.Item
       data-slot='menu-item'
       class={cn(
-        'px-2 py-1.5 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'px-2 py-1.5 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[disabled=true]:opacity-50',
         local.class,
       )}
       {...others}
@@ -61,7 +61,7 @@ export const MenuTriggerItem: Component<MenuPrimitive.TriggerItemProps> = (props
       {...others}
     >
       {local.children}
-      <OutlineChevronRightIcon class='size-4 ml-auto' />
+      <ChevronRightIcon class='size-4 ml-auto' />
     </MenuPrimitive.TriggerItem>
   );
 };
@@ -96,7 +96,7 @@ export const MenuItemIndicator: Component<MenuPrimitive.ItemIndicatorProps> = (p
       class={cn('right-2 size-3.5 absolute flex items-center justify-center', local.class)}
       {...others}
     >
-      {local.children ?? <OutlineCheckIcon class='size-4' />}
+      {local.children ?? <CheckIcon class='size-4' />}
     </MenuPrimitive.ItemIndicator>
   );
 };
@@ -107,13 +107,13 @@ export const MenuCheckboxItem: Component<MenuPrimitive.CheckboxItemProps> = (pro
     <MenuPrimitive.CheckboxItem
       data-slot='menu-checkbox-item'
       class={cn(
-        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[disabled=true]:opacity-50',
         local.class,
       )}
       {...others}
     >
       <MenuPrimitive.ItemIndicator class='left-2 size-3.5 absolute flex items-center justify-center'>
-        <OutlineCheckIcon class='size-4' />
+        <CheckIcon class='size-4' />
       </MenuPrimitive.ItemIndicator>
       <MenuPrimitive.ItemText>{local.children}</MenuPrimitive.ItemText>
     </MenuPrimitive.CheckboxItem>
@@ -126,7 +126,7 @@ export const MenuRadioItem: Component<MenuPrimitive.RadioItemProps> = (props) =>
     <MenuPrimitive.RadioItem
       data-slot='menu-radio-item'
       class={cn(
-        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'py-1.5 pr-2 pl-8 text-sm relative flex cursor-default items-center rounded-sm transition-colors outline-none select-none data-disabled:pointer-events-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[disabled=true]:opacity-50',
         local.class,
       )}
       {...others}

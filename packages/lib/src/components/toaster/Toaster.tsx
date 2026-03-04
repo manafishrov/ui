@@ -7,11 +7,11 @@ import {
 import { type Component, type Accessor, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { cn } from 'tailwind-variants';
-import OutlineCheckCircleIcon from '~icons/ic/outline-check-circle';
-import OutlineCloseIcon from '~icons/ic/outline-close';
-import OutlineErrorIcon from '~icons/ic/outline-error';
-import OutlineInfoIcon from '~icons/ic/outline-info';
-import OutlineWarningIcon from '~icons/ic/outline-warning';
+import CheckCircleIcon from '~icons/material-symbols/check-circle';
+import CloseIcon from '~icons/material-symbols/close';
+import ErrorIcon from '~icons/material-symbols/error';
+import InfoIcon from '~icons/material-symbols/info';
+import WarningIcon from '~icons/material-symbols/warning';
 
 import { Spinner } from '@/components/Spinner';
 
@@ -24,22 +24,22 @@ export const toast = createToaster({
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group gap-3 p-4 pr-10 shadow-lg pointer-events-auto relative flex min-w-72 w-full items-center rounded-lg border bg-popover transition-all',
-      'data-[state=open]:animate-in data-[state=open]:sm:slide-in-from-bottom-full data-[state=open]:slide-in-from-top-full',
+      'group gap-3 p-4 pr-10 shadow-lg min-w-72 pointer-events-auto relative flex w-full items-center rounded-lg border bg-popover transition-all',
+      'data-[state=open]:sm:slide-in-from-bottom-full data-[state=open]:animate-in data-[state=open]:slide-in-from-top-full',
       'border-border text-popover-foreground',
     )}
   >
     <Show when={props.toast().type === 'success'}>
-      <OutlineCheckCircleIcon class={cn('size-5 text-green-500 shrink-0')} aria-hidden='true' />
+      <CheckCircleIcon class={cn('size-5 text-green-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'info'}>
-      <OutlineInfoIcon class={cn('size-5 text-blue-500 shrink-0')} aria-hidden='true' />
+      <InfoIcon class={cn('size-5 text-blue-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'warning'}>
-      <OutlineWarningIcon class={cn('size-5 text-amber-500 shrink-0')} aria-hidden='true' />
+      <WarningIcon class={cn('size-5 text-amber-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'error'}>
-      <OutlineErrorIcon class={cn('size-5 text-red-500 shrink-0')} aria-hidden='true' />
+      <ErrorIcon class={cn('size-5 text-red-500 shrink-0')} aria-hidden='true' />
     </Show>
     <Show when={props.toast().type === 'loading'}>
       <Spinner class={cn('size-5 text-muted-foreground')} />
@@ -57,7 +57,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
       </Show>
     </div>
     <Toast.CloseTrigger class='top-2 right-2 p-1 absolute cursor-pointer rounded-md text-foreground/50 opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground focus:opacity-100 focus:outline-none'>
-      <OutlineCloseIcon class='size-4' />
+      <CloseIcon class='size-4' />
     </Toast.CloseTrigger>
   </Toast.Root>
 );

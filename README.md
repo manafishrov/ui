@@ -11,7 +11,7 @@ The consumer project requires these peer dependencies:
 - `@tanstack/solid-router`
 - `@tanstack/solid-form`
 - `unplugin-icons`
-- `@iconify-json/ic`
+- `@iconify-json/material-symbols`
 
 ## Usage
 

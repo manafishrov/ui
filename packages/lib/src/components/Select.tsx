@@ -8,9 +8,9 @@ import {
   splitProps,
 } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineCheckIcon from '~icons/ic/outline-check';
-import OutlineCloseIcon from '~icons/ic/outline-close';
-import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
+import CheckIcon from '~icons/material-symbols/check';
+import CloseIcon from '~icons/material-symbols/close';
+import ExpandMoreIcon from '~icons/material-symbols/expand-more';
 
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
@@ -181,7 +181,7 @@ export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props
       class={cn('opacity-50 transition-transform data-[state=open]:rotate-180', local.class)}
       {...others}
     >
-      {local.children ?? <OutlineExpandMoreIcon class='size-4' />}
+      {local.children ?? <ExpandMoreIcon class='size-4' />}
     </SelectPrimitive.Indicator>
   );
 };
@@ -231,7 +231,7 @@ export const SelectClearTrigger: Component<SelectPrimitive.ClearTriggerProps> = 
       {...others}
       tabIndex={local.tabIndex ?? 0}
     >
-      {local.children ?? <OutlineCloseIcon class='size-3.5' />}
+      {local.children ?? <CloseIcon class='size-3.5' />}
     </SelectPrimitive.ClearTrigger>
   );
 };
@@ -282,7 +282,7 @@ export const SelectItem: Component<SelectPrimitive.ItemProps> = (props) => {
         {local.children}
       </SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator class='right-2 size-4 pointer-events-none absolute flex items-center justify-center'>
-        <OutlineCheckIcon class='pointer-events-none' />
+        <CheckIcon class='pointer-events-none' />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>
   );

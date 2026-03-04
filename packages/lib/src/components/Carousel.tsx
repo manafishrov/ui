@@ -1,8 +1,8 @@
 import { Carousel as CarouselPrimitive } from '@ark-ui/solid/carousel';
 import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+import ChevronLeftIcon from '~icons/material-symbols/chevron-left';
+import ChevronRightIcon from '~icons/material-symbols/chevron-right';
 
 import { Button, type ButtonVariantProps } from '@/components/Button';
 import * as messages from '@/paraglide/messages';
@@ -65,7 +65,7 @@ export const CarouselPrevious: Component<
           )}
           {...triggerProps()}
         >
-          {local.children ?? <OutlineChevronLeftIcon class='size-5' />}
+          {local.children ?? <ChevronLeftIcon class='size-5' />}
           <span class='sr-only'>{messages.ui_carousel_previous()}</span>
         </Button>
       )}
@@ -96,7 +96,7 @@ export const CarouselNext: Component<
           )}
           {...triggerProps()}
         >
-          {local.children ?? <OutlineChevronRightIcon class='size-5' />}
+          {local.children ?? <ChevronRightIcon class='size-5' />}
           <span class='sr-only'>{messages.ui_carousel_next()}</span>
         </Button>
       )}

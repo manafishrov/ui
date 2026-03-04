@@ -20,12 +20,12 @@ import {
 } from '@manafishrov/ui/sidebar';
 import { H1, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
-import OutlineCalendarTodayIcon from '~icons/ic/outline-calendar-today';
-import OutlineFolderIcon from '~icons/ic/outline-folder';
-import OutlineHomeIcon from '~icons/ic/outline-home';
-import OutlineMailIcon from '~icons/ic/outline-mail';
-import OutlinePersonIcon from '~icons/ic/outline-person';
-import OutlineSettingsIcon from '~icons/ic/outline-settings';
+import CalendarTodayIcon from '~icons/material-symbols/calendar-today';
+import FolderIcon from '~icons/material-symbols/folder';
+import HomeIcon from '~icons/material-symbols/home';
+import MailIcon from '~icons/material-symbols/mail';
+import PersonIcon from '~icons/material-symbols/person';
+import SettingsIcon from '~icons/material-symbols/settings';
 
 import * as m from '@/paraglide/messages';
 
@@ -36,19 +36,19 @@ const ApplicationGroup: Component = () => (
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Home' isActive>
-            <OutlineHomeIcon />
+            <HomeIcon />
             <span>Home</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Inbox'>
-            <OutlineMailIcon />
+            <MailIcon />
             <span>Inbox</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Calendar'>
-            <OutlineCalendarTodayIcon />
+            <CalendarTodayIcon />
             <span>Calendar</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -64,7 +64,7 @@ const DocumentationGroup: Component = () => (
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Getting Started'>
-            <OutlineFolderIcon />
+            <FolderIcon />
             <span>Getting Started</span>
           </SidebarMenuButton>
           <SidebarMenuSub>
@@ -78,7 +78,7 @@ const DocumentationGroup: Component = () => (
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Components'>
-            <OutlineFolderIcon />
+            <FolderIcon />
             <span>Components</span>
           </SidebarMenuButton>
           <SidebarMenuSub>
@@ -102,13 +102,13 @@ const SettingsGroup: Component = () => (
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Profile'>
-            <OutlinePersonIcon />
+            <PersonIcon />
             <span>Profile</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='Preferences'>
-            <OutlineSettingsIcon />
+            <SettingsIcon />
             <span>Preferences</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -128,7 +128,7 @@ const AppSidebar: Component = () => (
             class='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
           >
             <div class='size-8 flex aspect-square items-center justify-center rounded-lg bg-primary text-primary-foreground'>
-              <OutlineFolderIcon class='size-4' />
+              <FolderIcon class='size-4' />
             </div>
             <div class='text-sm leading-tight grid flex-1 text-left'>
               <span class='font-semibold truncate'>Acme Inc</span>
@@ -147,7 +147,7 @@ const AppSidebar: Component = () => (
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip='User Account'>
-            <OutlinePersonIcon />
+            <PersonIcon />
             <span>User Account</span>
           </SidebarMenuButton>
         </SidebarMenuItem>

@@ -1,9 +1,9 @@
 import { Combobox as ComboboxPrimitive, type CollectionItem } from '@ark-ui/solid/combobox';
 import { type Component, type ComponentProps, type JSXElement, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineCheckIcon from '~icons/ic/outline-check';
-import OutlineCloseIcon from '~icons/ic/outline-close';
-import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
+import CheckIcon from '~icons/material-symbols/check';
+import CloseIcon from '~icons/material-symbols/close';
+import ExpandMoreIcon from '~icons/material-symbols/expand-more';
 
 export const ComboboxContext = ComboboxPrimitive.Context;
 
@@ -80,7 +80,7 @@ export const ComboboxTrigger: Component<ComboboxPrimitive.TriggerProps> = (props
       class={cn('text-muted-foreground transition-colors hover:text-foreground', local.class)}
       {...others}
     >
-      {local.children ?? <OutlineExpandMoreIcon class='size-4' />}
+      {local.children ?? <ExpandMoreIcon class='size-4' />}
     </ComboboxPrimitive.Trigger>
   );
 };
@@ -90,13 +90,13 @@ export const ComboboxClearTrigger: Component<ComboboxPrimitive.ClearTriggerProps
     <ComboboxPrimitive.ClearTrigger
       data-slot='combobox-clear'
       class={cn(
-        'p-0.5 rounded-[4px] text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        'p-0.5 rounded-[4px] text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none',
         local.class,
       )}
       {...others}
       tabIndex={local.tabIndex ?? 0}
     >
-      {local.children ?? <OutlineCloseIcon class='size-3.5' />}
+      {local.children ?? <CloseIcon class='size-3.5' />}
     </ComboboxPrimitive.ClearTrigger>
   );
 };
@@ -126,7 +126,7 @@ export const ComboboxItem: Component<ComboboxPrimitive.ItemProps> = (props) => {
     <ComboboxPrimitive.Item
       data-slot='combobox-item'
       class={cn(
-        "gap-1.5 py-1 pr-8 pl-1.5 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:gap-2 relative flex w-full cursor-default items-center rounded-md outline-hidden select-none data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-highlighted:bg-accent data-highlighted:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center",
+        "gap-1.5 py-1 pr-8 pl-1.5 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:gap-2 relative flex w-full cursor-default items-center rounded-md outline-hidden select-none data-disabled:pointer-events-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center",
         local.class,
       )}
       {...others}
@@ -135,7 +135,7 @@ export const ComboboxItem: Component<ComboboxPrimitive.ItemProps> = (props) => {
         {local.children}
       </ComboboxPrimitive.ItemText>
       <ComboboxPrimitive.ItemIndicator class='right-2 size-4 pointer-events-none absolute flex items-center justify-center'>
-        <OutlineCheckIcon class='pointer-events-none' />
+        <CheckIcon class='pointer-events-none' />
       </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
   );

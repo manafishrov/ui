@@ -1,9 +1,9 @@
 import { DatePicker as DatePickerPrimitive } from '@ark-ui/solid/date-picker';
 import { type Component, For, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineCalendarMonthIcon from '~icons/ic/outline-calendar-month';
-import OutlineChevronLeftIcon from '~icons/ic/outline-chevron-left';
-import OutlineChevronRightIcon from '~icons/ic/outline-chevron-right';
+import CalendarMonthIcon from '~icons/material-symbols/calendar-month';
+import ChevronLeftIcon from '~icons/material-symbols/chevron-left';
+import ChevronRightIcon from '~icons/material-symbols/chevron-right';
 
 import { buttonVariants } from '@/components/Button';
 export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
@@ -95,7 +95,7 @@ export const DatePickerTrigger: Component<DatePickerPrimitive.TriggerProps> = (p
       )}
       {...others}
     >
-      {local.children ?? <OutlineCalendarMonthIcon class='size-4' />}
+      {local.children ?? <CalendarMonthIcon class='size-4' />}
     </DatePickerPrimitive.Trigger>
   );
 };
@@ -126,7 +126,7 @@ export const DatePickerPrevTrigger: Component<DatePickerPrimitive.PrevTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <OutlineChevronLeftIcon class='size-4' />}
+      {local.children ?? <ChevronLeftIcon class='size-4' />}
     </DatePickerPrimitive.PrevTrigger>
   );
 };
@@ -141,7 +141,7 @@ export const DatePickerNextTrigger: Component<DatePickerPrimitive.NextTriggerPro
       )}
       {...others}
     >
-      {local.children ?? <OutlineChevronRightIcon class='size-4' />}
+      {local.children ?? <ChevronRightIcon class='size-4' />}
     </DatePickerPrimitive.NextTrigger>
   );
 };

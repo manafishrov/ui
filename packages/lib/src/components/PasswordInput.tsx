@@ -1,8 +1,8 @@
 import { PasswordInput as PrimitivePasswordInput } from '@ark-ui/solid/password-input';
 import { splitProps, type Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineVisibilityIcon from '~icons/ic/outline-visibility';
-import OutlineVisibilityOffIcon from '~icons/ic/outline-visibility-off';
+import VisibilityIcon from '~icons/material-symbols/visibility';
+import VisibilityOffIcon from '~icons/material-symbols/visibility-off';
 export const PasswordInput: Component<PrimitivePasswordInput.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
@@ -86,10 +86,10 @@ export const PasswordInputIndicator: Component<PrimitivePasswordInput.IndicatorP
   return (
     <PrimitivePasswordInput.Indicator
       class={cn(local.class)}
-      fallback={local.children ?? <OutlineVisibilityOffIcon class='size-4' />}
+      fallback={local.children ?? <VisibilityOffIcon class='size-4' />}
       {...others}
     >
-      <OutlineVisibilityIcon class='size-4' />
+      <VisibilityIcon class='size-4' />
     </PrimitivePasswordInput.Indicator>
   );
 };

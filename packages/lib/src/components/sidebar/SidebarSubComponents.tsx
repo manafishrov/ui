@@ -1,7 +1,7 @@
 import type { Component, ComponentProps } from 'solid-js';
 
 import { cn } from 'tailwind-variants';
-import OutlineViewSidebarIcon from '~icons/ic/outline-view-sidebar';
+import ViewSidebarIcon from '~icons/material-symbols/side-navigation';
 
 import { Button } from '@/components/Button';
 import { ScrollArea } from '@/components/ScrollArea';
@@ -34,7 +34,7 @@ export const SidebarTrigger: Component<ComponentProps<typeof Button>> = (props) 
       onClick={handleClick}
       {...others}
     >
-      <OutlineViewSidebarIcon aria-hidden='true' />
+      <ViewSidebarIcon aria-hidden='true' />
     </Button>
   );
 };
@@ -170,7 +170,7 @@ export const SidebarGroupLabel: Component<ComponentProps<'div'>> = (props) => {
       data-slot='sidebar-group-label'
       data-sidebar='group-label'
       class={cn(
-        'h-8 px-2 text-xs font-medium group-data-[collapsible=icon]:-mt-8 [&>svg]:size-4 flex shrink-0 items-center rounded-md text-sidebar-foreground/70 ring-sidebar-ring outline-hidden transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:shrink-0',
+        'h-8 px-2 text-xs font-medium group-data-[collapsible=icon]:-mt-8 [&>svg]:size-4 flex shrink-0 items-center rounded-md font-heading text-sidebar-foreground/70 ring-sidebar-ring outline-hidden transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:shrink-0',
         local.class,
       )}
       {...others}

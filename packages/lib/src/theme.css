@@ -1,6 +1,6 @@
 @import 'tw-animate-css';
 @import '@fontsource/rajdhani';
-@import '@fontsource/roboto';
+@import '@fontsource-variable/google-sans-flex/index.css';
 @import '@fontsource/chakra-petch/500';
 @import './components/marquee/marquee.css';
 @import './components/toaster/toaster.css';
@@ -79,14 +79,14 @@
 
 @theme inline {
   --font-default:
-    'Roboto', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+    'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-heading:
-    'Rajdhani', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+    'Rajdhani', 'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-branding:
-    'Chakra Petch', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+    'Chakra Petch', 'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

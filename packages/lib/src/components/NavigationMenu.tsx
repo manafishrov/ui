@@ -1,7 +1,7 @@
 import { NavigationMenu as NavigationMenuPrimitive } from '@ark-ui/solid/navigation-menu';
 import { type Component, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
-import OutlineExpandMoreIcon from '~icons/ic/outline-expand-more';
+import ExpandMoreIcon from '~icons/material-symbols/expand-more';
 
 export const NavigationMenu: Component<NavigationMenuPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
@@ -55,7 +55,7 @@ export const NavigationMenuTrigger: Component<NavigationMenuPrimitive.TriggerPro
       {...others}
     >
       {local.children}{' '}
-      <OutlineExpandMoreIcon
+      <ExpandMoreIcon
         class='ml-1 size-3 relative top-px transition duration-300 group-data-[state=open]:rotate-180'
         aria-hidden='true'
       />
@@ -70,7 +70,7 @@ export const NavigationMenuContent: Component<NavigationMenuPrimitive.ContentPro
       data-slot='navigation-menu-content'
       class={cn(
         'p-4 shadow-md h-auto w-auto origin-top-left rounded-md bg-popover text-popover-foreground ring-1 ring-foreground/10 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
-        'absolute top-full left-0 mt-1.5 min-w-[12rem]',
+        'left-0 mt-1.5 absolute top-full min-w-[12rem]',
         local.class,
       )}
       {...others}
@@ -86,7 +86,7 @@ export const NavigationMenuIndicator: Component<NavigationMenuPrimitive.Indicato
     <NavigationMenuPrimitive.Indicator
       data-slot='navigation-menu-indicator'
       class={cn(
-        'top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in',
+        'h-1.5 top-full z-[1] flex items-end justify-center overflow-hidden data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:animate-in data-[state=open]:fade-in',
         local.class,
       )}
       {...others}
@@ -100,7 +100,7 @@ export const NavigationMenuArrow: Component<NavigationMenuPrimitive.ArrowProps> 
     <NavigationMenuPrimitive.Arrow
       data-slot='navigation-menu-arrow'
       class={cn(
-        'relative top-[70%] h-2 w-2 rotate-45 rounded-tl-sm border-l border-t bg-border shadow-md',
+        'h-2 w-2 shadow-md relative top-[70%] rotate-45 rounded-tl-sm border-t border-l bg-border',
         local.class,
       )}
       {...others}
@@ -114,7 +114,7 @@ export const NavigationMenuViewport: Component<NavigationMenuPrimitive.ViewportP
     <NavigationMenuPrimitive.Viewport
       data-slot='navigation-menu-viewport'
       class={cn(
-        'origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
+        'origin-top-center mt-1.5 shadow-lg md:w-[var(--radix-navigation-menu-viewport-width)] relative h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:zoom-in-90',
         local.class,
       )}
       {...others}
