@@ -5,7 +5,7 @@
     "": {
       "name": "ui",
       "devDependencies": {
-        "@iconify-json/material-symbols": "1.2.59",
+        "@iconify-json/material-symbols": "1.2.60",
         "@inlang/paraglide-js": "2.13.0",
         "@types/bun": "1.3.9",
         "lefthook": "2.1.2",
@@ -182,7 +182,7 @@
 
     "@fontsource/rajdhani": ["@fontsource/rajdhani@5.2.7", "", {}, "sha512-7Gy10U688fCdeFfYKebUF2TZotdgH/ghKyMsseXPmB60lpaUHC8aoCSJl5/OpZ+KHKSU2TqBfKfteVkcIXxTAQ=="],
 
-    "@iconify-json/material-symbols": ["@iconify-json/material-symbols@1.2.59", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-difuedW4jZyiDDu2SySjPCr+UsM65PRkEg3zUuKz0YRGMkNyBsk3R6j9s/ofP1NaKr2y32XxrzTawmnJZbzOAw=="],
+    "@iconify-json/material-symbols": ["@iconify-json/material-symbols@1.2.60", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-bmVrnz/9KJNh/j+nO3pyxzo0h8iENIKxv5RASDURhjKdPI53rRcKN7E2Gmwi25k9CBJ+IC6L9l0AGgngeqyRuw=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
