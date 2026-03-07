@@ -8,6 +8,7 @@ import {
 } from '@manafishrov/ui/input-group';
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
+import SearchIcon from '~icons/material-symbols/search';
 
 import * as m from '@/paraglide/messages';
 
@@ -15,20 +16,7 @@ const SearchWithResultsExample: Component = () => (
   <InputGroup class='max-w-xs'>
     <InputGroupInput placeholder='Search...' />
     <InputGroupAddon>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-      >
-        <circle cx='11' cy='11' r='8' />
-        <path d='m21 21-4.3-4.3' />
-      </svg>
+      <SearchIcon class='size-5' />
     </InputGroupAddon>
     <InputGroupAddon align='inline-end'>
       <InputGroupText>12 results</InputGroupText>
@@ -74,7 +62,7 @@ const UrlExample: Component = () => (
     <InputGroupAddon>
       <InputGroupText>https://</InputGroupText>
     </InputGroupAddon>
-    <InputGroupInput placeholder='example' class='!pl-0.5' />
+    <InputGroupInput placeholder='example' class='pl-0.5!' />
     <InputGroupAddon align='inline-end'>
       <InputGroupText>.com</InputGroupText>
     </InputGroupAddon>
