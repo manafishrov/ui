@@ -8,8 +8,9 @@ import {
   ScrollAreaThumb,
   ScrollAreaViewport,
 } from '@manafishrov/ui/scroll-area';
+import { TanStackDevtools } from '@tanstack/solid-devtools';
 import { HeadContent, Outlet, createRootRoute, redirect } from '@tanstack/solid-router';
-import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
+import { TanStackRouterDevtoolsPanel } from '@tanstack/solid-router-devtools';
 
 import { Header } from '@/components/Header';
 import * as m from '@/paraglide/messages';
@@ -18,13 +19,12 @@ import { getLocale, shouldRedirect } from '@/paraglide/runtime';
 const RootComponent: Component = () => (
   <>
     <HeadContent />
-    <TanStackRouterDevtools position='bottom-right' />
     <ThemeProvider defaultTheme='system'>
       <LocaleProvider locale={getLocale()}>
-        <ScrollArea class='h-full'>
-          <ScrollAreaViewport class='h-full' tabIndex={-1}>
+        <ScrollArea class='relative size-full'>
+          <ScrollAreaViewport tabIndex={-1}>
             <ScrollAreaContent>
-              <div class='flex min-h-full flex-col'>
+              <div class='flex size-full flex-col'>
                 <Header />
                 <main class='px-4 py-8 container mx-auto flex-1'>
                   <Outlet />
@@ -38,6 +38,14 @@ const RootComponent: Component = () => (
         </ScrollArea>
       </LocaleProvider>
     </ThemeProvider>
+    <TanStackDevtools
+      plugins={[
+        {
+          name: 'TanStack Router',
+          render: <TanStackRouterDevtoolsPanel />,
+        },
+      ]}
+    />
   </>
 );
 
