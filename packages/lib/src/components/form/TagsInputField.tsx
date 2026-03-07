@@ -1,6 +1,4 @@
-import type { TagsInputRootProps } from '@ark-ui/solid';
-
-import { type Component, splitProps, For } from 'solid-js';
+import { type Component, type ComponentProps, splitProps, For } from 'solid-js';
 
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {
@@ -19,36 +17,45 @@ import {
 
 import { useFieldContext } from './context';
 
-export type TagsInputFieldProps = TagsInputRootProps & {
+export type TagsInputFieldProps = ComponentProps<typeof TagsInputInput> & {
   label?: string;
   description?: string;
-  placeholder?: string;
+  showClearTrigger?: boolean;
 };
 
-const TagsInputGroup: Component<{ placeholder?: string | undefined }> = (props) => (
-  <>
-    <TagsInputContext>
-      {(context) => (
-        <TagsInputControl>
-          <For each={context().value}>
-            {(value, index) => (
-              <TagsInputItem index={index()} value={value}>
-                <TagsInputItemPreview>
-                  <TagsInputItemText>{value}</TagsInputItemText>
-                  <TagsInputItemDeleteTrigger />
-                </TagsInputItemPreview>
-                <TagsInputItemInput />
-              </TagsInputItem>
-            )}
-          </For>
-          <TagsInputInput placeholder={props.placeholder} />
-          <TagsInputClearTrigger />
-        </TagsInputControl>
-      )}
-    </TagsInputContext>
-    <TagsInputHiddenInput />
-  </>
-);
+const TagsInputGroup: Component<
+  ComponentProps<typeof TagsInputInput> & { showClearTrigger?: boolean }
+> = (props) => {
+  const [local, others] = splitProps(props, ['children', 'showClearTrigger']);
+
+  return (
+    <>
+      <TagsInputContext>
+        {(context) => (
+          <TagsInputControl>
+            <For each={context().value}>
+              {(value, index) => (
+                <TagsInputItem index={index()} value={value}>
+                  <TagsInputItemPreview>
+                    <TagsInputItemText>{value}</TagsInputItemText>
+                    <TagsInputItemDeleteTrigger />
+                  </TagsInputItemPreview>
+                  <TagsInputItemInput />
+                </TagsInputItem>
+              )}
+            </For>
+            <TagsInputInput {...others} />
+            <Show when={local.showClearTrigger !== false}>
+              <TagsInputClearTrigger />
+            </Show>
+            {local.children}
+          </TagsInputControl>
+        )}
+      </TagsInputContext>
+      <TagsInputHiddenInput />
+    </>
+  );
+};
 
 const TAGS_INPUT_FIELD_PROPS = [
   'label',
@@ -56,7 +63,7 @@ const TAGS_INPUT_FIELD_PROPS = [
   'required',
   'disabled',
   'readOnly',
-  'placeholder',
+  'showClearTrigger',
 ] as const;
 
 export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
@@ -83,9 +90,13 @@ export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
-          {...others}
         >
-          <TagsInputGroup placeholder={local.placeholder} />
+          <TagsInputGroup
+            {...others}
+            {...(typeof local.showClearTrigger === 'boolean' && {
+              showClearTrigger: local.showClearTrigger,
+            })}
+          />
         </TagsInput>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>

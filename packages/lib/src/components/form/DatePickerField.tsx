@@ -1,4 +1,4 @@
-import type { DatePickerInputProps, DatePickerRootProps, DateValue } from '@ark-ui/solid';
+import type { DatePickerInputProps, DateValue } from '@ark-ui/solid';
 import type { Component } from 'solid-js';
 
 import {
@@ -14,24 +14,33 @@ import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@
 
 import { useFieldContext } from './context';
 
-export type DatePickerFieldProps = DatePickerRootProps & {
+export type DatePickerFieldProps = DatePickerInputProps & {
   label?: string;
   description?: string;
+  showTrigger?: boolean;
 };
 
-const DatePickerInputGroup: Component<DatePickerInputProps> = (props) => (
-  <>
-    <DatePickerControl>
-      <DatePickerInput {...props} />
-      <DatePickerTrigger />
-    </DatePickerControl>
-    <DatePickerPositioner>
-      <DatePickerContent>
-        <DatePickerViews />
-      </DatePickerContent>
-    </DatePickerPositioner>
-  </>
-);
+const DatePickerInputGroup: Component<DatePickerInputProps & { showTrigger?: boolean }> = (
+  props,
+) => {
+  const [local, others] = splitProps(props, ['showTrigger']);
+
+  return (
+    <>
+      <DatePickerControl>
+        <DatePickerInput {...others} />
+        <Show when={local.showTrigger !== false}>
+          <DatePickerTrigger />
+        </Show>
+      </DatePickerControl>
+      <DatePickerPositioner>
+        <DatePickerContent>
+          <DatePickerViews />
+        </DatePickerContent>
+      </DatePickerPositioner>
+    </>
+  );
+};
 
 const DATE_PICKER_FIELD_PROPS = [
   'label',
@@ -40,6 +49,7 @@ const DATE_PICKER_FIELD_PROPS = [
   'disabled',
   'readOnly',
   'placeholder',
+  'showTrigger',
 ] as const;
 
 export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
@@ -66,9 +76,12 @@ export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
-          {...others}
         >
-          <DatePickerInputGroup placeholder={local.placeholder} />
+          <DatePickerInputGroup
+            {...others}
+            placeholder={local.placeholder}
+            {...(typeof local.showTrigger === 'boolean' && { showTrigger: local.showTrigger })}
+          />
         </DatePicker>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>

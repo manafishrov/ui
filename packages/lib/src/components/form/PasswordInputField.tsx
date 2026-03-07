@@ -14,6 +14,7 @@ import { useFieldContext } from './context';
 export type PasswordInputFieldProps = ComponentProps<typeof PasswordInputInput> & {
   label?: string;
   description?: string;
+  showVisibilityTrigger?: boolean;
 };
 
 export const PasswordInputField: Component<PasswordInputFieldProps> = (props) => {
@@ -24,6 +25,7 @@ export const PasswordInputField: Component<PasswordInputFieldProps> = (props) =>
     'required',
     'disabled',
     'readOnly',
+    'showVisibilityTrigger',
   ]);
 
   return (
@@ -52,9 +54,11 @@ export const PasswordInputField: Component<PasswordInputFieldProps> = (props) =>
               }}
               {...others}
             />
-            <PasswordInputVisibilityTrigger>
-              <PasswordInputIndicator />
-            </PasswordInputVisibilityTrigger>
+            <Show when={local.showVisibilityTrigger !== false}>
+              <PasswordInputVisibilityTrigger>
+                <PasswordInputIndicator />
+              </PasswordInputVisibilityTrigger>
+            </Show>
           </PasswordInputControl>
         </PasswordInput>
         <FieldError errors={field().state.meta.errors} />

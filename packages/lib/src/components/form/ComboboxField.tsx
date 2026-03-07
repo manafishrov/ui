@@ -15,34 +15,39 @@ import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@
 
 import { useFieldContext } from './context';
 
-export type ComboboxFieldProps = ComboboxRootProps<string> & {
+export type ComboboxFieldProps = ComponentProps<typeof ComboboxInput> & {
+  collection: ComboboxRootProps<string>['collection'];
   label?: string;
   description?: string;
   showTrigger?: boolean;
-  showClear?: boolean;
+  showClearTrigger?: boolean;
 } & { class?: string };
 
 const ComboboxInputGroup: Component<
   ComponentProps<typeof ComboboxInput> & {
     showTrigger?: boolean | undefined;
-    showClear?: boolean | undefined;
+    showClearTrigger?: boolean | undefined;
   }
-> = (props) => (
-  <>
-    <ComboboxControl>
-      <ComboboxInput placeholder={props.placeholder} />
-      <div class='gap-1 flex items-center'>
-        {props.showClear === true && <ComboboxClearTrigger />}
-        {props.showTrigger === true && <ComboboxTrigger />}
-      </div>
-    </ComboboxControl>
-    <ComboboxPositioner>
-      <ComboboxContent>
-        <ComboboxList>{props.children}</ComboboxList>
-      </ComboboxContent>
-    </ComboboxPositioner>
-  </>
-);
+> = (props) => {
+  const [local, others] = splitProps(props, ['showTrigger', 'showClearTrigger', 'children']);
+
+  return (
+    <>
+      <ComboboxControl>
+        <ComboboxInput {...others} />
+        <div class='gap-1 flex items-center'>
+          {local.showClearTrigger === true && <ComboboxClearTrigger />}
+          {local.showTrigger === true && <ComboboxTrigger />}
+        </div>
+      </ComboboxControl>
+      <ComboboxPositioner>
+        <ComboboxContent>
+          <ComboboxList>{local.children}</ComboboxList>
+        </ComboboxContent>
+      </ComboboxPositioner>
+    </>
+  );
+};
 
 const COMBOBOX_FIELD_PROPS = [
   'label',
@@ -50,9 +55,9 @@ const COMBOBOX_FIELD_PROPS = [
   'required',
   'disabled',
   'readOnly',
-  'placeholder',
+  'collection',
   'showTrigger',
-  'showClear',
+  'showClearTrigger',
   'children',
 ] as const;
 
@@ -69,7 +74,8 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Combobox
+        <Combobox<string>
+          collection={local.collection}
           value={field().state.value}
           onValueChange={(details) => {
             field().handleChange(details.value);
@@ -80,12 +86,11 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
-          {...others}
         >
           <ComboboxInputGroup
-            placeholder={local.placeholder}
             showTrigger={local.showTrigger}
-            showClear={local.showClear}
+            showClearTrigger={local.showClearTrigger}
+            {...others}
           >
             {local.children}
           </ComboboxInputGroup>

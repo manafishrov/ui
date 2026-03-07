@@ -10,10 +10,10 @@ import {
 
 import { useFieldContext } from './context';
 
-export type NumberInputFieldProps = ComponentProps<typeof NumberInput> & {
+export type NumberInputFieldProps = ComponentProps<typeof NumberInputInput> & {
   label?: string;
   description?: string;
-  triggers?: boolean;
+  showTriggers?: boolean;
 };
 
 export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
@@ -24,7 +24,7 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
     'required',
     'disabled',
     'readOnly',
-    'triggers',
+    'showTriggers',
   ]);
 
   return (
@@ -48,11 +48,10 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
           required={local.required ?? false}
-          {...others}
         >
           <NumberInputControl>
-            <NumberInputInput />
-            <Show when={local.triggers !== false}>
+            <NumberInputInput {...others} />
+            <Show when={local.showTriggers !== false}>
               <NumberInputTriggers />
             </Show>
           </NumberInputControl>
