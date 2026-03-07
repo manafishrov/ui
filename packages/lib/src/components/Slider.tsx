@@ -22,7 +22,7 @@ export const SliderLabel: Component<SliderPrimitive.LabelProps> = (props) => {
   return (
     <SliderPrimitive.Label
       class={cn(
-        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1.5 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         local.class,
       )}
       {...others}
@@ -87,7 +87,7 @@ export const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => {
     <SliderPrimitive.Thumb
       data-slot='slider-thumb'
       class={cn(
-        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute hover:ring-[3px] focus-visible:outline-hidden data-active:ring-[3px] data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50 has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
+        'size-4 bg-white shadow-sm after:-inset-2 relative block shrink-0 rounded-full border border-ring ring-ring/50 transition-[color,box-shadow] select-none after:absolute hover:ring-[3px] focus-visible:outline-hidden has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 data-active:ring-[3px] data-disabled:pointer-events-none data-[disabled=true]:opacity-50 data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50',
         local.class,
       )}
       {...others}
@@ -100,7 +100,7 @@ export const SliderThumb: Component<SliderPrimitive.ThumbProps> = (props) => {
 
 export const SliderMarkerGroup: Component<SliderPrimitive.MarkerGroupProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
-  return <SliderPrimitive.MarkerGroup class={cn('mt-2', local.class)} {...others} />;
+  return <SliderPrimitive.MarkerGroup class={cn('mt-2 mb-2', local.class)} {...others} />;
 };
 
 export const SliderMarker: Component<SliderPrimitive.MarkerProps> = (props) => {
@@ -108,7 +108,7 @@ export const SliderMarker: Component<SliderPrimitive.MarkerProps> = (props) => {
   return (
     <SliderPrimitive.Marker
       class={cn(
-        'data-[state=at-value]:font-medium text-[10px] text-muted-foreground data-[orientation=horizontal]:-translate-x-1/2 data-[orientation=vertical]:-translate-y-1/2 data-[state=at-value]:text-foreground',
+        '-translate-x-1/2 text-[10px] text-muted-foreground data-[orientation=vertical]:-translate-y-1/2 data-[state=at-value]:text-foreground',
         local.class,
       )}
       {...others}
@@ -171,7 +171,7 @@ export const SliderCircleRange: Component<AngleSliderPrimitive.ThumbProps> = (pr
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <div
-      class={cn('inset-0 z-10 pointer-events-none absolute rounded-full', local.class)}
+      class={cn('inset-0 pointer-events-none absolute z-10 rounded-full', local.class)}
       data-slot='slider-circle-range'
       {...others}
     >
@@ -201,9 +201,9 @@ export const SliderCircleThumb: Component<AngleSliderPrimitive.ThumbProps> = (pr
   return (
     <AngleSliderPrimitive.Thumb
       class={cn(
-        'inset-0 z-20 absolute rounded-full outline-none',
+        'inset-0 absolute z-20 rounded-full outline-none',
         'before:top-1 before:size-4 before:bg-white before:shadow-sm before:absolute before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:border before:border-ring before:transition-[color,box-shadow] before:data-active:ring-[3px] before:data-active:ring-ring/50',
-        'data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50 has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50',
+        'has-focus-visible:ring-[3px] has-focus-visible:ring-ring/50 data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50',
         local.class,
       )}
       data-slot='slider-circle-thumb'
@@ -221,7 +221,7 @@ export const SliderCircleMarkerGroup: Component<AngleSliderPrimitive.MarkerGroup
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <AngleSliderPrimitive.MarkerGroup
-      class={cn('inset-0 z-20 pointer-events-none absolute rounded-full', local.class)}
+      class={cn('inset-0 pointer-events-none absolute z-20 rounded-full', local.class)}
       {...others}
     >
       {local.children}

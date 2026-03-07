@@ -43,7 +43,7 @@ export const FieldLegend: Component<FieldLegendProps> = (props) => {
       data-slot='field-legend'
       data-variant={local.variant ?? 'legend'}
       class={cn(
-        'mb-1 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base',
+        'mb-1.5 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base',
         local.class,
       )}
       {...others}
@@ -105,7 +105,7 @@ export const FieldContent: Component<ComponentProps<'div'>> = (props) => {
   return (
     <div
       data-slot='field-content'
-      class={cn('relative group/field-content leading-snug flex flex-1 flex-col', local.class)}
+      class={cn('group/field-content leading-snug relative flex flex-1 flex-col', local.class)}
       {...others}
     />
   );
@@ -171,7 +171,7 @@ export const FieldLabel: Component<PrimitiveField.LabelProps> = (props) => {
     <PrimitiveField.Label
       data-slot='field-label'
       class={cn(
-        'group-data-[orientation=vertical]/field:mb-1',
+        'group-data-[orientation=vertical]/field:mb-1.5',
         'gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         '*:data-[slot=field]:p-2.5 group/field-label peer/field-label leading-snug flex w-fit group-data-disabled/field:opacity-50 has-data-[slot=field]:rounded-lg has-data-[slot=field]:border has-[[data-state=checked]]:border-primary/30 has-[[data-state=checked]]:bg-primary/5 dark:has-[[data-state=checked]]:border-primary/20 dark:has-[[data-state=checked]]:bg-primary/10',
         'has-data-[slot=field]:w-full has-data-[slot=field]:flex-col',
@@ -190,7 +190,7 @@ export const FieldTitle: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='field-label'
       class={cn(
-        'group-data-[orientation=vertical]/field:mb-1',
+        'group-data-[orientation=vertical]/field:mb-1.5',
         'gap-2 text-sm font-medium leading-snug flex w-fit items-center group-data-disabled/field:opacity-50',
         local.class,
       )}
@@ -273,10 +273,10 @@ export const FieldError: Component<FieldErrorProps> = (props) => {
   });
 
   return (
-    <div class='mt-[3px] min-h-[0.875rem] flex flex-col justify-start'>
+    <div class='mt-[3px] flex min-h-[0.875rem] flex-col justify-start'>
       <PrimitiveField.ErrorText
         data-slot='field-error'
-        class={cn('text-[0.8rem] leading-[0.875rem] font-medium text-destructive', local.class)}
+        class={cn('font-medium text-[0.8rem] leading-[0.875rem] text-destructive', local.class)}
         {...others}
       >
         <Show

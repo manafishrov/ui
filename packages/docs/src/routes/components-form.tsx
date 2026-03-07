@@ -267,9 +267,7 @@ const FormExample: Component = () => {
         onSubmit={(submitEvent) => {
           submitEvent.preventDefault();
           submitEvent.stopPropagation();
-          form.handleSubmit().catch((error: unknown) => {
-            globalThis.reportError(error);
-          });
+          void form.handleSubmit();
         }}
         class='space-y-6 max-w-xl'
       >

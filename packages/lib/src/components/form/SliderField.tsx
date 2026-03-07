@@ -29,7 +29,9 @@ const SliderInput: Component<{
       <SliderTrack>
         <SliderRange />
       </SliderTrack>
-      <For each={props.value}>{(_, index) => <SliderThumb index={index()} />}</For>
+      <For each={props.value.map((_, index) => index)}>
+        {(index) => <SliderThumb index={index} />}
+      </For>
     </SliderControl>
     {props.marks && (
       <SliderMarkerGroup>

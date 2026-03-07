@@ -18,7 +18,7 @@ export const RadioGroupLabel: Component<RadioGroupPrimitive.LabelProps> = (props
   return (
     <RadioGroupPrimitive.Label
       class={cn(
-        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1.5 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-70',
         local.class,
       )}
@@ -46,9 +46,9 @@ export const RadioGroupItemControl: Component<RadioGroupPrimitive.ItemControlPro
   return (
     <RadioGroupPrimitive.ItemControl
       class={cn(
-        'peer size-4 shadow-xs group/radio-group-item relative flex aspect-square shrink-0 items-center justify-center rounded-full border border-input bg-background outline-none transition-[border-color,border-width,box-shadow] after:-inset-x-3 after:-inset-y-2 after:absolute',
-        'data-[state=checked]:border-primary data-[state=checked]:border-[5px] group-data-invalid/radio-group-item:data-[state=checked]:border-destructive',
-        'data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[focus-visible]:border-ring data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50 group-has-focus-visible/radio-group-item:border-ring group-has-focus-visible/radio-group-item:ring-[3px] group-has-focus-visible/radio-group-item:ring-ring/50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:bg-input/30 dark:data-[invalid=true]:border-destructive/50 dark:data-[invalid=true]:ring-destructive/40',
+        'peer size-4 shadow-xs group/radio-group-item after:-inset-x-3 after:-inset-y-2 relative flex aspect-square shrink-0 items-center justify-center rounded-full border border-input bg-background transition-[border-color,border-width,box-shadow] outline-none after:absolute',
+        'data-[state=checked]:border-[5px] data-[state=checked]:border-primary group-data-invalid/radio-group-item:data-[state=checked]:border-destructive',
+        'group-has-focus-visible/radio-group-item:border-ring group-has-focus-visible/radio-group-item:ring-[3px] group-has-focus-visible/radio-group-item:ring-ring/50 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[focus-visible]:border-ring data-[focus-visible]:ring-[3px] data-[focus-visible]:ring-ring/50 data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:bg-input/30 dark:data-[invalid=true]:border-destructive/50 dark:data-[invalid=true]:ring-destructive/40',
         local.class,
       )}
       {...others}

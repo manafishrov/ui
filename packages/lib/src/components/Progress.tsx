@@ -9,7 +9,7 @@ export const ProgressCircle: Component<ProgressPrimitive.CircleProps> = (props) 
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <ProgressPrimitive.Circle
-      class={cn('text-primary shrink-0', '[--size:2.5rem] [--thickness:4px]', local.class)}
+      class={cn('shrink-0 text-primary', '[--size:2.5rem] [--thickness:4px]', local.class)}
       data-slot='progress-circle'
       {...others}
     >
@@ -89,7 +89,7 @@ export const ProgressLabel: Component<ProgressPrimitive.LabelProps> = (props) =>
     <ProgressPrimitive.Label
       data-slot='progress-label'
       class={cn(
-        'mb-1 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'mb-1.5 gap-2 text-sm font-medium flex items-center leading-none select-none group-data-disabled:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
         'text-sm font-medium',
         local.class,
       )}
