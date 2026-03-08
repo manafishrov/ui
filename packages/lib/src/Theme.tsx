@@ -2,6 +2,12 @@ import type { Component, JSXElement } from 'solid-js';
 
 export type Theme = 'light' | 'dark' | 'system';
 
+export const Theme = {
+  light: 'light',
+  dark: 'dark',
+  system: 'system',
+} as const;
+
 export type ThemeProviderProps = {
   theme?: Theme;
   defaultTheme?: Theme;
@@ -31,8 +37,8 @@ const readStoredTheme = (storageKey: string, defaultTheme: Theme): Theme => {
     return defaultTheme;
   }
   const stored = globalThis.localStorage.getItem(storageKey);
-  if (stored === 'light' || stored === 'dark' || stored === 'system') {
-    return stored;
+  if (stored === Theme.light || stored === Theme.dark || stored === Theme.system) {
+    return stored as Theme;
   }
   return defaultTheme;
 };
@@ -66,7 +72,7 @@ const createSystemThemeListener = (
 
 export const ThemeProvider: Component<ThemeProviderProps> = (props) => {
   const storageKey = (): string => props.storageKey ?? DEFAULT_STORAGE_KEY;
-  const fallbackTheme = (): Theme => props.defaultTheme ?? 'system';
+  const fallbackTheme = (): Theme => props.defaultTheme ?? Theme.system;
   const [theme, setThemeState] = createSignal<Theme>(
     props.theme ?? readStoredTheme(storageKey(), fallbackTheme()),
   );
@@ -81,7 +87,7 @@ export const ThemeProvider: Component<ThemeProviderProps> = (props) => {
 
   const resolvedTheme = (): 'light' | 'dark' => {
     const current = theme();
-    return current === 'system' ? systemTheme() : current;
+    return current === Theme.system ? systemTheme() : current;
   };
 
   onMount(() => createSystemThemeListener(setSystemTheme));
