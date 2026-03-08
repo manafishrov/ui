@@ -1,11 +1,11 @@
 /* Toast positioning and animations - required for Ark UI stacking behavior */
 
 [data-scope='toast'][data-part='root'] {
-  translate: var(--x, 0px) var(--y, 0px);
-  scale: var(--scale, 1);
-  z-index: var(--z-index, 1);
-  height: var(--height, auto);
-  opacity: var(--opacity, 1);
+  translate: var(--x) var(--y);
+  scale: var(--scale);
+  z-index: var(--z-index);
+  height: var(--height);
+  opacity: var(--opacity);
   will-change: translate, opacity, scale, height;
   transition:
     translate 400ms,
