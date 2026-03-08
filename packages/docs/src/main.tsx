@@ -9,6 +9,7 @@ const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
   defaultStaleTime: 5000,
+  scrollRestoration: true,
   rewrite: {
     input: ({ url }) => deLocalizeUrl(url),
     output: ({ url }) => localizeUrl(url),
