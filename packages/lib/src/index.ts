@@ -16,6 +16,6 @@ export {
 } from '@ark-ui/solid/collection';
 export { tv, cx, cn, cnMerge, type VariantProps } from 'tailwind-variants';
 export { LocaleProvider, type LocaleProviderProps } from '@/Locale';
-export { ThemeProvider, useTheme, type Theme, type ThemeProviderProps } from '@/Theme';
+export { ThemeProvider, useTheme, Theme, type ThemeProviderProps } from '@/Theme';
 
 export { createMediaQuery } from '@/primitives/createMediaQuery';
