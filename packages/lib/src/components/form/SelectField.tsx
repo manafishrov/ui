@@ -5,6 +5,7 @@ import {
   Select,
   SelectContent,
   SelectControl,
+  SelectIndicator,
   SelectPositioner,
   SelectTrigger,
   SelectValue,
@@ -13,11 +14,18 @@ import {
 import { useFieldContext } from './context';
 import { WithTrailingAddon } from './WithTrailingAddon';
 
-const SelectInput: Component<{ placeholder: string; children: JSX.Element }> = (props) => (
+const SelectInput: Component<{
+  placeholder: string;
+  showSelectIndicator: boolean | undefined;
+  children: JSX.Element;
+}> = (props) => (
   <>
     <SelectControl>
       <SelectTrigger>
         <SelectValue placeholder={props.placeholder} />
+        <Show when={props.showSelectIndicator !== false}>
+          <SelectIndicator />
+        </Show>
       </SelectTrigger>
     </SelectControl>
     <SelectPositioner>
@@ -30,21 +38,25 @@ export type SelectFieldProps = ComponentProps<typeof Select> & {
   label?: string;
   description?: string;
   placeholder?: string;
+  showSelectIndicator?: boolean;
   trailingAddon?: JSXElement;
 };
 
+const SELECT_FIELD_PROPS = [
+  'label',
+  'description',
+  'required',
+  'disabled',
+  'readOnly',
+  'placeholder',
+  'showSelectIndicator',
+  'children',
+  'trailingAddon',
+] as const;
+
 export const SelectField: Component<SelectFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
-  const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'placeholder',
-    'children',
-    'trailingAddon',
-  ]);
+  const [local, others] = splitProps(props, SELECT_FIELD_PROPS);
 
   return (
     <Field
@@ -69,7 +81,12 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
             readOnly={local.readOnly ?? false}
             {...others}
           >
-            <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
+            <SelectInput
+              placeholder={local.placeholder ?? ''}
+              showSelectIndicator={local.showSelectIndicator}
+            >
+              {local.children}
+            </SelectInput>
           </Select>
         </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
