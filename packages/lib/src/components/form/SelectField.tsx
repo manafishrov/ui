@@ -11,6 +11,7 @@ import {
 } from '@/components/Select';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 const SelectInput: Component<{ placeholder: string; children: JSX.Element }> = (props) => (
   <>
@@ -54,45 +55,23 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <Select
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              {...others}
-            >
-              <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
-            </Select>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <Select
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              {...others}
-            >
-              <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
-            </Select>
-            {local.trailingAddon}
-          </div>
-        </Show>
+        <WithTrailingAddon addon={local.trailingAddon}>
+          <Select
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value);
+            }}
+            onBlur={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            {...others}
+          >
+            <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
+          </Select>
+        </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

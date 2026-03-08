@@ -1,3 +1,4 @@
+export * from './WithTrailingAddon';
 export * from './Form';
 export * from './context';
 export * from './TextInputField';
@@ -15,3 +16,4 @@ export * from './ComboboxField';
 export * from './TagsInputField';
 export * from './SubmitButton';
 export * from './AutoSubmit';
+export * from './WithTrailingAddon';

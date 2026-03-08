@@ -10,6 +10,7 @@ import {
 } from '@/components/PasswordInput';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 export type PasswordInputFieldProps = ComponentProps<typeof PasswordInputInput> & {
   label?: string;
@@ -18,17 +19,57 @@ export type PasswordInputFieldProps = ComponentProps<typeof PasswordInputInput> 
   trailingAddon?: JSXElement;
 };
 
+const PASSWORD_INPUT_FIELD_PROPS = [
+  'label',
+  'description',
+  'required',
+  'disabled',
+  'readOnly',
+  'showVisibilityTrigger',
+  'trailingAddon',
+] as const;
+
+type PasswordInputFieldLocalProps = Pick<
+  PasswordInputFieldProps,
+  (typeof PASSWORD_INPUT_FIELD_PROPS)[number]
+>;
+
+const PasswordInputFieldControl: Component<{
+  field: ReturnType<typeof useFieldContext<string>>;
+  local: PasswordInputFieldLocalProps;
+  others: Omit<PasswordInputFieldProps, keyof PasswordInputFieldLocalProps>;
+}> = (props) => (
+  <WithTrailingAddon addon={props.local.trailingAddon}>
+    <PasswordInput
+      invalid={props.field().state.meta.errors.length > 0}
+      disabled={props.local.disabled ?? false}
+      readOnly={props.local.readOnly ?? false}
+      required={props.local.required ?? false}
+    >
+      <PasswordInputControl>
+        <PasswordInputInput
+          value={props.field().state.value}
+          onInput={(event) => {
+            props.field().handleChange(event.target.value);
+          }}
+          onBlur={() => {
+            props.field().handleBlur();
+          }}
+          {...props.others}
+        />
+        <Show when={props.local.showVisibilityTrigger !== false}>
+          <PasswordInputVisibilityTrigger>
+            <PasswordInputIndicator />
+          </PasswordInputVisibilityTrigger>
+        </Show>
+      </PasswordInputControl>
+    </PasswordInput>
+  </WithTrailingAddon>
+);
+
 export const PasswordInputField: Component<PasswordInputFieldProps> = (props) => {
   const field = useFieldContext<string>();
-  const [local, others] = splitProps(props, [
-    'label',
-    'description',
-    'required',
-    'disabled',
-    'readOnly',
-    'showVisibilityTrigger',
-    'trailingAddon',
-  ]);
+  const [local, others] = splitProps(props, PASSWORD_INPUT_FIELD_PROPS);
 
   return (
     <Field
@@ -39,63 +80,7 @@ export const PasswordInputField: Component<PasswordInputFieldProps> = (props) =>
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <PasswordInput
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              required={local.required ?? false}
-            >
-              <PasswordInputControl>
-                <PasswordInputInput
-                  value={field().state.value}
-                  onInput={(event) => {
-                    field().handleChange(event.target.value);
-                  }}
-                  onBlur={() => {
-                    field().handleBlur();
-                  }}
-                  {...others}
-                />
-                <Show when={local.showVisibilityTrigger !== false}>
-                  <PasswordInputVisibilityTrigger>
-                    <PasswordInputIndicator />
-                  </PasswordInputVisibilityTrigger>
-                </Show>
-              </PasswordInputControl>
-            </PasswordInput>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <PasswordInput
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              required={local.required ?? false}
-            >
-              <PasswordInputControl>
-                <PasswordInputInput
-                  value={field().state.value}
-                  onInput={(event) => {
-                    field().handleChange(event.target.value);
-                  }}
-                  onBlur={() => {
-                    field().handleBlur();
-                  }}
-                  {...others}
-                />
-                <Show when={local.showVisibilityTrigger !== false}>
-                  <PasswordInputVisibilityTrigger>
-                    <PasswordInputIndicator />
-                  </PasswordInputVisibilityTrigger>
-                </Show>
-              </PasswordInputControl>
-            </PasswordInput>
-            {local.trailingAddon}
-          </div>
-        </Show>
+        <PasswordInputFieldControl field={field} local={local} others={others} />
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

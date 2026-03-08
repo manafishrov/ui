@@ -4,6 +4,7 @@ import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@
 import { TextInputControl, TextInputArea } from '@/components/TextInput';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 export type TextareaFieldProps = ComponentProps<typeof TextInputArea> & {
   label?: string;
@@ -31,39 +32,20 @@ export const TextareaField: Component<TextareaFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <TextInputControl>
-              <TextInputArea
-                value={field().state.value}
-                onInput={(event) => {
-                  field().handleChange(event.target.value);
-                }}
-                onBlur={() => {
-                  field().handleBlur();
-                }}
-                {...others}
-              />
-            </TextInputControl>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <TextInputControl>
-              <TextInputArea
-                value={field().state.value}
-                onInput={(event) => {
-                  field().handleChange(event.target.value);
-                }}
-                onBlur={() => {
-                  field().handleBlur();
-                }}
-                {...others}
-              />
-            </TextInputControl>
-            {local.trailingAddon}
-          </div>
-        </Show>
+        <WithTrailingAddon addon={local.trailingAddon}>
+          <TextInputControl>
+            <TextInputArea
+              value={field().state.value}
+              onInput={(event) => {
+                field().handleChange(event.target.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              {...others}
+            />
+          </TextInputControl>
+        </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

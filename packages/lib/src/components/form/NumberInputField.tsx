@@ -1,7 +1,5 @@
 import type { Component, ComponentProps, JSX, JSXElement } from 'solid-js';
 
-import { createEffect, createSignal } from 'solid-js';
-
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
   NumberInput,
@@ -11,6 +9,7 @@ import {
 } from '@/components/NumberInput';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 const NUMBER_INPUT_ROOT_PROPS = [
   'min',
@@ -125,51 +124,26 @@ const renderNumberInputField = (props: RenderNumberInputFieldProps): JSX.Element
   >
     <FieldLabel>{props.local.label}</FieldLabel>
     <FieldContent>
-      <Show
-        when={props.local.trailingAddon}
-        fallback={
-          <NumberInput
-            value={props.inputValue()}
-            onValueChange={props.onValueChange}
-            onValueCommit={props.onValueCommit}
-            onBlur={props.onBlur}
-            invalid={props.field().state.meta.errors.length > 0}
-            disabled={props.local.disabled ?? false}
-            readOnly={props.local.readOnly ?? false}
-            required={props.local.required ?? false}
-            {...props.rootProps}
-          >
-            <NumberInputControl>
-              <NumberInputInput {...props.inputProps} />
-              <Show when={props.local.showTriggers !== false}>
-                <NumberInputTriggers />
-              </Show>
-            </NumberInputControl>
-          </NumberInput>
-        }
-      >
-        <div class='gap-2 flex items-center'>
-          <NumberInput
-            value={props.inputValue()}
-            onValueChange={props.onValueChange}
-            onValueCommit={props.onValueCommit}
-            onBlur={props.onBlur}
-            invalid={props.field().state.meta.errors.length > 0}
-            disabled={props.local.disabled ?? false}
-            readOnly={props.local.readOnly ?? false}
-            required={props.local.required ?? false}
-            {...props.rootProps}
-          >
-            <NumberInputControl>
-              <NumberInputInput {...props.inputProps} />
-              <Show when={props.local.showTriggers !== false}>
-                <NumberInputTriggers />
-              </Show>
-            </NumberInputControl>
-          </NumberInput>
-          {props.local.trailingAddon}
-        </div>
-      </Show>
+      <WithTrailingAddon addon={props.local.trailingAddon}>
+        <NumberInput
+          value={props.inputValue()}
+          onValueChange={props.onValueChange}
+          onValueCommit={props.onValueCommit}
+          onBlur={props.onBlur}
+          invalid={props.field().state.meta.errors.length > 0}
+          disabled={props.local.disabled ?? false}
+          readOnly={props.local.readOnly ?? false}
+          required={props.local.required ?? false}
+          {...props.rootProps}
+        >
+          <NumberInputControl>
+            <NumberInputInput {...props.inputProps} />
+            <Show when={props.local.showTriggers !== false}>
+              <NumberInputTriggers />
+            </Show>
+          </NumberInputControl>
+        </NumberInput>
+      </WithTrailingAddon>
       <FieldError errors={props.field().state.meta.errors} />
       <FieldDescription>{props.local.description}</FieldDescription>
     </FieldContent>

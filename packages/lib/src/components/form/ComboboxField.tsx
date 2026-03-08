@@ -14,6 +14,7 @@ import {
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 const COMBOBOX_ROOT_PROPS = [
   'placeholder',
@@ -120,59 +121,30 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <Combobox<string>
-              collection={local.collection}
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              {...rootProps}
+        <WithTrailingAddon addon={local.trailingAddon}>
+          <Combobox<string>
+            collection={local.collection}
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value);
+            }}
+            onBlur={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            {...rootProps}
+          >
+            <ComboboxInputGroup
+              showTrigger={local.showTrigger}
+              showClearTrigger={local.showClearTrigger}
+              {...inputProps}
             >
-              <ComboboxInputGroup
-                showTrigger={local.showTrigger}
-                showClearTrigger={local.showClearTrigger}
-                {...inputProps}
-              >
-                {local.children}
-              </ComboboxInputGroup>
-            </Combobox>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <Combobox<string>
-              collection={local.collection}
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              {...rootProps}
-            >
-              <ComboboxInputGroup
-                showTrigger={local.showTrigger}
-                showClearTrigger={local.showClearTrigger}
-                {...inputProps}
-              >
-                {local.children}
-              </ComboboxInputGroup>
-            </Combobox>
-            {local.trailingAddon}
-          </div>
-        </Show>
+              {local.children}
+            </ComboboxInputGroup>
+          </Combobox>
+        </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

@@ -16,6 +16,7 @@ import {
 } from '@/components/TagsInput';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 const TAGS_INPUT_ROOT_PROPS = [
   'max',
@@ -103,55 +104,28 @@ export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <TagsInput
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              {...rootProps}
-            >
-              <TagsInputGroup
-                {...inputProps}
-                {...(typeof local.showClearTrigger === 'boolean' && {
-                  showClearTrigger: local.showClearTrigger,
-                })}
-              />
-            </TagsInput>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <TagsInput
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              {...rootProps}
-            >
-              <TagsInputGroup
-                {...inputProps}
-                {...(typeof local.showClearTrigger === 'boolean' && {
-                  showClearTrigger: local.showClearTrigger,
-                })}
-              />
-            </TagsInput>
-            {local.trailingAddon}
-          </div>
-        </Show>
+        <WithTrailingAddon addon={local.trailingAddon}>
+          <TagsInput
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value);
+            }}
+            onBlur={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            {...rootProps}
+          >
+            <TagsInputGroup
+              {...inputProps}
+              {...(typeof local.showClearTrigger === 'boolean' && {
+                showClearTrigger: local.showClearTrigger,
+              })}
+            />
+          </TagsInput>
+        </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

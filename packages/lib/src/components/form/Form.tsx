@@ -1,5 +1,6 @@
+import type { Component, ComponentProps } from 'solid-js';
+
 import { createFormHook } from '@tanstack/solid-form';
-import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 import { AutoSubmit } from './AutoSubmit';

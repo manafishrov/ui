@@ -4,6 +4,7 @@ import { Field, FieldContent, FieldError, FieldDescription } from '@/components/
 import { RadioGroup, RadioGroupLabel } from '@/components/RadioGroup';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 export type RadioGroupFieldProps = ComponentProps<typeof RadioGroup> & {
   label?: string;
@@ -31,49 +32,25 @@ export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
       readOnly={local.readOnly ?? false}
     >
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <RadioGroup
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value ?? '');
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              required={local.required ?? false}
-              {...others}
-            >
-              <RadioGroupLabel>{local.label}</RadioGroupLabel>
-              {local.children}
-            </RadioGroup>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <RadioGroup
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value ?? '');
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              required={local.required ?? false}
-              {...others}
-            >
-              <RadioGroupLabel>{local.label}</RadioGroupLabel>
-              {local.children}
-            </RadioGroup>
-            {local.trailingAddon}
-          </div>
-        </Show>
+        <WithTrailingAddon addon={local.trailingAddon}>
+          <RadioGroup
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value ?? '');
+            }}
+            onBlur={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            required={local.required ?? false}
+            {...others}
+          >
+            <RadioGroupLabel>{local.label}</RadioGroupLabel>
+            {local.children}
+          </RadioGroup>
+        </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

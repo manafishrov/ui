@@ -10,6 +10,7 @@ import {
 } from '@/components/PinInput';
 
 import { useFieldContext } from './context';
+import { WithTrailingAddon } from './WithTrailingAddon';
 
 export type PinInputFieldProps = ComponentProps<typeof PinInput> & {
   label?: string;
@@ -53,51 +54,26 @@ export const PinInputField: Component<PinInputFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Show
-          when={local.trailingAddon}
-          fallback={
-            <PinInput
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              required={local.required ?? false}
-              count={pinCount}
-              {...others}
-            >
-              <PinInputDigits count={pinCount} />
-              <PinInputHiddenInput />
-            </PinInput>
-          }
-        >
-          <div class='gap-2 flex items-center'>
-            <PinInput
-              value={field().state.value}
-              onValueChange={(details) => {
-                field().handleChange(details.value);
-              }}
-              onBlur={() => {
-                field().handleBlur();
-              }}
-              invalid={field().state.meta.errors.length > 0}
-              disabled={local.disabled ?? false}
-              readOnly={local.readOnly ?? false}
-              required={local.required ?? false}
-              count={pinCount}
-              {...others}
-            >
-              <PinInputDigits count={pinCount} />
-              <PinInputHiddenInput />
-            </PinInput>
-            {local.trailingAddon}
-          </div>
-        </Show>
+        <WithTrailingAddon addon={local.trailingAddon}>
+          <PinInput
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value);
+            }}
+            onBlur={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            required={local.required ?? false}
+            count={pinCount}
+            {...others}
+          >
+            <PinInputDigits count={pinCount} />
+            <PinInputHiddenInput />
+          </PinInput>
+        </WithTrailingAddon>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
