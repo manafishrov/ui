@@ -178,13 +178,13 @@ export const MenuComboboxEmpty: Component<MenuComboboxEmptyProps> = (props) => {
   );
 };
 export type {
-  MenuCheckboxItemData,
+  MenuComboboxCheckboxItemData,
+  MenuComboboxItemData,
+  MenuComboboxItemGroupData,
+  MenuComboboxRadioItemGroupData,
+  MenuComboboxRadioItemData,
+  MenuComboboxSeparatorData,
   MenuComboboxGroupedListProps,
   MenuComboboxListProps,
-  MenuItemData,
-  MenuItemGroupData,
-  MenuRadioGroupData,
-  MenuRadioItemData,
-  MenuSeparatorData,
 } from './MenuComboboxList';
 export { MenuComboboxGroupedList, MenuComboboxList } from './MenuComboboxList';

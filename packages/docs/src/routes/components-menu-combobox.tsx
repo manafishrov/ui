@@ -7,8 +7,8 @@ import {
   MenuComboboxSearchInput,
   MenuComboboxList,
   MenuComboboxGroupedList,
-  type MenuItemData,
-  type MenuItemGroupData,
+  type MenuComboboxItemData,
+  type MenuComboboxItemGroupData,
 } from '@manafishrov/ui/menu-combobox';
 import { H1, H2, Lead } from '@manafishrov/ui/typography';
 import { createFileRoute } from '@tanstack/solid-router';
@@ -16,7 +16,7 @@ import { type Component, createSignal } from 'solid-js';
 
 import * as m from '@/paraglide/messages';
 
-const menuItems: MenuItemData[] = [
+const menuItems: MenuComboboxItemData[] = [
   { value: 'profile', label: 'Profile' },
   { value: 'billing', label: 'Billing', shortcut: '⌘B' },
   { value: 'settings', label: 'Settings', shortcut: '⌘S' },
@@ -32,7 +32,7 @@ const menuItems: MenuItemData[] = [
   { value: 'logout', label: 'Log Out', shortcut: '⌘Q' },
 ];
 
-const menuGroups: MenuItemGroupData[] = [
+const menuGroups: MenuComboboxItemGroupData[] = [
   {
     label: 'Account',
     items: [

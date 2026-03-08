@@ -290,7 +290,7 @@ export const DatePickerViews: Component = () => [
   <DatePickerMonthView />,
   <DatePickerYearView />,
 ];
-export const Calendar: Component<DatePickerPrimitive.RootProps> = (props) => (
+export const DatePickerCalendar: Component<DatePickerPrimitive.RootProps> = (props) => (
   <DatePicker {...props} inline unmountOnExit={false}>
     <DatePickerContent class='border-none shadow-none ring-0'>
       <DatePickerViews />

@@ -16,7 +16,7 @@ import { Separator } from '@/components/Separator';
 export { useFieldset } from '@ark-ui/solid/fieldset';
 export const FieldContext = PrimitiveField.Context;
 
-export const FieldSet: Component<PrimitiveFieldset.RootProps> = (props) => {
+export const Fieldset: Component<PrimitiveFieldset.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children']);
   return (
     <PrimitiveFieldset.Root

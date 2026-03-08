@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
 
 import {
-  FieldSet,
+  Fieldset,
   FieldLegend,
   FieldGroup,
   Field,
@@ -25,7 +25,7 @@ const FieldDocPage: Component = () => (
       <Lead>{m.docs_component_field_description()}</Lead>
     </div>
 
-    <FieldSet class='max-w-sm space-y-6'>
+    <Fieldset class='max-w-sm space-y-6'>
       <FieldLegend>
         <FieldTitle>Personal Information</FieldTitle>
         <p class='text-sm text-muted-foreground'>Please enter your personal details.</p>
@@ -43,7 +43,7 @@ const FieldDocPage: Component = () => (
           <FieldError>Invalid email address</FieldError>
         </Field>
       </FieldGroup>
-    </FieldSet>
+    </Fieldset>
   </div>
 );
 

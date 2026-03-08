@@ -13,36 +13,60 @@ import {
   MenuComboboxShortcut,
 } from '@/components/MenuCombobox';
 
-export type MenuItemData = { value: string; label: string; disabled?: boolean; shortcut?: string };
-export type MenuCheckboxItemData = {
+export type MenuComboboxItemData = {
+  value: string;
+  label: string;
+  disabled?: boolean;
+  shortcut?: string;
+};
+export type MenuComboboxCheckboxItemData = {
   type: 'checkbox';
   value: string;
   label: string;
   checked?: boolean;
   disabled?: boolean;
 };
-export type MenuRadioItemData = { type: 'radio'; value: string; label: string; disabled?: boolean };
-export type MenuRadioGroupData = { type: 'radio-group'; value: string; items: MenuRadioItemData[] };
-export type MenuSeparatorData = { type: 'separator' };
-export type MenuItemGroupData = {
+export type MenuComboboxRadioItemData = {
+  type: 'radio';
+  value: string;
   label: string;
-  items: (MenuItemData | MenuCheckboxItemData | MenuRadioGroupData | MenuSeparatorData)[];
+  disabled?: boolean;
 };
-export type MenuComboboxListProps = { items: MenuItemData[]; searchValue?: string; class?: string };
+export type MenuComboboxRadioItemGroupData = {
+  type: 'radio-group';
+  value: string;
+  items: MenuComboboxRadioItemData[];
+};
+export type MenuComboboxSeparatorData = { type: 'separator' };
+export type MenuComboboxItemGroupData = {
+  label: string;
+  items: (
+    | MenuComboboxItemData
+    | MenuComboboxCheckboxItemData
+    | MenuComboboxRadioItemGroupData
+    | MenuComboboxSeparatorData
+  )[];
+};
+
+export type MenuComboboxListProps = {
+  items: MenuComboboxItemData[];
+  searchValue?: string;
+  class?: string;
+};
 export type MenuComboboxGroupedListProps = {
-  groups: MenuItemGroupData[];
+  groups: MenuComboboxItemGroupData[];
   searchValue?: string;
   class?: string;
 };
 
 const hasShortcut = (shortcut?: string): boolean => typeof shortcut === 'string' && shortcut !== '';
 const matchesSearch = (
-  item: MenuItemData | MenuCheckboxItemData | MenuRadioItemData,
+  item: MenuComboboxItemData | MenuComboboxCheckboxItemData | MenuComboboxRadioItemData,
   search: string,
 ): boolean =>
   item.label.toLowerCase().includes(search) || item.value.toLowerCase().includes(search);
 
-const renderRadioItems = (items: MenuRadioItemData[]): JSXElement => (
+const renderRadioItems = (items: MenuComboboxRadioItemData[]): JSXElement => (
   <For each={items}>
     {(radioItem) => (
       <MenuComboboxRadioItem value={radioItem.value} disabled={radioItem.disabled}>
@@ -53,7 +77,11 @@ const renderRadioItems = (items: MenuRadioItemData[]): JSXElement => (
 );
 
 const renderGroupedItem = (
-  item: MenuItemData | MenuCheckboxItemData | MenuRadioGroupData | MenuSeparatorData,
+  item:
+    | MenuComboboxItemData
+    | MenuComboboxCheckboxItemData
+    | MenuComboboxRadioItemGroupData
+    | MenuComboboxSeparatorData,
 ): JSXElement => {
   if (!('type' in item)) {
     return (
@@ -88,13 +116,17 @@ const renderGroupedItem = (
 };
 
 type GroupFilterResult =
-  | MenuItemData
-  | MenuCheckboxItemData
-  | MenuRadioGroupData
-  | MenuSeparatorData;
+  | MenuComboboxItemData
+  | MenuComboboxCheckboxItemData
+  | MenuComboboxRadioItemGroupData
+  | MenuComboboxSeparatorData;
 
 const filterGroupItem = (
-  item: MenuItemData | MenuCheckboxItemData | MenuRadioGroupData | MenuSeparatorData,
+  item:
+    | MenuComboboxItemData
+    | MenuComboboxCheckboxItemData
+    | MenuComboboxRadioItemGroupData
+    | MenuComboboxSeparatorData,
   search: string,
 ): GroupFilterResult[] => {
   if (!('type' in item)) {
@@ -110,11 +142,13 @@ const filterGroupItem = (
   return filteredRadioItems.length > 0 ? [{ ...item, items: filteredRadioItems }] : [];
 };
 
-const GroupItems: Component<{ items: MenuItemGroupData['items'] }> = (props) => (
+const GroupItems: Component<{ items: MenuComboboxItemGroupData['items'] }> = (props) => (
   <For each={props.items}>{(item) => renderGroupedItem(item)}</For>
 );
 
-const GroupSection: Component<{ group: MenuItemGroupData; showSeparator: boolean }> = (props) => (
+const GroupSection: Component<{ group: MenuComboboxItemGroupData; showSeparator: boolean }> = (
+  props,
+) => (
   <>
     {props.showSeparator && <MenuComboboxSeparator />}
     <MenuComboboxItemGroup>
@@ -169,7 +203,7 @@ export const MenuComboboxGroupedList: Component<MenuComboboxGroupedListProps> = 
         }
         return false;
       })
-      .filter((group): group is MenuItemGroupData => group !== false);
+      .filter((group): group is MenuComboboxItemGroupData => group !== false);
   });
 
   const emptyProps = (): { searchValue: string } | Record<string, never> =>
