@@ -24,7 +24,7 @@ export const toast = createToaster({
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group gap-3 p-4 pr-10 shadow-lg min-w-72 pointer-events-auto relative flex w-full items-center rounded-lg border bg-popover transition-all',
+      'group gap-3 p-4 pr-10 shadow-lg min-w-72 pointer-events-auto relative flex w-full items-center rounded-lg border bg-popover',
       'data-[state=open]:sm:slide-in-from-bottom-full data-[state=open]:animate-in data-[state=open]:slide-in-from-top-full',
       'border-border text-popover-foreground',
     )}
@@ -50,7 +50,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
           {props.toast().title}
         </Toast.Title>
       </Show>
-      <Show when={props.toast().description}>
+      <Show when={props.toast().description} fallback={<div aria-hidden='true' class='h-5' />}>
         <Toast.Description class='text-sm opacity-90'>
           {props.toast().description}
         </Toast.Description>

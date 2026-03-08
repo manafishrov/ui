@@ -5,6 +5,7 @@
   scale: var(--scale);
   z-index: var(--z-index);
   height: var(--height);
+  min-height: 48px;
   opacity: var(--opacity);
   will-change: translate, opacity, scale, height;
   transition:
