@@ -10,7 +10,7 @@ export type SubmitButtonProps = ComponentProps<typeof Button> & {
 
 export const SubmitButton: Component<SubmitButtonProps> = (props) => {
   const form = useFormContext();
-  const [local, others] = splitProps(props, ['children', 'loading', 'disabled']);
+  const [local, others] = splitProps(props, ['children', 'loading', 'disabled', 'class']);
 
   const isLoading = (): boolean =>
     form.state.isSubmitting || form.state.isValidating || (local.loading ?? false);
@@ -20,6 +20,7 @@ export const SubmitButton: Component<SubmitButtonProps> = (props) => {
       type='submit'
       loading={isLoading()}
       disabled={local.disabled ?? !form.state.canSubmit}
+      class={`min-w-24 ${local.class ?? ''}`}
       {...others}
     >
       {local.children}
