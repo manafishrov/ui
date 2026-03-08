@@ -1,5 +1,5 @@
 import type { DatePickerInputProps, DateValue } from '@ark-ui/solid';
-import type { Component } from 'solid-js';
+import type { Component, ComponentProps } from 'solid-js';
 
 import {
   DatePicker,
@@ -14,11 +14,56 @@ import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@
 
 import { useFieldContext } from './context';
 
-export type DatePickerFieldProps = DatePickerInputProps & {
-  label?: string;
-  description?: string;
-  showTrigger?: boolean;
-};
+const DATE_PICKER_ROOT_PROPS = [
+  'min',
+  'max',
+  'locale',
+  'timeZone',
+  'format',
+  'parse',
+  'selectionMode',
+  'numOfMonths',
+  'fixedWeeks',
+  'startOfWeek',
+  'showWeekNumbers',
+  'outsideDaySelectable',
+  'isDateUnavailable',
+  'openOnClick',
+  'positioning',
+  'closeOnSelect',
+  'defaultFocusedValue',
+  'defaultOpen',
+  'defaultValue',
+  'defaultView',
+  'focusedValue',
+  'ids',
+  'immediate',
+  'inline',
+  'lazyMount',
+  'maxSelectedDates',
+  'maxView',
+  'minView',
+  'name',
+  'onExitComplete',
+  'onFocusChange',
+  'onOpenChange',
+  'onValueChange',
+  'onViewChange',
+  'onVisibleRangeChange',
+  'open',
+  'present',
+  'skipAnimationOnMount',
+  'translations',
+  'unmountOnExit',
+  'view',
+] as const;
+
+export type DatePickerFieldProps = DatePickerInputProps &
+  Pick<ComponentProps<typeof DatePicker>, (typeof DATE_PICKER_ROOT_PROPS)[number]> & {
+    label?: string;
+    description?: string;
+    showTrigger?: boolean;
+  };
 
 const DatePickerInputGroup: Component<DatePickerInputProps & { showTrigger?: boolean }> = (
   props,
@@ -55,6 +100,7 @@ const DATE_PICKER_FIELD_PROPS = [
 export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
   const field = useFieldContext<DateValue[]>();
   const [local, others] = splitProps(props, DATE_PICKER_FIELD_PROPS);
+  const [rootProps, inputProps] = splitProps(others, DATE_PICKER_ROOT_PROPS);
 
   return (
     <Field
@@ -76,9 +122,10 @@ export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
+          {...rootProps}
         >
           <DatePickerInputGroup
-            {...others}
+            {...inputProps}
             placeholder={local.placeholder}
             {...(typeof local.showTrigger === 'boolean' && { showTrigger: local.showTrigger })}
           />

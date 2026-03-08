@@ -15,13 +15,56 @@ import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@
 
 import { useFieldContext } from './context';
 
-export type ComboboxFieldProps = ComponentProps<typeof ComboboxInput> & {
-  collection: ComboboxRootProps<string>['collection'];
-  label?: string;
-  description?: string;
-  showTrigger?: boolean;
-  showClearTrigger?: boolean;
-} & { class?: string };
+const COMBOBOX_ROOT_PROPS = [
+  'placeholder',
+  'inputBehavior',
+  'openOnChange',
+  'openOnClick',
+  'openOnKeyPress',
+  'closeOnSelect',
+  'allowCustomValue',
+  'multiple',
+  'selectionBehavior',
+  'autoFocus',
+  'loopFocus',
+  'positioning',
+  'alwaysSubmitOnEnter',
+  'composite',
+  'defaultHighlightedValue',
+  'defaultInputValue',
+  'defaultOpen',
+  'defaultValue',
+  'disableLayer',
+  'highlightedValue',
+  'ids',
+  'immediate',
+  'inputValue',
+  'lazyMount',
+  'navigate',
+  'onExitComplete',
+  'onFocusOutside',
+  'onHighlightChange',
+  'onInputValueChange',
+  'onInteractOutside',
+  'onOpenChange',
+  'onPointerDownOutside',
+  'onSelect',
+  'open',
+  'present',
+  'scrollToIndexFn',
+  'skipAnimationOnMount',
+  'translations',
+  'unmountOnExit',
+] as const;
+
+export type ComboboxFieldProps = ComponentProps<typeof ComboboxInput> &
+  Pick<ComponentProps<typeof Combobox<string>>, (typeof COMBOBOX_ROOT_PROPS)[number]> & {
+    collection: ComboboxRootProps<string>['collection'];
+    label?: string;
+    description?: string;
+    showTrigger?: boolean;
+    showClearTrigger?: boolean;
+  } & { class?: string };
 
 const ComboboxInputGroup: Component<
   ComponentProps<typeof ComboboxInput> & {
@@ -64,6 +107,7 @@ const COMBOBOX_FIELD_PROPS = [
 export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const [local, others] = splitProps(props, COMBOBOX_FIELD_PROPS);
+  const [rootProps, inputProps] = splitProps(others, COMBOBOX_ROOT_PROPS);
 
   return (
     <Field
@@ -86,11 +130,12 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
+          {...rootProps}
         >
           <ComboboxInputGroup
             showTrigger={local.showTrigger}
             showClearTrigger={local.showClearTrigger}
-            {...others}
+            {...inputProps}
           >
             {local.children}
           </ComboboxInputGroup>

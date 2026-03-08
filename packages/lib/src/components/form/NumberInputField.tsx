@@ -10,11 +10,31 @@ import {
 
 import { useFieldContext } from './context';
 
-export type NumberInputFieldProps = ComponentProps<typeof NumberInputInput> & {
-  label?: string;
-  description?: string;
-  showTriggers?: boolean;
-};
+const NUMBER_INPUT_ROOT_PROPS = [
+  'min',
+  'max',
+  'step',
+  'allowMouseWheel',
+  'allowOverflow',
+  'clampValueOnBlur',
+  'formatOptions',
+  'inputMode',
+  'locale',
+  'pattern',
+  'spinOnPress',
+  'focusInputOnChange',
+  'translations',
+  'form',
+  'name',
+  'onValueInvalid',
+] as const;
+
+export type NumberInputFieldProps = ComponentProps<typeof NumberInputInput> &
+  Pick<ComponentProps<typeof NumberInput>, (typeof NUMBER_INPUT_ROOT_PROPS)[number]> & {
+    label?: string;
+    description?: string;
+    showTriggers?: boolean;
+  };
 
 const toNumberInputValue = (value: number | undefined): string => {
   if (typeof value !== 'number' || !Number.isFinite(value)) {
@@ -29,10 +49,19 @@ type NumberInputFieldLocalProps = Pick<
   'label' | 'description' | 'required' | 'disabled' | 'readOnly' | 'showTriggers'
 >;
 
+type NumberInputFieldRootProps = Pick<
+  NumberInputFieldProps,
+  (typeof NUMBER_INPUT_ROOT_PROPS)[number]
+>;
+
 type RenderNumberInputFieldProps = {
   field: ReturnType<typeof useFieldContext<number>>;
   local: NumberInputFieldLocalProps;
-  others: Omit<NumberInputFieldProps, keyof NumberInputFieldLocalProps>;
+  rootProps: NumberInputFieldRootProps;
+  inputProps: Omit<
+    NumberInputFieldProps,
+    keyof NumberInputFieldLocalProps | keyof NumberInputFieldRootProps
+  >;
   inputValue: () => string;
   onValueChange: NonNullable<ComponentProps<typeof NumberInput>['onValueChange']>;
   onValueCommit: NonNullable<ComponentProps<typeof NumberInput>['onValueCommit']>;
@@ -102,9 +131,10 @@ const renderNumberInputField = (props: RenderNumberInputFieldProps): JSX.Element
         disabled={props.local.disabled ?? false}
         readOnly={props.local.readOnly ?? false}
         required={props.local.required ?? false}
+        {...props.rootProps}
       >
         <NumberInputControl>
-          <NumberInputInput {...props.others} />
+          <NumberInputInput {...props.inputProps} />
           <Show when={props.local.showTriggers !== false}>
             <NumberInputTriggers />
           </Show>
@@ -126,12 +156,14 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
     'readOnly',
     'showTriggers',
   ]);
+  const [rootProps, inputProps] = splitProps(others, NUMBER_INPUT_ROOT_PROPS);
   const state = createNumberInputFieldState(field);
 
   return renderNumberInputField({
     field,
     local,
-    others,
+    rootProps,
+    inputProps,
     inputValue: state.inputValue,
     onValueChange: state.onValueChange,
     onValueCommit: state.onValueCommit,

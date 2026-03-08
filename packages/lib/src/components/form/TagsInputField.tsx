@@ -17,14 +17,35 @@ import {
 
 import { useFieldContext } from './context';
 
-export type TagsInputFieldProps = ComponentProps<typeof TagsInputInput> & {
-  label?: string;
-  description?: string;
-  showClearTrigger?: boolean;
-};
+const TAGS_INPUT_ROOT_PROPS = [
+  'max',
+  'maxLength',
+  'delimiter',
+  'addOnPaste',
+  'blurBehavior',
+  'validate',
+  'autoFocus',
+  'editable',
+  'allowOverflow',
+  'translations',
+  'ids',
+  'onFocusOutside',
+  'onHighlightChange',
+  'onInputValueChange',
+  'onInteractOutside',
+  'onPointerDownOutside',
+  'onValueInvalid',
+] as const;
+
+export type TagsInputFieldProps = ComponentProps<typeof TagsInputInput> &
+  Pick<ComponentProps<typeof TagsInput>, (typeof TAGS_INPUT_ROOT_PROPS)[number]> & {
+    label?: string;
+    description?: string;
+    showClearTrigger?: boolean;
+  };
 
 const TagsInputGroup: Component<
-  ComponentProps<typeof TagsInputInput> & { showClearTrigger?: boolean }
+  { showClearTrigger?: boolean } & ComponentProps<typeof TagsInputInput>
 > = (props) => {
   const [local, others] = splitProps(props, ['children', 'showClearTrigger']);
 
@@ -69,6 +90,7 @@ const TAGS_INPUT_FIELD_PROPS = [
 export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
   const field = useFieldContext<string[]>();
   const [local, others] = splitProps(props, TAGS_INPUT_FIELD_PROPS);
+  const [rootProps, inputProps] = splitProps(others, TAGS_INPUT_ROOT_PROPS);
 
   return (
     <Field
@@ -90,9 +112,10 @@ export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
           invalid={field().state.meta.errors.length > 0}
           disabled={local.disabled ?? false}
           readOnly={local.readOnly ?? false}
+          {...rootProps}
         >
           <TagsInputGroup
-            {...others}
+            {...inputProps}
             {...(typeof local.showClearTrigger === 'boolean' && {
               showClearTrigger: local.showClearTrigger,
             })}
