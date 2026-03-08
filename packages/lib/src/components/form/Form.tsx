@@ -2,6 +2,7 @@ import { createFormHook } from '@tanstack/solid-form';
 import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
+import { AutoSubmit } from './AutoSubmit';
 import { CheckboxField } from './CheckboxField';
 import { ComboboxField } from './ComboboxField';
 import { fieldContext, formContext, useFormContext } from './context';
@@ -60,6 +61,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
     TextareaField,
   },
   formComponents: {
+    AutoSubmit,
     Form,
     SubmitButton,
   },
