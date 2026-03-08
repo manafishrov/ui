@@ -1,4 +1,4 @@
-import type { Component, ComponentProps, JSX } from 'solid-js';
+import type { Component, ComponentProps, JSX, JSXElement } from 'solid-js';
 
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {
@@ -29,6 +29,7 @@ export type SelectFieldProps = ComponentProps<typeof Select> & {
   label?: string;
   description?: string;
   placeholder?: string;
+  trailingAddon?: JSXElement;
 };
 
 export const SelectField: Component<SelectFieldProps> = (props) => {
@@ -41,6 +42,7 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
     'readOnly',
     'placeholder',
     'children',
+    'trailingAddon',
   ]);
 
   return (
@@ -52,21 +54,45 @@ export const SelectField: Component<SelectFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Select
-          value={field().state.value}
-          onValueChange={(details) => {
-            field().handleChange(details.value);
-          }}
-          onBlur={() => {
-            field().handleBlur();
-          }}
-          invalid={field().state.meta.errors.length > 0}
-          disabled={local.disabled ?? false}
-          readOnly={local.readOnly ?? false}
-          {...others}
+        <Show
+          when={local.trailingAddon}
+          fallback={
+            <Select
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...others}
+            >
+              <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
+            </Select>
+          }
         >
-          <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
-        </Select>
+          <div class='gap-2 flex items-center'>
+            <Select
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...others}
+            >
+              <SelectInput placeholder={local.placeholder ?? ''}>{local.children}</SelectInput>
+            </Select>
+            {local.trailingAddon}
+          </div>
+        </Show>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, splitProps } from 'solid-js';
+import type { Component, ComponentProps, JSXElement } from 'solid-js';
 
 import { Field, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import { RadioGroup, RadioGroupLabel } from '@/components/RadioGroup';
@@ -8,6 +8,7 @@ import { useFieldContext } from './context';
 export type RadioGroupFieldProps = ComponentProps<typeof RadioGroup> & {
   label?: string;
   description?: string;
+  trailingAddon?: JSXElement;
 };
 
 export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
@@ -19,6 +20,7 @@ export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
     'disabled',
     'readOnly',
     'children',
+    'trailingAddon',
   ]);
 
   return (
@@ -29,23 +31,49 @@ export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
       readOnly={local.readOnly ?? false}
     >
       <FieldContent>
-        <RadioGroup
-          value={field().state.value}
-          onValueChange={(details) => {
-            field().handleChange(details.value ?? '');
-          }}
-          onBlur={() => {
-            field().handleBlur();
-          }}
-          invalid={field().state.meta.errors.length > 0}
-          disabled={local.disabled ?? false}
-          readOnly={local.readOnly ?? false}
-          required={local.required ?? false}
-          {...others}
+        <Show
+          when={local.trailingAddon}
+          fallback={
+            <RadioGroup
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value ?? '');
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              required={local.required ?? false}
+              {...others}
+            >
+              <RadioGroupLabel>{local.label}</RadioGroupLabel>
+              {local.children}
+            </RadioGroup>
+          }
         >
-          <RadioGroupLabel>{local.label}</RadioGroupLabel>
-          {local.children}
-        </RadioGroup>
+          <div class='gap-2 flex items-center'>
+            <RadioGroup
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value ?? '');
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              required={local.required ?? false}
+              {...others}
+            >
+              <RadioGroupLabel>{local.label}</RadioGroupLabel>
+              {local.children}
+            </RadioGroup>
+            {local.trailingAddon}
+          </div>
+        </Show>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

@@ -1,4 +1,6 @@
-import type { Component, ComponentProps, JSX } from 'solid-js';
+import type { Component, ComponentProps, JSX, JSXElement } from 'solid-js';
+
+import { createEffect, createSignal } from 'solid-js';
 
 import { Field, FieldLabel, FieldContent, FieldError, FieldDescription } from '@/components/Field';
 import {
@@ -34,6 +36,7 @@ export type NumberInputFieldProps = ComponentProps<typeof NumberInputInput> &
     label?: string;
     description?: string;
     showTriggers?: boolean;
+    trailingAddon?: JSXElement;
   };
 
 const toNumberInputValue = (value: number | undefined): string => {
@@ -46,7 +49,7 @@ const toNumberInputValue = (value: number | undefined): string => {
 
 type NumberInputFieldLocalProps = Pick<
   NumberInputFieldProps,
-  'label' | 'description' | 'required' | 'disabled' | 'readOnly' | 'showTriggers'
+  'label' | 'description' | 'required' | 'disabled' | 'readOnly' | 'showTriggers' | 'trailingAddon'
 >;
 
 type NumberInputFieldRootProps = Pick<
@@ -122,24 +125,51 @@ const renderNumberInputField = (props: RenderNumberInputFieldProps): JSX.Element
   >
     <FieldLabel>{props.local.label}</FieldLabel>
     <FieldContent>
-      <NumberInput
-        value={props.inputValue()}
-        onValueChange={props.onValueChange}
-        onValueCommit={props.onValueCommit}
-        onBlur={props.onBlur}
-        invalid={props.field().state.meta.errors.length > 0}
-        disabled={props.local.disabled ?? false}
-        readOnly={props.local.readOnly ?? false}
-        required={props.local.required ?? false}
-        {...props.rootProps}
+      <Show
+        when={props.local.trailingAddon}
+        fallback={
+          <NumberInput
+            value={props.inputValue()}
+            onValueChange={props.onValueChange}
+            onValueCommit={props.onValueCommit}
+            onBlur={props.onBlur}
+            invalid={props.field().state.meta.errors.length > 0}
+            disabled={props.local.disabled ?? false}
+            readOnly={props.local.readOnly ?? false}
+            required={props.local.required ?? false}
+            {...props.rootProps}
+          >
+            <NumberInputControl>
+              <NumberInputInput {...props.inputProps} />
+              <Show when={props.local.showTriggers !== false}>
+                <NumberInputTriggers />
+              </Show>
+            </NumberInputControl>
+          </NumberInput>
+        }
       >
-        <NumberInputControl>
-          <NumberInputInput {...props.inputProps} />
-          <Show when={props.local.showTriggers !== false}>
-            <NumberInputTriggers />
-          </Show>
-        </NumberInputControl>
-      </NumberInput>
+        <div class='gap-2 flex items-center'>
+          <NumberInput
+            value={props.inputValue()}
+            onValueChange={props.onValueChange}
+            onValueCommit={props.onValueCommit}
+            onBlur={props.onBlur}
+            invalid={props.field().state.meta.errors.length > 0}
+            disabled={props.local.disabled ?? false}
+            readOnly={props.local.readOnly ?? false}
+            required={props.local.required ?? false}
+            {...props.rootProps}
+          >
+            <NumberInputControl>
+              <NumberInputInput {...props.inputProps} />
+              <Show when={props.local.showTriggers !== false}>
+                <NumberInputTriggers />
+              </Show>
+            </NumberInputControl>
+          </NumberInput>
+          {props.local.trailingAddon}
+        </div>
+      </Show>
       <FieldError errors={props.field().state.meta.errors} />
       <FieldDescription>{props.local.description}</FieldDescription>
     </FieldContent>
@@ -155,6 +185,7 @@ export const NumberInputField: Component<NumberInputFieldProps> = (props) => {
     'disabled',
     'readOnly',
     'showTriggers',
+    'trailingAddon',
   ]);
   const [rootProps, inputProps] = splitProps(others, NUMBER_INPUT_ROOT_PROPS);
   const state = createNumberInputFieldState(field);

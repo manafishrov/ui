@@ -1,4 +1,4 @@
-import type { Component, ComponentProps } from 'solid-js';
+import type { Component, ComponentProps, JSXElement } from 'solid-js';
 
 import { Field, FieldDescription, FieldError } from '@/components/Field';
 import {
@@ -48,6 +48,7 @@ export type SliderFieldProps = ComponentProps<typeof Slider> & {
   description?: string;
   marks?: { value: number; label?: string }[];
   required?: boolean;
+  trailingAddon?: JSXElement;
 };
 
 export const SliderField: Component<SliderFieldProps> = (props) => {
@@ -59,6 +60,7 @@ export const SliderField: Component<SliderFieldProps> = (props) => {
     'disabled',
     'readOnly',
     'marks',
+    'trailingAddon',
   ]);
 
   return (
@@ -68,25 +70,53 @@ export const SliderField: Component<SliderFieldProps> = (props) => {
       readOnly={local.readOnly ?? false}
       required={local.required ?? false}
     >
-      <Slider
-        value={field().state.value}
-        onValueChange={(details) => {
-          field().handleChange(details.value);
-        }}
-        onFocusChange={() => {
-          field().handleBlur();
-        }}
-        invalid={field().state.meta.errors.length > 0}
-        disabled={local.disabled ?? false}
-        readOnly={local.readOnly ?? false}
-        {...others}
+      <Show
+        when={local.trailingAddon}
+        fallback={
+          <Slider
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value);
+            }}
+            onFocusChange={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            {...others}
+          >
+            <SliderInput
+              value={field().state.value}
+              {...(typeof local.label === 'string' && { label: local.label })}
+              {...(Array.isArray(local.marks) && { marks: local.marks })}
+            />
+          </Slider>
+        }
       >
-        <SliderInput
-          value={field().state.value}
-          {...(typeof local.label === 'string' && { label: local.label })}
-          {...(Array.isArray(local.marks) && { marks: local.marks })}
-        />
-      </Slider>
+        <div class='gap-2 flex items-center'>
+          <Slider
+            value={field().state.value}
+            onValueChange={(details) => {
+              field().handleChange(details.value);
+            }}
+            onFocusChange={() => {
+              field().handleBlur();
+            }}
+            invalid={field().state.meta.errors.length > 0}
+            disabled={local.disabled ?? false}
+            readOnly={local.readOnly ?? false}
+            {...others}
+          >
+            <SliderInput
+              value={field().state.value}
+              {...(typeof local.label === 'string' && { label: local.label })}
+              {...(Array.isArray(local.marks) && { marks: local.marks })}
+            />
+          </Slider>
+          {local.trailingAddon}
+        </div>
+      </Show>
       <FieldError errors={field().state.meta.errors} />
       <FieldDescription>{local.description}</FieldDescription>
     </Field>

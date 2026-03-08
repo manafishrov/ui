@@ -2,8 +2,6 @@ import { createEffect, onCleanup, type Component } from 'solid-js';
 
 import { useFormContext } from './context';
 
-const DEFAULT_DEBOUNCE_MS = 300;
-
 export type AutoSubmitProps = {
   debounce?: number;
 };
@@ -20,14 +18,11 @@ export const AutoSubmit: Component<AutoSubmitProps> = (props) => {
       return;
     }
 
-    const debounceTimer = setTimeout(
-      () => {
-        form.handleSubmit().catch((error: unknown) => {
-          throw error;
-        });
-      },
-      Math.max(0, props.debounce ?? DEFAULT_DEBOUNCE_MS),
-    );
+    const debounceTimer = setTimeout(() => {
+      form.handleSubmit().catch((error: unknown) => {
+        throw error;
+      });
+    }, props.debounce ?? 0);
 
     onCleanup(() => {
       clearTimeout(debounceTimer);

@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, splitProps, For } from 'solid-js';
+import type { Component, ComponentProps, JSXElement } from 'solid-js';
 
 import { Field, FieldContent, FieldDescription, FieldError, FieldLabel } from '@/components/Field';
 import {
@@ -42,6 +42,7 @@ export type TagsInputFieldProps = ComponentProps<typeof TagsInputInput> &
     label?: string;
     description?: string;
     showClearTrigger?: boolean;
+    trailingAddon?: JSXElement;
   };
 
 const TagsInputGroup: Component<
@@ -85,6 +86,7 @@ const TAGS_INPUT_FIELD_PROPS = [
   'disabled',
   'readOnly',
   'showClearTrigger',
+  'trailingAddon',
 ] as const;
 
 export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
@@ -101,26 +103,55 @@ export const TagsInputField: Component<TagsInputFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <TagsInput
-          value={field().state.value}
-          onValueChange={(details) => {
-            field().handleChange(details.value);
-          }}
-          onBlur={() => {
-            field().handleBlur();
-          }}
-          invalid={field().state.meta.errors.length > 0}
-          disabled={local.disabled ?? false}
-          readOnly={local.readOnly ?? false}
-          {...rootProps}
+        <Show
+          when={local.trailingAddon}
+          fallback={
+            <TagsInput
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...rootProps}
+            >
+              <TagsInputGroup
+                {...inputProps}
+                {...(typeof local.showClearTrigger === 'boolean' && {
+                  showClearTrigger: local.showClearTrigger,
+                })}
+              />
+            </TagsInput>
+          }
         >
-          <TagsInputGroup
-            {...inputProps}
-            {...(typeof local.showClearTrigger === 'boolean' && {
-              showClearTrigger: local.showClearTrigger,
-            })}
-          />
-        </TagsInput>
+          <div class='gap-2 flex items-center'>
+            <TagsInput
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...rootProps}
+            >
+              <TagsInputGroup
+                {...inputProps}
+                {...(typeof local.showClearTrigger === 'boolean' && {
+                  showClearTrigger: local.showClearTrigger,
+                })}
+              />
+            </TagsInput>
+            {local.trailingAddon}
+          </div>
+        </Show>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

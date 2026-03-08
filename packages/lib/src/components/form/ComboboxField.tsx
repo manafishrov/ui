@@ -1,5 +1,5 @@
 import type { ComboboxRootProps } from '@ark-ui/solid';
-import type { Component, ComponentProps } from 'solid-js';
+import type { Component, ComponentProps, JSXElement } from 'solid-js';
 
 import {
   Combobox,
@@ -64,6 +64,7 @@ export type ComboboxFieldProps = ComponentProps<typeof ComboboxInput> &
     description?: string;
     showTrigger?: boolean;
     showClearTrigger?: boolean;
+    trailingAddon?: JSXElement;
   } & { class?: string };
 
 const ComboboxInputGroup: Component<
@@ -102,6 +103,7 @@ const COMBOBOX_FIELD_PROPS = [
   'showTrigger',
   'showClearTrigger',
   'children',
+  'trailingAddon',
 ] as const;
 
 export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
@@ -118,28 +120,59 @@ export const ComboboxField: Component<ComboboxFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <Combobox<string>
-          collection={local.collection}
-          value={field().state.value}
-          onValueChange={(details) => {
-            field().handleChange(details.value);
-          }}
-          onBlur={() => {
-            field().handleBlur();
-          }}
-          invalid={field().state.meta.errors.length > 0}
-          disabled={local.disabled ?? false}
-          readOnly={local.readOnly ?? false}
-          {...rootProps}
+        <Show
+          when={local.trailingAddon}
+          fallback={
+            <Combobox<string>
+              collection={local.collection}
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...rootProps}
+            >
+              <ComboboxInputGroup
+                showTrigger={local.showTrigger}
+                showClearTrigger={local.showClearTrigger}
+                {...inputProps}
+              >
+                {local.children}
+              </ComboboxInputGroup>
+            </Combobox>
+          }
         >
-          <ComboboxInputGroup
-            showTrigger={local.showTrigger}
-            showClearTrigger={local.showClearTrigger}
-            {...inputProps}
-          >
-            {local.children}
-          </ComboboxInputGroup>
-        </Combobox>
+          <div class='gap-2 flex items-center'>
+            <Combobox<string>
+              collection={local.collection}
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...rootProps}
+            >
+              <ComboboxInputGroup
+                showTrigger={local.showTrigger}
+                showClearTrigger={local.showClearTrigger}
+                {...inputProps}
+              >
+                {local.children}
+              </ComboboxInputGroup>
+            </Combobox>
+            {local.trailingAddon}
+          </div>
+        </Show>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

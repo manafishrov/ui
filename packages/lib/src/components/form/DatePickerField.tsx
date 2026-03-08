@@ -1,5 +1,5 @@
 import type { DatePickerInputProps, DateValue } from '@ark-ui/solid';
-import type { Component, ComponentProps } from 'solid-js';
+import type { Component, ComponentProps, JSXElement } from 'solid-js';
 
 import {
   DatePicker,
@@ -63,6 +63,7 @@ export type DatePickerFieldProps = DatePickerInputProps &
     label?: string;
     description?: string;
     showTrigger?: boolean;
+    trailingAddon?: JSXElement;
   };
 
 const DatePickerInputGroup: Component<DatePickerInputProps & { showTrigger?: boolean }> = (
@@ -95,6 +96,7 @@ const DATE_PICKER_FIELD_PROPS = [
   'readOnly',
   'placeholder',
   'showTrigger',
+  'trailingAddon',
 ] as const;
 
 export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
@@ -111,25 +113,53 @@ export const DatePickerField: Component<DatePickerFieldProps> = (props) => {
     >
       <FieldLabel>{local.label}</FieldLabel>
       <FieldContent>
-        <DatePicker
-          value={field().state.value}
-          onValueChange={(details) => {
-            field().handleChange(details.value);
-          }}
-          onBlur={() => {
-            field().handleBlur();
-          }}
-          invalid={field().state.meta.errors.length > 0}
-          disabled={local.disabled ?? false}
-          readOnly={local.readOnly ?? false}
-          {...rootProps}
+        <Show
+          when={local.trailingAddon}
+          fallback={
+            <DatePicker
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...rootProps}
+            >
+              <DatePickerInputGroup
+                {...inputProps}
+                placeholder={local.placeholder}
+                {...(typeof local.showTrigger === 'boolean' && { showTrigger: local.showTrigger })}
+              />
+            </DatePicker>
+          }
         >
-          <DatePickerInputGroup
-            {...inputProps}
-            placeholder={local.placeholder}
-            {...(typeof local.showTrigger === 'boolean' && { showTrigger: local.showTrigger })}
-          />
-        </DatePicker>
+          <div class='gap-2 flex items-center'>
+            <DatePicker
+              value={field().state.value}
+              onValueChange={(details) => {
+                field().handleChange(details.value);
+              }}
+              onBlur={() => {
+                field().handleBlur();
+              }}
+              invalid={field().state.meta.errors.length > 0}
+              disabled={local.disabled ?? false}
+              readOnly={local.readOnly ?? false}
+              {...rootProps}
+            >
+              <DatePickerInputGroup
+                {...inputProps}
+                placeholder={local.placeholder}
+                {...(typeof local.showTrigger === 'boolean' && { showTrigger: local.showTrigger })}
+              />
+            </DatePicker>
+            {local.trailingAddon}
+          </div>
+        </Show>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>
