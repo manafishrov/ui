@@ -1,7 +1,7 @@
-import type { Component, ComponentProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 
 import { Field, FieldContent, FieldError, FieldDescription } from '@/components/Field';
-import { RadioGroup } from '@/components/RadioGroup';
+import { RadioGroup, RadioGroupLabel } from '@/components/RadioGroup';
 
 import { useFieldContext } from './context';
 
@@ -12,7 +12,14 @@ export type RadioGroupFieldProps = ComponentProps<typeof RadioGroup> & {
 
 export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
   const field = useFieldContext<string>();
-  const [local, others] = splitProps(props, ['description', 'required', 'disabled', 'readOnly']);
+  const [local, others] = splitProps(props, [
+    'label',
+    'description',
+    'required',
+    'disabled',
+    'readOnly',
+    'children',
+  ]);
 
   return (
     <Field
@@ -35,7 +42,10 @@ export const RadioGroupField: Component<RadioGroupFieldProps> = (props) => {
           readOnly={local.readOnly ?? false}
           required={local.required ?? false}
           {...others}
-        />
+        >
+          <RadioGroupLabel>{local.label}</RadioGroupLabel>
+          {local.children}
+        </RadioGroup>
         <FieldError errors={field().state.meta.errors} />
         <FieldDescription>{local.description}</FieldDescription>
       </FieldContent>

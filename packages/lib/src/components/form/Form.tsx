@@ -27,7 +27,7 @@ export const Form: Component<FormProps> = (props) => {
 
   return (
     <form
-      class={cn('space-y-6 relative', local.class)}
+      class={cn('space-y-8 relative', local.class)}
       onSubmit={(submitEvent) => {
         submitEvent.preventDefault();
         submitEvent.stopPropagation();
