@@ -9,12 +9,12 @@ export type AutoSubmitProps = {
 export const AutoSubmit: Component<AutoSubmitProps> = (props) => {
   const form = useFormContext();
   const values = form.useStore((state) => state.values);
-  const isTouched = form.useStore((state) => state.isTouched);
+  const isDirty = form.useStore((state) => state.isDirty);
 
   createEffect(() => {
     values();
 
-    if (!isTouched()) {
+    if (!isDirty()) {
       return;
     }
 
