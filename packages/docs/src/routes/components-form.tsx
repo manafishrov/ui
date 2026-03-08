@@ -263,18 +263,9 @@ const FormExample: Component = () => {
   }));
   return (
     <form.AppForm>
-      <form
-        onSubmit={(submitEvent) => {
-          submitEvent.preventDefault();
-          submitEvent.stopPropagation();
-          form.handleSubmit().catch((error: unknown) => {
-            throw error;
-          });
-        }}
-        class='space-y-6 max-w-xl'
-      >
+      <form.Form class='max-w-xl'>
         <FormFields form={form} />
-      </form>
+      </form.Form>
       {submittedJson() !== '' && (
         <pre class='max-w-xl p-3 text-xs overflow-x-auto rounded-md border bg-muted/40'>
           {submittedJson()}
