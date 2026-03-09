@@ -15,14 +15,14 @@ const ToasterDocPage: Component = () => {
   const getRandomType = (): ToastType =>
     toastTypes[Math.floor(Math.random() * toastTypes.length)] ?? toastTypes[FIRST_TOAST_TYPE_INDEX];
 
-  const showDefaultToast = () => {
+  const showDefaultToast = (): void => {
     toast.create({
       type: getRandomType(),
       title: 'Event created',
     });
   };
 
-  const showToastWithAction = () => {
+  const showToastWithAction = (): void => {
     toast.create({
       type: 'info',
       title: 'Draft saved',
