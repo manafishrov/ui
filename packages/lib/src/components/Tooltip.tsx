@@ -24,7 +24,7 @@ export const TooltipContent: Component<TooltipPrimitive.ContentProps> = (props) 
     <TooltipPrimitive.Content
       data-slot='tooltip-content'
       class={cn(
-        'px-3 py-1.5 text-xs shadow-md relative isolate transform-gpu overflow-visible rounded-md bg-foreground text-background will-change-transform [--arrow-background:var(--foreground)]',
+        'px-3 py-1.5 text-xs shadow-md relative isolate z-50 transform-gpu overflow-visible rounded-md bg-foreground text-background will-change-transform [--arrow-background:var(--foreground)]',
         'origin-(--transform-origin)',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
