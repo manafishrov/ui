@@ -36,9 +36,7 @@ const ToastIcon: Component<{ type: ToastOptions['type'] }> = (props) => (
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group gap-2 px-4 py-3.5 shadow-lg min-w-80 pointer-events-auto relative flex w-full items-center rounded-xl border bg-popover',
-      'data-[state=open]:sm:slide-in-from-bottom-full data-[state=open]:animate-in data-[state=open]:slide-in-from-top-full',
-      'data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full',
+      'group gap-2 px-4 py-3.5 shadow-lg min-w-80 ease-in-out pointer-events-auto relative flex w-full items-center rounded-xl border bg-popover',
       'border-border text-popover-foreground',
     )}
   >
