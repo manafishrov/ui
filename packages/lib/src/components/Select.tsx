@@ -1,16 +1,12 @@
+import type { Component, ComponentProps, JSX, JSXElement } from 'solid-js';
+
 import { Select as SelectPrimitive } from '@ark-ui/solid/select';
-import {
-  type Component,
-  type ComponentProps,
-  type JSX,
-  type JSXElement,
-  For,
-  splitProps,
-} from 'solid-js';
 import { cn } from 'tailwind-variants';
 import CheckIcon from '~icons/material-symbols/check';
 import CloseIcon from '~icons/material-symbols/close';
 import ExpandMoreIcon from '~icons/material-symbols/expand-more';
+
+import { createSelectTriggerRef } from '../primitives/selectTriggerRef';
 
 export const SelectControl = SelectPrimitive.Control;
 export const SelectItemContext = SelectPrimitive.ItemContext;
@@ -153,11 +149,14 @@ export const SelectValue: Component<SelectPrimitive.ValueTextProps> = (props) =>
 export const SelectTrigger: Component<
   SelectPrimitive.TriggerProps & { size?: 'sm' | 'default' }
 > = (props) => {
-  const [local, others] = splitProps(props, ['class', 'size']);
+  const [local, others] = splitProps(props, ['class', 'size', 'ref']);
   const size = local.size ?? 'default';
+  const ref =
+    typeof local.ref === 'function' ? createSelectTriggerRef(local.ref) : createSelectTriggerRef();
 
   return (
     <SelectPrimitive.Trigger
+      ref={ref}
       data-slot='select-trigger'
       data-size={size}
       class={cn(
