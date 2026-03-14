@@ -7,15 +7,15 @@
   "dependencies": {
     "@manafishrov/ui": "workspace:*",
     "@tailwindcss/vite": "4.2.1",
-    "@tanstack/router-plugin": "1.166.2",
-    "@tanstack/solid-form": "1.28.4",
-    "@tanstack/solid-router": "1.166.2",
+    "@tanstack/router-plugin": "1.166.9",
+    "@tanstack/solid-form": "1.28.5",
+    "@tanstack/solid-router": "1.167.0",
     "solid-js": "1.9.11"
   },
   "devDependencies": {
-    "@tanstack/devtools-vite": "0.5.3",
-    "@tanstack/solid-devtools": "0.7.30",
-    "@tanstack/solid-router-devtools": "1.166.2",
+    "@tanstack/devtools-vite": "0.5.5",
+    "@tanstack/solid-devtools": "0.7.33",
+    "@tanstack/solid-router-devtools": "1.166.7",
     "tailwindcss": "4.2.1"
   }
 }
