@@ -18,7 +18,7 @@ import {
   JSON_INDENT,
   toJsonReplacer,
   type FormValues,
-} from './components-form-fields';
+} from './-components-form-fields';
 
 const FormFields = withForm({
   defaultValues: DEMO_DEFAULT_VALUES,
