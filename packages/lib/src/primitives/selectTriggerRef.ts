@@ -21,7 +21,9 @@ export const createSelectTriggerRef = (
       (event) => {
         if (suppressNextClick) {
           suppressNextClick = false;
-          event.stopPropagation();
+          if (element.getAttribute('aria-expanded') !== 'true') {
+            event.stopPropagation();
+          }
         }
       },
       true,
