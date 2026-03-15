@@ -5,6 +5,7 @@
 @import '@fontsource/rajdhani/600';
 @import '@fontsource/rajdhani/700';
 @import '@fontsource-variable/google-sans-flex';
+@import '@fontsource-variable/google-sans-code';
 @import './components/marquee/marquee.css';
 @import './components/toaster/toaster.css';
 
@@ -81,9 +82,12 @@
 }
 
 @theme inline {
-  --font-default:
+  --font-sans:
     'Google Sans Flex Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono:
+    'Google Sans Code Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
   --font-heading:
     'Rajdhani', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
