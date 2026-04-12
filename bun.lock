@@ -43,7 +43,7 @@
       "dependencies": {
         "@ark-ui/solid": "5.34.1",
         "@fontsource-variable/google-sans-code": "5.2.3",
-        "@fontsource-variable/google-sans-flex": "5.2.1",
+        "@fontsource-variable/google-sans-flex": "5.2.2",
         "@fontsource/chakra-petch": "5.2.7",
         "@fontsource/rajdhani": "5.2.7",
         "tailwind-merge": "3.5.0",
@@ -187,7 +187,7 @@
 
     "@fontsource-variable/google-sans-code": ["@fontsource-variable/google-sans-code@5.2.3", "", {}, "sha512-2ZQ8UkMMxz/MXve9PY8o5FjTnRZh94Jn5ZfND5mUDWwVh/t0JDgFaIdPPONyNGzlJOgn1Qlyhs2YEMbv5yQpLQ=="],
 
-    "@fontsource-variable/google-sans-flex": ["@fontsource-variable/google-sans-flex@5.2.1", "", {}, "sha512-CZzNhNK6NTjJsX3SP2g/WWzldFzSiSHrE1DtXh2Nkbflb40CGtP3G+1OABongwrNV3Tu/bUfirgcP14ajcglMw=="],
+    "@fontsource-variable/google-sans-flex": ["@fontsource-variable/google-sans-flex@5.2.2", "", {}, "sha512-WXLr2Um4EDOW50e34+KxsSSn6Eyiomo2Quui5TKrUFX4q81Dy9E6jTxQxiP5spyir32TeAne/YNHKKFc1v9t+w=="],
 
     "@fontsource/chakra-petch": ["@fontsource/chakra-petch@5.2.7", "", {}, "sha512-GLbun5WZJNAEc8FtWxwcgo+4Kurqdwejvf671l+YfIjyQgPvTjyxXYP7Ffg2HAY89NGnp3oOvKQjRzfm/fBECw=="],
 

@@ -240,7 +240,7 @@
   "dependencies": {
     "@ark-ui/solid": "5.34.1",
     "@fontsource-variable/google-sans-code": "5.2.3",
-    "@fontsource-variable/google-sans-flex": "5.2.1",
+    "@fontsource-variable/google-sans-flex": "5.2.2",
     "@fontsource/chakra-petch": "5.2.7",
     "@fontsource/rajdhani": "5.2.7",
     "tailwind-merge": "3.5.0",
