@@ -4,9 +4,10 @@ import { type VariantProps, cn, tv } from 'tailwind-variants';
 import { Separator } from '@/components/Separator';
 import { Spinner } from '@/components/Spinner';
 
-export type ButtonProps = Omit<ComponentProps<'button'>, 'size'> &
+export type ButtonProps = Omit<ComponentProps<'button'>, 'size' | 'disabled'> &
   VariantProps<typeof buttonVariants> & {
-    loading?: boolean;
+    loading?: boolean | undefined;
+    disabled?: boolean | undefined;
   };
 
 export const buttonVariants = tv({
@@ -47,11 +48,18 @@ export const buttonVariants = tv({
 export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
 export const Button: Component<ButtonProps> = (props) => {
-  const [local, others] = splitProps(props, ['class', 'size', 'variant', 'loading', 'children']);
+  const [local, others] = splitProps(props, [
+    'class',
+    'size',
+    'variant',
+    'loading',
+    'disabled',
+    'children',
+  ]);
   return (
     <button
       class={buttonVariants({ class: local.class, size: local.size, variant: local.variant })}
-      disabled={local.loading}
+      disabled={local.loading === true || local.disabled === true}
       data-loading={local.loading}
       data-slot='button'
       {...others}
