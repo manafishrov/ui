@@ -31,7 +31,7 @@ export const SwitchField: Component<SwitchFieldProps> = (props) => {
         <Switch
           checked={field().state.value}
           onCheckedChange={(details) => {
-            field().handleChange(Boolean(details.checked));
+            field().handleChange(details.checked);
           }}
           onBlur={() => {
             field().handleBlur();
