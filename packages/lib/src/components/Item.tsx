@@ -32,7 +32,7 @@ export const ItemSeparator: Component<ComponentProps<typeof Separator>> = (props
 };
 
 export const itemVariants = tv({
-  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border outline-none transition-colors duration-100 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:transition-colors [a]:hover:bg-muted',
+  base: 'text-sm group/item flex w-full flex-wrap items-center rounded-lg border transition-colors duration-100 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [a]:transition-colors [a]:hover:bg-muted',
   variants: {
     variant: {
       default: 'border-transparent',
@@ -67,7 +67,7 @@ export const Item: Component<ItemProps> = (props) => {
 };
 
 export const itemMediaVariants = tv({
-  base: 'gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 group-has-data-[slot=item-description]/item:self-start flex shrink-0 items-center justify-center [&_svg]:pointer-events-none',
+  base: 'gap-2 group-has-data-[slot=item-description]/item:translate-y-0.5 flex shrink-0 items-center justify-center group-has-data-[slot=item-description]/item:self-start [&_svg]:pointer-events-none',
   variants: {
     variant: {
       default: 'bg-transparent',
@@ -101,7 +101,7 @@ export const ItemContent: Component<ComponentProps<'div'>> = (props) => {
     <div
       data-slot='item-content'
       class={cn(
-        'gap-1 [&+[data-slot=item-content]]:flex-none group-data-[size=xs]/item:gap-0 flex flex-1 flex-col',
+        'gap-1 group-data-[size=xs]/item:gap-0 flex flex-1 flex-col [&+[data-slot=item-content]]:flex-none',
         local.class,
       )}
       {...others}

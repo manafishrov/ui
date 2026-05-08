@@ -25,10 +25,10 @@ const CollapsibleDocPage: Component = () => (
           )}
         />
       </div>
-      <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>@solidjs/solid</div>
+      <div class='px-4 py-2 text-sm shadow-sm rounded-md border font-mono'>@solidjs/solid</div>
       <CollapsibleContent class='space-y-2'>
-        <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>@manafishrov/ui</div>
-        <div class='px-4 py-2 font-mono text-sm shadow-sm rounded-md border'>
+        <div class='px-4 py-2 text-sm shadow-sm rounded-md border font-mono'>@manafishrov/ui</div>
+        <div class='px-4 py-2 text-sm shadow-sm rounded-md border font-mono'>
           @tanstack/solid-router
         </div>
       </CollapsibleContent>

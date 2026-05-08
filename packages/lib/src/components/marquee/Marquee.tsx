@@ -34,7 +34,7 @@ export const MarqueeEdge: Component<MarqueePrimitive.EdgeProps> = (props) => {
   return (
     <MarqueePrimitive.Edge
       class={cn(
-        'pointer-events-none inset-y-0 absolute z-10 w-16 bg-linear-to-r from-background from-0% to-transparent to-100%',
+        'inset-y-0 w-16 pointer-events-none absolute z-10 bg-linear-to-r from-background from-0% to-transparent to-100%',
         local.class,
       )}
       {...others}

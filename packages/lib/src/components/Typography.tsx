@@ -68,7 +68,7 @@ export const InlineCode: Component<ComponentProps<'code'>> = (props) => {
   return (
     <code
       class={cn(
-        'rounded font-mono text-sm font-semibold relative bg-muted px-[0.3rem] py-[0.2rem]',
+        'rounded text-sm font-semibold relative bg-muted px-[0.3rem] py-[0.2rem] font-mono',
         local.class,
       )}
       {...others}

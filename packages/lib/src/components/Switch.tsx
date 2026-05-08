@@ -38,7 +38,7 @@ export const SwitchControl: Component<SwitchPrimitive.ControlProps> = (props) =>
         'data-[invalid=true]:border-destructive data-[invalid=true]:ring-[3px] data-[invalid=true]:ring-destructive/20 dark:data-[invalid=true]:border-destructive/50',
         'data-[state=checked]:bg-primary data-[state=unchecked]:bg-input dark:data-[state=unchecked]:bg-input/80',
         'data-[disabled=true]:opacity-50',
-        'data-[readonly=true]:data-[focus-visible]:ring-0 group-data-[readonly=true]/switch:group-has-focus-visible/switch:ring-0',
+        'group-data-[readonly=true]/switch:group-has-focus-visible/switch:ring-0 data-[readonly=true]:data-[focus-visible]:ring-0',
         'group-data-[size=default]/switch:h-5 group-data-[size=default]/switch:w-9 px-px',
         'group-data-[size=sm]/switch:h-4 group-data-[size=sm]/switch:w-7 px-px',
         local.class,

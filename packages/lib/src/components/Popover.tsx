@@ -26,12 +26,12 @@ export const PopoverContent: Component<PopoverPrimitive.ContentProps> = (props) 
     <PopoverPrimitive.Content
       data-slot='popover-content'
       class={cn(
-        'relative isolate p-2.5 text-sm shadow-md w-72 z-50 origin-(--transform-origin) transform-gpu will-change-transform rounded-lg border border-foreground/10 bg-popover text-popover-foreground duration-100 outline-none [--arrow-background:var(--popover)]',
+        'p-2.5 text-sm shadow-md w-72 relative isolate z-50 origin-(--transform-origin) transform-gpu rounded-lg border border-foreground/10 bg-popover text-popover-foreground duration-100 will-change-transform outline-none [--arrow-background:var(--popover)]',
         "after:pointer-events-none after:absolute after:z-[60] after:rounded-full after:content-['']",
-        'data-[placement^=bottom]:after:top-0 data-[placement^=bottom]:after:left-[0.17rem] data-[placement^=bottom]:after:right-[0.17rem] data-[placement^=bottom]:after:h-px data-[placement^=bottom]:after:bg-popover',
-        'data-[placement^=top]:after:bottom-0 data-[placement^=top]:after:left-[0.17rem] data-[placement^=top]:after:right-[0.17rem] data-[placement^=top]:after:h-px data-[placement^=top]:after:bg-popover',
-        'data-[placement^=left]:after:top-[0.17rem] data-[placement^=left]:after:bottom-[0.17rem] data-[placement^=left]:after:right-0 data-[placement^=left]:after:w-px data-[placement^=left]:after:bg-popover',
-        'data-[placement^=right]:after:top-[0.17rem] data-[placement^=right]:after:bottom-[0.17rem] data-[placement^=right]:after:left-0 data-[placement^=right]:after:w-px data-[placement^=right]:after:bg-popover',
+        'data-[placement^=bottom]:after:top-0 data-[placement^=bottom]:after:right-[0.17rem] data-[placement^=bottom]:after:left-[0.17rem] data-[placement^=bottom]:after:h-px data-[placement^=bottom]:after:bg-popover',
+        'data-[placement^=top]:after:bottom-0 data-[placement^=top]:after:right-[0.17rem] data-[placement^=top]:after:left-[0.17rem] data-[placement^=top]:after:h-px data-[placement^=top]:after:bg-popover',
+        'data-[placement^=left]:after:right-0 data-[placement^=left]:after:top-[0.17rem] data-[placement^=left]:after:bottom-[0.17rem] data-[placement^=left]:after:w-px data-[placement^=left]:after:bg-popover',
+        'data-[placement^=right]:after:left-0 data-[placement^=right]:after:top-[0.17rem] data-[placement^=right]:after:bottom-[0.17rem] data-[placement^=right]:after:w-px data-[placement^=right]:after:bg-popover',
         'data-[state=open]:animate-in data-[state=open]:fade-in-0',
         'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
         'data-[side=bottom]:slide-in-from-top-2',
