@@ -78,7 +78,7 @@ changes via the docs site.
 - Match existing component patterns and Tailwind conventions.
 - Use strict types; never `as any`, `@ts-ignore`, or `@ts-expect-error`.
 - Don't add dependencies without reason.
-- Don't push without being asked. Pushing to `main` *is* releasing (see
+- Don't push without being asked. Pushing to `main` _is_ releasing (see
   below).
 
 ## Releases
