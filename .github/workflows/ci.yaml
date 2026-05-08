@@ -26,5 +26,5 @@ jobs:
         run: bun run build:docs
       - name: Run oxlint
         run: bun run lint
-      # - name: Run formatting check
-      #   run: bun run fmt:check
+      - name: Run formatting check
+        run: bun run fmt:check
