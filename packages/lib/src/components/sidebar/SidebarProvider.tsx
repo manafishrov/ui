@@ -70,13 +70,19 @@ const useSidebarState = (
 
   return {
     isMobile,
-    setMobileDisabled,
+    setMobileDisabled: (value) => {
+      setMobileDisabled(value);
+    },
     openMobile,
-    setOpenMobile,
+    setOpenMobile: (value) => {
+      setOpenMobile(value);
+    },
     open,
     setOpen,
     side,
-    setSide,
+    setSide: (value) => {
+      setSide(value);
+    },
   };
 };
 const useSidebarEvents = (stateSet: ReturnType<typeof useSidebarState>): { toggle: () => void } => {

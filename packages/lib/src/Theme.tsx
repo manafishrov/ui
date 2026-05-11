@@ -90,7 +90,12 @@ export const ThemeProvider: Component<ThemeProviderProps> = (props) => {
     return current === Theme.system ? systemTheme() : current;
   };
 
-  onMount(() => createSystemThemeListener(setSystemTheme));
+  onMount(() => {
+    const cleanup = createSystemThemeListener((nextTheme) => {
+      setSystemTheme(nextTheme);
+    });
+    onCleanup(cleanup);
+  });
 
   createEffect(
     on(

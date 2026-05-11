@@ -154,10 +154,12 @@ export const SidebarMenuButton: Component<SidebarMenuButtonProps> = (props) => {
     >
       <Tooltip positioning={{ placement: tooltipPlacement() }} openDelay={100}>
         <TooltipTrigger
-          {...buttonDataProps()}
-          {...others}
           asChild={(triggerProps) =>
-            renderSidebarMenuButton(local.asChild, triggerProps(), local.children)
+            renderSidebarMenuButton(
+              local.asChild,
+              { ...triggerProps(), ...buttonDataProps(), ...others },
+              local.children,
+            )
           }
         />
         <Portal>

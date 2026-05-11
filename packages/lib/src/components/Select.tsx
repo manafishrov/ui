@@ -185,13 +185,9 @@ export const SelectIndicator: Component<SelectPrimitive.IndicatorProps> = (props
   );
 };
 
-const callEventHandler = <
-  TElement,
-  THandlerEvent extends Event,
-  TEvent extends THandlerEvent & { currentTarget: TElement; target: Element },
->(
+const callEventHandler = <TElement, THandlerEvent extends Event>(
   handler: JSX.EventHandlerUnion<TElement, THandlerEvent> | undefined,
-  event: TEvent,
+  event: THandlerEvent & { currentTarget: TElement; target: Element },
 ): void => {
   if (typeof handler === 'function') {
     handler(event);

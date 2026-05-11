@@ -21,7 +21,7 @@ const TextInputDocPage: Component = () => {
     if (val.length === 0) {
       return false;
     }
-    return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(val);
   };
 
   return (
@@ -39,7 +39,9 @@ const TextInputDocPage: Component = () => {
               type='email'
               placeholder='Enter your email'
               value={email()}
-              onInput={(event) => setEmail(event.currentTarget.value)}
+              onInput={(event) => {
+                setEmail(event.currentTarget.value);
+              }}
             />
           </TextInputControl>
           <TextInputError>Please enter a valid email address.</TextInputError>

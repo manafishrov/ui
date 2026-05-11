@@ -24,7 +24,7 @@ export const MAX_MESSAGE_LENGTH = 500;
 export const MAX_NUMBER_VALUE = 100;
 export const MIN_SLIDER_VALUE = 10;
 export const MIN_TEXT_LENGTH = 3;
-export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
 
 export const marks = [
   { value: 0, label: '0' },

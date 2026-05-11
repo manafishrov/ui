@@ -126,11 +126,18 @@ const MenuComboboxDocPage: Component = () => {
         <Lead>{m.docs_component_menu_combobox_description()}</Lead>
       </div>
 
-      <BasicMenuComboboxExample searchValue={searchValue()} onSearchValueChange={setSearchValue} />
+      <BasicMenuComboboxExample
+        searchValue={searchValue()}
+        onSearchValueChange={(value) => {
+          setSearchValue(value);
+        }}
+      />
 
       <GroupedMenuComboboxExample
         searchValue={groupSearchValue()}
-        onSearchValueChange={setGroupSearchValue}
+        onSearchValueChange={(value) => {
+          setGroupSearchValue(value);
+        }}
       />
     </div>
   );
