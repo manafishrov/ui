@@ -243,7 +243,7 @@
     "@fontsource-variable/google-sans-flex": "5.2.3",
     "@fontsource/chakra-petch": "5.2.7",
     "@fontsource/rajdhani": "5.2.7",
-    "tailwind-merge": "3.5.0",
+    "tailwind-merge": "3.6.0",
     "tailwind-variants": "3.2.2"
   },
   "devDependencies": {
