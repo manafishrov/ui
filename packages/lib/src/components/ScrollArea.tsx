@@ -10,7 +10,7 @@ export const ScrollAreaViewport: Component<ScrollAreaPrimitive.ViewportProps> = 
     <ScrollAreaPrimitive.Viewport
       data-slot='scroll-area-viewport'
       class={cn(
-        'size-full rounded-[inherit] transition-[color,box-shadow] outline-none [scrollbar-width:none] focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 [&::-webkit-scrollbar]:hidden',
+        'size-full [scrollbar-width:none] rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 [&::-webkit-scrollbar]:hidden',
         local.class,
       )}
       {...others}
