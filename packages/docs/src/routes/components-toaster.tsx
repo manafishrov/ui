@@ -11,52 +11,50 @@ const toastTypes = ['success', 'info', 'warning', 'error', 'loading'] as const;
 type ToastType = (typeof toastTypes)[number];
 const FIRST_TOAST_TYPE_INDEX = 0;
 
-const ToasterDocPage: Component = () => {
-  const getRandomType = (): ToastType =>
-    toastTypes[Math.floor(Math.random() * toastTypes.length)] ?? toastTypes[FIRST_TOAST_TYPE_INDEX];
+const getRandomType = (): ToastType =>
+  toastTypes[Math.floor(Math.random() * toastTypes.length)] ?? toastTypes[FIRST_TOAST_TYPE_INDEX];
 
-  const showDefaultToast = (): void => {
-    toast.create({
-      type: getRandomType(),
-      title: 'Event created',
-    });
-  };
-
-  const showToastWithAction = (): void => {
-    toast.create({
-      type: 'info',
-      title: 'Draft saved',
-      description: 'You can undo this action.',
-      action: {
-        label: 'Undo',
-        onClick: () => {
-          toast.create({
-            type: 'success',
-            title: 'Changes reverted',
-            description: 'Your previous draft has been restored.',
-          });
-        },
-      },
-    });
-  };
-
-  return (
-    <div class='space-y-8'>
-      <div class='space-y-2'>
-        <H1>Toaster</H1>
-        <Lead>{m.docs_component_toaster_description()}</Lead>
-      </div>
-
-      <div class='gap-4 flex flex-wrap'>
-        <Button onClick={showDefaultToast}>Show Toast</Button>
-        <Button variant='outline' onClick={showToastWithAction}>
-          Show Toast With Action
-        </Button>
-        <Toaster />
-      </div>
-    </div>
-  );
+const showDefaultToast = (): void => {
+  toast.create({
+    type: getRandomType(),
+    title: 'Event created',
+  });
 };
+
+const showToastWithAction = (): void => {
+  toast.create({
+    type: 'info',
+    title: 'Draft saved',
+    description: 'You can undo this action.',
+    action: {
+      label: 'Undo',
+      onClick: () => {
+        toast.create({
+          type: 'success',
+          title: 'Changes reverted',
+          description: 'Your previous draft has been restored.',
+        });
+      },
+    },
+  });
+};
+
+const ToasterDocPage: Component = () => (
+  <div class='space-y-8'>
+    <div class='space-y-2'>
+      <H1>Toaster</H1>
+      <Lead>{m.docs_component_toaster_description()}</Lead>
+    </div>
+
+    <div class='gap-4 flex flex-wrap'>
+      <Button onClick={showDefaultToast}>Show Toast</Button>
+      <Button variant='outline' onClick={showToastWithAction}>
+        Show Toast With Action
+      </Button>
+      <Toaster />
+    </div>
+  </div>
+);
 
 export const Route = createFileRoute('/components-toaster')({
   component: ToasterDocPage,
