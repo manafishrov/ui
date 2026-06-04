@@ -3,8 +3,21 @@ import { splitProps, type Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const Tooltip = TooltipPrimitive.Root;
-export const TooltipTrigger = TooltipPrimitive.Trigger;
 export const TooltipContext = TooltipPrimitive.Context;
+
+export const TooltipTrigger: Component<TooltipPrimitive.TriggerProps> = (props) => {
+  const [local, others] = splitProps(props, ['class']);
+  return (
+    <TooltipPrimitive.Trigger
+      data-slot='tooltip-trigger'
+      class={cn(
+        'rounded-sm outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        local.class,
+      )}
+      {...others}
+    />
+  );
+};
 
 export const TooltipPositioner: Component<TooltipPrimitive.PositionerProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
