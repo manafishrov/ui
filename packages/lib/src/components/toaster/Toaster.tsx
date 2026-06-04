@@ -38,6 +38,7 @@ const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
     class={cn(
       'group gap-2 px-4 py-3.5 shadow-lg min-w-80 ease-in-out pointer-events-auto relative flex w-full items-center rounded-xl border bg-popover',
       'border-border text-popover-foreground',
+      'outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
     )}
   >
     <ToastIcon type={props.toast().type} />
