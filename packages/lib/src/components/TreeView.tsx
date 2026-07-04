@@ -1,4 +1,4 @@
-import { TreeView as TreeViewPrimitive, createTreeCollection } from '@ark-ui/solid/tree-view';
+import { TreeView as TreeViewPrimitive } from '@ark-ui/solid/tree-view';
 import { Show, splitProps, type Component } from 'solid-js';
 import { cn } from 'tailwind-variants';
 import ChevronRightIcon from '~icons/material-symbols/chevron-right';
@@ -6,7 +6,7 @@ import ChevronRightIcon from '~icons/material-symbols/chevron-right';
 export const TreeView = TreeViewPrimitive.Root;
 export const TreeViewLabel = TreeViewPrimitive.Label;
 export const TreeViewNodeProvider = TreeViewPrimitive.NodeProvider;
-export { createTreeCollection };
+export { createTreeCollection } from '@ark-ui/solid/tree-view';
 
 export const TreeViewTree: Component<TreeViewPrimitive.TreeProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);

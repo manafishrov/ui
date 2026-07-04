@@ -2,7 +2,10 @@ import { Field as PrimitiveField } from '@ark-ui/solid/field';
 import { splitProps, type Component, type ComponentProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
-import { FieldDescription, FieldError } from '@/components/Field';
+export {
+  FieldDescription as TextInputDescription,
+  FieldError as TextInputError,
+} from '@/components/Field';
 
 export const TextInput: Component<PrimitiveField.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
@@ -82,6 +85,3 @@ export const TextInputArea: Component<PrimitiveField.TextareaProps> = (props) =>
     />
   );
 };
-
-export const TextInputDescription = FieldDescription;
-export const TextInputError = FieldError;

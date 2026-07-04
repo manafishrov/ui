@@ -108,7 +108,7 @@ const SelectRoot = <TItem extends { value: string; label: string }>(
 };
 
 export const Select: SelectComponent = Object.assign(SelectRoot, {
-  Tabs: SelectTabs as SelectComponent['Tabs'],
+  Tabs: SelectTabs,
 });
 
 export const SelectLabel: Component<SelectPrimitive.LabelProps> = (props) => {

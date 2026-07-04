@@ -1,4 +1,4 @@
-import { type Component, type ComponentProps, type JSX, splitProps } from 'solid-js';
+import { type Component, type ComponentProps, splitProps } from 'solid-js';
 import { cn } from 'tailwind-variants';
 
 export const AspectRatio: Component<ComponentProps<'div'> & { ratio?: number }> = (props) => {
@@ -6,7 +6,7 @@ export const AspectRatio: Component<ComponentProps<'div'> & { ratio?: number }> 
   return (
     <div
       data-slot='aspect-ratio'
-      style={{ '--ratio': local.ratio ?? 1 } as JSX.CSSProperties}
+      style={{ '--ratio': local.ratio ?? 1 }}
       class={cn('relative aspect-(--ratio)', local.class)}
       {...others}
     />

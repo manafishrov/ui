@@ -1,10 +1,10 @@
 import type { Component } from 'solid-js';
 
-import { Accordion as AccordionPrimitive, useAccordion } from '@ark-ui/solid/accordion';
+import { Accordion as AccordionPrimitive } from '@ark-ui/solid/accordion';
 import { cn } from 'tailwind-variants';
 import ExpandMoreIcon from '~icons/material-symbols/expand-more';
 
-export { useAccordion };
+export { useAccordion } from '@ark-ui/solid/accordion';
 export const AccordionContext = AccordionPrimitive.Context;
 export const AccordionItemContext = AccordionPrimitive.ItemContext;
 
