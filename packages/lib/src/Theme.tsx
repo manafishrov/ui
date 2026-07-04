@@ -38,7 +38,7 @@ const readStoredTheme = (storageKey: string, defaultTheme: Theme): Theme => {
   }
   const stored = globalThis.localStorage.getItem(storageKey);
   if (stored === Theme.light || stored === Theme.dark || stored === Theme.system) {
-    return stored as Theme;
+    return stored;
   }
   return defaultTheme;
 };

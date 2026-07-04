@@ -1,6 +1,6 @@
 import { Toggle as TogglePrimitive } from '@ark-ui/solid/toggle';
 import { ToggleGroup as ToggleGroupPrimitive } from '@ark-ui/solid/toggle-group';
-import { createContext, useContext, type Component, type JSX, splitProps } from 'solid-js';
+import { createContext, useContext, type Component, splitProps } from 'solid-js';
 import { cn, tv, type VariantProps } from 'tailwind-variants';
 
 export const toggleVariants = tv({
@@ -76,7 +76,7 @@ export const ToggleGroup: Component<ToggleGroupProps> = (props) => {
       data-size={contextValue.size}
       data-spacing={contextValue.spacing}
       orientation={local.orientation ?? 'horizontal'}
-      style={{ '--gap': `${contextValue.spacing}px` } as JSX.CSSProperties}
+      style={{ '--gap': `${contextValue.spacing}px` }}
       class={cn(
         'group/toggle-group flex w-fit flex-row items-center gap-(--gap) rounded-lg data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
         local.class,
@@ -98,9 +98,8 @@ export const ToggleGroupItem: Component<ToggleGroupItemProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'variant', 'size', 'children']);
 
   const variant = (): ToggleGroupContextValue['variant'] =>
-    (local.variant ?? context.variant ?? 'default') as ToggleGroupContextValue['variant'];
-  const size = (): ToggleGroupContextValue['size'] =>
-    (local.size ?? context.size ?? 'default') as ToggleGroupContextValue['size'];
+    local.variant ?? context.variant ?? 'default';
+  const size = (): ToggleGroupContextValue['size'] => local.size ?? context.size ?? 'default';
   const spacing = (): number | undefined => context.spacing;
 
   return (
