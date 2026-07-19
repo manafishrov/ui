@@ -8,8 +8,8 @@ export type AutoSubmitProps = {
 
 export const AutoSubmit: Component<AutoSubmitProps> = (props) => {
   const form = useFormContext();
-  const values = form.useStore((state) => state.values);
-  const isDirty = form.useStore((state) => state.isDirty);
+  const values = form.useSelector((state) => state.values);
+  const isDirty = form.useSelector((state) => state.isDirty);
 
   createEffect(() => {
     values();
