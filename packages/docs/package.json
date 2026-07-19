@@ -6,16 +6,16 @@
   "type": "module",
   "dependencies": {
     "@manafishrov/ui": "workspace:*",
-    "@tailwindcss/vite": "4.3.2",
-    "@tanstack/router-plugin": "1.168.19",
-    "@tanstack/solid-form": "1.33.0",
-    "@tanstack/solid-router": "1.170.17",
+    "@tailwindcss/vite": "4.3.3",
+    "@tanstack/router-plugin": "1.168.20",
+    "@tanstack/solid-form": "1.33.2",
+    "@tanstack/solid-router": "1.170.18",
     "solid-js": "1.9.14"
   },
   "devDependencies": {
     "@tanstack/devtools-vite": "0.8.1",
     "@tanstack/solid-devtools": "0.8.8",
     "@tanstack/solid-router-devtools": "1.167.0",
-    "tailwindcss": "4.3.2"
+    "tailwindcss": "4.3.3"
   }
 }
