@@ -5,6 +5,10 @@ on:
     branches:
       - main
   pull_request:
+
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -32,3 +36,15 @@ jobs:
         run: bun run lint
       - name: Run formatting check
         run: bun run fmt:check
+
+  ci:
+    name: ci
+    if: always()
+    needs:
+      - check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require all checks
+        env:
+          CHECK_RESULT: ${{ needs.check.result }}
+        run: test "$CHECK_RESULT" = success
