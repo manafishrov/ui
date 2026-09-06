@@ -20,11 +20,11 @@
     "preview": "cd packages/docs && bunx vite preview"
   },
   "devDependencies": {
-    "@iconify-json/material-symbols": "1.2.87",
+    "@iconify-json/material-symbols": "1.2.90",
     "@inlang/paraglide-js": "2.22.0",
     "@types/bun": "1.3.14",
     "@typescript/typescript6": "6.0.2",
-    "lefthook": "2.1.10",
+    "lefthook": "2.1.12",
     "oxfmt": "0.59.0",
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "7.0.2001",
@@ -33,6 +33,6 @@
     "unplugin-auto-import": "21.0.0",
     "unplugin-icons": "23.0.1",
     "vite": "8.1.5",
-    "vite-plugin-solid": "2.11.13"
+    "vite-plugin-solid": "2.11.14"
   }
 }
