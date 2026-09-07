@@ -17,7 +17,8 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "prepare": "lefthook install",
-    "preview": "cd packages/docs && bunx vite preview"
+    "preview": "cd packages/docs && bunx vite preview",
+    "test": "bun test tests"
   },
   "devDependencies": {
     "@iconify-json/material-symbols": "1.2.87",

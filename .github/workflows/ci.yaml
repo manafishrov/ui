@@ -36,6 +36,8 @@ jobs:
         run: bun run lint
       - name: Run formatting check
         run: bun run fmt:check
+      - name: Run regression tests
+        run: bun run test
 
   ci:
     name: ci
