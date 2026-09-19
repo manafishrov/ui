@@ -94,7 +94,8 @@ Releases for `@manafishrov/ui` are **fully automated**.
   since the last tag, decides the version bump, writes
   `packages/lib/package.json`, publishes to npm with provenance, creates the
   GitHub release, and deploys the docs to GitHub Pages.
-- Before tagging, semantic-release verifies GitHub OIDC and npm token exchange.
+- For actual releases, before tagging, semantic-release verifies npm >=11.5.1,
+  GitHub OIDC and npm token exchange. No-release pushes skip the exchange.
   This preflight never writes or prints tokens; npm still handles publication.
 - **Don't hand-edit `packages/lib/package.json`'s `version`** — semantic-
   release owns it.

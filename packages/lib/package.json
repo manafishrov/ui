@@ -273,7 +273,7 @@
       [
         "@semantic-release/exec",
         {
-          "verifyConditionsCmd": "command -v npm && npm --version && node --version && bun ../../scripts/verifyNpmPublisher.ts",
+          "verifyReleaseCmd": "command -v npm && npm --version && node --version && NPM_PUBLISH_VERSION=\"$(npm --version)\" bun ../../scripts/verifyNpmPublisher.ts",
           "prepareCmd": "bun -e \"const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json'));p.version='${nextRelease.version}';fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\\n')\" && cp ../../README.md ./README.md",
           "publishCmd": "npm --version && npm publish --access public --provenance"
         }

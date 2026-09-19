@@ -2,11 +2,11 @@ import process from 'node:process';
 
 import libraryPackage from '../packages/lib/package.json';
 
-type Request = (url: URL, options: RequestInit) => Promise<Response>;
+type TokenFetch = (url: URL, options: RequestInit) => Promise<Response>;
 type TokenRequest = { options: RequestInit; key: 'value' | 'token'; stage: string };
 
 const requestToken = (
-  request: Request,
+  request: TokenFetch,
   url: URL,
   { options, key, stage }: TokenRequest,
 ): Promise<string> =>
@@ -46,13 +46,18 @@ const parseIdentityUrl = (tokenUrl: string): URL => {
   return url;
 };
 
+// Match npm/lib/utils/oidc.js for the public npm registry's audience and scoped URL.
 // Verify GitHub -> npm exchange before tagging. Tokens remain in memory.
 // Publication still uses npm's own exchange.
 export const verifyNpmPublisher = (
   environment: NodeJS.ProcessEnv = process.env,
-  request: Request = fetch,
+  request: TokenFetch = fetch,
 ): Promise<void> =>
   Promise.resolve().then(() => {
+    const npmVersion = environment['NPM_PUBLISH_VERSION'] ?? '';
+    if (!Bun.semver.satisfies(npmVersion, '>=11.5.1')) {
+      throw new Error('Trusted npm publishing requires npm >=11.5.1');
+    }
     const tokenUrl = environment['ACTIONS_ID_TOKEN_REQUEST_URL'];
     const requestTokenValue = environment['ACTIONS_ID_TOKEN_REQUEST_TOKEN'];
     if (
@@ -65,7 +70,9 @@ export const verifyNpmPublisher = (
       throw new Error('Trusted npm publishing requires GitHub Actions with id-token: write');
     }
     return requestToken(request, parseIdentityUrl(tokenUrl), {
-      options: { headers: { Authorization: `Bearer ${requestTokenValue}` } },
+      options: {
+        headers: { Accept: 'application/json', Authorization: `Bearer ${requestTokenValue}` },
+      },
       key: 'value',
       stage: 'GitHub OIDC',
     })
