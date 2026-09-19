@@ -10,7 +10,7 @@ site).
 
 - Bun + TypeScript, Vite, SolidJS
 - Tailwind v4, oxlint, oxfmt
-- Nix flake for the dev shell
+- Nix flake for the dev shell (Bun and Node.js 24, including npm)
 - semantic-release (automated publishing)
 
 ## Foundations
@@ -50,6 +50,8 @@ when adding components — don't reinvent behaviour that already exists:
   - `src/theme.css` — Tailwind layer + design tokens (exported as
     `@manafishrov/ui/theme`)
 - `packages/docs/` — Vite docs/preview site
+- `scripts/verifyNpmPublisher.ts` — credential-safe trusted-publisher preflight;
+  mocked exchange and failure cases are covered in `tests/npmPublisher.test.ts`
 - Peer deps consumers must install: `solid-js`, `tailwindcss`,
   `@tanstack/solid-router`, `@tanstack/solid-form`, `unplugin-icons`,
   `@iconify-json/material-symbols`
@@ -92,6 +94,9 @@ Releases for `@manafishrov/ui` are **fully automated**.
   since the last tag, decides the version bump, writes
   `packages/lib/package.json`, publishes to npm with provenance, creates the
   GitHub release, and deploys the docs to GitHub Pages.
+- For actual releases, before tagging, semantic-release verifies npm >=11.5.1,
+  GitHub OIDC and npm token exchange. No-release pushes skip the exchange.
+  This preflight never writes or prints tokens; npm still handles publication.
 - **Don't hand-edit `packages/lib/package.json`'s `version`** — semantic-
   release owns it.
 - Therefore: commit messages drive releases. `feat:` → minor, `fix:` →
