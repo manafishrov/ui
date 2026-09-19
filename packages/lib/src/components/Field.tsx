@@ -249,6 +249,7 @@ export const FieldSeparator: Component<FieldSeparatorProps> = (props) => {
 };
 
 export type FieldErrorProps = PrimitiveField.ErrorTextProps & {
+  /** Display strings or objects with a string message; ignore other validator values. */
   errors?: readonly unknown[];
 };
 

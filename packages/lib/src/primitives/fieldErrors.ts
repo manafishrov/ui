@@ -1,6 +1,6 @@
-export const fieldErrorMessages = (errors: readonly unknown[] = []): string[] => {
+export const fieldErrorMessages = (errors?: readonly unknown[] | null): string[] => {
   const messages: string[] = [];
-  for (const error of errors) {
+  for (const error of errors ?? []) {
     if (typeof error === 'string') {
       messages.push(error);
     } else if (

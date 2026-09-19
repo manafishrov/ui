@@ -19,8 +19,11 @@ test('preserves string and Error messages, order, and stable deduplication', () 
   expect(fieldErrorMessages(errors)).toEqual(['Required', 'Invalid', 'Failure', '']);
 });
 
-// Null and undefined are deliberate validator-boundary fixtures.
-/* oxlint-disable no-undefined, no-null */
+/* oxlint-disable no-undefined, no-null -- Deliberate nullable validator-boundary fixtures. */
+test('preserves the runtime fallback for null errors from JavaScript callers', () => {
+  expect(fieldErrorMessages(null)).toEqual([]);
+});
+
 test('ignores unknown validator values instead of rendering or coercing them', () => {
   expect(
     fieldErrorMessages([

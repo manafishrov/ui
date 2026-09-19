@@ -30,14 +30,14 @@ when adding components — don't reinvent behaviour that already exists:
 - **`@tanstack/solid-form`** — backs the `form` export.
 - **`@tanstack/solid-router`** — backs the `link` export.
 - **`unplugin-icons` + `@iconify-json/material-symbols`** — icon set used
-  across components. `primitives/fieldErrors.ts` normalizes unknown validator
-  output to deduplicated string messages; covered in `tests/fieldErrors.test.ts`.
+  across components.
 - **Fonts**: `@fontsource-variable/google-sans-{code,flex}`,
   `@fontsource/chakra-petch`, `@fontsource/rajdhani` — exposed through
   `theme.css`.
 - **`packages/lib/src/primitives/`** — internal building blocks shared
   across components. New cross-component logic belongs here, not duplicated
-  in component files.
+  in component files. `fieldErrors.ts` normalizes unknown validator output to
+  deduplicated string messages; covered in `tests/fieldErrors.test.ts`.
 
 ## Structure
 
