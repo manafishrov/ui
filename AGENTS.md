@@ -10,7 +10,7 @@ site).
 
 - Bun + TypeScript, Vite, SolidJS
 - Tailwind v4, oxlint, oxfmt
-- Nix flake for the dev shell
+- Nix flake for the dev shell (Bun and Node.js 24, including npm)
 - semantic-release (automated publishing)
 
 ## Foundations

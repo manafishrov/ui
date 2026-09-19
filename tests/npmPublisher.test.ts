@@ -134,7 +134,8 @@ const getExecConfiguration = (): { verifyReleaseCmd: string } => {
 test('release hook resolves from the library directory and fails without leaking credentials', () => {
   const configuration = getExecConfiguration();
   expect('verifyConditionsCmd' in configuration).toBe(false);
-  const result = Bun.spawnSync(['bash', '-c', configuration.verifyReleaseCmd], {
+  expect(configuration.verifyReleaseCmd).not.toContain('${');
+  const result = Bun.spawnSync(['sh', '-c', configuration.verifyReleaseCmd], {
     cwd: new URL('../packages/lib', import.meta.url).pathname,
     env: { ...process.env, GITHUB_ACTIONS: '', ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'test-cli-secret' },
     stdout: 'pipe',
