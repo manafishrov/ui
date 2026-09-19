@@ -73,9 +73,17 @@ bun run test           # Bun sidebar-cookie, icon-peer, Theme and built-export r
 ```
 
 TypeScript Language Server 6 requires Node >=22.22.2; the dev shell supplies 24.
-When updating it, smoke-test LSP initialize, TSX diagnostics/completion, and shutdown.
-Native TypeScript 7 has no legacy tsserver; the current lock resolves the server's
-fallback to JavaScript TypeScript 6.0.3. Verify the reported server version too.
+Native TypeScript 7 has no legacy tsserver. Set the editor's
+`initializationOptions.tsserver.path` to the installed JavaScript compatibility
+server; resolve its absolute path with:
+
+```sh
+node -p "require.resolve('@typescript/old/lib/tsserver.js', {paths: [require.resolve('@typescript/typescript6')]})"
+```
+
+Do not rely on the default fallback: Bun's hoisting layout can select TypeScript 7
+instead. When updating the server or shell, smoke-test configured LSP initialize,
+TSX diagnostics/completion, and shutdown, and verify the reported server version.
 
 Auto-fix variants: `fmt`, `lint:fix`. Exercise visual changes via the docs
 site. Keep tests in `tests/`, outside the published library source.
