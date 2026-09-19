@@ -7,9 +7,9 @@
   "dependencies": {
     "@manafishrov/ui": "workspace:*",
     "@tailwindcss/vite": "4.3.3",
-    "@tanstack/router-plugin": "1.168.38",
+    "@tanstack/router-plugin": "1.168.40",
     "@tanstack/solid-form": "1.33.5",
-    "@tanstack/solid-router": "1.170.34",
+    "@tanstack/solid-router": "1.170.36",
     "solid-js": "1.9.15"
   },
   "devDependencies": {
