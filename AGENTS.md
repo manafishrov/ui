@@ -10,7 +10,7 @@ site).
 
 - Bun + TypeScript, Vite, SolidJS
 - Tailwind v4, oxlint, oxfmt
-- Nix flake for the dev shell (Bun and Node.js 24, including npm)
+- Nix flake for the dev shell (Git for install hooks, Bun, and Node.js 24/npm)
 - semantic-release (automated publishing)
 
 ## Foundations
@@ -71,6 +71,11 @@ bun run fmt:check
 bun run lint           # oxlint, --deny-warnings, type-aware
 bun run test           # Bun sidebar-cookie, icon-peer, Theme and built-export regressions
 ```
+
+TypeScript Language Server 6 requires Node >=22.22.2; the dev shell supplies 24.
+When updating it, smoke-test LSP initialize, TSX diagnostics/completion, and shutdown.
+Native TypeScript 7 has no legacy tsserver; the current lock resolves the server's
+fallback to JavaScript TypeScript 6.0.3. Verify the reported server version too.
 
 Auto-fix variants: `fmt`, `lint:fix`. Exercise visual changes via the docs
 site. Keep tests in `tests/`, outside the published library source.
