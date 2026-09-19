@@ -12,6 +12,7 @@ import {
 import { type VariantProps, tv, cn } from 'tailwind-variants';
 
 import { Separator } from '@/components/Separator';
+import { fieldErrorMessages } from '@/primitives/fieldErrors';
 
 export { useFieldset } from '@ark-ui/solid/fieldset';
 export const FieldContext = PrimitiveField.Context;
@@ -248,29 +249,13 @@ export const FieldSeparator: Component<FieldSeparatorProps> = (props) => {
 };
 
 export type FieldErrorProps = PrimitiveField.ErrorTextProps & {
-  errors?: ({ message?: string } | string | undefined)[];
+  errors?: readonly unknown[];
 };
 
 export const FieldError: Component<FieldErrorProps> = (props) => {
   const [local, others] = splitProps(props, ['class', 'children', 'errors']);
 
-  const uniqueErrors = createMemo(() => {
-    const { errors } = local;
-    if (!errors || errors.length === 0) {
-      return [];
-    }
-
-    const messages: string[] = [];
-    for (const error of errors) {
-      if (typeof error === 'string') {
-        messages.push(error);
-      } else if (error && typeof error === 'object' && typeof error.message === 'string') {
-        messages.push(error.message);
-      }
-    }
-
-    return [...new Set(messages)];
-  });
+  const uniqueErrors = createMemo(() => fieldErrorMessages(local.errors));
 
   return (
     <div class='mt-[3px] flex min-h-[0.875rem] flex-col justify-start'>

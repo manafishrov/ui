@@ -30,7 +30,8 @@ when adding components — don't reinvent behaviour that already exists:
 - **`@tanstack/solid-form`** — backs the `form` export.
 - **`@tanstack/solid-router`** — backs the `link` export.
 - **`unplugin-icons` + `@iconify-json/material-symbols`** — icon set used
-  across components.
+  across components. `primitives/fieldErrors.ts` normalizes unknown validator
+  output to deduplicated string messages; covered in `tests/fieldErrors.test.ts`.
 - **Fonts**: `@fontsource-variable/google-sans-{code,flex}`,
   `@fontsource/chakra-petch`, `@fontsource/rajdhani` — exposed through
   `theme.css`.
@@ -69,18 +70,19 @@ when adding components — don't reinvent behaviour that already exists:
 bun run build:lib      # emit the public JS, declarations and CSS checked by tests
 bun run fmt:check
 bun run lint           # oxlint, --deny-warnings, type-aware
-bun run test           # Bun sidebar-cookie, icon-peer, Theme and built-export regressions
+bun run test           # Bun cookie, icon, field-error, Theme, export and publisher regressions
 ```
 
 TypeScript Language Server 6 requires Node >=22.22.2; the dev shell supplies 24.
 Native TypeScript 7 has no legacy tsserver. Set the editor's
 `initializationOptions.tsserver.path` to the installed JavaScript compatibility
-server; resolve its absolute path with:
+server; resolve its absolute path from the repository root with:
 
 ```sh
 node -p "require.resolve('@typescript/old/lib/tsserver.js', {paths: [require.resolve('@typescript/typescript6')]})"
 ```
 
+Re-resolve this version-specific path after dependency updates.
 Do not rely on the default fallback: Bun's hoisting layout can select TypeScript 7
 instead. When updating the server or shell, smoke-test configured LSP initialize,
 TSX diagnostics/completion, and shutdown, and verify the reported server version.
