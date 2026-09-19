@@ -22,6 +22,7 @@
     in {
       default = pkgs.mkShell {
         buildInputs = [
+          pkgs.git
           pkgs.nodejs_24
           unstable.bun
         ];
