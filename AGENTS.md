@@ -64,9 +64,10 @@ when adding components — don't reinvent behaviour that already exists:
 ### Quality (must pass before considering work done)
 
 ```sh
+bun run build:lib      # emit the public JS, declarations and CSS checked by tests
 bun run fmt:check
 bun run lint           # oxlint, --deny-warnings, type-aware
-bun run test           # Bun sidebar-cookie and icon-peer regressions in tests/
+bun run test           # Bun sidebar-cookie, icon-peer, Theme and built-export regressions
 ```
 
 Auto-fix variants: `fmt`, `lint:fix`. Exercise visual changes via the docs

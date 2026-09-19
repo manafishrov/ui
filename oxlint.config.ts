@@ -24,6 +24,7 @@ export default defineConfig({
     restriction: 'warn',
   },
   rules: {
+    'one-var': ['warn', 'never'],
     'sort-keys': 'off',
     'sort-imports': 'off',
     'no-debugger': 'error',
