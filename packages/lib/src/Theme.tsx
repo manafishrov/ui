@@ -1,5 +1,6 @@
 import type { Component, JSXElement } from 'solid-js';
 
+// oxlint-disable-next-line no-redeclare -- Public type and value use distinct TypeScript namespaces.
 export type Theme = 'light' | 'dark' | 'system';
 
 export const Theme = {
