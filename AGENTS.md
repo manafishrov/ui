@@ -66,7 +66,7 @@ when adding components — don't reinvent behaviour that already exists:
 ```sh
 bun run fmt:check
 bun run lint           # oxlint, --deny-warnings, type-aware
-bun run test           # Bun regression tests in tests/
+bun run test           # Bun sidebar-cookie and icon-peer regressions in tests/
 ```
 
 Auto-fix variants: `fmt`, `lint:fix`. Exercise visual changes via the docs
