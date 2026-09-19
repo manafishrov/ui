@@ -10,10 +10,10 @@ export const DatePicker: Component<DatePickerPrimitive.RootProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return <DatePickerPrimitive.Root class={cn('flex w-full flex-col', local.class)} {...others} />;
 };
-export const DatePickerContext = DatePickerPrimitive.Context,
-  DatePickerRangeText = DatePickerPrimitive.RangeText,
-  DatePickerView = DatePickerPrimitive.View,
-  DatePickerViewTrigger = DatePickerPrimitive.ViewTrigger;
+export const DatePickerContext = DatePickerPrimitive.Context;
+export const DatePickerRangeText = DatePickerPrimitive.RangeText;
+export const DatePickerView = DatePickerPrimitive.View;
+export const DatePickerViewTrigger = DatePickerPrimitive.ViewTrigger;
 export const DatePickerTable: Component<DatePickerPrimitive.TableProps> = (props) => {
   const [local, others] = splitProps(props, ['class']);
   return (
