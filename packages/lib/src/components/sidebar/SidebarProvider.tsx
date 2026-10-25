@@ -94,13 +94,14 @@ const useSidebarEvents = (stateSet: ReturnType<typeof useSidebarState>): { toggl
     }
   };
 
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
+      event.preventDefault();
+      toggle();
+    }
+  };
+
   onMount(() => {
-    const handleKeyDown = (event: KeyboardEvent): void => {
-      if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
-        event.preventDefault();
-        toggle();
-      }
-    };
     globalThis.addEventListener('keydown', handleKeyDown);
     onCleanup(() => {
       globalThis.removeEventListener('keydown', handleKeyDown);
