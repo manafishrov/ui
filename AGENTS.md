@@ -70,7 +70,7 @@ when adding components — don't reinvent behaviour that already exists:
 bun run build:lib      # emit the public JS, declarations and CSS checked by tests
 bun run fmt:check
 bun run lint           # oxlint, --deny-warnings, type-aware
-bun run test           # Bun cookie, icon, field-error, Theme, export and publisher regressions
+bun run test           # Bun cookie, icon, field-error, Theme, exit-animation, export and publisher regressions
 ```
 
 TypeScript Language Server 6 requires Node >=22.22.2; the dev shell supplies 24.

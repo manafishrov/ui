@@ -139,4 +139,15 @@
     border-color: var(--border);
     outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
   }
+
+  /*
+   * Zag holds an exit animation with an inline `animation-fill-mode:
+   * forwards` and removes it a tick after `animationend`. tw-animate exits
+   * default to no fill, so if the node is not unmounted by then (common under
+   * load in WebKitGTK) it renders in its open style for a frame or two and
+   * dialogs, popovers, menus, selects, tooltips and collapsibles flash.
+   */
+  :where([data-state='closed']) {
+    --tw-animation-fill-mode: forwards;
+  }
 }
