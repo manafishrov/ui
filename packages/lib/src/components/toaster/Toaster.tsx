@@ -36,13 +36,13 @@ const ToastIcon: Component<{ type: ToastOptions['type'] }> = (props) => (
 const ToastItem: Component<{ toast: Accessor<ToastOptions> }> = (props) => (
   <Toast.Root
     class={cn(
-      'group gap-2 px-4 py-3.5 shadow-lg min-w-80 ease-in-out pointer-events-auto relative flex w-full items-center rounded-xl border bg-popover',
+      'group gap-2 px-4 py-3.5 shadow-lg min-w-80 ease-in-out pointer-events-auto relative flex w-full max-w-[min(28rem,calc(100vw-2rem))] items-center rounded-xl border bg-popover',
       'border-border text-popover-foreground',
       'outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
     )}
   >
     <ToastIcon type={props.toast().type} />
-    <div class='min-w-0 gap-1 grid flex-1'>
+    <div class='min-w-0 gap-1 grid flex-1 wrap-anywhere'>
       <Show when={props.toast().title}>
         <Toast.Title class='text-sm font-semibold tracking-tight leading-none'>
           {props.toast().title}
